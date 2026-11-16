@@ -31,6 +31,7 @@ Cada dato separa **hecho** de **inferencia** y lleva su fuente. No hay puntuaci�
 ```
 index.html            Web interactiva (lee data/medidas.json)
 motor.js              Motor de evaluación, sin dependencias (navegador y Node)
+pdf.js                Exporta el resultado como presentación PDF 16:9 (jsPDF, cargado bajo demanda)
 data/medidas.json     Datos generados: preguntas, medidas, riesgos, partidos, fuentes
 tools/gen_data.py     FUENTE DE VERDAD: genera data/medidas.json
 tools/build_pack.py   Genera descargas/test-29n-chat.md

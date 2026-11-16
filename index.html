@@ -213,16 +213,18 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     </ul>
   </div>
   <div class="row">
+    <button class="btn" id="pdfBtn">Descargar presentación (PDF)</button>
     <button class="btn sec" id="copyTxt">Copiar resultado (texto)</button>
     <button class="btn sec" id="copyJson">Copiar respuestas (JSON)</button>
     <button class="btn sec" id="edit">Cambiar respuestas</button>
     <button class="btn" id="restart">Empezar de nuevo</button>
   </div>
-  <p class="mut" id="copyMsg"></p>
+  <p class="mut" id="copyMsg" role="status"></p>
 </section>
 </div>
 
 <script src="motor.js"></script>
+<script src="pdf.js"></script>
 <script>
 (function(){
 'use strict';
@@ -348,6 +350,11 @@ $('startBtn').onclick=start;$('next').onclick=next;$('back').onclick=prev;
 $('edit').onclick=function(){idx=0;show('quiz');render()};
 $('restart').onclick=start;
 $('copyTxt').onclick=function(){copy(asText())};
+$('pdfBtn').onclick=function(){
+  var b=$('pdfBtn');b.disabled=true;b.textContent='Preparando el PDF…';$('copyMsg').textContent='';
+  Test29NPDF.descargar(D,R).then(function(n){$('copyMsg').textContent='PDF descargado: '+n+' diapositivas.'},function(e){$('copyMsg').textContent='No se pudo crear el PDF: '+e.message+'. Comprueba tu conexión e inténtalo de nuevo.'})
+    .then(function(){b.disabled=false;b.textContent='Descargar presentación (PDF)'});
+};
 $('copyJson').onclick=function(){copy(JSON.stringify(R.respuestas,null,1))};
 })();
 </script>
