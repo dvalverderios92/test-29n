@@ -103,6 +103,54 @@
           medidas: medidas, universales: universales, riesgos: riesgos
         };
       });
+    // Candidaturas reales de la comunidad: fusiones (varios partidos en una papeleta), cambios de nombre y exclusiones.
+    var avisos = [];
+    (data.candidaturas || []).filter(function (c) { return evalCond(c.si, ans, named); }).forEach(function (c) {
+      if (c.tipo === 'renombrar') {
+        partidos.forEach(function (p) { if (p.id === c.partido) { p.nombre_partido = p.nombre; p.nombre = c.nombre; } });
+        if (c.nota) avisos.push(c.nombre + ': ' + c.nota);
+      } else if (c.tipo === 'excluir') {
+        partidos = partidos.filter(function (p) { return p.id !== c.partido; });
+        if (c.nota) avisos.push(c.nota);
+      } else if (c.tipo === 'fusion') {
+        var miembros = partidos.filter(function (p) { return c.partidos.indexOf(p.id) !== -1; });
+        if (!miembros.length) return;
+        var rmap = {};
+        miembros.forEach(function (p) {
+          p.riesgos.forEach(function (r) {
+            var prev = rmap[r.id];
+            if (!prev || (NIVEL[r.exposicion_usuario.nivel] || 0) > (NIVEL[prev.exposicion_usuario.nivel] || 0)) {
+              rmap[r.id] = Object.assign({}, r, { medidas_origen: (prev ? prev.medidas_origen : []).concat(r.medidas_origen) });
+            } else prev.medidas_origen = prev.medidas_origen.concat(r.medidas_origen);
+          });
+        });
+        var meds = [], univ = [];
+        miembros.forEach(function (p) {
+          p.medidas.forEach(function (m) { meds.push(Object.assign({}, m, { de: p.nombre })); });
+          p.universales.forEach(function (m) { univ.push(Object.assign({}, m, { de: p.nombre })); });
+        });
+        var riesgos = Object.keys(rmap).map(function (k) { return rmap[k]; })
+          .sort(function (a, b) { return (NIVEL[b.exposicion_usuario.nivel] || 0) - (NIVEL[a.exposicion_usuario.nivel] || 0); });
+        var fusion = {
+          id: c.id, nombre: c.nombre, integrantes: c.integrantes, partidos_test: miembros.map(function (p) { return p.nombre; }),
+          programa: { titulo: 'Candidatura conjunta', fecha: null, estado: 'coalicion', nota: c.integrantes + '. ' + c.nota },
+          financiacion: { cuantifica: 'varias', resumen: miembros.map(function (p) { return p.nombre + ': ' + p.financiacion.resumen; }).join(' '),
+            fuentes: [].concat.apply([], miembros.map(function (p) { return p.financiacion.fuentes; })) },
+          medidas: meds, universales: univ, riesgos: riesgos, fuentes_candidatura: c.fuentes
+        };
+        fusion.recuento = {
+          a_favor: meds.filter(function (x) { return x.valor > 0; }).length,
+          en_contra: meds.filter(function (x) { return x.valor < 0; }).length,
+          incierto: meds.filter(function (x) { return x.valor === 0; }).length,
+          riesgos_altos: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'alta'; }).length,
+          riesgos_medios: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length
+        };
+        partidos = partidos.filter(function (p) { return c.partidos.indexOf(p.id) === -1; }).concat([fusion]);
+        avisos.push('En tu comunidad, ' + miembros.map(function (p) { return p.nombre; }).join(' y ') + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura, así que su recuento suma las de varios partidos y no es comparable con el de los demás.');
+      }
+    });
+    partidos.sort(function (a, b) { return a.nombre.localeCompare(b.nombre, 'es'); });
+
     // Matriz de riesgos: filas = riesgos, columnas = partidos, celda = nivel de exposición (o null si el partido no lo activa).
     var matriz = data.riesgos.map(function (r) {
       var fila = { id: r.id, titulo: r.titulo, evidencia: r.evidencia, niveles: {} };
@@ -117,7 +165,7 @@
         return m(b) - m(a);
       });
 
-    var notas = (data.notas || []).filter(function (n) { return evalCond(n.si, ans, named); }).map(function (n) { return n.texto; });
+    var notas = avisos.concat((data.notas || []).filter(function (n) { return evalCond(n.si, ans, named); }).map(function (n) { return n.texto; }));
 
     return { meta: data.meta, respuestas: ans, partidos: partidos, matriz_riesgos: matriz, notas: notas };
   }

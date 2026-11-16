@@ -67,7 +67,7 @@
     }
     var NIVEL = { alta: 'Exposición alta', media: 'Exposición media', baja: 'Exposición baja' };
     var EVID = { hecho: 'Hecho', 'hecho+inferencia': 'Hecho + inferencia', consenso: 'Consenso', disputada: 'Evidencia disputada', inferencia: 'Inferencia' };
-    var FIN = { no: 'No cuantifica su programa', cifras_propias: 'Cifras propias sin verificar', fuera_del_programa: 'Cifras fuera del programa', si: 'Cuantifica su programa' };
+    var FIN = { varias: 'Según cada partido', no: 'No cuantifica su programa', cifras_propias: 'Cifras propias sin verificar', fuera_del_programa: 'Cifras fuera del programa', si: 'Cuantifica su programa' };
 
     // ---------- 1. Portada ----------
     nueva(true);
@@ -109,7 +109,7 @@
     escribir(lineas('Partidos en orden alfabético. Detalle y fuentes en ' + D.meta.url_canonica, W - 2 * M - 28, 11), M + 14, yl + 80, 11, false, TINTA2);
 
     // ---------- 3. Matriz de riesgos ----------
-    var filas = R.matriz_riesgos, porPag = 5, ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox' };
+    var filas = R.matriz_riesgos, porPag = 5, ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox', upc: 'UPC', compromis: 'Compromís', ara_mes: 'Ara Més' };
     for (var ini = 0; ini < filas.length; ini += porPag) {
       nueva(false);
       y = titulo('Tus riesgos indirectos, comparados' + (ini ? ' (continuación)' : ''), 'Cuánto te expone tu situación a cada riesgo, según las medidas de cada partido. Raya: el partido no lo activa.');
@@ -172,9 +172,9 @@
       lista(limpio(p.nombre) + ': lo que ganas o pierdes',
         'En negrita, cómo te afectaría (inferencia del test). Debajo, lo que propone el partido.',
         meds.map(function (m) {
-          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: 'Propuesta: ' + m.texto };
+          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propuesta: ') + m.texto };
         }), null,
-        (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones previas. ') + 'Financiación: ' + (FIN[p.financiacion.cuantifica] || '') + '. ' + p.financiacion.resumen);
+        (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones previas. ') + 'Financiación: ' + (FIN[p.financiacion.cuantifica] || '') + '. ' + p.financiacion.resumen);
     });
 
     // ---------- 5. Notas y límites ----------

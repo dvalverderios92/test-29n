@@ -23,10 +23,11 @@ function perfilAleatorio() {
 }
 
 const N = 20000, perfiles = Array.from({ length: N }, perfilAleatorio);
-const ids = D.partidos.map(p => p.id);
+const ids = D.partidos.map(p => p.id).concat((D.candidaturas || []).filter(c => c.tipo === 'fusion').map(c => c.id));
 const perjudica = Object.fromEntries(ids.map(i => [i, 0]));
 const riesgoAlto = Object.fromEntries(ids.map(i => [i, 0]));
 const favorece = Object.fromEntries(ids.map(i => [i, 0]));
+const territorial = id => { const p = D.partidos.find(x => x.id === id); return !p || !!p.ambito_si; };
 const medidasVistas = new Set(), nivelesVistos = new Set();
 let sinRiesgos = 0;
 
@@ -35,7 +36,7 @@ for (const a of perfiles) {
   for (const p of r.partidos) {
     if (p.recuento.en_contra) perjudica[p.id]++;
     if (p.recuento.a_favor) favorece[p.id]++;
-    if (p.recuento.riesgos_altos || (p.recuento.riesgos_medios && D.partidos.find(x => x.id === p.id).ambito_si)) riesgoAlto[p.id]++;
+    if (p.recuento.riesgos_altos || (p.recuento.riesgos_medios && territorial(p.id))) riesgoAlto[p.id]++;
     if (!p.riesgos.length) sinRiesgos++;
     p.medidas.forEach(m => medidasVistas.add(m.id + ':' + m.valor));
     p.riesgos.forEach(x => nivelesVistos.add(x.id + ':' + x.exposicion_usuario.nivel));
@@ -92,6 +93,22 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(ev('cataluna').notas.some(n => /ERC/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
   ok(ev('madrid').notas.every(n => !/ERC|PNV|BNG/.test(n)), 'Madrid: sin avisos de partidos territoriales ajenos');
   ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /SALF/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
+}
+
+// Candidaturas reales (v2.4)
+{
+  const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'alquiler', tens: 'no', comprar: false, otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const ids = region => T.evaluate(D, Object.assign({ region }, base)).partidos.map(p => p.id);
+  const can = ids('canarias');
+  ok(can.includes('upc') && !can.includes('fa') && !can.includes('pod'), 'Canarias: Unidad del Pueblo Canario sustituye a Frente Amplio y Podemos');
+  ok(ids('valencia').includes('compromis') && !ids('valencia').includes('pod'), 'Comunitat Valenciana: Compromís-Front Valencià');
+  ok(ids('baleares').includes('ara_mes'), 'Baleares: Ara Més-Front Ampli');
+  ok(!ids('cataluna').includes('pod') && ids('cataluna').includes('fa'), 'Cataluña: sin lista de Podemos, con Comuns-Frente Amplio');
+  ok(!ids('ceuta').includes('fa') && !ids('melilla').includes('fa'), 'Ceuta y Melilla: sin lista de Frente Amplio');
+  ok(ids('madrid').includes('fa') && ids('madrid').includes('pod'), 'Madrid: Frente Amplio y Podemos por separado');
+  const r = T.evaluate(D, Object.assign({ region: 'canarias' }, base));
+  ok(r.matriz_riesgos.every(f => 'upc' in f.niveles && !('fa' in f.niveles)), 'Matriz: columnas según las candidaturas reales');
+  ok(r.notas.some(n => /Unidad del Pueblo Canario/.test(n)), 'Aviso de candidatura conjunta');
 }
 
 // Fuentes

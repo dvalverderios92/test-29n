@@ -6,6 +6,17 @@
 <title>Test 29N: ¿qué medidas te afectan?</title>
 <meta name="description" content="Cuestionario abierto y neutral: qué medidas de cada partido en las elecciones generales del 29N te favorecen o perjudican, con sus riesgos indirectos y su financiación. No es una recomendación de voto.">
 <link rel="alternate" type="text/plain" href="llms.txt" title="Instrucciones para modelos de lenguaje">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://dvalverderios92.github.io/test-29n/">
+<meta property="og:title" content="¿Qué te juegas el 29N?">
+<meta property="og:description" content="Test neutral de 3 minutos: medidas, riesgos y financiación de cada candidatura, según tu situación. Sin ranking ni consejo de voto.">
+<meta property="og:image" content="https://dvalverderios92.github.io/test-29n/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Una casilla marcada con una X y el texto: ¿Qué te juegas el 29N?">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='1.5' y='1.5' width='21' height='21' rx='2' fill='%23FFFDF6' stroke='%231F1A12' stroke-width='2.5'/%3E%3Cpath d='M6 6L18 18M18 6L6 18' stroke='%231F1A12' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <style>
@@ -168,7 +179,7 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     <p class="mut" style="margin-top:18px">¿Usas otra IA o la tuya no abre enlaces? Copia esta instrucción o descarga el <a href="descargas/test-29n-chat.md">paquete completo</a> y adjúntalo al chat.</p>
     <div class="note" id="promptTxt" style="white-space:pre-wrap"></div>
     <div class="row izq" style="margin-top:8px"><button class="btn sec" id="copyPrompt" type="button">Copiar instrucción</button><span class="mut" id="copyPromptMsg" role="status"></span></div>
-    <p class="mut" style="margin-bottom:0;margin-top:18px">Para desarrolladores: <a href="llms.txt">llms.txt</a>, <a href="SKILL.md">SKILL.md</a>, <a href="data/medidas.json">datos en JSON</a>, <a href="docs/metodologia.md">metodología</a> y <a href="https://github.com/dvalverderios92/test-29n">código</a>.</p>
+    <p class="mut" style="margin-bottom:0;margin-top:18px">Para desarrolladores: <a href="llms.txt">llms.txt</a>, <a href="SKILL.md">SKILL.md</a>, <a href="data/medidas.json">datos en JSON</a>, <a href="docs/metodologia.md">metodología</a>, <a href="https://github.com/dvalverderios92/test-29n">código</a> y <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml">avisar de un error</a>.</p>
   </div>
 </section>
 
@@ -220,6 +231,7 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     <button class="btn" id="restart">Empezar de nuevo</button>
   </div>
   <p class="mut" id="copyMsg" role="status"></p>
+  <p class="note">¿Has visto un error, una medida que falta o una candidatura mal recogida? <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml" target="_blank" rel="noopener">Avísanos aquí</a>. Cada corrección queda registrada en el <a href="https://github.com/dvalverderios92/test-29n/blob/main/CHANGELOG.md" target="_blank" rel="noopener">registro de cambios</a>.</p>
 </section>
 </div>
 
@@ -234,7 +246,7 @@ var $=function(id){return document.getElementById(id)};
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var ORIGEN={programa:'Programa 29N','campaña':'Anuncio de campaña',previa:'Posición anterior'};
 var EVID={hecho:'Hecho','hecho+inferencia':'Hecho + inferencia',consenso:'Consenso',disputada:'Evidencia disputada',inferencia:'Inferencia'};
-var FIN={no:'No cuantifica',cifras_propias:'Cifras propias sin verificar',fuera_del_programa:'Cifras fuera del programa',si:'Cuantifica'};
+var FIN={varias:'Según cada partido',no:'No cuantifica',cifras_propias:'Cifras propias sin verificar',fuera_del_programa:'Cifras fuera del programa',si:'Cuantifica'};
 
 fetch('data/medidas.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){
   D=d;
@@ -290,9 +302,10 @@ function results(){
   R=Test29N.evaluate(D,A);A=R.respuestas;show('res');
   $('sumgrid').innerHTML=R.partidos.map(function(p){var c=p.recuento;
     return '<button class="sum" data-p="'+p.id+'"><b>'+esc(p.nombre)+'</b>'+
-      '<span class="lbl">Riesgos indirectos</span><span class="pill hi">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill u">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
-      '<span class="lbl">Efecto directo</span><span class="pill p">+'+c.a_favor+'</span><span class="pill n">−'+c.en_contra+'</span><span class="pill u">'+c.incierto+' ?</span></button>'}).join('');
-  var ab={cc:'CC',fa:'FA',pod:'Pod.',pp:'PP',psoe:'PSOE',vox:'Vox'};
+      (p.partidos_test?'<span class="lbl">Reúne las medidas de '+esc(p.partidos_test.join(' y '))+': su recuento no es comparable</span>':'')+
+      '<span class="lbl">Riesgos indirectos</span><span class="pill '+(c.riesgos_altos?'hi':'src')+'">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill '+(c.riesgos_medios?'u':'src')+'">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
+      '<span class="lbl">Efecto directo</span><span class="pill '+(c.a_favor?'p':'src')+'">+'+c.a_favor+'</span><span class="pill '+(c.en_contra?'n':'src')+'">−'+c.en_contra+'</span><span class="pill '+(c.incierto?'u':'src')+'">'+c.incierto+' ?</span></button>'}).join('');
+  var ab={cc:'CC',fa:'FA',pod:'Pod.',pp:'PP',psoe:'PSOE',vox:'Vox',upc:'UPC',compromis:'Compr.',ara_mes:'Ara Més'};
   $('matriz').innerHTML='<table class="mx"><thead><tr><th>Riesgo y evidencia</th>'+R.partidos.map(function(p){return '<th>'+esc(ab[p.id]||p.nombre)+'</th>'}).join('')+'</tr></thead><tbody>'+
     R.matriz_riesgos.map(function(f){return '<tr><td>'+esc(f.titulo)+'<span class="ev">'+esc(EVID[f.evidencia]||f.evidencia)+'</span></td>'+
       R.partidos.map(function(p){var n=f.niveles[p.id];return '<td>'+(n?'<span class="lv '+n+'" title="'+esc(p.nombre)+': exposición '+n+'"><span class="sr">'+esc(p.nombre)+': '+n+'</span></span>':'<span class="lv no" title="'+esc(p.nombre)+': no lo activa">—</span>')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
@@ -318,7 +331,7 @@ function pick(id,silent){
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
       '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+'</div>'+
-      '<div><span class="pill src">'+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+'</span></div>'+
+      '<div><span class="pill src">'+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+'</span></div>'+
       '<div class="lay"><b>Cómo te afecta (inferencia):</b> '+esc(x.efecto)+'</div>'+
       '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};
   h+=p.medidas.length?grp(1,'pos','A tu favor')+grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';

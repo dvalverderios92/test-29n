@@ -124,6 +124,10 @@ SRC = {
  "bbva_jornada": ["Vozpópuli: BBVA Research alerta del impacto de la reducción de jornada", "https://www.vozpopuli.com/economia/macroeconomia/bbva-research-alerta-reduccion-jornada-laboral-restara-6-decimas-pib-8-empleo.html", "2024"],
  "fedea_jornada": ["Vozpópuli: Fedea advierte de efectos de reducir la jornada por ley", "https://www.vozpopuli.com/economia/fedea-reducir-jornada-aumentara-horas-extra-contratos-pocas-horas-fraude.html", "2024"],
  "salto_jornada": ["El Salto (opinión): la reducción de jornada costará poco y traerá crecimiento", "https://www.elsaltodiario.com/reduccion-jornada/laboral-375-horas-semanales-costara-poco-empresas-sera-fuente-bienestar-crecimiento", "2025"],
+ "democrata_listas": ["Demócrata: La izquierda alternativa solo logra listas unitarias en Baleares y la Comunidad Valenciana tras registrar sus candidaturas", "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/", "2026-11-02"],
+ "upc": ["Diario de Avisos: NC-BC, Podemos, IUC y Movimiento Sumar concurrirán como Unidad del Pueblo Canario", "https://diariodeavisos.elespanol.com/2026/10/29n-unidad-del-pueblo-canario/", "2026-10"],
+ "diari_fa": ["Diari de Tarragona: Frente Amplio y Podemos concurrirán por separado salvo acuerdos territoriales", "https://www.diaridetarragona.com/espana/273314/frente-amplio-concurriran-separado-catalunya-madrid.html", "2026-11"],
+ "eldiario_fa": ["elDiario.es: el mapa de candidaturas de la izquierda por comunidades", "https://www.eldiario.es/1_cf5cc6", "2026-11"],
  "cnmc_suelo": ["CNMC: Estudio sobre la transformación urbanística del suelo para vivienda", "https://www.cnmc.es/sites/default/files/6658260.pdf", "2025"],
 }
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -509,15 +513,44 @@ ACOTADA = {
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
 
+# Candidaturas reales en la papeleta del Congreso, por comunidad. Fuente: listas registradas (prensa, 2-nov-2026).
+# tipo "fusion": varios partidos del test concurren juntos; "renombrar": otro nombre en la papeleta; "excluir": no presenta lista.
+CANDIDATURAS = [
+ {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["fa", "pod"],
+  "nombre": "Unidad del Pueblo Canario",
+  "integrantes": "Nueva Canarias-Bloque Canarista, Podemos, Izquierda Unida Canaria y Movimiento Sumar",
+  "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
+  "fuentes": ["upc", "democrata_listas"]},
+ {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["fa", "pod"],
+  "nombre": "Compromís-Front Valencià",
+  "integrantes": "Compromís, Podemos, los partidos del Frente Amplio y Esquerra Republicana del País Valencià",
+  "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Compromís aún no están incluidas.",
+  "fuentes": ["democrata_listas", "diari_fa"]},
+ {"tipo": "fusion", "id": "ara_mes", "si": Q("region", eq="baleares"), "partidos": ["fa", "pod"],
+  "nombre": "Ara Més-Front Ampli",
+  "integrantes": "Més per Mallorca, Més per Menorca, Ara Eivissa, los partidos del Frente Amplio y ERC; Podemos va como independiente dentro de la lista",
+  "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Ara Més aún no están incluidas.",
+  "fuentes": ["democrata_listas", "diari_fa"]},
+ {"tipo": "renombrar", "si": Q("region", eq="cataluna"), "partido": "fa", "nombre": "Comuns-Frente Amplio", "fuentes": ["democrata_listas"]},
+ {"tipo": "excluir", "si": Q("region", eq="cataluna"), "partido": "pod",
+  "nota": "Podemos no presenta lista propia en Cataluña: lleva candidatos independientes en la lista de ERC.", "fuentes": ["democrata_listas"]},
+ {"tipo": "renombrar", "si": Q("region", eq="aragon"), "partido": "fa", "nombre": "CHA-Frente Amplio Aragón",
+  "nota": "En la provincia de Teruel no presenta lista.", "fuentes": ["diari_fa", "democrata_listas"]},
+ {"tipo": "renombrar", "si": Q("region", eq="andalucia"), "partido": "fa", "nombre": "Frente Amplio por Andalucía", "fuentes": ["eldiario_fa"]},
+ {"tipo": "excluir", "si": Q("region", **{"in": ["ceuta", "melilla"]}), "partido": "fa",
+  "nota": "Frente Amplio no presenta lista en Ceuta ni en Melilla.", "fuentes": ["democrata_listas"]},
+ {"tipo": "renombrar", "si": Q("region", eq="canarias"), "partido": "cc", "nombre": "Coalición Canaria-Primero Canarias", "fuentes": ["eldiario_cc"]},
+]
+
 NOTAS = [
  {"si": R("parado"), "texto": "Desempleo: las fuentes consultadas no recogen medidas concretas de los partidos estatales sobre la prestación por desempleo. Si es tu prioridad, revisa ese capítulo en cada programa."},
  {"si": R("sin_iva"), "texto": "IVA: en tu territorio no se aplica (Canarias: IGIC; Ceuta y Melilla: IPSI). Las rebajas de IVA aparecen como inciertas para ti, aunque su coste en la recaudación estatal sí cuenta en los riesgos."},
  {"si": R("cuida_dependiente"), "texto": "Dependencia: comprueba si cada medida cubre el cuidado familiar o solo el gasto en cuidados profesionales."},
- {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presentan ERC (programa publicado el 5-nov) y Junts (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
+ {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presentan ERC (programa publicado el 5-nov; en su lista van candidatos independientes de Podemos) y Junts (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
  {"si": Q("region", eq="pais_vasco"), "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."},
  {"si": Q("region", eq="galicia"), "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."},
- {"si": Q("region", eq="valencia"), "texto": "Partidos no incluidos: en la Comunitat Valenciana también se presenta Compromís–Front Valencià. Este test aún no recoge sus medidas; consulta su programa."},
+ {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio y Podemos concurren dentro de Compromís-Front Valencià. El test muestra sus medidas estatales; las propias de Compromís aún no están incluidas."},
  {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
 DATA = {
@@ -526,7 +559,7 @@ DATA = {
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
   "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
@@ -540,6 +573,7 @@ DATA = {
  "partidos": PARTIES,
  "riesgos": RISKS,
  "notas": NOTAS,
+ "candidaturas": CANDIDATURAS,
  "medidas": MEAS,
  "fuentes": SOURCES,
 }
@@ -553,6 +587,7 @@ for r in RISKS:
     for f in r["fuentes"]: assert f in SOURCES, (r["id"], f)
 for p in PARTIES:
     for f in p["financiacion"]["fuentes"]: assert f in SOURCES, p["id"]
+
 def chk(c):
     if "ref" in c: assert c["ref"] in COND, c["ref"]
     for k in ("all", "any"):
@@ -564,6 +599,9 @@ for r in RISKS:
     for e in r["exposicion"]: chk(e["si"])
 for q in QUESTIONS:
     if "mostrar_si" in q: chk(q["mostrar_si"])
+for c in CANDIDATURAS:
+    for f in c["fuentes"]: assert f in SOURCES, c
+    chk(c["si"])
 
 out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "medidas.json")
 json.dump(DATA, open(out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
