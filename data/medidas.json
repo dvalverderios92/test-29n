@@ -3,8 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
@@ -974,10 +973,10 @@
    "id": "fa",
    "nombre": "Frente Amplio",
    "programa": {
-    "titulo": "La vida por delante (lema)",
+    "titulo": "Programa electoral 2026",
     "fecha": null,
-    "estado": "sin_programa",
-    "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas de Sumar."
+    "estado": "publicado",
+    "nota": "Programa publicado en noviembre. Las medidas del test proceden aún de anuncios de campaña y posiciones previas de Sumar, y se están contrastando con el programa."
    },
    "financiacion": {
     "cuantifica": "cifras_propias",
@@ -1582,9 +1581,10 @@
     "pod"
    ],
    "nombre": "Unidad del Pueblo Canario",
-   "integrantes": "Nueva Canarias-Bloque Canarista, Podemos, Izquierda Unida Canaria y Movimiento Sumar",
+   "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
    "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
    "fuentes": [
+    "manifiesto_upc",
     "upc",
     "democrata_listas"
    ]
@@ -4664,6 +4664,11 @@
    "titulo": "Demócrata: La izquierda alternativa solo logra listas unitarias en Baleares y la Comunidad Valenciana tras registrar sus candidaturas",
    "url": "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/",
    "fecha": "2026-11-02"
+  },
+  "manifiesto_upc": {
+   "titulo": "Unidad del Pueblo Canario: Manifiesto electoral (PDF)",
+   "url": "https://github.com/dvalverderios92/test-29n/blob/main/programas/manifiesto-upc.pdf",
+   "fecha": "2026-11"
   },
   "upc": {
    "titulo": "Diario de Avisos: NC-BC, Podemos, IUC y Movimiento Sumar concurrirán como Unidad del Pueblo Canario",

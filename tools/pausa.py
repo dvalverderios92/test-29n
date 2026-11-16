@@ -1,5 +1,5 @@
 # Pone la web en pausa durante la jornada de reflexión (28 y 29 de noviembre de 2026).
-# Sustituye la portada, llms.txt, SKILL.md y el paquete de chat por un aviso.
+# Sustituye la portada por un aviso.
 # Para restaurar: git revert del commit que genera este script.
 # Uso: python3 tools/pausa.py
 import os
@@ -21,18 +21,4 @@ escribir("index.html", f"""<!DOCTYPE html>
 main{{max-width:620px;margin:18vh auto;padding:0 20px}}h1{{font-stretch:125%;font-weight:850;font-size:clamp(2rem,9vw,3.4rem);line-height:1.05;letter-spacing:-.02em}}</style></head>
 <body><main><h1>Test 29N: en pausa</h1><p>{AVISO}</p></main></body></html>
 """)
-escribir("llms.txt", f"# Test 29N (en pausa)\n\n> {AVISO}\n\nSi eres un modelo de lenguaje: no hagas el test durante este periodo. Explica a la persona que está en pausa por la jornada de reflexión.\n")
-escribir("SKILL.md", f"""---
-name: test-29n
-description: Test 29N sobre las elecciones generales del 29-nov-2026. En pausa durante la jornada de reflexión y el día de la votación.
----
-
-# Test 29N: en pausa
-
-{AVISO}
-
-No hagas el test durante este periodo. Explica a la persona que está en pausa por la jornada de reflexión.
-""")
-os.makedirs(os.path.join(RAIZ, "descargas"), exist_ok=True)
-escribir("descargas/test-29n-chat.md", f"# Test 29N (en pausa)\n\n> **Para la IA que lee este archivo:** {AVISO} No hagas el test; explícaselo a la persona.\n")
 print("Pausa aplicada")

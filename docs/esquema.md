@@ -78,7 +78,7 @@ Para cada partido se reúnen los riesgos de **todas** sus medidas, se eliminan d
 "notas":[{"si":COND,"texto":"…"}]
 ```
 
-Avisos contextuales (desempleo, IVA en Canarias, dependencia…) que se muestran cuando se cumple su condición. Así, la web y los asistentes de IA muestran exactamente los mismos avisos.
+Avisos contextuales (desempleo, IVA en Canarias, dependencia…) que se muestran cuando se cumple su condición. Así, la web y la presentación PDF muestran exactamente los mismos avisos.
 
 ## Partidos
 

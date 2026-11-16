@@ -19,10 +19,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Los datos generados coinciden con el generador
+      - name: Los datos coinciden con el generador
         run: |
           python3 tools/gen_data.py
-          python3 tools/build_pack.py
-          git diff --exit-code -- data/medidas.json descargas/test-29n-chat.md || (echo "::error::data/medidas.json o el paquete no están regenerados. Ejecuta tools/gen_data.py y tools/build_pack.py." && exit 1)
+          git diff --exit-code -- data/medidas.json || (echo "::error::data/medidas.json no está regenerado. Ejecuta tools/gen_data.py." && exit 1)
       - name: Pruebas de coherencia y simetría
         run: node tests/simetria.js

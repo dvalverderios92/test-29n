@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test 29N: ¿qué medidas te afectan?</title>
 <meta name="description" content="Cuestionario abierto y neutral: qué medidas de cada partido en las elecciones generales del 29N te favorecen o perjudican, con sus riesgos indirectos y su financiación. No es una recomendación de voto.">
-<link rel="alternate" type="text/plain" href="llms.txt" title="Instrucciones para modelos de lenguaje">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:url" content="https://dvalverderios92.github.io/test-29n/">
@@ -59,6 +58,8 @@ button{font:inherit;cursor:pointer;color:inherit}
 .btn:disabled{opacity:.35;cursor:default}
 .row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap}
 .izq{justify-content:flex-start}
+.descarga{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:18px 0 6px;padding:16px;background:var(--papel);border:2px solid var(--tinta);border-radius:var(--radio);box-shadow:var(--sombra)}
+.btn.grande{min-height:56px;font-size:1.1rem;padding:12px 24px;width:100%}
 
 /* Portada */
 .hero{padding:8px 0 4px}
@@ -150,7 +151,6 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     <p class="lead">Contesta unas preguntas sobre tu vida y mira qué medidas de cada partido te tocan, para bien o para mal, y qué riesgos traen aunque no te toquen.</p>
     <div class="row izq">
       <button class="btn" id="startBtn" disabled>Cargando…</button>
-      <a class="btn sec" href="#conia">Hacerlo con mi IA</a>
     </div>
     <p class="mut">Unos 3 minutos. Tus respuestas no salen de tu navegador.</p>
   </div>
@@ -168,18 +168,11 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
   <p class="note">Lo que propone cada partido lleva su fuente; cómo te afecta es una inferencia, y así se indica. La evidencia de cada riesgo se marca como hecho, consenso, disputada o inferencia. Los partidos van en orden alfabético.</p>
   <p class="note" id="estado"></p>
 
-  <h2 id="conia-t">Hazlo con tu IA</h2>
-  <div class="card" id="conia">
-    <p style="margin-top:0">Tu asistente te hace las preguntas en el chat, una a una, con las mismas reglas y datos que esta web.</p>
-    <div class="row izq" style="margin-top:8px">
-      <a class="btn" id="btnGpt" target="_blank" rel="noopener">Abrir en ChatGPT</a>
-      <a class="btn" id="btnClaude" target="_blank" rel="noopener">Abrir en Claude</a>
-      <a class="btn hide" id="btnGem" target="_blank" rel="noopener">Abrir en Gemini</a>
-    </div>
-    <p class="mut" style="margin-top:18px">¿Usas otra IA o la tuya no abre enlaces? Copia esta instrucción o descarga el <a href="descargas/test-29n-chat.md">paquete completo</a> y adjúntalo al chat.</p>
-    <div class="note" id="promptTxt" style="white-space:pre-wrap"></div>
-    <div class="row izq" style="margin-top:8px"><button class="btn sec" id="copyPrompt" type="button">Copiar instrucción</button><span class="mut" id="copyPromptMsg" role="status"></span></div>
-    <p class="mut" style="margin-bottom:0;margin-top:18px">Para desarrolladores: <a href="llms.txt">llms.txt</a>, <a href="SKILL.md">SKILL.md</a>, <a href="data/medidas.json">datos en JSON</a>, <a href="docs/metodologia.md">metodología</a>, <a href="https://github.com/dvalverderios92/test-29n">código</a> y <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml">avisar de un error</a>.</p>
+  <h2>Quién hace esto</h2>
+  <div class="card" id="quien">
+    <p style="margin-top:0">Lo hace Daniel, a título personal. No ha colaborado con ningún partido ni recibe financiación de ninguno.</p>
+    <p>No se guardan tus respuestas: el test se calcula entero en tu navegador y no usa cookies ni analítica.</p>
+    <p style="margin-bottom:0">Para avisar de un error o contactar: <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml" target="_blank" rel="noopener">formulario en GitHub</a>. El <a href="https://github.com/dvalverderios92/test-29n" target="_blank" rel="noopener">código y los datos</a> son abiertos, igual que la <a href="https://github.com/dvalverderios92/test-29n/blob/main/docs/metodologia.md" target="_blank" rel="noopener">metodología</a>.</p>
   </div>
 </section>
 
@@ -200,6 +193,11 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
 <section id="res" class="hide">
   <p class="contexto">Tu resultado</p>
   <h1>Lo que te juegas, partido por partido</h1>
+  <div class="descarga">
+    <button class="btn grande" id="pdfBtn">Descargar mi resultado en PDF</button>
+    <span class="mut">Una presentación con tus riesgos y medidas, para guardar o compartir.</span>
+    <span class="mut" id="pdfMsg" role="status"></span>
+  </div>
   <p class="mut">Orden alfabético. El número de medidas no mide su peso: una sola puede importar más que varias.</p>
   <div id="extra"></div>
   <h2>Tus riesgos indirectos, comparados</h2>
@@ -224,14 +222,12 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     </ul>
   </div>
   <div class="row">
-    <button class="btn" id="pdfBtn">Descargar presentación (PDF)</button>
     <button class="btn sec" id="copyTxt">Copiar resultado (texto)</button>
-    <button class="btn sec" id="copyJson">Copiar respuestas (JSON)</button>
     <button class="btn sec" id="edit">Cambiar respuestas</button>
     <button class="btn" id="restart">Empezar de nuevo</button>
   </div>
   <p class="mut" id="copyMsg" role="status"></p>
-  <p class="note">¿Has visto un error, una medida que falta o una candidatura mal recogida? <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml" target="_blank" rel="noopener">Avísanos aquí</a>. Cada corrección queda registrada en el <a href="https://github.com/dvalverderios92/test-29n/blob/main/CHANGELOG.md" target="_blank" rel="noopener">registro de cambios</a>.</p>
+  <p class="note">¿Has visto un error, una medida que falta o una candidatura mal recogida? <a href="https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml" target="_blank" rel="noopener">Avísanos aquí</a>.</p>
 </section>
 </div>
 
@@ -255,13 +251,6 @@ fetch('data/medidas.json').then(function(r){if(!r.ok)throw new Error(r.status);r
   var sin=d.partidos.filter(function(p){return p.programa.estado!=='publicado'}).map(function(p){return p.nombre}).join(' y ');
   $('estado').innerHTML='<b>Estado de los programas:</b> publicados por '+esc(pub)+'. '+esc(sin)+' no lo han publicado; sus medidas proceden de anuncios de campaña y posiciones previas.';
   $('startBtn').disabled=false;$('startBtn').textContent='Empezar';
-  var base=d.meta.url_canonica||location.href.replace(/[^/]*$/,'');
-  var prompt='Quiero hacer el Test 29N (elecciones generales del 29 de noviembre). Lee las instrucciones en '+base+'llms.txt y los archivos que enlaza (SKILL.md y data/medidas.json), y hazme el test en este chat, pregunta a pregunta. Si no puedes abrir enlaces, dímelo y te adjunto el paquete '+base+'descargas/test-29n-chat.md';
-  $('promptTxt').textContent=prompt;
-  $('btnGpt').href='https://chatgpt.com/?q='+encodeURIComponent(prompt);
-  $('btnClaude').href='https://claude.ai/new?q='+encodeURIComponent(prompt);
-  if(d.meta.gem_url){$('btnGem').href=d.meta.gem_url;$('btnGem').classList.remove('hide')}
-  $('copyPrompt').onclick=function(){try{navigator.clipboard.writeText(prompt).then(function(){$('copyPromptMsg').textContent='Copiada.'},function(){$('copyPromptMsg').textContent='Selecciónala y cópiala a mano.'})}catch(e){$('copyPromptMsg').textContent='Selecciónala y cópiala a mano.'}};
 }).catch(function(e){$('startBtn').textContent='No se pudieron cargar los datos';$('estado').innerHTML='<span class="err">Error al cargar data/medidas.json ('+esc(e.message)+'). Si abriste el archivo en local, sírvelo con un servidor web.</span>'});
 
 function vis(){return Test29N.visibleQuestions(D,A)}
@@ -364,11 +353,10 @@ $('edit').onclick=function(){idx=0;show('quiz');render()};
 $('restart').onclick=start;
 $('copyTxt').onclick=function(){copy(asText())};
 $('pdfBtn').onclick=function(){
-  var b=$('pdfBtn');b.disabled=true;b.textContent='Preparando el PDF…';$('copyMsg').textContent='';
-  Test29NPDF.descargar(D,R).then(function(n){$('copyMsg').textContent='PDF descargado: '+n+' diapositivas.'},function(e){$('copyMsg').textContent='No se pudo crear el PDF: '+e.message+'. Comprueba tu conexión e inténtalo de nuevo.'})
-    .then(function(){b.disabled=false;b.textContent='Descargar presentación (PDF)'});
+  var b=$('pdfBtn');b.disabled=true;b.textContent='Preparando el PDF…';$('pdfMsg').textContent='';
+  Test29NPDF.descargar(D,R).then(function(n){$('pdfMsg').textContent='PDF descargado: '+n+' diapositivas.'},function(e){$('pdfMsg').textContent='No se pudo crear el PDF: '+e.message+'. Comprueba tu conexión e inténtalo de nuevo.'})
+    .then(function(){b.disabled=false;b.textContent='Descargar mi resultado en PDF'});
 };
-$('copyJson').onclick=function(){copy(JSON.stringify(R.respuestas,null,1))};
 })();
 </script>
 </body>

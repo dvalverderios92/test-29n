@@ -1,6 +1,6 @@
 # Genera data/medidas.json. ESTE ARCHIVO ES LA FUENTE DE VERDAD del Test 29N.
 # Uso: python3 tools/gen_data.py   (escribe data/medidas.json)
-# Después: python3 tools/build_pack.py && node tests/simetria.js
+# Después: node tests/simetria.js
 import json, sys, os
 
 def Q(q, **kw):
@@ -125,6 +125,7 @@ SRC = {
  "fedea_jornada": ["Vozpópuli: Fedea advierte de efectos de reducir la jornada por ley", "https://www.vozpopuli.com/economia/fedea-reducir-jornada-aumentara-horas-extra-contratos-pocas-horas-fraude.html", "2024"],
  "salto_jornada": ["El Salto (opinión): la reducción de jornada costará poco y traerá crecimiento", "https://www.elsaltodiario.com/reduccion-jornada/laboral-375-horas-semanales-costara-poco-empresas-sera-fuente-bienestar-crecimiento", "2025"],
  "democrata_listas": ["Demócrata: La izquierda alternativa solo logra listas unitarias en Baleares y la Comunidad Valenciana tras registrar sus candidaturas", "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/", "2026-11-02"],
+ "manifiesto_upc": ["Unidad del Pueblo Canario: Manifiesto electoral (PDF)", "https://github.com/dvalverderios92/test-29n/blob/main/programas/manifiesto-upc.pdf", "2026-11"],
  "upc": ["Diario de Avisos: NC-BC, Podemos, IUC y Movimiento Sumar concurrirán como Unidad del Pueblo Canario", "https://diariodeavisos.elespanol.com/2026/10/29n-unidad-del-pueblo-canario/", "2026-10"],
  "diari_fa": ["Diari de Tarragona: Frente Amplio y Podemos concurrirán por separado salvo acuerdos territoriales", "https://www.diaridetarragona.com/espana/273314/frente-amplio-concurriran-separado-catalunya-madrid.html", "2026-11"],
  "eldiario_fa": ["elDiario.es: el mapa de candidaturas de la izquierda por comunidades", "https://www.eldiario.es/1_cf5cc6", "2026-11"],
@@ -237,7 +238,7 @@ PARTIES = [
   "programa": {"titulo": "Defiende Canarias", "fecha": "2026-11-09", "estado": "publicado", "nota": "10 causas y 100 acciones. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "En las fuentes consultadas no aparece coste ni financiación. Buena parte de sus medidas reclama financiación al Estado.", "fuentes": ["pe_cc", "eldiario_cc"]}},
  {"id": "fa", "nombre": "Frente Amplio",
-  "programa": {"titulo": "La vida por delante (lema)", "fecha": None, "estado": "sin_programa", "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas de Sumar."},
+  "programa": {"titulo": "Programa electoral 2026", "fecha": None, "estado": "publicado", "nota": "Programa publicado en noviembre. Las medidas del test proceden aún de anuncios de campaña y posiciones previas de Sumar, y se están contrastando con el programa."},
   "financiacion": {"cuantifica": "cifras_propias", "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, el fin del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.", "fuentes": ["marcos_fa", "democrata_fa"]}},
  {"id": "pod", "nombre": "Podemos",
   "programa": {"titulo": "Paz, casa y trabajo (lema)", "fecha": None, "estado": "sin_programa", "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas."},
@@ -518,9 +519,9 @@ for m in MEAS:
 CANDIDATURAS = [
  {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["fa", "pod"],
   "nombre": "Unidad del Pueblo Canario",
-  "integrantes": "Nueva Canarias-Bloque Canarista, Podemos, Izquierda Unida Canaria y Movimiento Sumar",
+  "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
-  "fuentes": ["upc", "democrata_listas"]},
+  "fuentes": ["manifiesto_upc", "upc", "democrata_listas"]},
  {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["fa", "pod"],
   "nombre": "Compromís-Front Valencià",
   "integrantes": "Compromís, Podemos, los partidos del Frente Amplio y Esquerra Republicana del País Valencià",
@@ -558,8 +559,7 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
