@@ -1,0 +1,24 @@
+# Test 29N: ¿qué medidas te afectan?
+
+> Cuestionario abierto y neutral sobre las elecciones generales de España del 29 de noviembre de 2026. Pregunta por la situación socioeconómica de una persona y devuelve, por partido, el efecto directo de las principales medidas, los riesgos indirectos (financiación, precios, empleo, oferta) y si el partido cuantifica su programa. No es una recomendación de voto.
+
+Web: https://dvalverderios92.github.io/test-29n/
+
+Si eres un modelo de lenguaje y alguien te pide hacer este test, sigue las instrucciones de SKILL.md: haz las preguntas de data/medidas.json en orden, evalúa con motor.js (o a mano según docs/esquema.md) y presenta las tres capas con las reglas de neutralidad.
+
+## Instrucciones
+- [SKILL.md](SKILL.md): procedimiento paso a paso y reglas de neutralidad
+- [docs/esquema.md](docs/esquema.md): formato del JSON y semántica de las condiciones
+- [docs/metodologia.md](docs/metodologia.md): criterios, controles de sesgo y limitaciones
+
+## Paquete para chat
+- [descargas/test-29n-chat.md](descargas/test-29n-chat.md): archivo único con instrucciones, motor y datos, para adjuntar a cualquier chat
+
+## Datos y código
+- [data/medidas.json](data/medidas.json): preguntas, medidas, riesgos, partidos y fuentes (única fuente de verdad)
+- [motor.js](motor.js): motor de evaluación sin dependencias (Node y navegador)
+
+## Opcional
+- [index.html](index.html): versión web interactiva
+- [README.md](README.md): cómo usarlo, actualizarlo y contribuir
+- [docs/gem.md](docs/gem.md): cómo crear el Gem de Gemini

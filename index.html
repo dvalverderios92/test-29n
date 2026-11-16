@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test 29N: ¿qué medidas te afectan?</title>
+<meta name="description" content="Cuestionario abierto y neutral: qué medidas de cada partido en las elecciones generales del 29N te favorecen o perjudican, con sus riesgos indirectos y su financiación. No es una recomendación de voto.">
+<link rel="alternate" type="text/plain" href="llms.txt" title="Instrucciones para modelos de lenguaje">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f1;--card:#fff;--ink:#1d1d1b;--mut:#6b6a66;--line:#e3e1da;--acc:#2f4b7c;--pos:#1f7a4d;--posb:#e6f3ec;--neg:#b23a2e;--negb:#f8e9e7;--unc:#8a6d1d;--uncb:#f6f0dc;--hi:#9c2f6b;--hib:#f6e6ef}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--card:#21211f;--ink:#ecebe6;--mut:#a3a19b;--line:#36352f;--acc:#8fb0e8;--pos:#6fcf9b;--posb:#1d3328;--neg:#f08a7e;--negb:#3a2220;--unc:#e0c06a;--uncb:#36301c;--hi:#e79bc6;--hib:#3a2030}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif}
+.wrap{max-width:780px;margin:0 auto;padding:20px 16px 64px}
+h1{font-family:"Source Serif 4",Georgia,serif;font-size:1.7rem;line-height:1.2;margin:.2em 0 .4em}
+h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.25rem;margin:1.3em 0 .5em}
+h3{font-size:1rem;margin:1.1em 0 .4em}
+a{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.mut{color:var(--mut);font-size:.9rem}
+.note{font-size:.88rem;color:var(--mut);border-left:3px solid var(--line);padding:4px 10px;margin:10px 0}
+button{font:inherit;cursor:pointer}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:12px 18px;font-weight:600}
+@media (prefers-color-scheme:dark){.btn{color:#111}}
+.btn.sec{background:transparent;color:var(--acc);border:1px solid var(--line)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:18px;flex-wrap:wrap}
+.prog{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:8px 0 18px}
+.prog>div{height:100%;background:var(--acc);transition:width .25s}
+.q{font-weight:600;font-size:1.1rem;margin-bottom:4px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.opt{text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink)}
+.opt.sel{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);z-index:2}
+.tab{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:500}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px}
+.sum{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card);cursor:pointer;text-align:left;color:var(--ink)}
+.sum b{display:block;margin-bottom:4px}
+.sum .lbl{display:block;font-size:.72rem;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.03em}
+.pill{display:inline-block;font-size:.76rem;font-weight:600;border-radius:999px;padding:2px 8px;margin:2px 4px 2px 0}
+.p{background:var(--posb);color:var(--pos)}.n{background:var(--negb);color:var(--neg)}.u{background:var(--uncb);color:var(--unc)}
+.hi{background:var(--hib);color:var(--hi)}
+.src{background:var(--bg);color:var(--mut);border:1px solid var(--line)}
+.m{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;background:var(--card)}
+.m.pos{border-left:5px solid var(--pos)}.m.neg{border-left:5px solid var(--neg)}.m.unc{border-left:5px solid var(--unc)}
+.m.r-alta{border-left:5px solid var(--hi)}.m.r-media{border-left:5px solid var(--unc)}.m.r-baja{border-left:5px solid var(--line)}
+.m .t{font-weight:600}
+.lay{font-size:.9rem;margin-top:6px}
+.lay b{font-weight:600}
+details{margin:8px 0}summary{cursor:pointer;font-weight:600}
+.m details summary{font-weight:500;font-size:.88rem;color:var(--acc)}
+ul.srcs{padding-left:18px;font-size:.85rem;margin:6px 0}
+.fin{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:.92rem}
+.hide{display:none}
+.mx{width:100%;border-collapse:collapse;font-size:.85rem}
+.mxw{overflow-x:auto;margin:8px 0}
+.mx th,.mx td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:center;vertical-align:middle}
+.mx th:first-child,.mx td:first-child{text-align:left;width:40%}
+.mx th,.mx td{padding:6px 3px}
+.mx thead th{font-size:.75rem;color:var(--mut);font-weight:600}
+.lv{display:inline-block;min-width:26px;border-radius:6px;padding:2px 6px;font-weight:600;font-size:.75rem}
+.lv.alta{background:var(--hib);color:var(--hi)}.lv.media{background:var(--uncb);color:var(--unc)}.lv.baja{background:var(--bg);color:var(--mut);border:1px solid var(--line)}
+.lv.no{color:var(--line)}
+.err{color:var(--neg)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="intro">
+  <p class="mut">Elecciones generales · 29 de noviembre de 2026 · <span id="corte"></span></p>
+  <h1>¿Qué medidas de cada partido te afectan a ti?</h1>
+  <div class="card">
+    <p>Responde unas preguntas sobre tu situación (3 minutos). Verás, partido por partido, tres capas:</p>
+    <ol style="padding-left:20px;margin:0 0 10px">
+      <li><b>Riesgos indirectos</b>: lo que una medida puede provocar aunque no te toque directamente (menos recaudación, gasto sin financiar, efectos sobre precios, empleo u oferta), según cuánto te expone tu situación. Se comparan entre partidos en una tabla.</li>
+      <li><b>Efecto directo</b>: qué medidas te favorecen, te perjudican o tienen un efecto incierto en tu bolsillo.</li>
+      <li><b>Financiación</b>: si el partido dice cuánto cuesta su programa y de dónde sale el dinero.</li>
+    </ol>
+    <p class="note"><b>Cada dato separa hecho de inferencia.</b> Lo que propone el partido lleva fuente y, si existe, número de medida. Cómo te afecta es una inferencia. La evidencia de cada riesgo se marca como hecho, consenso, disputada o inferencia. No hay puntuación final ni recomendación de voto, y los partidos van en orden alfabético.</p>
+    <p class="note" id="estado"></p>
+    <p class="mut">Tus respuestas no salen de tu navegador.</p>
+    <div class="row"><span></span><button class="btn" id="startBtn" disabled>Cargando…</button></div>
+  </div>
+  <h2>Hazlo con tu IA</h2>
+  <div class="card" id="conia">
+    <p style="margin-top:0">Tu asistente te hará las preguntas en el chat, una a una, con las mismas reglas y datos que esta web.</p>
+    <div class="row" style="margin-top:6px;justify-content:flex-start">
+      <a class="btn" id="btnGpt" target="_blank" rel="noopener" style="text-decoration:none">Abrir en ChatGPT</a>
+      <a class="btn" id="btnClaude" target="_blank" rel="noopener" style="text-decoration:none">Abrir en Claude</a>
+      <a class="btn hide" id="btnGem" target="_blank" rel="noopener" style="text-decoration:none">Abrir en Gemini</a>
+    </div>
+    <p class="mut" style="margin-bottom:4px">¿Otra IA, o la tuya no abre enlaces? Copia esta instrucción, o descarga el <a href="descargas/test-29n-chat.md">paquete completo</a> y adjúntalo al chat.</p>
+    <div class="note" id="promptTxt" style="white-space:pre-wrap"></div>
+    <button class="btn sec" id="copyPrompt" type="button">Copiar instrucción</button> <span class="mut" id="copyPromptMsg"></span>
+    <p class="mut" style="margin-bottom:0">Para desarrolladores: <a href="llms.txt">llms.txt</a> · <a href="SKILL.md">SKILL.md</a> · <a href="data/medidas.json">datos (JSON)</a> · <a href="docs/metodologia.md">metodología</a> · <a href="https://github.com/dvalverderios92/test-29n">código</a></p>
+  </div>
+</section>
+
+<section id="quiz" class="hide">
+  <div class="mut" id="qcount"></div>
+  <div class="prog"><div id="bar"></div></div>
+  <div class="card">
+    <div class="q" id="qtext"></div>
+    <div class="mut" id="qhelp"></div>
+    <div class="opts" id="opts"></div>
+    <div class="row">
+      <button class="btn sec" id="back">Atrás</button>
+      <button class="btn" id="next">Siguiente</button>
+    </div>
+  </div>
+</section>
+
+<section id="res" class="hide">
+  <p class="mut">Tu resultado</p>
+  <h1>Medidas y riesgos, partido por partido</h1>
+  <p class="mut">Orden alfabético. El número de medidas no mide su peso: una sola puede importar más que varias.</p>
+  <div id="extra"></div>
+  <h2>Tus riesgos indirectos, comparados</h2>
+  <p class="mut">Lo que pueden provocar las medidas de cada partido aunque no te toquen directamente: recaudación, gasto sin financiar, precios, empleo, oferta. El nivel indica cuánto te expone tu situación. «—» significa que el partido no propone medidas que activen ese riesgo.</p>
+  <div class="card mxw" id="matriz"></div>
+  <p class="mut" style="font-size:.8rem">Exposición: <span class="lv alta">A</span> alta · <span class="lv media">M</span> media · <span class="lv baja">B</span> baja · <span class="lv no">—</span> el partido no lo activa.</p>
+  <h2>Resumen por partido</h2>
+  <div class="sumgrid" id="sumgrid"></div>
+  <div class="tabs" id="tabs"></div>
+  <div id="plist"></div>
+
+  <h2>Limitaciones</h2>
+  <div class="card">
+    <ul style="padding-left:18px;margin:0;font-size:.92rem">
+      <li>Las medidas salen de resúmenes de prensa que citan los programas, no de una lectura completa de cada PDF. Comprueba en el original lo que vaya a pesar en tu decisión.</li>
+      <li>Muchas medidas no traen cifras. Cuando faltan, el efecto se marca como incierto o “sin cifras”.</li>
+      <li>Los riesgos indirectos no se suman ni se restan a los directos: son de otra naturaleza y su probabilidad no se puede cuantificar con rigor.</li>
+      <li>Frente Amplio y Podemos no tienen programa publicado (a la fecha de corte). ERC, Junts, PNV, EH Bildu, BNG y otros no se incluyen por falta de medidas detalladas en las fuentes.</li>
+      <li>En Canarias no se aplica el IVA (rige el IGIC) y en Ceuta y Melilla rige el IPSI.</li>
+    </ul>
+  </div>
+  <div class="row">
+    <button class="btn sec" id="copyTxt">Copiar resultado (texto)</button>
+    <button class="btn sec" id="copyJson">Copiar respuestas (JSON)</button>
+    <button class="btn sec" id="edit">Cambiar respuestas</button>
+    <button class="btn" id="restart">Empezar de nuevo</button>
+  </div>
+  <p class="mut" id="copyMsg"></p>
+</section>
+</div>
+
+<script src="motor.js"></script>
+<script>
+(function(){
+'use strict';
+var D=null, A={}, idx=0, R=null, current=null;
+var $=function(id){return document.getElementById(id)};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+var ORIGEN={programa:'Programa 29N','campaña':'Anuncio de campaña',previa:'Posición anterior'};
+var EVID={hecho:'Hecho','hecho+inferencia':'Hecho + inferencia',consenso:'Consenso',disputada:'Evidencia disputada',inferencia:'Inferencia'};
+var FIN={no:'No cuantifica',cifras_propias:'Cifras propias sin verificar',fuera_del_programa:'Cifras fuera del programa',si:'Cuantifica'};
+
+fetch('data/medidas.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){
+  D=d;
+  $('corte').textContent='datos a '+d.meta.fecha_corte.split('-').reverse().join('/');
+  var pub=d.partidos.filter(function(p){return p.programa.estado==='publicado'}).map(function(p){return p.nombre}).join(', ');
+  var sin=d.partidos.filter(function(p){return p.programa.estado!=='publicado'}).map(function(p){return p.nombre}).join(' y ');
+  $('estado').innerHTML='<b>Estado de los programas:</b> publicados por '+esc(pub)+'. '+esc(sin)+' no lo han publicado; sus medidas proceden de anuncios de campaña y posiciones previas.';
+  $('startBtn').disabled=false;$('startBtn').textContent='Empezar';
+  var base=d.meta.url_canonica||location.href.replace(/[^/]*$/,'');
+  var prompt='Quiero hacer el Test 29N (elecciones generales del 29 de noviembre). Lee las instrucciones en '+base+'llms.txt y los archivos que enlaza (SKILL.md y data/medidas.json), y hazme el test en este chat, pregunta a pregunta. Si no puedes abrir enlaces, dímelo y te adjunto el paquete '+base+'descargas/test-29n-chat.md';
+  $('promptTxt').textContent=prompt;
+  $('btnGpt').href='https://chatgpt.com/?q='+encodeURIComponent(prompt);
+  $('btnClaude').href='https://claude.ai/new?q='+encodeURIComponent(prompt);
+  if(d.meta.gem_url){$('btnGem').href=d.meta.gem_url;$('btnGem').classList.remove('hide')}
+  $('copyPrompt').onclick=function(){try{navigator.clipboard.writeText(prompt).then(function(){$('copyPromptMsg').textContent='Copiada.'},function(){$('copyPromptMsg').textContent='Selecciónala y cópiala a mano.'})}catch(e){$('copyPromptMsg').textContent='Selecciónala y cópiala a mano.'}};
+}).catch(function(e){$('startBtn').textContent='No se pudieron cargar los datos';$('estado').innerHTML='<span class="err">Error al cargar data/medidas.json ('+esc(e.message)+'). Si abriste el archivo en local, sírvelo con un servidor web.</span>'});
+
+function vis(){return Test29N.visibleQuestions(D,A)}
+function answered(q){return q.tipo==='multi'?(A[q.id]||[]).length>0:A[q.id]!==undefined}
+function show(id){['intro','quiz','res'].forEach(function(s){$(s).classList.toggle('hide',s!==id)});scrollTo(0,0)}
+function start(){A={};idx=0;show('quiz');render()}
+function render(){
+  var vs=vis(),q=vs[idx];
+  $('qcount').textContent='Pregunta '+(idx+1)+' de '+vs.length;
+  $('bar').style.width=(idx/vs.length*100)+'%';
+  $('qtext').textContent=q.texto;$('qhelp').textContent=q.ayuda||'';
+  var box=$('opts');box.innerHTML='';
+  q.opciones.forEach(function(o){
+    var b=document.createElement('button');b.className='opt';b.type='button';b.textContent=o.texto;
+    var sel=q.tipo==='multi'?(A[q.id]||[]).indexOf(o.valor)!==-1:A[q.id]===o.valor;
+    if(sel)b.classList.add('sel');
+    b.onclick=function(){
+      if(q.tipo==='multi'){var s=(A[q.id]||[]).slice();
+        if(o.valor===q.ninguno)s=s.indexOf(o.valor)!==-1?[]:[o.valor];
+        else{s=s.filter(function(x){return x!==q.ninguno});var i=s.indexOf(o.valor);if(i===-1)s.push(o.valor);else s.splice(i,1)}
+        A[q.id]=s;render();}
+      else{A[q.id]=o.valor;render();setTimeout(next,160);}
+    };
+    box.appendChild(b);
+  });
+  $('back').disabled=idx===0;$('next').disabled=!answered(q);
+  $('next').textContent=idx===vs.length-1?'Ver resultado':'Siguiente';
+}
+function next(){var vs=vis(),q=vs[idx];if(!answered(q))return;if(idx<vs.length-1){idx++;render()}else results()}
+function prev(){if(idx>0){idx--;render()}}
+
+function srcList(ids){return '<ul class="srcs">'+ids.map(function(k){var s=D.fuentes[k];return s?'<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.titulo)+'</a> ('+esc(s.fecha)+')</li>':''}).join('')+'</ul>'}
+
+function results(){
+  R=Test29N.evaluate(D,A);A=R.respuestas;show('res');
+  $('sumgrid').innerHTML=R.partidos.map(function(p){var c=p.recuento;
+    return '<button class="sum" data-p="'+p.id+'"><b>'+esc(p.nombre)+'</b>'+
+      '<span class="lbl">Riesgos indirectos</span><span class="pill hi">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill u">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
+      '<span class="lbl">Efecto directo</span><span class="pill p">+'+c.a_favor+'</span><span class="pill n">−'+c.en_contra+'</span><span class="pill u">'+c.incierto+' ?</span></button>'}).join('');
+  var ab={cc:'CC',fa:'FA',pod:'Pod.',pp:'PP',psoe:'PSOE',vox:'Vox'};
+  $('matriz').innerHTML='<table class="mx"><thead><tr><th>Riesgo · evidencia</th>'+R.partidos.map(function(p){return '<th>'+esc(ab[p.id]||p.nombre)+'</th>'}).join('')+'</tr></thead><tbody>'+
+    R.matriz_riesgos.map(function(f){return '<tr><td>'+esc(f.titulo)+'<br><span class="mut" style="font-size:.75rem">'+esc(EVID[f.evidencia]||f.evidencia)+'</span></td>'+
+      R.partidos.map(function(p){var n=f.niveles[p.id];return '<td>'+(n?'<span class="lv '+n+'" title="'+n+'">'+({alta:'A',media:'M',baja:'B'}[n])+'</span>':'<span class="lv no">—</span>')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+  $('tabs').innerHTML=R.partidos.map(function(p){return '<button class="tab" data-p="'+p.id+'">'+esc(p.nombre)+'</button>'}).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('[data-p]'),function(b){b.onclick=function(){pick(b.getAttribute('data-p'))}});
+  $('extra').innerHTML=R.notas.map(function(n){return '<p class="note">'+esc(n)+'</p>'}).join('');
+  pick(current&&R.partidos.some(function(p){return p.id===current})?current:R.partidos[0].id,true);
+}
+
+function pick(id,silent){
+  current=id;var p=R.partidos.filter(function(x){return x.id===id})[0];
+  Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){t.classList.toggle('on',t.getAttribute('data-p')===id)});
+  var h='<div class="card" style="margin-top:6px"><b>'+esc(p.nombre)+'</b> · <span class="mut">'+esc(p.programa.titulo)+(p.programa.fecha?' ('+esc(p.programa.fecha.split('-').reverse().join('/'))+')':'')+'</span><div class="mut">'+esc(p.programa.nota||'')+'</div>'+
+    '<div class="fin"><b>Financiación:</b> <span class="pill src">'+esc(FIN[p.financiacion.cuantifica]||p.financiacion.cuantifica)+'</span><div>'+esc(p.financiacion.resumen)+'</div><details><summary>Fuentes</summary>'+srcList(p.financiacion.fuentes)+'</details></div></div>';
+  h+='<h2>1 · Riesgos indirectos para ti</h2><p class="mut">Lo que estas medidas pueden provocar aunque no te toquen directamente, ordenado por tu exposición.</p>';
+  h+=p.riesgos.length?p.riesgos.map(function(r){var e=r.exposicion_usuario;
+    var orig=r.medidas_origen.map(function(mid){var m=D.medidas.filter(function(x){return x.id===mid})[0];return m?m.tema:''}).filter(function(v,i,a){return v&&a.indexOf(v)===i}).join(', ');
+    return '<div class="m r-'+e.nivel+'"><div class="t">'+esc(r.titulo)+'</div>'+
+      '<div><span class="pill '+(e.nivel==='alta'?'hi':e.nivel==='media'?'u':'src')+'">Exposición '+e.nivel+'</span><span class="pill src">'+esc(EVID[r.evidencia]||r.evidencia)+'</span></div>'+
+      '<div class="lay"><b>Para ti:</b> '+esc(e.texto)+'</div>'+
+      '<details><summary>Qué dice la evidencia · viene de: '+esc(orig)+'</summary><div class="lay">'+esc(r.que_pasa)+'</div>'+srcList(r.fuentes)+'</details></div>'}).join(''):'<p class="mut">Sin riesgos indirectos registrados para este partido.</p>';
+  h+='<h2>2 · Efecto directo</h2>';
+  var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
+    return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
+      '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+'</div>'+
+      '<div><span class="pill src">'+esc(ORIGEN[x.origen])+(x.num?' · medida '+esc(x.num):'')+'</span></div>'+
+      '<div class="lay"><b>Cómo te afecta (inferencia):</b> '+esc(x.efecto)+'</div>'+
+      '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};
+  h+=p.medidas.length?grp(1,'pos','A tu favor')+grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';
+  if(p.universales.length)h+='<details class="card" style="margin-top:14px"><summary>Medidas generales (afectan a casi todo el mundo por igual)</summary>'+p.universales.map(function(m){return '<div class="m"><div>'+esc(m.texto)+'</div><span class="pill src">'+esc(ORIGEN[m.origen])+(m.num?' · medida '+esc(m.num):'')+'</span></div>'}).join('')+'</details>';
+  $('plist').innerHTML=h;
+  if(!silent)$('tabs').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function asText(){
+  var t=['Test 29N, resultado (datos a '+D.meta.fecha_corte+'). No es una recomendación de voto.',''];
+  R.notas.forEach(function(n){t.push('Nota: '+n)});
+  t.push('','RIESGOS INDIRECTOS COMPARADOS (exposición: alta/media/baja; — = no aplica)');
+  R.matriz_riesgos.forEach(function(f){t.push('- '+f.titulo+' ['+(EVID[f.evidencia]||f.evidencia)+']: '+R.partidos.map(function(p){return p.nombre+' '+(f.niveles[p.id]||'—')}).join(' · '))});
+  t.push('');
+  R.partidos.forEach(function(p){
+    t.push('== '+p.nombre+' == Financiación: '+(FIN[p.financiacion.cuantifica]||'')+'. '+p.financiacion.resumen);
+    p.riesgos.forEach(function(r){t.push('[riesgo '+r.exposicion_usuario.nivel+' · '+(EVID[r.evidencia]||r.evidencia)+'] '+r.titulo+' → '+r.exposicion_usuario.texto)});
+    p.medidas.forEach(function(m){t.push((m.valor>0?'[+] ':m.valor<0?'[-] ':'[?] ')+m.texto+' → '+m.efecto)});
+    t.push('');
+  });
+  return t.join('\n');
+}
+function copy(txt){
+  $('copyMsg').textContent='';
+  try{navigator.clipboard.writeText(txt).then(function(){$('copyMsg').textContent='Copiado.'},function(){$('copyMsg').textContent='Tu navegador no permite copiar desde aquí.'})}
+  catch(e){$('copyMsg').textContent='Tu navegador no permite copiar desde aquí.'}
+}
+$('startBtn').onclick=start;$('next').onclick=next;$('back').onclick=prev;
+$('edit').onclick=function(){idx=0;show('quiz');render()};
+$('restart').onclick=start;
+$('copyTxt').onclick=function(){copy(asText())};
+$('copyJson').onclick=function(){copy(JSON.stringify(R.respuestas,null,1))};
+})();
+</script>
+</body>
+</html>
