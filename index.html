@@ -216,13 +216,13 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
   </div>
 
   <h2>Derechos y protecciones</h2>
-  <p class="mut">Lo que propone cada partido sobre los temas que elegiste. Aquí no se valora si te favorece o te perjudica: cada medida resume el programa oficial y enlaza a su página.</p>
+  <p class="mut">Lo que propone cada partido sobre los temas que elegiste. Aquí no se valora si te favorece o te perjudica. Cada medida resume el programa oficial y enlaza a su página; si el programa no trata el tema, se recogen anuncios de campaña o posiciones anteriores, y así se indica.</p>
   <div id="derechos"></div>
 
   <h2>Limitaciones</h2>
   <div class="card">
     <ul style="padding-left:18px;margin:0;font-size:.92rem">
-      <li>Muchas medidas salen de resúmenes de prensa que citan los programas y se están contrastando, página a página, con los <a href="https://github.com/dvalverderios92/test-29n/tree/main/programas" target="_blank" rel="noopener">programas oficiales</a>. Comprueba en el original lo que vaya a pesar en tu decisión.</li>
+      <li>Las medidas salen de los <a href="https://github.com/dvalverderios92/test-29n/tree/main/programas" target="_blank" rel="noopener">programas oficiales</a>, con su página. Cuando el programa no recoge algo, o el partido no tiene programa, se usan anuncios de campaña y, si no hay, posiciones anteriores; cada medida indica su origen. Comprueba en el original lo que vaya a pesar en tu decisión.</li>
       <li>Muchas medidas no traen cifras. Cuando faltan, el efecto se marca como incierto o “sin cifras”.</li>
       <li>Los riesgos indirectos no se suman ni se restan a los directos: son de otra naturaleza y su probabilidad no se puede cuantificar con rigor.</li>
       <li>Podemos no tiene programa publicado (a la fecha de corte). ERC, PNV, BNG, EH Bildu, Junts y otras candidaturas aún no están incluidas.</li>
@@ -336,7 +336,7 @@ function pick(id,silent){
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
       '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+'</div>'+
-      '<div><span class="pill src">'+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+'</span></div>'+
+      '<div>'+(x.url?'<a class="pill src" style="text-decoration:none" href="'+esc(x.url)+'" target="_blank" rel="noopener">':'<span class="pill src">')+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+(x.pagina?', p. '+x.pagina:'')+(x.url?'</a>':'</span>')+'</div>'+
       '<div class="lay"><b>Cómo te afecta (inferencia):</b> '+esc(x.efecto)+'</div>'+
       '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};
   h+=p.medidas.length?grp(1,'pos','A tu favor')+grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';
@@ -345,13 +345,13 @@ function pick(id,silent){
   if(!silent)$('tabs').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function cita(m){return (m.de?'Propuesta de '+m.de+'. ':'')+(m.num?'Medida '+m.num+', ':'')+'p. '+m.pagina+' del programa'}
+function cita(m){return (m.de?'Propuesta de '+m.de+'. ':'')+(m.pagina?(m.num?'Medida '+m.num+', ':'')+'p. '+m.pagina+' del programa':(ORIGEN[m.origen]||m.origen)+(m.referencia?' ('+m.referencia+')':''))}
 function derechosHTML(){
   if(!R.derechos.length)return '<p class="mut">No elegiste ningún tema. Puedes añadirlos con «Cambiar respuestas»: es la última pregunta.</p>';
   return R.derechos.map(function(t){
     return '<div class="card tema"><h3>'+esc(t.nombre)+'</h3>'+t.partidos.map(function(p){
       var c=p.medidas.length?'<ul>'+p.medidas.map(function(m){return '<li>'+esc(m.texto)+' <a class="pill src" href="'+esc(m.url)+'" target="_blank" rel="noopener">'+esc(cita(m))+'</a></li>'}).join('')+'</ul>'
-        :'<p class="mut">'+(p.sin_programa?'Sin programa publicado: no hay propuestas que citar.':'No se han encontrado propuestas sobre este tema en su programa.')+'</p>';
+        :'<p class="mut">No se han encontrado propuestas sobre este tema ni en su programa ni en otras fuentes consultadas.</p>';
       return '<div class="m"><div class="t">'+esc(p.nombre)+'</div>'+c+'</div>'}).join('')+'</div>'}).join('');
 }
 
@@ -369,7 +369,7 @@ function asText(){
   });
   if(R.derechos.length){t.push('DERECHOS Y PROTECCIONES (sin valoración; resumen del programa con su página)');
     R.derechos.forEach(function(d){t.push('','== '+d.nombre+' ==');d.partidos.forEach(function(p){
-      if(!p.medidas.length)t.push(p.nombre+': '+(p.sin_programa?'sin programa publicado.':'sin propuestas encontradas en su programa.'));
+      if(!p.medidas.length)t.push(p.nombre+': sin propuestas encontradas ni en su programa ni en otras fuentes.');
       p.medidas.forEach(function(m){t.push(p.nombre+': '+m.texto+' ('+cita(m)+')')})})})}
   return t.join('\n');
 }

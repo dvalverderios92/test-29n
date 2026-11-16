@@ -117,7 +117,9 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const sens = D.preguntas.filter(q => q.sensible);
   ok(sens.length >= 5 && sens.every(q => q.opciones.some(o => o.valor === 'nc' && /Prefiero no contestar/.test(o.texto))), 'Preguntas sensibles: todas con «Prefiero no contestar»');
   const temasIds = D.temas_sociales.map(t => t.id);
-  ok(D.medidas_sociales.every(m => temasIds.includes(m.tema) && m.pagina > 0 && /#page=\d+$/.test(m.url)), 'Medidas sociales: tema válido y página enlazada');
+  ok(D.medidas_sociales.every(m => temasIds.includes(m.tema) && (m.origen === 'programa' ? m.pagina > 0 && /#page=\d+$/.test(m.url) : !m.pagina && /^https:/.test(m.url) && m.referencia)), 'Medidas sociales: del programa con página enlazada; el resto con fuente y referencia');
+  ok(D.medidas.filter(m => m.origen === 'programa' && D.partidos.find(p => p.id === m.partido).programa.estado === 'publicado').every(m => m.pagina > 0 && /#page=\d+$/.test(m.url)), 'Medidas económicas del programa: todas con página enlazada al PDF oficial');
+  ok(D.medidas_sociales.filter(m => m.partido === 'pod').every(m => m.origen !== 'programa'), 'Podemos: ninguna medida marcada como de programa');
   D.partidos.filter(p => p.programa.estado === 'publicado').forEach(p => ok(D.medidas_sociales.some(m => m.partido === p.id), `${p.nombre}: tiene medidas sociales del programa`));
   // Las respuestas sensibles no cambian nada del resultado económico
   const a = T.evaluate(D, Object.assign({}, base, { temas: ['ninguno'] }));
@@ -129,7 +131,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(sg.includes('igualdad') && sg.includes('lgtbi') && !sg.includes('religion'), 'Sugerencia de temas según respuestas; «Prefiero no contestar» no sugiere nada');
   const c = T.evaluate(D, Object.assign({}, base, { temas: temasIds }));
   ok(c.derechos.length === temasIds.length && c.derechos.every(t => t.partidos.length === c.partidos.length), 'Cada tema elegido lista todas las candidaturas');
-  ok(c.derechos[0].partidos.find(p => p.id === 'pod').sin_programa, 'Podemos aparece como sin programa');
+  ok(c.derechos[0].partidos.find(p => p.id === 'pod').sin_programa && c.derechos[0].partidos.find(p => p.id === 'pod').medidas.length > 0, 'Podemos: sin programa, pero con posiciones de otras fuentes');
   ok(c.derechos.every(t => t.partidos.every(p => p.medidas.every(m => !('valor' in m)))), 'Derechos y protecciones: sin valoración a favor o en contra');
   const can = T.evaluate(D, Object.assign({}, base, { region: 'canarias', empad: true, temas: ['lgtbi'] }));
   ok(can.derechos[0].partidos.find(p => p.id === 'upc').medidas.every(m => m.de), 'Candidatura conjunta: cada medida social indica de qué partido es');

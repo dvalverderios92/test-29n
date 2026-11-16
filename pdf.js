@@ -172,7 +172,7 @@
       lista(limpio(p.nombre) + ': lo que ganas o pierdes',
         'En negrita, cómo te afectaría (inferencia del test). Debajo, lo que propone el partido.',
         meds.map(function (m) {
-          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propuesta: ') + m.texto };
+          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propuesta: ') + m.texto + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
         }), null,
         (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones previas. ') + 'Financiación: ' + (FIN[p.financiacion.cuantifica] || '') + '. ' + p.financiacion.resumen);
     });
@@ -183,8 +183,8 @@
         'Lo que propone cada partido, resumido de su programa oficial. Sin valoración a favor o en contra.',
         t.partidos.map(function (p) {
           return { marca: 'baja', cab: p.nombre,
-            det: p.medidas.length ? p.medidas.map(function (m) { return (m.de ? m.de + ': ' : '') + m.texto + ' (' + (m.num ? 'medida ' + m.num + ', ' : '') + 'p. ' + m.pagina + ')'; }).join(' ')
-              : (p.sin_programa ? 'Sin programa publicado.' : 'No se han encontrado propuestas sobre este tema en su programa.') };
+            det: p.medidas.length ? p.medidas.map(function (m) { return (m.de ? m.de + ': ' : '') + m.texto + ' (' + (m.pagina ? (m.num ? 'medida ' + m.num + ', ' : '') + 'p. ' + m.pagina : (m.origen === 'campaña' ? 'anuncio de campaña' : 'posición anterior') + (m.referencia ? ': ' + m.referencia : '')) + ')'; }).join(' ')
+              : 'No se han encontrado propuestas sobre este tema ni en su programa ni en otras fuentes consultadas.' };
         }), null, null);
     });
 
@@ -192,7 +192,7 @@
     nueva(true);
     y = escribir(lineas('Antes de decidir', W - 2 * M, 26, true), M, M, 26, true, PAPEL) + 14;
     var notas = R.notas.concat([
-      'Muchas medidas salen de resúmenes de prensa y se están contrastando con los programas oficiales. Comprueba en el original lo que vaya a pesar en tu decisión.',
+      'Las medidas salen de los programas oficiales, con su página. Si el programa no recoge algo, se usan anuncios de campaña o posiciones anteriores, y así se indica. Comprueba en el original lo que vaya a pesar en tu decisión.',
       'El número de medidas no mide su peso, y los riesgos indirectos no se suman a los efectos directos.',
       'Este resultado no es una recomendación de voto. Detalle, fuentes y metodología: ' + D.meta.url_canonica]);
     notas.forEach(function (n) {

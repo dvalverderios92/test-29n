@@ -1138,11 +1138,11 @@
     "titulo": "Programa electoral 2026",
     "fecha": null,
     "estado": "publicado",
-    "nota": "Programa publicado en noviembre. Las medidas del test proceden aún de anuncios de campaña y posiciones previas de Sumar, y se están contrastando con el programa."
+    "nota": "Programa publicado en noviembre. Las cifras de coste son de campaña."
    },
    "financiacion": {
     "cuantifica": "cifras_propias",
-    "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, el fin del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.",
+    "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.",
     "fuentes": [
      "marcos_fa",
      "democrata_fa"
@@ -1876,6 +1876,7 @@
    "num": "177",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -1900,7 +1901,9 @@
      "valor": 1,
      "texto": "Con ingresos en torno al SMI no pagarías IRPF (o se garantizaría por ley la exención si ya la tienes)."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
   {
    "id": "pp-178",
@@ -1910,6 +1913,7 @@
    "num": "178",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -1926,7 +1930,9 @@
      "valor": 1,
      "texto": "Evita pagar más IRPF solo porque tu sueldo o pensión suba con los precios."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
   {
    "id": "pp-179",
@@ -1936,6 +1942,7 @@
    "num": "179",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -1973,7 +1980,9 @@
      "valor": 1,
      "texto": "Por tu edad, pagarías mucho menos IRPF durante cuatro ejercicios al trabajar."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
   {
    "id": "pp-180",
@@ -1983,6 +1992,7 @@
    "num": "180",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2010,7 +2020,9 @@
      "valor": 1,
      "texto": "Abarataría tu cesta de la compra."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
   {
    "id": "pp-181",
@@ -2020,6 +2032,7 @@
    "num": "181",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2036,16 +2049,19 @@
      "valor": 1,
      "texto": "Tu sociedad pagaría menos impuestos el año que invierta."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
   {
    "id": "pp-170",
    "partido": "pp",
    "tema": "Autónomos",
-   "texto": "Sin cuota a la Seguridad Social el primer año como autónomo, ni el segundo si no se alcanza el SMI; bonificación del 100 % de la cotización del primer trabajador contratado.",
-   "num": "170",
+   "texto": "Sin cuota a la Seguridad Social el primer año como autónomo, ni el segundo si no se alcanza el SMI; bonificación del 100 % de la cotización del primer trabajador contratado durante un año.",
+   "num": "170-171",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -2079,7 +2095,9 @@
      "valor": 1,
      "texto": "Si contratas a tu primer trabajador, no pagarías su cotización (la cuota cero es para nuevas altas)."
     }
-   ]
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=46"
   },
   {
    "id": "pp-171",
@@ -2089,6 +2107,7 @@
    "num": "171",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2133,7 +2152,9 @@
      "valor": 1,
      "texto": "Menos papeleo y, si vendes a particulares, precios más competitivos."
     }
-   ]
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=46"
   },
   {
    "id": "pp-145",
@@ -2143,6 +2164,7 @@
    "num": "144-145",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -2181,7 +2203,9 @@
      "valor": 0,
      "texto": "Si se construye más, podría moderar precios a medio plazo (previsión, no efecto directo)."
     }
-   ]
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=41"
   },
   {
    "id": "pp-153",
@@ -2191,6 +2215,7 @@
    "num": "153-155",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -2236,7 +2261,9 @@
      "valor": 1,
      "texto": "Te ayudaría con la entrada y la hipoteca."
     }
-   ]
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=43"
   },
   {
    "id": "pp-156a",
@@ -2246,6 +2273,7 @@
    "num": "156",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2266,7 +2294,9 @@
      "valor": 1,
      "texto": "Recuperarías parte de lo que pagas de alquiler (importe no detallado)."
     }
-   ]
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=43"
   },
   {
    "id": "pp-156b",
@@ -2276,6 +2306,7 @@
    "num": "156",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -2293,16 +2324,19 @@
      "valor": 1,
      "texto": "Pagarías menos impuestos si mantienes la renta contenida."
     }
-   ]
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=43"
   },
   {
    "id": "pp-okupa",
    "partido": "pp",
    "tema": "Vivienda",
-   "texto": "Ley para desalojar viviendas okupadas en 48 horas.",
-   "num": null,
+   "texto": "Ley para que el propietario recupere en 48 horas su vivienda ocupada; no pagaría suministros ni impuestos mientras dure la ocupación.",
+   "num": "157",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "brains",
     "democrata_pp"
    ],
@@ -2315,16 +2349,19 @@
      "valor": 1,
      "texto": "Más protección para tus viviendas, sobre todo si alguna está vacía."
     }
-   ]
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=43"
   },
   {
    "id": "pp-arraigo",
    "partido": "pp",
    "tema": "Ayudas",
-   "texto": "Criterios de arraigo (empadronamiento y cotizaciones, no solo nacionalidad) para acceder a determinadas ayudas y prestaciones. Sin umbrales publicados.",
-   "num": null,
+   "texto": "Prioridad en determinadas ayudas y prestaciones para quien tenga un arraigo real con España (empadronamiento, cotización, permanencia), no basada solo en la nacionalidad. Sin umbrales publicados.",
+   "num": "98",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "democrata_pp",
     "ara_prioridad"
    ],
@@ -2349,7 +2386,9 @@
      "valor": 0,
      "texto": "Con varios años de residencia y cotización probablemente no te afecte; depende de los umbrales."
     }
-   ]
+   ],
+   "pagina": 32,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=32"
   },
   {
    "id": "pp-108",
@@ -2359,6 +2398,7 @@
    "num": "108",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [],
@@ -2370,7 +2410,9 @@
      "valor": 1,
      "texto": "Mantiene el criterio actual (ya fijado por ley): tu pensión sube con los precios."
     }
-   ]
+   ],
+   "pagina": 34,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=34"
   },
   {
    "id": "pp-114",
@@ -2380,6 +2422,7 @@
    "num": "114",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "democrata_pp"
    ],
@@ -2408,7 +2451,9 @@
      "valor": 0,
      "texto": "La deducción solo cubre el gasto en cuidados profesionales, no el cuidado familiar; el aumento de la aportación estatal sí podría mejorar las prestaciones de dependencia."
     }
-   ]
+   ],
+   "pagina": 35,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35"
   },
   {
    "id": "pp-163",
@@ -2418,6 +2463,7 @@
    "num": "163",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2455,16 +2501,19 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): te ahorrarías la escuela infantil (llegaría al final de la legislatura)."
     }
-   ]
+   ],
+   "pagina": 44,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=44"
   },
   {
    "id": "pp-familia",
    "partido": "pp",
    "tema": "Familia",
    "texto": "Deducción familiar única, reembolsable y de abono mensual, que incluiría al concebido no nacido.",
-   "num": null,
+   "num": "158-159",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "democrata_pp"
    ],
    "riesgos": [
@@ -2502,7 +2551,9 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): cobrarías una deducción mensual por tus hijos aunque no pagues IRPF suficiente (importe no detallado)."
     }
-   ]
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=43"
   },
   {
    "id": "pp-horas",
@@ -2536,10 +2587,11 @@
    "id": "pp-mutuas",
    "partido": "pp",
    "tema": "Empleo",
-   "texto": "Que las mutuas puedan dar las altas médicas.",
-   "num": null,
-   "origen": "campaña",
+   "texto": "Reforzar el papel de las mutuas en la gestión de las bajas (incapacidad temporal) y premiar a las empresas que mejor la gestionen; hasta el 100 % de la base reguladora en enfermedades graves y largas.",
+   "num": "175",
+   "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "moncloa_vp"
    ],
    "riesgos": [],
@@ -2549,7 +2601,7 @@
       "ref": "asalariado"
      },
      "valor": 0,
-     "texto": "Puede acortar las bajas; también resta peso al médico de la sanidad pública en esa decisión."
+     "texto": "Si enfermas de gravedad cobrarías más; en bajas comunes, las mutuas ganarían peso en su gestión (sin detalle de cómo)."
     },
     {
      "si": {
@@ -2558,16 +2610,19 @@
      "valor": 1,
      "texto": "Bajas posiblemente más cortas en tu plantilla."
     }
-   ]
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=46"
   },
   {
    "id": "pp-220",
    "partido": "pp",
    "tema": "Sanidad",
    "texto": "Al menos 4.500 médicos más en Atención Primaria y Plan Nacional de Salud Mental 2027-2037.",
-   "num": "220",
+   "num": "220, 223",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia",
     "telemadrid"
    ],
@@ -2578,7 +2633,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 52,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=52"
   },
   {
    "id": "pp-infra",
@@ -2588,6 +2645,7 @@
    "num": "117, 126",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2597,7 +2655,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 36,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=36"
   },
   {
    "id": "pp-228",
@@ -2607,6 +2667,7 @@
    "num": "228-229",
    "origen": "programa",
    "fuentes": [
+    "pdf_pp",
     "rankia"
    ],
    "riesgos": [
@@ -2616,7 +2677,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 54,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=54"
   },
   {
    "id": "psoe-130",
@@ -2626,6 +2689,7 @@
    "num": "130",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -2637,7 +2701,9 @@
      "valor": -1,
      "texto": "Pagarías más por tus rentas del ahorro."
     }
-   ]
+   ],
+   "pagina": 48,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=48"
   },
   {
    "id": "psoe-134",
@@ -2647,6 +2713,7 @@
    "num": "134",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2677,7 +2744,9 @@
      "valor": 0,
      "texto": "Con tu renta seguramente ya aprovechas el mínimo entero: poco cambio."
     }
-   ]
+   ],
+   "pagina": 49,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=49"
   },
   {
    "id": "psoe-88",
@@ -2687,6 +2756,7 @@
    "num": "88",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2703,7 +2773,9 @@
      "valor": 1,
      "texto": "Te compensaría parte de la inflación (umbrales e importes no publicados)."
     }
-   ]
+   ],
+   "pagina": 37,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=37"
   },
   {
    "id": "psoe-135",
@@ -2713,6 +2785,7 @@
    "num": "131-135",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -2724,7 +2797,9 @@
      "valor": -1,
      "texto": "Cada compra de acciones de esas empresas te costaría un poco más."
     }
-   ]
+   ],
+   "pagina": 48,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=48"
   },
   {
    "id": "psoe-127",
@@ -2734,6 +2809,7 @@
    "num": "127",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -2752,16 +2828,19 @@
      "valor": -1,
      "texto": "Con tus rentas del capital es probable que pagues más."
     }
-   ]
+   ],
+   "pagina": 47,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=47"
   },
   {
    "id": "psoe-42",
    "partido": "psoe",
    "tema": "Vivienda",
-   "texto": "Movilizar el 1 % del PIB al año en vivienda y crear un parque público estatal de 100.000 viviendas (Casa 47).",
+   "texto": "Movilizar el 1 % del PIB al año en vivienda y crear un parque público estatal de 100.000 viviendas.",
    "num": "38, 42",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2778,7 +2857,9 @@
      "valor": 1,
      "texto": "Más vivienda pública de alquiler asequible a la que optar."
     }
-   ]
+   ],
+   "pagina": 27,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=27"
   },
   {
    "id": "psoe-67",
@@ -2788,6 +2869,7 @@
    "num": "67",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2808,7 +2890,9 @@
      "valor": 1,
      "texto": "Te financiaría la entrada sin intereses."
     }
-   ]
+   ],
+   "pagina": 31,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=31"
   },
   {
    "id": "psoe-61",
@@ -2818,6 +2902,7 @@
    "num": "61-62",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia",
     "telemadrid"
    ],
@@ -2849,7 +2934,9 @@
      "valor": 1,
      "texto": "Contratos más largos; la congelación solo aplica en zonas tensionadas."
     }
-   ]
+   ],
+   "pagina": 30,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=30"
   },
   {
    "id": "psoe-70",
@@ -2859,6 +2946,7 @@
    "num": "53, 70, 72",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -2870,16 +2958,19 @@
      "valor": -1,
      "texto": "Con 10 o más viviendas podrías entrar en este impuesto."
     }
-   ]
+   ],
+   "pagina": 30,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=30"
   },
   {
    "id": "psoe-turis",
    "partido": "psoe",
    "tema": "Vivienda",
-   "texto": "Bonificar a los caseros que contengan la renta y subir la tributación de los pisos turísticos.",
-   "num": null,
-   "origen": "campaña",
+   "texto": "Consolidar las bonificaciones fiscales a los propietarios que bajen el alquiler y permitir a los ayuntamientos un recargo por pernoctación en viviendas turísticas.",
+   "num": "66, 73",
+   "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "brains"
    ],
    "riesgos": [],
@@ -2896,14 +2987,14 @@
       ]
      },
      "valor": 0,
-     "texto": "La bonificación te favorecería en tus alquileres y la subida a pisos turísticos te perjudicaría."
+     "texto": "La bonificación te favorecería en tus alquileres; en la vivienda turística, tus huéspedes podrían pagar un recargo municipal."
     },
     {
      "si": {
       "ref": "vivienda_turistica"
      },
-     "valor": -1,
-     "texto": "Pagarías más por tu vivienda turística."
+     "valor": 0,
+     "texto": "Tus huéspedes podrían pagar un recargo municipal por noche, si tu ayuntamiento lo aplica."
     },
     {
      "si": {
@@ -2912,7 +3003,9 @@
      "valor": 1,
      "texto": "Pagarías menos si mantienes la renta contenida."
     }
-   ]
+   ],
+   "pagina": 31,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=31"
   },
   {
    "id": "psoe-108",
@@ -2922,6 +3015,7 @@
    "num": "108",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2945,7 +3039,9 @@
      "valor": -1,
      "texto": "Te subiría el coste por hora de tu plantilla."
     }
-   ]
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=41"
   },
   {
    "id": "psoe-87",
@@ -2955,6 +3051,7 @@
    "num": "87",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -2985,7 +3082,9 @@
      "valor": -1,
      "texto": "Más coste si tienes plantilla con salarios bajos."
     }
-   ]
+   ],
+   "pagina": 37,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=37"
   },
   {
    "id": "psoe-110",
@@ -2995,6 +3094,7 @@
    "num": "110-111",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -3020,16 +3120,19 @@
      "valor": 0,
      "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
     }
-   ]
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=41"
   },
   {
    "id": "psoe-becario",
    "partido": "psoe",
    "tema": "Empleo",
-   "texto": "Aprobar el Estatuto del Becario.",
-   "num": null,
-   "origen": "campaña",
+   "texto": "Aprobar el Estatuto del Becario y reconocer a los becarios la protección por desempleo.",
+   "num": "113, 118",
+   "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "queproponen"
    ],
    "riesgos": [],
@@ -3041,7 +3144,9 @@
      "valor": 1,
      "texto": "Más derechos si haces prácticas."
     }
-   ]
+   ],
+   "pagina": 42,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=42"
   },
   {
    "id": "psoe-100",
@@ -3051,6 +3156,7 @@
    "num": "100",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [],
@@ -3062,7 +3168,9 @@
      "valor": 1,
      "texto": "La subida con los precios pasaría de ley ordinaria a garantía constitucional, más difícil de cambiar."
     }
-   ]
+   ],
+   "pagina": 40,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=40"
   },
   {
    "id": "psoe-105",
@@ -3072,6 +3180,7 @@
    "num": "105",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -3123,7 +3232,9 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): podrías cogerlo cobrando el sueldo íntegro."
     }
-   ]
+   ],
+   "pagina": 40,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=40"
   },
   {
    "id": "psoe-192",
@@ -3133,6 +3244,7 @@
    "num": "192",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -3149,7 +3261,9 @@
      "valor": 1,
      "texto": "Cobrarías una ayuda por tus hijos (importe no detallado)."
     }
-   ]
+   ],
+   "pagina": 56,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=56"
   },
   {
    "id": "psoe-193",
@@ -3159,6 +3273,7 @@
    "num": "193",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -3182,16 +3297,19 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): recibirías 1.000 € por cada nacimiento."
     }
-   ]
+   ],
+   "pagina": 56,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=56"
   },
   {
    "id": "psoe-136",
    "partido": "psoe",
    "tema": "Sanidad",
    "texto": "Financiación sanitaria pública en torno al 7 % del PIB; primera consulta psicológica gratuita en un máximo de 30 días.",
-   "num": "136",
+   "num": "136, 143",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia",
     "telemadrid"
    ],
@@ -3202,7 +3320,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 49,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=49"
   },
   {
    "id": "psoe-229",
@@ -3212,6 +3332,7 @@
    "num": "128, 229, 231",
    "origen": "programa",
    "fuentes": [
+    "pdf_psoe",
     "rankia"
    ],
    "riesgos": [
@@ -3221,16 +3342,19 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 60,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=60"
   },
   {
    "id": "vox-3a",
    "partido": "vox",
    "tema": "IRPF",
    "texto": "Rebajar y simplificar el IRPF, con tipos más bajos según el número de hijos. El programa no concreta tipos ni tramos.",
-   "num": "3",
+   "num": "2",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "democrata_vox"
    ],
@@ -3280,16 +3404,19 @@
      "valor": 0,
      "texto": "Con ingresos cercanos al SMI apenas notarías diferencia."
     }
-   ]
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=9"
   },
   {
    "id": "vox-3b",
    "partido": "vox",
    "tema": "IVA",
    "texto": "Rebajar los tipos general y reducido del IVA, sobre todo en productos de primera necesidad.",
-   "num": "3",
+   "num": "2",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "democrata_vox"
    ],
@@ -3318,16 +3445,19 @@
      "valor": 1,
      "texto": "Abarataría tu compra (sin tipos concretos)."
     }
-   ]
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=9"
   },
   {
    "id": "vox-3c",
    "partido": "vox",
    "tema": "Empresa",
    "texto": "Rebajar el Impuesto de Sociedades.",
-   "num": "3",
+   "num": "2",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia"
    ],
    "riesgos": [
@@ -3344,16 +3474,19 @@
      "valor": 1,
      "texto": "Tu sociedad pagaría menos (sin tipo concreto)."
     }
-   ]
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=9"
   },
   {
    "id": "vox-3d",
    "partido": "vox",
    "tema": "Autónomos",
    "texto": "Cuota cero para autónomos que no alcancen el SMI y cuota progresiva desde 50 € por encima.",
-   "num": "3",
+   "num": "2",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "vox_web"
    ],
@@ -3385,7 +3518,9 @@
      "valor": 0,
      "texto": "Por encima del SMI la cuota sería progresiva; si pagas más o menos que hoy depende de una escala no publicada."
     }
-   ]
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=9"
   },
   {
    "id": "vox-34",
@@ -3395,6 +3530,7 @@
    "num": "34",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "vox_web"
    ],
@@ -3444,16 +3580,19 @@
      "valor": 1,
      "texto": "Te ahorrarías el impuesto de la compra."
     }
-   ]
+   ],
+   "pagina": 24,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=24"
   },
   {
    "id": "vox-28",
    "partido": "vox",
    "tema": "Vivienda",
    "texto": "Derogar la Ley de Vivienda y reformar la Ley del Suelo; desalojo de okupas en menos de 24 horas.",
-   "num": "28-32",
+   "num": "28-31",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia"
    ],
    "riesgos": [
@@ -3491,7 +3630,9 @@
      "valor": 0,
      "texto": "Fuera de zona tensionada, el efecto directo es pequeño."
     }
-   ]
+   ],
+   "pagina": 23,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=23"
   },
   {
    "id": "vox-35",
@@ -3501,6 +3642,7 @@
    "num": "35",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia"
    ],
    "riesgos": [],
@@ -3526,7 +3668,9 @@
      "valor": 0,
      "texto": "Podría afectarte si tus operaciones se consideran especulativas (sin definición publicada)."
     }
-   ]
+   ],
+   "pagina": 25,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=25"
   },
   {
    "id": "vox-18",
@@ -3536,6 +3680,7 @@
    "num": "18-25",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "vox_web"
    ],
@@ -3583,7 +3728,9 @@
      "valor": 1,
      "texto": "Tendrías prioridad frente a residentes extranjeros en ayudas y servicios que podrías usar."
     }
-   ]
+   ],
+   "pagina": 19,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=19"
   },
   {
    "id": "vox-remesas",
@@ -3593,6 +3740,7 @@
    "num": "18-25",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "vox_web"
    ],
@@ -3605,15 +3753,17 @@
      "valor": -1,
      "texto": "Pagarías un impuesto por el dinero que envías a tu familia."
     }
-   ]
+   ],
+   "pagina": 19,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=19"
   },
   {
    "id": "vox-7",
    "partido": "vox",
    "tema": "Pensiones",
-   "texto": "Vincular las pensiones a productividad y natalidad y avanzar hacia un modelo mixto con capitalización. Sin financiación detallada.",
-   "num": "7",
-   "origen": "programa",
+   "texto": "Avanzar hacia un modelo de pensiones mixto con capitalización y vincularlas a productividad y natalidad. No figura en el programa del 29N, que solo promete garantizar su sostenibilidad con crecimiento económico (medida 7); lo recogen la prensa y declaraciones del partido.",
+   "num": null,
+   "origen": "campaña",
    "fuentes": [
     "rankia",
     "moncloa_vp"
@@ -3656,6 +3806,7 @@
    "num": "94",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia"
    ],
    "riesgos": [
@@ -3693,16 +3844,19 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): el Estado pagaría tus cotizaciones durante el tiempo de cuidado."
     }
-   ]
+   ],
+   "pagina": 51,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=51"
   },
   {
    "id": "vox-laboral",
    "partido": "vox",
    "tema": "Empleo",
    "texto": "Derogar la legislación laboral del Gobierno (incluida la reforma laboral de 2021).",
-   "num": null,
+   "num": "8",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "telemadrid",
     "rankia"
    ],
@@ -3730,7 +3884,9 @@
      "valor": 0,
      "texto": "Podría darte más flexibilidad de contratación; depende de la norma que la sustituya."
     }
-   ]
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=13"
   },
   {
    "id": "vox-sucesiones",
@@ -3775,6 +3931,7 @@
    "num": "4, 6",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia",
     "vox_web"
    ],
@@ -3799,7 +3956,9 @@
      "valor": 0,
      "texto": "Te afectaría, pero los resúmenes no detallan en qué consiste."
     }
-   ]
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=10"
   },
   {
    "id": "vox-8",
@@ -3809,6 +3968,7 @@
    "num": "8",
    "origen": "programa",
    "fuentes": [
+    "pdf_vox",
     "rankia"
    ],
    "riesgos": [
@@ -3818,16 +3978,19 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 11,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=11"
   },
   {
    "id": "fa-fortunas",
    "partido": "fa",
    "tema": "Patrimonio",
-   "texto": "Impuesto a patrimonios de más de 1 millón de euros, con tipos del 2 % y el 3 %.",
+   "texto": "Que los patrimonios de más de 1 millón paguen como mínimo un 2 % (reforma del Impuesto de Grandes Fortunas, con mínimo exento de 700.000 €) y un 3 % anual los de más de 50 millones.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "democrata_fa",
     "marcos_fa"
    ],
@@ -3845,18 +4008,21 @@
       "ref": "patrimonio_300k_1M"
      },
      "valor": 0,
-     "texto": "Estás cerca del umbral: depende de cómo se compute la vivienda habitual (sin detalle)."
+     "texto": "Por debajo de 1 millón de patrimonio neto no lo pagarías."
     }
-   ]
+   ],
+   "pagina": 45,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=45"
   },
   {
    "id": "fa-rentas",
    "partido": "fa",
    "tema": "IRPF",
-   "texto": "«Contrarreforma fiscal» para que las rentas más altas aporten más; tributación mínima efectiva de grandes empresas. Sin cifras.",
+   "texto": "Más tramos del IRPF desde 120.000 € y tipo marginal de hasta el 52 % desde 300.000 €; acercar la tributación de las rentas del capital a la del trabajo; tipo mínimo real del 20 % en Sociedades.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "democrata_fa",
     "marcos_fa"
    ],
@@ -3864,28 +4030,67 @@
    "efectos": [
     {
      "si": {
-      "any": [
+      "q": "ing",
+      "eq": 6
+     },
+     "valor": -1,
+     "texto": "Si tus ingresos superan los 120.000 €, pagarías más IRPF."
+    },
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del ahorro tributarían más."
+    }
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=46"
+  },
+  {
+   "id": "fa-irpf",
+   "partido": "fa",
+   "tema": "IRPF",
+   "texto": "Bajar el IRPF a las rentas del trabajo de hasta 27.000 €: quien cobre el salario mínimo no pagaría y la rebaja decrece hasta esa cifra.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_fa"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
        {
-        "ref": "renta_alta"
+        "ref": "trabaja"
        },
        {
-        "ref": "ahorro_alto"
+        "ref": "renta_baja"
        }
       ]
      },
-     "valor": -1,
-     "texto": "Con tus ingresos es probable que pagues más (tramos no publicados)."
+     "valor": 1,
+     "texto": "Pagarías menos IRPF por tu sueldo (o nada si cobras el salario mínimo)."
     }
-   ]
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=46"
   },
   {
    "id": "fa-tope",
    "partido": "fa",
    "tema": "Cotizaciones",
-   "texto": "Eliminar progresivamente el tope máximo de cotización a la Seguridad Social.",
+   "texto": "Seguir elevando progresivamente el tope máximo de cotización a la Seguridad Social y una aportación adicional de las empresas más automatizadas.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "marcos_fa"
    ],
    "riesgos": [],
@@ -3902,7 +4107,7 @@
       ]
      },
      "valor": -1,
-     "texto": "Cotizarías por todo tu salario, no solo hasta la base máxima (unos 60.000 €)."
+     "texto": "Cotizarías por una parte mayor de tu salario por encima de la base máxima actual (unos 60.000 €)."
     },
     {
      "si": {
@@ -3919,16 +4124,19 @@
      "valor": -1,
      "texto": "Subiría el coste de tus empleados con sueldos altos."
     }
-   ]
+   ],
+   "pagina": 58,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=58"
   },
   {
    "id": "fa-pension",
    "partido": "fa",
    "tema": "Pensiones",
-   "texto": "Ninguna pensión por debajo del salario mínimo y jubilación como máximo a los 65 años (coste estimado por el partido: unos 20.000 M€/año).",
+   "texto": "Pensión mínima igual al salario mínimo y edad de jubilación de vuelta a los 65 años (coste estimado por el partido en campaña: unos 20.000 M€/año).",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "marcos_fa"
    ],
    "riesgos": [
@@ -3981,16 +4189,19 @@
      "valor": 1,
      "texto": "Podrías jubilarte a los 65 sin penalización."
     }
-   ]
+   ],
+   "pagina": 57,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=57"
   },
   {
    "id": "fa-viv",
    "partido": "fa",
    "tema": "Vivienda",
-   "texto": "Ley para expropiar viviendas a fondos de inversión (por fases: más de 1.000, más de 700 y más de 50 viviendas), no a particulares; 1 % del PIB para el parque público.",
+   "texto": "Ley de expropiación de viviendas a propietarios corporativos (por fases: más de 1.000, más de 700 y más de 50 viviendas), no a particulares, para ampliar el parque público.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "democrata_fa",
     "marcos_fa"
    ],
@@ -4019,16 +4230,19 @@
      "valor": 1,
      "texto": "Más vivienda pública de alquiler asequible a la que optar."
     }
-   ]
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=10"
   },
   {
    "id": "fa-acum",
    "partido": "fa",
    "tema": "Vivienda",
-   "texto": "Impuesto del 10 % a la acumulación de viviendas (umbral no publicado).",
+   "texto": "Impuesto del 10 % sobre el valor de los pisos: a las empresas desde el primero y a los particulares desde el cuarto, si sus viviendas valen en conjunto más de 800.000 €.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "telemadrid"
    ],
    "riesgos": [],
@@ -4038,25 +4252,28 @@
       "ref": "varias_viviendas"
      },
      "valor": -1,
-     "texto": "Con varias viviendas podrías pagarlo (umbral no publicado)."
+     "texto": "Con cuatro viviendas o más lo pagarías si su valor conjunto supera los 800.000 €."
     },
     {
      "si": {
       "ref": "tiene_otras_viviendas"
      },
      "valor": 0,
-     "texto": "No está claro desde cuántas viviendas se aplicaría."
+     "texto": "Con hasta tres viviendas en total no lo pagarías como particular."
     }
-   ]
+   ],
+   "pagina": 18,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=18"
   },
   {
    "id": "fa-indef",
    "partido": "fa",
    "tema": "Vivienda",
-   "texto": "Contratos de alquiler indefinidos; legalizar las huelgas de alquileres y reconocer a los sindicatos de inquilinas.",
+   "texto": "Contrato de alquiler indefinido por defecto; regular la huelga de alquileres y reconocer a los sindicatos de inquilinas.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "marcos_fa"
    ],
    "riesgos": [
@@ -4080,16 +4297,19 @@
      "valor": 1,
      "texto": "No tendrías que irte al acabar el contrato y tendrías más fuerza para negociar."
     }
-   ]
+   ],
+   "pagina": 14,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=14"
   },
   {
    "id": "fa-autonomos",
    "partido": "fa",
    "tema": "Autónomos",
-   "texto": "Bonificar las cuotas de autónomos con bajos ingresos y simplificar trámites.",
+   "texto": "Cotización fija bonificada para autónomos cuyos ingresos reales no lleguen al salario mínimo.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "telemadrid"
    ],
    "riesgos": [],
@@ -4101,30 +4321,33 @@
         "ref": "autonomo_o_futuro"
        },
        {
-        "ref": "renta_baja"
+        "ref": "renta_smi"
        }
       ]
      },
      "valor": 1,
-     "texto": "Pagarías menos cuota."
+     "texto": "Pagarías una cuota fija bonificada."
     },
     {
      "si": {
       "ref": "autonomo_o_futuro"
      },
      "valor": 0,
-     "texto": "Por tus ingresos quizá no entres en la bonificación (umbral no publicado)."
+     "texto": "Por encima del salario mínimo no te aplicaría."
     }
-   ]
+   ],
+   "pagina": 92,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=92"
   },
   {
    "id": "fa-smi",
    "partido": "fa",
    "tema": "Empleo",
-   "texto": "Volver a subir el salario mínimo (sin cifra) y semana laboral de 32 horas.",
+   "texto": "Salario mínimo fijado por ley en el 60 % del salario medio neto y jornada máxima de 32 horas semanales sin bajar el sueldo (37,5 horas de inmediato).",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "democrata_fa",
     "marcos_fa"
    ],
@@ -4153,7 +4376,9 @@
      "valor": -1,
      "texto": "Más coste laboral por hora."
     }
-   ]
+   ],
+   "pagina": 51,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=51"
   },
   {
    "id": "fa-sanidad",
@@ -4161,8 +4386,9 @@
    "tema": "Sanidad",
    "texto": "Incluir gafas, audífonos, dentista y atención integral a la menopausia en la sanidad pública.",
    "num": null,
-   "origen": "campaña",
+   "origen": "programa",
    "fuentes": [
+    "pdf_fa",
     "telemadrid",
     "marcos_fa"
    ],
@@ -4173,7 +4399,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 27,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=27"
   },
   {
    "id": "pod-smi",
@@ -4391,9 +4619,9 @@
    "id": "cc-empad",
    "partido": "cc",
    "tema": "Vivienda",
-   "texto": "Exigir diez años de empadronamiento en Canarias para comprar vivienda (quince si no son continuos) y limitar a dos las viviendas por persona en municipios distintos.",
+   "texto": "Exigir diez años de empadronamiento en Canarias para comprar vivienda (quince si no son continuos) y limitar a dos las viviendas por persona en municipios distintos. No figura en el programa del 29N.",
    "num": null,
-   "origen": "programa",
+   "origen": "previa",
    "fuentes": [
     "pe_cc"
    ],
@@ -4433,9 +4661,9 @@
    "id": "cc-alq",
    "partido": "cc",
    "tema": "Vivienda",
-   "texto": "Rechazar la renovación automática de alquileres y proteger a los pequeños propietarios.",
+   "texto": "Rechazar la renovación automática de alquileres y proteger a los pequeños propietarios. El programa del 29N solo recoge incentivos fiscales a pequeños propietarios que alquilen a precio asequible (acción 24).",
    "num": null,
-   "origen": "programa",
+   "origen": "previa",
    "fuentes": [
     "pe_cc"
    ],
@@ -4461,10 +4689,11 @@
    "id": "cc-viv",
    "partido": "cc",
    "tema": "Vivienda",
-   "texto": "Financiación estatal para vivienda pública, ayudas a la compra y al alquiler, y apoyo a la emancipación juvenil.",
-   "num": null,
+   "texto": "Fondo estatal de ocho años para vivienda pública y asequible en Canarias y línea estatal de vivienda joven, alquiler asequible y cooperativas.",
+   "num": "22, 25",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc",
     "eldiario_cc"
    ],
@@ -4493,16 +4722,19 @@
      "valor": 1,
      "texto": "Más ayudas y vivienda pública a tu alcance (sin cifras)."
     }
-   ]
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=10"
   },
   {
    "id": "cc-empleo",
    "partido": "cc",
    "tema": "Empleo",
-   "texto": "Mantener el Plan Integral de Empleo de Canarias y un plan para menores de 35 años; bonificar cotizaciones a empresas que suban salarios por encima del convenio.",
-   "num": null,
+   "texto": "Mantener el Plan Integral de Empleo de Canarias y un plan cuatrienal de empleo para menores de 35 años.",
+   "num": "31, 45",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc"
    ],
    "riesgos": [
@@ -4534,24 +4766,20 @@
      },
      "valor": 1,
      "texto": "Más recursos de empleo para ti."
-    },
-    {
-     "si": {
-      "ref": "empleador"
-     },
-     "valor": 1,
-     "texto": "Pagarías menos cotizaciones si subes sueldos."
     }
-   ]
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=12"
   },
   {
    "id": "cc-pens",
    "partido": "cc",
    "tema": "Pensiones",
-   "texto": "Pensiones según el coste de la vida (Pacto de Toledo) y que las no contributivas sumen el complemento canario sin perder ingresos; mejor acceso al IMV.",
-   "num": null,
+   "texto": "Que las pensiones no contributivas sumen el complemento canario sin tributar ni perder ingresos, y que Canarias pueda tramitar el Ingreso Mínimo Vital.",
+   "num": "16, 19",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc"
    ],
    "riesgos": [],
@@ -4572,13 +4800,6 @@
     },
     {
      "si": {
-      "ref": "pensionista"
-     },
-     "valor": 1,
-     "texto": "Tu pensión seguiría al coste de la vida."
-    },
-    {
-     "si": {
       "all": [
        {
         "ref": "renta_smi"
@@ -4596,16 +4817,19 @@
      "valor": 1,
      "texto": "Te sería más fácil acceder al IMV si cumples los requisitos."
     }
-   ]
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=10"
   },
   {
    "id": "cc-transp",
    "partido": "cc",
    "tema": "Transporte",
    "texto": "Consolidar el descuento de residente del 75 % y actualizar las ayudas al transporte de mercancías.",
-   "num": null,
+   "num": "75, 80",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc"
    ],
    "riesgos": [],
@@ -4617,16 +4841,19 @@
      "valor": 1,
      "texto": "Mantienes el descuento en vuelos y barcos; la cesta de la compra podría abaratarse."
     }
-   ]
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=17"
   },
   {
    "id": "cc-03",
    "partido": "cc",
    "tema": "Familia",
-   "texto": "Educación infantil de 0 a 3 años gratuita, con plazas públicas suficientes.",
-   "num": null,
+   "texto": "Más financiación estatal para plazas públicas gratuitas de 0 a 3 años.",
+   "num": "14",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc"
    ],
    "riesgos": [
@@ -4664,16 +4891,19 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): te ahorrarías la escuela infantil."
     }
-   ]
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=9"
   },
   {
    "id": "cc-agua",
    "partido": "cc",
    "tema": "Agua y sanidad",
-   "texto": "Que el Estado compense el precio del agua desalada hasta igualarlo con la Península y cubra el sobrecoste sanitario de la insularidad.",
-   "num": null,
+   "texto": "Compensaciones estatales actualizadas por el sobrecoste del agua desalada y por el coste sanitario de la insularidad.",
+   "num": "10, 66",
    "origen": "programa",
    "fuentes": [
+    "pdf_cc",
     "pe_cc"
    ],
    "riesgos": [
@@ -4683,7 +4913,9 @@
     }
    ],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=9"
   }
  ],
  "temas_sociales": [
@@ -6131,6 +6363,232 @@
    "fuentes": [
     "pdf_cc"
    ]
+  },
+  {
+   "id": "soc-ext-pod-0",
+   "partido": "pod",
+   "tema": "igualdad",
+   "texto": "Erradicar las violencias machistas y aprobar una directiva europea contra la violencia vicaria.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 20 y 25",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-1",
+   "partido": "pod",
+   "tema": "lgtbi",
+   "texto": "Libre determinación de género, despatologización de las personas trans y reconocimiento de las personas no binarias.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 24",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-2",
+   "partido": "pod",
+   "tema": "racismo",
+   "texto": "Estrategia integral contra el racismo estructural e institucional en la UE.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 25",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-3",
+   "partido": "pod",
+   "tema": "migracion",
+   "texto": "Vías legales y seguras con reasentamiento, cierre de los centros de internamiento y supresión de Frontex.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 49-50",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-4",
+   "partido": "pod",
+   "tema": "migracion",
+   "texto": "Vincular los derechos a la residencia y no a la nacionalidad, con cobertura sanitaria para todas las personas.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 52",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-5",
+   "partido": "pod",
+   "tema": "discapacidad",
+   "texto": "Garantizar el cumplimiento de la Convención de la ONU sobre los Derechos de las Personas con Discapacidad.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 35",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-6",
+   "partido": "pod",
+   "tema": "familia",
+   "texto": "Permisos por nacimiento iguales, intransferibles y pagados al 100 %, con un objetivo mínimo de 36 semanas.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 27",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-7",
+   "partido": "pod",
+   "tema": "educacion",
+   "texto": "Educación gratuita de 0 a 18 años y medidas contra la segregación escolar, que vincula al peso de la concertada.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 32",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-8",
+   "partido": "pod",
+   "tema": "educacion",
+   "texto": "Educación sexual integral para la infancia y la juventud.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 24",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-9",
+   "partido": "pod",
+   "tema": "vida",
+   "texto": "Aborto seguro, libre y gratuito, y derecho a la eutanasia para quien padezca un sufrimiento irreversible.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 18 y 20",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-10",
+   "partido": "pod",
+   "tema": "religion",
+   "texto": "Separar las confesiones religiosas de las estructuras del Estado y eliminar sus privilegios fiscales.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 19-20",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pod-11",
+   "partido": "pod",
+   "tema": "rural",
+   "texto": "Tener en cuenta la despoblación al repartir los fondos estructurales europeos.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 98",
+   "origen": "previa",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fuentes": [
+    "pod_ue24"
+   ]
+  },
+  {
+   "id": "soc-ext-pp-12",
+   "partido": "pp",
+   "tema": "vida",
+   "texto": "Reabrir el debate sobre el aborto de las chicas de 16 y 17 años y reformar la ley de eutanasia.",
+   "num": null,
+   "pagina": null,
+   "referencia": "entrevista de Feijóo, 23-10-2026",
+   "origen": "campaña",
+   "url": "https://es.ara.cat/politica/elecciones-generales/feijoo-promete-reabrir-debate-aborto-reformar-ley-eutanasia_1_5887953.html",
+   "fuentes": [
+    "ara_feijoo",
+    "que_feijoo"
+   ]
+  },
+  {
+   "id": "soc-ext-vox-13",
+   "partido": "vox",
+   "tema": "lgtbi",
+   "texto": "Derogar la Ley Trans.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa de 2023",
+   "origen": "previa",
+   "url": "https://www.eldebate.com/sociedad/20230708/vox-apuesta-vida-promete-derogar-leyes-aborto-eutanasia_126854.html",
+   "fuentes": [
+    "debate_vox23"
+   ]
+  },
+  {
+   "id": "soc-ext-vox-14",
+   "partido": "vox",
+   "tema": "lgtbi",
+   "texto": "Eliminar las normas de igualdad y LGTBI en las empresas, entre una decena de leyes a derogar.",
+   "num": null,
+   "pagina": null,
+   "referencia": "plan de desregulación, junio de 2026",
+   "origen": "previa",
+   "url": "https://www.que.es/2026/06/28/vox-derogacion-masiva-leyes/",
+   "fuentes": [
+    "que_voxdesreg"
+   ]
+  },
+  {
+   "id": "soc-ext-psoe-15",
+   "partido": "psoe",
+   "tema": "religion",
+   "texto": "Revisar los Acuerdos de 1979 con la Santa Sede: en 2019 proponía denunciarlos y en 2021, actualizarlos de forma pactada con la Iglesia.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa de 2019 y congreso de 2021",
+   "origen": "previa",
+   "url": "https://www.aciprensa.com/noticias/psoe-amenaza-con-denunciar-acuerdos-entre-santa-sede-y-espana-27988",
+   "fuentes": [
+    "aci_psoe19",
+    "maldita_psoe21"
+   ]
   }
  ],
  "fuentes": {
@@ -6298,6 +6756,41 @@
    "titulo": "CNMC: Estudio sobre la transformación urbanística del suelo para vivienda",
    "url": "https://www.cnmc.es/sites/default/files/6658260.pdf",
    "fecha": "2025"
+  },
+  "pod_ue24": {
+   "titulo": "Podemos: Programa de las elecciones europeas 2024",
+   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
+   "fecha": "2024-05"
+  },
+  "ara_feijoo": {
+   "titulo": "Ara: Feijóo promete reabrir el debate del aborto y reformar la ley de eutanasia",
+   "url": "https://es.ara.cat/politica/elecciones-generales/feijoo-promete-reabrir-debate-aborto-reformar-ley-eutanasia_1_5887953.html",
+   "fecha": "2026-10-23"
+  },
+  "que_feijoo": {
+   "titulo": "Qué!: Feijóo promete revisar el aborto, integrar Igualdad y atar el SMI al acuerdo con la patronal",
+   "url": "https://que.es/2026/10/23/feijoo-aborto-igualdad-smi",
+   "fecha": "2026-10-23"
+  },
+  "que_voxdesreg": {
+   "titulo": "Qué!: Vox propone una derogación masiva de leyes: reforma laboral, igualdad y vivienda",
+   "url": "https://www.que.es/2026/06/28/vox-derogacion-masiva-leyes/",
+   "fecha": "2026-06-28"
+  },
+  "debate_vox23": {
+   "titulo": "El Debate: Vox promete derogar las leyes del aborto y la eutanasia (programa del 23J)",
+   "url": "https://www.eldebate.com/sociedad/20230708/vox-apuesta-vida-promete-derogar-leyes-aborto-eutanasia_126854.html",
+   "fecha": "2023-07-08"
+  },
+  "aci_psoe19": {
+   "titulo": "ACI Prensa: El PSOE incluye en su programa denunciar los acuerdos con la Santa Sede (elecciones de noviembre de 2019)",
+   "url": "https://www.aciprensa.com/noticias/psoe-amenaza-con-denunciar-acuerdos-entre-santa-sede-y-espana-27988",
+   "fecha": "2019-10"
+  },
+  "maldita_psoe21": {
+   "titulo": "Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones",
+   "url": "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano",
+   "fecha": "2021-07-26"
   },
   "pdf_pp": {
    "titulo": "PP: La Reconstrucción Nacional (programa oficial, PDF)",

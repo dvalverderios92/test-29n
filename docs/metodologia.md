@@ -34,7 +34,7 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 
 ## Limitaciones conocidas
 
-- Muchas medidas proceden de resúmenes de prensa que citan los programas. Se están contrastando, página a página, con los programas oficiales guardados en `programas/`.
+- **Jerarquía de fuentes, igual en todos los bloques:** 1) el programa oficial del 29N, con su página (carpeta `programas/`); 2) si el programa no recoge el asunto o el partido no tiene programa, anuncios de campaña del 29N; 3) si tampoco hay, posiciones anteriores (programas o declaraciones previas). Cada medida indica su origen y enlaza a su fuente. Las cifras que el programa no da y aparecen en prensa se atribuyen a esa fuente.
 - Muchas medidas carecen de cifras. En ese caso, el efecto es incierto o se indica «sin cifras».
 - Frente Amplio y Podemos no habían publicado programa en la fecha de corte.
 - Los niveles de exposición son juicios de los autores, explícitos en `data/medidas.json` y discutibles. Por eso son abiertos.
@@ -50,5 +50,5 @@ Bloque aparte y opcional sobre temas sociales: igualdad y violencia contra las m
 
 - **Sin valoración.** En lo económico se puede decir si pagas más o menos. En lo social, la misma medida la valoran al revés personas en la misma situación, así que el test no marca nada como «a favor» o «en contra». Cada medida es un resumen fiel del programa oficial, con su número y un enlace a la página del PDF.
 - **Preguntas sensibles opcionales.** Género, pertenencia al colectivo LGTBIQ+, minoría étnica, discapacidad y religión. Todas tienen «Prefiero no contestar». Solo sirven para dejar marcados de partida los temas de la última pregunta: no cambian ninguna medida ni riesgo, y no aparecen en el PDF ni en el texto copiado. Las pruebas automáticas lo comprueban.
-- **Simetría.** Los temas incluyen asuntos que priorizan votantes de sensibilidades distintas, y se recogen con el mismo criterio para todos los partidos. Si un programa no dice nada sobre un tema, se indica así: «No se han encontrado propuestas sobre este tema en su programa».
-- **Partidos sin programa.** Podemos aparece como «sin programa publicado».
+- **Simetría.** Los temas incluyen asuntos que priorizan votantes de sensibilidades distintas, y se recogen con el mismo criterio para todos los partidos. Si no hay nada ni en el programa ni en otras fuentes consultadas, se indica así.
+- **Partidos sin programa o temas que el programa no trata.** Se aplica la misma jerarquía: anuncios de campaña y, si no hay, posiciones anteriores (en el caso de Podemos, su programa europeo de 2024, con su página). Si no hay nada en ninguna fuente consultada, se indica así.
