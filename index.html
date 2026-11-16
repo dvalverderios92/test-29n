@@ -7,106 +7,177 @@
 <meta name="description" content="Cuestionario abierto y neutral: qué medidas de cada partido en las elecciones generales del 29N te favorecen o perjudican, con sus riesgos indirectos y su financiación. No es una recomendación de voto.">
 <link rel="alternate" type="text/plain" href="llms.txt" title="Instrucciones para modelos de lenguaje">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f6f5f1;--card:#fff;--ink:#1d1d1b;--mut:#6b6a66;--line:#e3e1da;--acc:#2f4b7c;--pos:#1f7a4d;--posb:#e6f3ec;--neg:#b23a2e;--negb:#f8e9e7;--unc:#8a6d1d;--uncb:#f6f0dc;--hi:#9c2f6b;--hib:#f6e6ef}
-@media (prefers-color-scheme:dark){:root{--bg:#161615;--card:#21211f;--ink:#ecebe6;--mut:#a3a19b;--line:#36352f;--acc:#8fb0e8;--pos:#6fcf9b;--posb:#1d3328;--neg:#f08a7e;--negb:#3a2220;--unc:#e0c06a;--uncb:#36301c;--hi:#e79bc6;--hib:#3a2030}}
+/* Identidad: la papeleta. Papel de Congreso (blanco) sobre sepia de Senado, tinta negra y la X de marcar.
+   Paleta sin colores de partido: el significado lo llevan la forma, el texto y la densidad de tinta. */
+:root{
+  --sepia:#E4D3AE; --sepia-2:#D6C08F; --papel:#FFFDF6; --tinta:#1F1A12; --tinta-2:#5B4F3C; --linea:#B9A274;
+  --trama:repeating-linear-gradient(135deg,var(--tinta) 0 2px,transparent 2px 5px);
+  --radio:8px; --sombra:4px 4px 0 var(--sepia-2);
+}
+@media (prefers-color-scheme:dark){:root{
+  --sepia:#1B1711; --sepia-2:#0F0C08; --papel:#2A241B; --tinta:#F3E8D0; --tinta-2:#C2B496; --linea:#6B5D44;
+}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Inter,system-ui,sans-serif}
-.wrap{max-width:780px;margin:0 auto;padding:20px 16px 64px}
-h1{font-family:"Source Serif 4",Georgia,serif;font-size:1.7rem;line-height:1.2;margin:.2em 0 .4em}
-h2{font-family:"Source Serif 4",Georgia,serif;font-size:1.25rem;margin:1.3em 0 .5em}
-h3{font-size:1rem;margin:1.1em 0 .4em}
-a{color:var(--acc)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.mut{color:var(--mut);font-size:.9rem}
-.note{font-size:.88rem;color:var(--mut);border-left:3px solid var(--line);padding:4px 10px;margin:10px 0}
-button{font:inherit;cursor:pointer}
-.btn{background:var(--acc);color:#fff;border:0;border-radius:10px;padding:12px 18px;font-weight:600}
-@media (prefers-color-scheme:dark){.btn{color:#111}}
-.btn.sec{background:transparent;color:var(--acc);border:1px solid var(--line)}
-.btn:disabled{opacity:.4;cursor:default}
-.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:18px;flex-wrap:wrap}
-.prog{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:8px 0 18px}
-.prog>div{height:100%;background:var(--acc);transition:width .25s}
-.q{font-weight:600;font-size:1.1rem;margin-bottom:4px}
-.opts{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-.opt{text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--ink)}
-.opt.sel{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 12%,var(--card))}
-.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);z-index:2}
-.tab{white-space:nowrap;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font-weight:500}
-.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.sumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px}
-.sum{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--card);cursor:pointer;text-align:left;color:var(--ink)}
-.sum b{display:block;margin-bottom:4px}
-.sum .lbl{display:block;font-size:.72rem;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.03em}
-.pill{display:inline-block;font-size:.76rem;font-weight:600;border-radius:999px;padding:2px 8px;margin:2px 4px 2px 0}
-.p{background:var(--posb);color:var(--pos)}.n{background:var(--negb);color:var(--neg)}.u{background:var(--uncb);color:var(--unc)}
-.hi{background:var(--hib);color:var(--hi)}
-.src{background:var(--bg);color:var(--mut);border:1px solid var(--line)}
-.m{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:8px 0;background:var(--card)}
-.m.pos{border-left:5px solid var(--pos)}.m.neg{border-left:5px solid var(--neg)}.m.unc{border-left:5px solid var(--unc)}
-.m.r-alta{border-left:5px solid var(--hi)}.m.r-media{border-left:5px solid var(--unc)}.m.r-baja{border-left:5px solid var(--line)}
-.m .t{font-weight:600}
-.lay{font-size:.9rem;margin-top:6px}
-.lay b{font-weight:600}
-details{margin:8px 0}summary{cursor:pointer;font-weight:600}
-.m details summary{font-weight:500;font-size:.88rem;color:var(--acc)}
-ul.srcs{padding-left:18px;font-size:.85rem;margin:6px 0}
-.fin{background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:.92rem}
-.hide{display:none}
-.mx{width:100%;border-collapse:collapse;font-size:.85rem}
-.mxw{overflow-x:auto;margin:8px 0}
-.mx th,.mx td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:center;vertical-align:middle}
-.mx th:first-child,.mx td:first-child{text-align:left;width:40%}
-.mx th,.mx td{padding:6px 3px}
-.mx thead th{font-size:.75rem;color:var(--mut);font-weight:600}
-.lv{display:inline-block;min-width:26px;border-radius:6px;padding:2px 6px;font-weight:600;font-size:.75rem}
-.lv.alta{background:var(--hib);color:var(--hi)}.lv.media{background:var(--uncb);color:var(--unc)}.lv.baja{background:var(--bg);color:var(--mut);border:1px solid var(--line)}
-.lv.no{color:var(--line)}
-.err{color:var(--neg)}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sepia);color:var(--tinta);font-family:Archivo,system-ui,sans-serif;font-size:17px;line-height:1.55;font-stretch:100%}
+.wrap{max-width:760px;margin:0 auto;padding:28px 18px 80px}
+h1,h2,h3{font-stretch:125%;line-height:1.05;letter-spacing:-.01em;margin:0}
+h1{font-weight:850;font-size:clamp(2.3rem,10vw,4.2rem);letter-spacing:-.025em}
+h2{font-weight:800;font-size:clamp(1.35rem,5vw,1.8rem);margin:2.2rem 0 .6rem}
+h3{font-weight:750;font-size:1.05rem;margin:1.4rem 0 .5rem}
+p{margin:.6rem 0;max-width:62ch}
+a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:4px}
+.mut{color:var(--tinta-2);font-size:.92rem}
+.hide{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Papel */
+.card{background:var(--papel);border:1.5px solid var(--linea);border-radius:var(--radio);padding:20px}
+.papeleta{background:var(--papel);border:2px solid var(--tinta);border-radius:var(--radio);box-shadow:var(--sombra);padding:22px 20px}
+.cabecera{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:3px double var(--tinta);padding-bottom:10px;margin-bottom:16px;font-stretch:75%;font-weight:600;font-size:.95rem}
+.note{font-size:.9rem;color:var(--tinta-2);border-left:3px solid var(--linea);padding:2px 0 2px 12px;margin:12px 0;max-width:62ch}
+
+/* Botones */
+button{font:inherit;cursor:pointer;color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:var(--tinta);color:var(--papel);border:2px solid var(--tinta);border-radius:var(--radio);padding:10px 20px;font-weight:700;font-stretch:110%;text-decoration:none;transition:transform .08s}
+.btn:active{transform:translate(2px,2px)}
+.btn.sec{background:transparent;color:var(--tinta)}
+.btn:disabled{opacity:.35;cursor:default}
+.row{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:20px;flex-wrap:wrap}
+.izq{justify-content:flex-start}
+
+/* Portada */
+.hero{padding:8px 0 4px}
+.hero .lead{font-size:1.15rem;max-width:34ch;margin:1rem 0 1.4rem}
+.contexto{font-stretch:75%;font-weight:600;color:var(--tinta-2);margin:0 0 14px}
+.muestra{margin-top:28px}
+.muestra ul{list-style:none;padding:0;margin:0}
+.muestra li{display:grid;grid-template-columns:30px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--linea)}
+.muestra li:first-child{border-top:0;padding-top:0}
+.muestra b{display:block;font-stretch:112%}
+.muestra span.d{color:var(--tinta-2);font-size:.95rem}
+
+/* Casilla con X */
+.box{width:28px;height:28px;flex:0 0 28px;border:2px solid var(--tinta);border-radius:3px;background:var(--papel);display:inline-flex;align-items:center;justify-content:center}
+.box svg{width:22px;height:22px;stroke:var(--tinta);stroke-width:3.2;stroke-linecap:round;fill:none;opacity:0}
+.box.x svg,.sel .box svg{opacity:1}
+.nuevo .box svg path{stroke-dasharray:30;stroke-dashoffset:30;animation:trazo .22s ease-out forwards}
+.nuevo .box svg path+path{animation-delay:.12s}
+@keyframes trazo{to{stroke-dashoffset:0}}
+
+/* Cuestionario */
+.casillas{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 16px}
+.casillas i{width:12px;height:12px;border:1.5px solid var(--tinta);border-radius:2px}
+.casillas i.hecha{background:var(--tinta)}
+.casillas i.ahora{background:var(--trama)}
+.q{font-weight:800;font-stretch:115%;font-size:clamp(1.25rem,4.6vw,1.55rem);line-height:1.2;margin:0 0 6px}
+.opts{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+.opt{display:flex;gap:14px;align-items:center;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--linea);padding:14px 4px;font-size:1.02rem;min-height:56px}
+.opt:last-child{border-bottom:0}
+.opt:hover .box{background:var(--sepia)}
+.opt.sel{font-weight:700}
+
+/* Resultados */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0;margin:18px 0 6px;position:sticky;top:0;background:var(--sepia);z-index:2}
+.tab{white-space:nowrap;border:2px solid var(--tinta);background:var(--papel);border-radius:var(--radio);padding:8px 14px;font-weight:650;min-height:44px}
+.tab.on{background:var(--tinta);color:var(--papel)}
+.sumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.sum{border:1.5px solid var(--linea);border-radius:var(--radio);padding:14px;background:var(--papel);text-align:left}
+.sum:hover{border-color:var(--tinta)}
+.sum b{display:block;font-stretch:118%;font-size:1.1rem;margin-bottom:8px}
+.sum .lbl{display:block;font-size:.8rem;color:var(--tinta-2);margin-top:8px;font-stretch:80%}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:.82rem;font-weight:650;border-radius:5px;padding:2px 8px;margin:3px 4px 3px 0;border:1.5px solid var(--tinta);font-stretch:85%}
+.p{background:var(--papel)}
+.n{background:var(--tinta);color:var(--papel)}
+.u{border-style:dashed;background:transparent}
+.hi{background:var(--tinta);color:var(--papel)}
+.src{border-color:var(--linea);color:var(--tinta-2);font-weight:500}
+.m{border:1.5px solid var(--linea);border-radius:var(--radio);padding:14px 16px;margin:10px 0;background:var(--papel)}
+.m.pos{border-left:6px solid var(--tinta)}
+.m.neg{border:2px solid var(--tinta);border-left-width:6px;box-shadow:var(--sombra)}
+.m.unc{border-style:dashed}
+.m.r-alta{border:2px solid var(--tinta);border-left:10px solid var(--tinta);box-shadow:var(--sombra)}
+.m.r-media{position:relative;padding-left:28px;border-color:var(--tinta)}
+.m.r-media::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--trama);border-right:1.5px solid var(--tinta);border-radius:6px 0 0 6px}
+.m.r-baja{border-left:10px solid var(--linea)}
+.m .t{font-weight:800;font-stretch:112%}
+.lay{font-size:.95rem;margin-top:8px}
+.lay b{font-weight:700}
+details{margin:8px 0}
+summary{cursor:pointer;font-weight:650}
+.m details summary{font-weight:550;font-size:.9rem;text-decoration:underline;text-underline-offset:3px}
+ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
+.fin{border-top:3px double var(--tinta);padding-top:12px;margin-top:14px;font-size:.95rem}
+.mx{width:100%;border-collapse:collapse;font-size:.88rem}
+.mxw{overflow-x:auto}
+.mx th,.mx td{border-bottom:1px solid var(--linea);padding:9px 3px;text-align:center;vertical-align:middle}
+.mx th:first-child,.mx td:first-child{text-align:left;width:42%}
+.mx thead th{font-size:.8rem;color:var(--tinta-2);font-weight:700;font-stretch:80%}
+.lv{display:inline-block;width:22px;height:22px;border:2px solid var(--tinta);border-radius:3px;vertical-align:middle}
+.lv.alta{background:var(--tinta)}
+.lv.media{background:var(--trama)}
+.lv.baja{background:transparent}
+.lv.no{border-color:transparent;width:auto;height:auto;color:var(--linea)}
+.ev{display:block;font-size:.78rem;color:var(--tinta-2);font-stretch:80%}
+.leyenda{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;color:var(--tinta-2);margin:10px 0 0}
+.leyenda span{display:inline-flex;align-items:center;gap:6px}
+.err{font-weight:700}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.nuevo .box svg path{stroke-dashoffset:0}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <section id="intro">
-  <p class="mut">Elecciones generales · 29 de noviembre de 2026 · <span id="corte"></span></p>
-  <h1>¿Qué medidas de cada partido te afectan a ti?</h1>
-  <div class="card">
-    <p>Responde unas preguntas sobre tu situación (3 minutos). Verás, partido por partido, tres capas:</p>
-    <ol style="padding-left:20px;margin:0 0 10px">
-      <li><b>Riesgos indirectos</b>: lo que una medida puede provocar aunque no te toque directamente (menos recaudación, gasto sin financiar, efectos sobre precios, empleo u oferta), según cuánto te expone tu situación. Se comparan entre partidos en una tabla.</li>
-      <li><b>Efecto directo</b>: qué medidas te favorecen, te perjudican o tienen un efecto incierto en tu bolsillo.</li>
-      <li><b>Financiación</b>: si el partido dice cuánto cuesta su programa y de dónde sale el dinero.</li>
-    </ol>
-    <p class="note"><b>Cada dato separa hecho de inferencia.</b> Lo que propone el partido lleva fuente y, si existe, número de medida. Cómo te afecta es una inferencia. La evidencia de cada riesgo se marca como hecho, consenso, disputada o inferencia. No hay puntuación final ni recomendación de voto, y los partidos van en orden alfabético.</p>
-    <p class="note" id="estado"></p>
-    <p class="mut">Tus respuestas no salen de tu navegador.</p>
-    <div class="row"><span></span><button class="btn" id="startBtn" disabled>Cargando…</button></div>
-  </div>
-  <h2>Hazlo con tu IA</h2>
-  <div class="card" id="conia">
-    <p style="margin-top:0">Tu asistente te hará las preguntas en el chat, una a una, con las mismas reglas y datos que esta web.</p>
-    <div class="row" style="margin-top:6px;justify-content:flex-start">
-      <a class="btn" id="btnGpt" target="_blank" rel="noopener" style="text-decoration:none">Abrir en ChatGPT</a>
-      <a class="btn" id="btnClaude" target="_blank" rel="noopener" style="text-decoration:none">Abrir en Claude</a>
-      <a class="btn hide" id="btnGem" target="_blank" rel="noopener" style="text-decoration:none">Abrir en Gemini</a>
+  <div class="hero">
+    <p class="contexto">Elecciones generales del 29 de noviembre de 2026, <span id="corte"></span></p>
+    <h1>¿Qué te juegas el 29N?</h1>
+    <p class="lead">Contesta unas preguntas sobre tu vida y mira qué medidas de cada partido te tocan, para bien o para mal, y qué riesgos traen aunque no te toquen.</p>
+    <div class="row izq">
+      <button class="btn" id="startBtn" disabled>Cargando…</button>
+      <a class="btn sec" href="#conia">Hacerlo con mi IA</a>
     </div>
-    <p class="mut" style="margin-bottom:4px">¿Otra IA, o la tuya no abre enlaces? Copia esta instrucción, o descarga el <a href="descargas/test-29n-chat.md">paquete completo</a> y adjúntalo al chat.</p>
+    <p class="mut">Unos 3 minutos. Tus respuestas no salen de tu navegador.</p>
+  </div>
+
+  <div class="papeleta muestra" aria-label="Qué verás al terminar">
+    <div class="cabecera"><span>Lo que verás al terminar</span></div>
+    <ul>
+      <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Los riesgos que corres</b><span class="d">Lo que una medida puede provocar aunque no te toque: menos recaudación, gasto sin financiar, precios, empleo. Comparados entre partidos.</span></div></li>
+      <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Lo que ganas o pierdes</b><span class="d">Qué medidas te favorecen, te perjudican o tienen un efecto incierto en tu bolsillo.</span></div></li>
+      <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Quién dice cómo pagarlo</b><span class="d">Si cada partido cuantifica su programa y de dónde sale el dinero.</span></div></li>
+    </ul>
+    <p class="mut" style="border-top:3px double var(--tinta);padding-top:10px;margin:14px 0 0">Sin ranking, sin puntuación y sin consejo de voto.</p>
+  </div>
+
+  <p class="note">Lo que propone cada partido lleva su fuente; cómo te afecta es una inferencia, y así se indica. La evidencia de cada riesgo se marca como hecho, consenso, disputada o inferencia. Los partidos van en orden alfabético.</p>
+  <p class="note" id="estado"></p>
+
+  <h2 id="conia-t">Hazlo con tu IA</h2>
+  <div class="card" id="conia">
+    <p style="margin-top:0">Tu asistente te hace las preguntas en el chat, una a una, con las mismas reglas y datos que esta web.</p>
+    <div class="row izq" style="margin-top:8px">
+      <a class="btn" id="btnGpt" target="_blank" rel="noopener">Abrir en ChatGPT</a>
+      <a class="btn" id="btnClaude" target="_blank" rel="noopener">Abrir en Claude</a>
+      <a class="btn hide" id="btnGem" target="_blank" rel="noopener">Abrir en Gemini</a>
+    </div>
+    <p class="mut" style="margin-top:18px">¿Usas otra IA o la tuya no abre enlaces? Copia esta instrucción o descarga el <a href="descargas/test-29n-chat.md">paquete completo</a> y adjúntalo al chat.</p>
     <div class="note" id="promptTxt" style="white-space:pre-wrap"></div>
-    <button class="btn sec" id="copyPrompt" type="button">Copiar instrucción</button> <span class="mut" id="copyPromptMsg"></span>
-    <p class="mut" style="margin-bottom:0">Para desarrolladores: <a href="llms.txt">llms.txt</a> · <a href="SKILL.md">SKILL.md</a> · <a href="data/medidas.json">datos (JSON)</a> · <a href="docs/metodologia.md">metodología</a> · <a href="https://github.com/dvalverderios92/test-29n">código</a></p>
+    <div class="row izq" style="margin-top:8px"><button class="btn sec" id="copyPrompt" type="button">Copiar instrucción</button><span class="mut" id="copyPromptMsg" role="status"></span></div>
+    <p class="mut" style="margin-bottom:0;margin-top:18px">Para desarrolladores: <a href="llms.txt">llms.txt</a>, <a href="SKILL.md">SKILL.md</a>, <a href="data/medidas.json">datos en JSON</a>, <a href="docs/metodologia.md">metodología</a> y <a href="https://github.com/dvalverderios92/test-29n">código</a>.</p>
   </div>
 </section>
 
 <section id="quiz" class="hide">
-  <div class="mut" id="qcount"></div>
-  <div class="prog"><div id="bar"></div></div>
-  <div class="card">
-    <div class="q" id="qtext"></div>
+  <div class="papeleta">
+    <div class="cabecera"><span id="qcount"></span><span>Test 29N</span></div>
+    <div class="casillas" id="bar" aria-hidden="true"></div>
+    <h2 class="q" id="qtext" tabindex="-1"></h2>
     <div class="mut" id="qhelp"></div>
-    <div class="opts" id="opts"></div>
+    <div class="opts" id="opts" role="group" aria-labelledby="qtext"></div>
     <div class="row">
       <button class="btn sec" id="back">Atrás</button>
       <button class="btn" id="next">Siguiente</button>
@@ -115,14 +186,14 @@ ul.srcs{padding-left:18px;font-size:.85rem;margin:6px 0}
 </section>
 
 <section id="res" class="hide">
-  <p class="mut">Tu resultado</p>
-  <h1>Medidas y riesgos, partido por partido</h1>
+  <p class="contexto">Tu resultado</p>
+  <h1>Lo que te juegas, partido por partido</h1>
   <p class="mut">Orden alfabético. El número de medidas no mide su peso: una sola puede importar más que varias.</p>
   <div id="extra"></div>
   <h2>Tus riesgos indirectos, comparados</h2>
   <p class="mut">Lo que pueden provocar las medidas de cada partido aunque no te toquen directamente: recaudación, gasto sin financiar, precios, empleo, oferta. El nivel indica cuánto te expone tu situación. «—» significa que el partido no propone medidas que activen ese riesgo.</p>
-  <div class="card mxw" id="matriz"></div>
-  <p class="mut" style="font-size:.8rem">Exposición: <span class="lv alta">A</span> alta · <span class="lv media">M</span> media · <span class="lv baja">B</span> baja · <span class="lv no">—</span> el partido no lo activa.</p>
+  <div class="papeleta mxw" id="matriz"></div>
+  <div class="leyenda"><span><i class="lv alta"></i>Exposición alta</span><span><i class="lv media"></i>Media</span><span><i class="lv baja"></i>Baja</span><span><i class="lv no">—</i>El partido no lo activa</span></div>
   <h2>Resumen por partido</h2>
   <div class="sumgrid" id="sumgrid"></div>
   <div class="tabs" id="tabs"></div>
@@ -152,7 +223,8 @@ ul.srcs{padding-left:18px;font-size:.85rem;margin:6px 0}
 <script>
 (function(){
 'use strict';
-var D=null, A={}, idx=0, R=null, current=null;
+var D=null, A={}, idx=0, R=null, current=null, ultimo=null;
+var XSVG='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg>';
 var $=function(id){return document.getElementById(id)};
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var ORIGEN={programa:'Programa 29N','campaña':'Anuncio de campaña',previa:'Posición anterior'};
@@ -182,27 +254,30 @@ function start(){A={};idx=0;show('quiz');render()}
 function render(){
   var vs=vis(),q=vs[idx];
   $('qcount').textContent='Pregunta '+(idx+1)+' de '+vs.length;
-  $('bar').style.width=(idx/vs.length*100)+'%';
+  $('bar').innerHTML=vs.map(function(x,i){return '<i class="'+(i<idx?'hecha':i===idx?'ahora':'')+'"></i>'}).join('');
   $('qtext').textContent=q.texto;$('qhelp').textContent=q.ayuda||'';
   var box=$('opts');box.innerHTML='';
   q.opciones.forEach(function(o){
-    var b=document.createElement('button');b.className='opt';b.type='button';b.textContent=o.texto;
+    var b=document.createElement('button');b.className='opt';b.type='button';
+    b.innerHTML='<span class="box">'+XSVG+'</span><span>'+esc(o.texto)+'</span>';
     var sel=q.tipo==='multi'?(A[q.id]||[]).indexOf(o.valor)!==-1:A[q.id]===o.valor;
-    if(sel)b.classList.add('sel');
+    if(sel){b.classList.add('sel');b.setAttribute('aria-pressed','true')}else b.setAttribute('aria-pressed','false');
+    if(sel&&o.valor===ultimo)b.classList.add('nuevo');
     b.onclick=function(){
+      ultimo=o.valor;
       if(q.tipo==='multi'){var s=(A[q.id]||[]).slice();
         if(o.valor===q.ninguno)s=s.indexOf(o.valor)!==-1?[]:[o.valor];
         else{s=s.filter(function(x){return x!==q.ninguno});var i=s.indexOf(o.valor);if(i===-1)s.push(o.valor);else s.splice(i,1)}
         A[q.id]=s;render();}
-      else{A[q.id]=o.valor;render();setTimeout(next,160);}
+      else{A[q.id]=o.valor;render();setTimeout(next,380);}
     };
     box.appendChild(b);
   });
   $('back').disabled=idx===0;$('next').disabled=!answered(q);
   $('next').textContent=idx===vs.length-1?'Ver resultado':'Siguiente';
 }
-function next(){var vs=vis(),q=vs[idx];if(!answered(q))return;if(idx<vs.length-1){idx++;render()}else results()}
-function prev(){if(idx>0){idx--;render()}}
+function next(){var vs=vis(),q=vs[idx];if(!answered(q))return;ultimo=null;if(idx<vs.length-1){idx++;render();$('qtext').focus({preventScroll:true})}else results()}
+function prev(){if(idx>0){ultimo=null;idx--;render()}}
 
 function srcList(ids){return '<ul class="srcs">'+ids.map(function(k){var s=D.fuentes[k];return s?'<li><a href="'+esc(s.url)+'" target="_blank" rel="noopener">'+esc(s.titulo)+'</a> ('+esc(s.fecha)+')</li>':''}).join('')+'</ul>'}
 
@@ -213,9 +288,9 @@ function results(){
       '<span class="lbl">Riesgos indirectos</span><span class="pill hi">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill u">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
       '<span class="lbl">Efecto directo</span><span class="pill p">+'+c.a_favor+'</span><span class="pill n">−'+c.en_contra+'</span><span class="pill u">'+c.incierto+' ?</span></button>'}).join('');
   var ab={cc:'CC',fa:'FA',pod:'Pod.',pp:'PP',psoe:'PSOE',vox:'Vox'};
-  $('matriz').innerHTML='<table class="mx"><thead><tr><th>Riesgo · evidencia</th>'+R.partidos.map(function(p){return '<th>'+esc(ab[p.id]||p.nombre)+'</th>'}).join('')+'</tr></thead><tbody>'+
-    R.matriz_riesgos.map(function(f){return '<tr><td>'+esc(f.titulo)+'<br><span class="mut" style="font-size:.75rem">'+esc(EVID[f.evidencia]||f.evidencia)+'</span></td>'+
-      R.partidos.map(function(p){var n=f.niveles[p.id];return '<td>'+(n?'<span class="lv '+n+'" title="'+n+'">'+({alta:'A',media:'M',baja:'B'}[n])+'</span>':'<span class="lv no">—</span>')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+  $('matriz').innerHTML='<table class="mx"><thead><tr><th>Riesgo y evidencia</th>'+R.partidos.map(function(p){return '<th>'+esc(ab[p.id]||p.nombre)+'</th>'}).join('')+'</tr></thead><tbody>'+
+    R.matriz_riesgos.map(function(f){return '<tr><td>'+esc(f.titulo)+'<span class="ev">'+esc(EVID[f.evidencia]||f.evidencia)+'</span></td>'+
+      R.partidos.map(function(p){var n=f.niveles[p.id];return '<td>'+(n?'<span class="lv '+n+'" title="Exposición '+n+'"><span class="sr">'+n+'</span></span>':'<span class="lv no">—</span>')+'</td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
   $('tabs').innerHTML=R.partidos.map(function(p){return '<button class="tab" data-p="'+p.id+'">'+esc(p.nombre)+'</button>'}).join('');
   Array.prototype.forEach.call(document.querySelectorAll('[data-p]'),function(b){b.onclick=function(){pick(b.getAttribute('data-p'))}});
   $('extra').innerHTML=R.notas.map(function(n){return '<p class="note">'+esc(n)+'</p>'}).join('');
@@ -225,20 +300,20 @@ function results(){
 function pick(id,silent){
   current=id;var p=R.partidos.filter(function(x){return x.id===id})[0];
   Array.prototype.forEach.call(document.querySelectorAll('.tab'),function(t){t.classList.toggle('on',t.getAttribute('data-p')===id)});
-  var h='<div class="card" style="margin-top:6px"><b>'+esc(p.nombre)+'</b> · <span class="mut">'+esc(p.programa.titulo)+(p.programa.fecha?' ('+esc(p.programa.fecha.split('-').reverse().join('/'))+')':'')+'</span><div class="mut">'+esc(p.programa.nota||'')+'</div>'+
+  var h='<div class="papeleta" style="margin-top:6px"><h3 style="margin:0 0 4px;font-size:1.5rem">'+esc(p.nombre)+'</h3><span class="mut">'+esc(p.programa.titulo)+(p.programa.fecha?' ('+esc(p.programa.fecha.split('-').reverse().join('/'))+')':'')+'</span><div class="mut">'+esc(p.programa.nota||'')+'</div>'+
     '<div class="fin"><b>Financiación:</b> <span class="pill src">'+esc(FIN[p.financiacion.cuantifica]||p.financiacion.cuantifica)+'</span><div>'+esc(p.financiacion.resumen)+'</div><details><summary>Fuentes</summary>'+srcList(p.financiacion.fuentes)+'</details></div></div>';
-  h+='<h2>1 · Riesgos indirectos para ti</h2><p class="mut">Lo que estas medidas pueden provocar aunque no te toquen directamente, ordenado por tu exposición.</p>';
+  h+='<h2>Riesgos indirectos para ti</h2><p class="mut">Lo que estas medidas pueden provocar aunque no te toquen directamente, ordenado por tu exposición.</p>';
   h+=p.riesgos.length?p.riesgos.map(function(r){var e=r.exposicion_usuario;
     var orig=r.medidas_origen.map(function(mid){var m=D.medidas.filter(function(x){return x.id===mid})[0];return m?m.tema:''}).filter(function(v,i,a){return v&&a.indexOf(v)===i}).join(', ');
     return '<div class="m r-'+e.nivel+'"><div class="t">'+esc(r.titulo)+'</div>'+
       '<div><span class="pill '+(e.nivel==='alta'?'hi':e.nivel==='media'?'u':'src')+'">Exposición '+e.nivel+'</span><span class="pill src">'+esc(EVID[r.evidencia]||r.evidencia)+'</span></div>'+
       '<div class="lay"><b>Para ti:</b> '+esc(e.texto)+'</div>'+
-      '<details><summary>Qué dice la evidencia · viene de: '+esc(orig)+'</summary><div class="lay">'+esc(r.que_pasa)+'</div>'+srcList(r.fuentes)+'</details></div>'}).join(''):'<p class="mut">Sin riesgos indirectos registrados para este partido.</p>';
-  h+='<h2>2 · Efecto directo</h2>';
+      '<details><summary>Qué dice la evidencia</summary><div class="mut">Viene de: '+esc(orig)+'</div><div class="lay">'+esc(r.que_pasa)+'</div>'+srcList(r.fuentes)+'</details></div>'}).join(''):'<p class="mut">Sin riesgos indirectos registrados para este partido.</p>';
+  h+='<h2>Lo que ganas o pierdes</h2>';
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
       '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+'</div>'+
-      '<div><span class="pill src">'+esc(ORIGEN[x.origen])+(x.num?' · medida '+esc(x.num):'')+'</span></div>'+
+      '<div><span class="pill src">'+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+'</span></div>'+
       '<div class="lay"><b>Cómo te afecta (inferencia):</b> '+esc(x.efecto)+'</div>'+
       '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};
   h+=p.medidas.length?grp(1,'pos','A tu favor')+grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';
