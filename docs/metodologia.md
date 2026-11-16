@@ -34,7 +34,7 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 
 ## Limitaciones conocidas
 
-- Las medidas proceden de resúmenes de prensa que citan los programas, no de una lectura íntegra de cada PDF.
+- Muchas medidas proceden de resúmenes de prensa que citan los programas. Se están contrastando, página a página, con los programas oficiales guardados en `programas/`.
 - Muchas medidas carecen de cifras. En ese caso, el efecto es incierto o se indica «sin cifras».
 - Frente Amplio y Podemos no habían publicado programa en la fecha de corte.
 - Los niveles de exposición son juicios de los autores, explícitos en `data/medidas.json` y discutibles. Por eso son abiertos.

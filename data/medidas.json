@@ -3,10 +3,10 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
-  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
+  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
    "1": "a favor",
    "-1": "en contra",
@@ -574,15 +574,15 @@
   {
    "id": "ing",
    "texto": "¿Cuáles son tus ingresos brutos anuales (trabajo, prestación o pensión)?",
-   "ayuda": "Aproximado. El primer tramo equivale más o menos al salario mínimo o menos.",
+   "ayuda": "Aproximado. El salario mínimo a jornada completa son 17.094 € brutos al año en 2026: si cobras eso o menos, elige el primer tramo.",
    "opciones": [
     {
      "valor": 1,
-     "texto": "Menos de 17.000 €"
+     "texto": "Hasta 17.500 €"
     },
     {
      "valor": 2,
-     "texto": "17.000 – 25.000 €"
+     "texto": "17.500 – 25.000 €"
     },
     {
      "valor": 3,

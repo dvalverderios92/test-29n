@@ -181,7 +181,7 @@
     nueva(true);
     y = escribir(lineas('Antes de decidir', W - 2 * M, 26, true), M, M, 26, true, PAPEL) + 14;
     var notas = R.notas.concat([
-      'Las medidas proceden de resúmenes de prensa que citan los programas. Comprueba en el original lo que vaya a pesar en tu decisión.',
+      'Muchas medidas salen de resúmenes de prensa y se están contrastando con los programas oficiales. Comprueba en el original lo que vaya a pesar en tu decisión.',
       'El número de medidas no mide su peso, y los riesgos indirectos no se suman a los efectos directos.',
       'Este resultado no es una recomendación de voto. Detalle, fuentes y metodología: ' + D.meta.url_canonica]);
     notas.forEach(function (n) {
