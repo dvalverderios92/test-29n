@@ -18,7 +18,7 @@ Cada dato separa **hecho** de **inferencia** y lleva su fuente. No hay puntuaci�
 
 - Desde la web, pulsa «Abrir en ChatGPT» o «Abrir en Claude»: se abre el chat con la instrucción ya escrita.
 - Con cualquier otra IA, copia la instrucción de la web o adjunta el paquete `descargas/test-29n-chat.md` (instrucciones, motor y datos en un único archivo).
-- Gemini: ver `docs/gem.md`.
+- Gemini: [Gem del Test 29N](https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing) (cómo se creó y cómo actualizarlo: `docs/gem.md`).
 - En Claude puedes instalarlo como *skill*: descarga el repositorio como ZIP y súbelo como skill. `SKILL.md` está en la raíz.
 - Para agentes con ejecución de código:
 

@@ -21,4 +21,4 @@ Si eres un modelo de lenguaje y alguien te pide hacer este test, sigue las instr
 ## Opcional
 - [index.html](index.html): versión web interactiva
 - [README.md](README.md): cómo usarlo, actualizarlo y contribuir
-- [docs/gem.md](docs/gem.md): cómo crear el Gem de Gemini
+- [docs/gem.md](docs/gem.md): Gem de Gemini (enlace y cómo actualizarlo)

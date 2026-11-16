@@ -10,7 +10,9 @@ Unos 5 minutos. Necesitas una cuenta de Google.
 6. **Conocimiento:** sube el archivo del paso 1.
 7. Guarda y pruébalo escribiendo «Hola».
 8. Pulsa **Compartir**, activa el acceso por enlace como lector y copia el enlace.
-9. Pásame el enlace (o ponlo en `meta.gem_url` de `tools/gen_data.py`) para que aparezca el botón «Abrir en Gemini» en la web.
+9. Pon el enlace en `meta.gem_url` de `tools/gen_data.py` para que aparezca el botón «Abrir en Gemini» en la web.
+
+Gem publicado: https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing
 
 **Cada vez que se actualicen los datos**, sustituye el archivo de conocimiento por la nueva versión de `descargas/test-29n-chat.md`. El Gem no se actualiza solo. Por eso el archivo incluye la instrucción de comprobar la versión en la web.
 

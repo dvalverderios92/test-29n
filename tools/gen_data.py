@@ -518,7 +518,7 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "gem_url": None,
+  "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
   "version": "2.2.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
