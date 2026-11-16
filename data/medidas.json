@@ -4,7 +4,7 @@
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
   "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
@@ -311,11 +311,16 @@
    "q": "region",
    "eq": "canarias"
   },
+  "baleares": {
+   "q": "region",
+   "eq": "baleares"
+  },
   "sin_iva": {
    "q": "region",
    "in": [
     "canarias",
-    "ceuta"
+    "ceuta",
+    "melilla"
    ]
   },
   "empadronado_10_canarias": {
@@ -337,19 +342,83 @@
  "preguntas": [
   {
    "id": "region",
-   "texto": "¿Dónde vives?",
+   "texto": "¿En qué comunidad o ciudad autónoma vives?",
    "opciones": [
+    {
+     "valor": "andalucia",
+     "texto": "Andalucía"
+    },
+    {
+     "valor": "aragon",
+     "texto": "Aragón"
+    },
+    {
+     "valor": "asturias",
+     "texto": "Asturias"
+    },
+    {
+     "valor": "baleares",
+     "texto": "Illes Balears"
+    },
     {
      "valor": "canarias",
      "texto": "Canarias"
     },
     {
-     "valor": "ceuta",
-     "texto": "Ceuta o Melilla"
+     "valor": "cantabria",
+     "texto": "Cantabria"
     },
     {
-     "valor": "resto",
-     "texto": "Resto de España"
+     "valor": "castilla_leon",
+     "texto": "Castilla y León"
+    },
+    {
+     "valor": "castilla_mancha",
+     "texto": "Castilla-La Mancha"
+    },
+    {
+     "valor": "cataluna",
+     "texto": "Cataluña"
+    },
+    {
+     "valor": "valencia",
+     "texto": "Comunitat Valenciana"
+    },
+    {
+     "valor": "extremadura",
+     "texto": "Extremadura"
+    },
+    {
+     "valor": "galicia",
+     "texto": "Galicia"
+    },
+    {
+     "valor": "madrid",
+     "texto": "Comunidad de Madrid"
+    },
+    {
+     "valor": "murcia",
+     "texto": "Región de Murcia"
+    },
+    {
+     "valor": "navarra",
+     "texto": "Navarra"
+    },
+    {
+     "valor": "pais_vasco",
+     "texto": "País Vasco"
+    },
+    {
+     "valor": "rioja",
+     "texto": "La Rioja"
+    },
+    {
+     "valor": "ceuta",
+     "texto": "Ceuta"
+    },
+    {
+     "valor": "melilla",
+     "texto": "Melilla"
     }
    ],
    "tipo": "unica"
@@ -1457,6 +1526,47 @@
     "ref": "cuida_dependiente"
    },
    "texto": "Dependencia: comprueba si cada medida cubre el cuidado familiar o solo el gasto en cuidados profesionales."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "cataluna"
+   },
+   "texto": "Partidos no incluidos: en Cataluña también se presentan ERC (programa publicado el 5-nov) y Junts (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "pais_vasco"
+   },
+   "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "navarra"
+   },
+   "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "galicia"
+   },
+   "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "valencia"
+   },
+   "texto": "Partidos no incluidos: en la Comunitat Valenciana también se presenta Compromís–Front Valencià. Este test aún no recoge sus medidas; consulta su programa."
+  },
+  {
+   "si": {
+    "siempre": true
+   },
+   "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."
   }
  ],
  "medidas": [
@@ -3379,7 +3489,14 @@
    "efectos": [
     {
      "si": {
-      "ref": "canarias"
+      "any": [
+       {
+        "ref": "canarias"
+       },
+       {
+        "ref": "baleares"
+       }
+      ]
      },
      "valor": 0,
      "texto": "Te afectaría, pero los resúmenes no detallan en qué consiste."

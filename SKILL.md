@@ -42,7 +42,7 @@ Web del proyecto: https://dvalverderios92.github.io/test-29n/ · datos: https://
      ```bash
      node -e 'const T=require("./motor.js"),D=require("./data/medidas.json");console.log(JSON.stringify(T.evaluate(D, RESPUESTAS),null,1))'
      ```
-     sustituyendo `RESPUESTAS` por el objeto de respuestas (p. ej. `{"region":"resto","edad":"26-35",...}`).
+     sustituyendo `RESPUESTAS` por el objeto de respuestas (p. ej. `{"region":"madrid","edad":"26-35",...}`).
    - Si no puedes, aplica las reglas a mano según `docs/esquema.md`:
      - para cada medida no universal, el primer elemento de `efectos` cuya condición se cumpla da su `valor` (+1, −1 o 0) y su texto; si ninguno se cumple, la medida no te afecta;
      - para cada partido, reúne los `riesgos` de **todas** sus medidas, te afecten o no, y elige la primera `exposicion` que se cumpla;

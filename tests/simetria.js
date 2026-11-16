@@ -57,8 +57,8 @@ for (const m of D.medidas.filter(m => !m.universal)) {
 
 // Arquetipos opuestos: todos los partidos deben mostrar algún riesgo de exposición media o alta
 const arquetipos = {
-  'renta baja, inquilina, dependiente de servicios': { region: 'resto', edad: '26-35', lab: 'asal_temp', emprender: false, ing: 1, dep_pub: 'alta', viv: 'alquiler', tens: 'si', comprar: true, otras: 0, hijos: ['h0_3'], planHijos: true, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' },
-  'renta alta, casera, gran patrimonio': { region: 'resto', edad: '41-64', lab: 'empresario', emp: true, ing: 6, dep_pub: 'baja', viv: 'propio', otras: 2, otrasTipo: ['alquila'], hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 4, ahorro: 3, bolsa: true, herencia: true, nac: 'es' },
+  'renta baja, inquilina, dependiente de servicios': { region: 'madrid', edad: '26-35', lab: 'asal_temp', emprender: false, ing: 1, dep_pub: 'alta', viv: 'alquiler', tens: 'si', comprar: true, otras: 0, hijos: ['h0_3'], planHijos: true, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' },
+  'renta alta, casera, gran patrimonio': { region: 'madrid', edad: '41-64', lab: 'empresario', emp: true, ing: 6, dep_pub: 'baja', viv: 'propio', otras: 2, otrasTipo: ['alquila'], hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 4, ahorro: 3, bolsa: true, herencia: true, nac: 'es' },
 };
 for (const [nombre, a] of Object.entries(arquetipos)) {
   const r = T.evaluate(D, a);
@@ -81,6 +81,17 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(P('vox').riesgos.find(x => x.id === 'rebaja_sin_financiar').exposicion_usuario.nivel === 'alta', 'Escala: las rebajas generales de Vox mantienen exposición alta');
   ok(r.notas.length >= 2, 'Notas condicionales (desempleo, IVA) incluidas en el resultado del motor');
   ok(r.matriz_riesgos.length > 0 && r.matriz_riesgos.every(f => Object.keys(f.niveles).length === r.partidos.length), 'Matriz de riesgos completa');
+}
+
+// Cobertura territorial (v2.3)
+{
+  const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'propio', otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const ev = region => T.evaluate(D, Object.assign({ region }, base));
+  ok(ev('baleares').partidos.find(p => p.id === 'vox').medidas.some(m => m.id === 'vox-4'), 'Baleares: aparece el alivio fiscal de Vox para las islas');
+  ok(!ev('madrid').partidos.some(p => p.id === 'cc'), 'Madrid: Coalición Canaria no aparece');
+  ok(ev('cataluna').notas.some(n => /ERC/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
+  ok(ev('madrid').notas.every(n => !/ERC|PNV|BNG/.test(n)), 'Madrid: sin avisos de partidos territoriales ajenos');
+  ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /SALF/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
 }
 
 // Fuentes

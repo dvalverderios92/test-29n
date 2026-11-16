@@ -38,7 +38,7 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 - Muchas medidas carecen de cifras. En ese caso, el efecto es incierto o se indica «sin cifras».
 - Frente Amplio y Podemos no habían publicado programa en la fecha de corte.
 - Los niveles de exposición son juicios de los autores, explícitos en `data/medidas.json` y discutibles. Por eso son abiertos.
-- No se incluyen ERC, Junts, PNV, EH Bildu, BNG y otras formaciones por falta de medidas detalladas en las fuentes consultadas. Se aceptan contribuciones.
+- Cobertura territorial desigual: el único partido territorial incluido es Coalición Canaria. ERC, Junts, PNV, EH Bildu, BNG, Compromís y otras candidaturas (como SALF) aún no están incluidos; el resultado lo avisa expresamente según la comunidad de quien responde. Se irán incorporando con la revisión diaria. Se aceptan contribuciones.
 
 ## Cómo proponer cambios
 

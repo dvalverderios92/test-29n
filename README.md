@@ -23,7 +23,7 @@ Cada dato separa **hecho** de **inferencia** y lleva su fuente. No hay puntuaci�
 - Para agentes con ejecución de código:
 
   ```bash
-  node -e 'const T=require("./motor.js"),D=require("./data/medidas.json");console.log(JSON.stringify(T.evaluate(D,{"region":"resto","edad":"26-35","lab":"asal_ind","ing":2,"dep_pub":"media","viv":"alquiler","tens":"si","comprar":true,"otras":0,"hijos":["ninguno"],"planHijos":false,"dep":"no","patr":1,"ahorro":1,"bolsa":false,"herencia":false,"nac":"es"}),null,1))'
+  node -e 'const T=require("./motor.js"),D=require("./data/medidas.json");console.log(JSON.stringify(T.evaluate(D,{"region":"madrid","edad":"26-35","lab":"asal_ind","ing":2,"dep_pub":"media","viv":"alquiler","tens":"si","comprar":true,"otras":0,"hijos":["ninguno"],"planHijos":false,"dep":"no","patr":1,"ahorro":1,"bolsa":false,"herencia":false,"nac":"es"}),null,1))'
   ```
 
 ## Estructura

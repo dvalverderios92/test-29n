@@ -59,14 +59,15 @@ COND = {
  "arraigo_corto": ALL(Q("nac", **{"in": ["ue", "nue"]}), Q("arraigo", eq="lt3")),
  "envia_remesas": Q("remesas", eq=True),
  "canarias": Q("region", eq="canarias"),
- "sin_iva": Q("region", **{"in": ["canarias", "ceuta"]}),
+ "baleares": Q("region", eq="baleares"),
+ "sin_iva": Q("region", **{"in": ["canarias", "ceuta", "melilla"]}),
  "empadronado_10_canarias": Q("empad", eq=True),
  "depende_servicios_publicos": Q("dep_pub", **{"in": ["alta", "media"]}),
  "depende_mucho_servicios": Q("dep_pub", eq="alta"),
 }
 
 QUESTIONS = [
- {"id": "region", "texto": "¿Dónde vives?", "opciones": [["canarias", "Canarias"], ["ceuta", "Ceuta o Melilla"], ["resto", "Resto de España"]]},
+ {"id": "region", "texto": "¿En qué comunidad o ciudad autónoma vives?", "opciones": [["andalucia", "Andalucía"], ["aragon", "Aragón"], ["asturias", "Asturias"], ["baleares", "Illes Balears"], ["canarias", "Canarias"], ["cantabria", "Cantabria"], ["castilla_leon", "Castilla y León"], ["castilla_mancha", "Castilla-La Mancha"], ["cataluna", "Cataluña"], ["valencia", "Comunitat Valenciana"], ["extremadura", "Extremadura"], ["galicia", "Galicia"], ["madrid", "Comunidad de Madrid"], ["murcia", "Región de Murcia"], ["navarra", "Navarra"], ["pais_vasco", "País Vasco"], ["rioja", "La Rioja"], ["ceuta", "Ceuta"], ["melilla", "Melilla"]]},
  {"id": "empad", "texto": "¿Llevas 10 años o más empadronado/a en Canarias?", "mostrar_si": R("canarias"), "opciones": [[True, "Sí"], [False, "No"]]},
  {"id": "edad", "texto": "¿Qué edad tienes?", "opciones": [["18-25", "18–25"], ["26-35", "26–35"], ["36-40", "36–40"], ["41-64", "41–64"], ["65+", "65 o más"]]},
  {"id": "lab", "texto": "¿Cuál es tu situación laboral principal?", "opciones": [["asal_ind", "Asalariado/a con contrato indefinido"], ["asal_temp", "Asalariado/a temporal o fijo discontinuo"], ["autonomo", "Autónomo/a"], ["empresario", "Empresario/a (sociedad)"], ["parado", "En paro"], ["pension", "Jubilado/a o pensionista"], ["estudiante", "Estudiante"], ["otro", "Otra situación (cuidados, inactividad…)"]]},
@@ -401,7 +402,7 @@ M("vox-laboral", "vox", "Empleo", "Derogar la legislación laboral del Gobierno 
 M("vox-sucesiones", "vox", "Patrimonio", "Suprimir los impuestos de Patrimonio, Sucesiones y Donaciones y la plusvalía municipal.", None, "previa", ["pe_vox", "brains"],
   [(ANY(Q("patr", gte=2), R("herencia")), 1, "Pagarías menos al heredar, donar o por tu patrimonio (depende de lo que ya bonifique tu comunidad).")], ["rebaja_sin_financiar"]),
 M("vox-4", "vox", "Territorio", "Alivio fiscal para Canarias, Baleares y zonas en riesgo de despoblación.", "4, 6", "programa", ["rankia", "vox_web"],
-  [(R("canarias"), 0, "Te afectaría, pero los resúmenes no detallan en qué consiste.")], ["rebaja_sin_financiar"]),
+  [(ANY(R("canarias"), R("baleares")), 0, "Te afectaría, pero los resúmenes no detallan en qué consiste.")], ["rebaja_sin_financiar"]),
 M("vox-8", "vox", "Energía", "Rebajar los impuestos de la electricidad y mantener las nucleares, con estudios para nuevas centrales.", "8", "programa", ["rankia"], [], ["rebaja_sin_financiar"], universal=True),
 
 # ===== FRENTE AMPLIO =====
@@ -512,6 +513,12 @@ NOTAS = [
  {"si": R("parado"), "texto": "Desempleo: las fuentes consultadas no recogen medidas concretas de los partidos estatales sobre la prestación por desempleo. Si es tu prioridad, revisa ese capítulo en cada programa."},
  {"si": R("sin_iva"), "texto": "IVA: en tu territorio no se aplica (Canarias: IGIC; Ceuta y Melilla: IPSI). Las rebajas de IVA aparecen como inciertas para ti, aunque su coste en la recaudación estatal sí cuenta en los riesgos."},
  {"si": R("cuida_dependiente"), "texto": "Dependencia: comprueba si cada medida cubre el cuidado familiar o solo el gasto en cuidados profesionales."},
+ {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presentan ERC (programa publicado el 5-nov) y Junts (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
+ {"si": Q("region", eq="pais_vasco"), "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
+ {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."},
+ {"si": Q("region", eq="galicia"), "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."},
+ {"si": Q("region", eq="valencia"), "texto": "Partidos no incluidos: en la Comunitat Valenciana también se presenta Compromís–Front Valencià. Este test aún no recoge sus medidas; consulta su programa."},
+ {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
 DATA = {
  "meta": {
@@ -519,7 +526,7 @@ DATA = {
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
   "gem_url": "https://gemini.google.com/gem/1jjjGM5yY05jS_uJGa-R4ZZlTcCUx4aVH?usp=sharing",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Las medidas proceden de resúmenes de prensa que citan los programas; compruébalas en el original.",
