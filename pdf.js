@@ -177,6 +177,17 @@
         (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones previas. ') + 'Financiación: ' + (FIN[p.financiacion.cuantifica] || '') + '. ' + p.financiacion.resumen);
     });
 
+    // ---------- 4b. Derechos y protecciones (sin valoración) ----------
+    (R.derechos || []).forEach(function (t) {
+      lista('Derechos y protecciones: ' + t.nombre,
+        'Lo que propone cada partido, resumido de su programa oficial. Sin valoración a favor o en contra.',
+        t.partidos.map(function (p) {
+          return { marca: 'baja', cab: p.nombre,
+            det: p.medidas.length ? p.medidas.map(function (m) { return (m.de ? m.de + ': ' : '') + m.texto + ' (' + (m.num ? 'medida ' + m.num + ', ' : '') + 'p. ' + m.pagina + ')'; }).join(' ')
+              : (p.sin_programa ? 'Sin programa publicado.' : 'No se han encontrado propuestas sobre este tema en su programa.') };
+        }), null, null);
+    });
+
     // ---------- 5. Notas y límites ----------
     nueva(true);
     y = escribir(lineas('Antes de decidir', W - 2 * M, 26, true), M, M, 26, true, PAPEL) + 14;

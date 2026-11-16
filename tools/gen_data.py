@@ -90,8 +90,28 @@ QUESTIONS = [
  {"id": "herencia", "texto": "¿Esperas recibir o dejar una herencia o donación importante?", "opciones": [[True, "Sí"], [False, "No"]]},
  {"id": "nac", "texto": "¿Cuál es tu nacionalidad?", "ayuda": "Algunas propuestas distinguen por nacionalidad o por arraigo en el acceso a ayudas.", "opciones": [["es", "Española"], ["ue", "De otro país de la UE"], ["nue", "De fuera de la UE"]]},
  {"id": "arraigo", "texto": "¿Cuánto tiempo llevas empadronado/a en España?", "mostrar_si": R("extranjero"), "opciones": [["lt3", "Menos de 3 años"], ["3a10", "Entre 3 y 10 años"], ["gt10", "Más de 10 años"]]},
- {"id": "remesas", "texto": "¿Envías dinero a familiares en otro país?", "mostrar_si": R("extranjero"), "opciones": [[True, "Sí"], [False, "No"]]},
+ {"id": "remesas", "texto": "¿Envías dinero a familiares en otro país?", "mostrar_si": R("extranjero"), "opciones": [[True, "Sí"], [False, "No"]]}, {"id": "genero", "sensible": True, "texto": "¿Cuál es tu género?", "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.", "opciones": [["mujer", "Mujer"], ["hombre", "Hombre"], ["nobinaria", "Persona no binaria"], ["nc", "Prefiero no contestar"]]},
+ {"id": "lgtbi", "sensible": True, "texto": "¿Formas parte del colectivo LGTBIQ+?", "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.", "opciones": [["si", "Sí"], ["no", "No"], ["nc", "Prefiero no contestar"]]},
+ {"id": "etnia", "sensible": True, "texto": "¿Perteneces a una minoría étnica o eres una persona racializada (por ejemplo, del pueblo gitano)?", "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.", "opciones": [["si", "Sí"], ["no", "No"], ["nc", "Prefiero no contestar"]]},
+ {"id": "disc", "sensible": True, "texto": "¿Tienes una discapacidad, o convives con alguien que la tenga?", "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.", "opciones": [["si", "Sí"], ["no", "No"], ["nc", "Prefiero no contestar"]]},
+ {"id": "relig", "sensible": True, "texto": "¿Practicas alguna religión?", "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.", "opciones": [["si", "Sí"], ["no", "No"], ["nc", "Prefiero no contestar"]]},
+ {"id": "temas", "multi": True, "ninguno": "ninguno", "texto": "¿Sobre qué temas quieres ver también lo que propone cada partido?", "ayuda": "Ya están marcados los que pueden tocarte por tus respuestas; cámbialos como quieras. Se muestran aparte y sin valorar si te favorecen.", "opciones": "TEMAS"},
 ]
+TEMAS_SOC = [
+ {"id": "igualdad", "nombre": "Igualdad y violencia contra las mujeres", "sugerir_si": Q("genero", **{"in": ["mujer", "nobinaria"]})},
+ {"id": "lgtbi", "nombre": "Derechos LGTBIQ+", "sugerir_si": ANY(Q("lgtbi", eq="si"), Q("genero", eq="nobinaria"))},
+ {"id": "racismo", "nombre": "Racismo, discriminación y pueblo gitano", "sugerir_si": Q("etnia", eq="si")},
+ {"id": "migracion", "nombre": "Migración, asilo y nacionalidad", "sugerir_si": R("extranjero")},
+ {"id": "discapacidad", "nombre": "Discapacidad", "sugerir_si": Q("disc", eq="si")},
+ {"id": "familia", "nombre": "Familia, natalidad y conciliación", "sugerir_si": ANY(R("con_hijos"), R("quiere_hijos"))},
+ {"id": "educacion", "nombre": "Modelo educativo", "sugerir_si": Q("hijos", includesAny=["h3_7", "h8_17"])},
+ {"id": "vida", "nombre": "Aborto y final de la vida", "sugerir_si": None},
+ {"id": "religion", "nombre": "Religión y laicidad", "sugerir_si": Q("relig", eq="si")},
+ {"id": "rural", "nombre": "Mundo rural y despoblación", "sugerir_si": None},
+]
+for q in QUESTIONS:
+    if q["opciones"] == "TEMAS":
+        q["opciones"] = [[t["id"], t["nombre"]] for t in TEMAS_SOC] + [["ninguno", "Ninguno"]]
 for q in QUESTIONS:
     q["tipo"] = "multi" if q.pop("multi", False) else "unica"
     q["opciones"] = [{"valor": v, "texto": t} for v, t in q["opciones"]]
@@ -131,6 +151,9 @@ SRC = {
  "eldiario_fa": ["elDiario.es: el mapa de candidaturas de la izquierda por comunidades", "https://www.eldiario.es/1_cf5cc6", "2026-11"],
  "cnmc_suelo": ["CNMC: Estudio sobre la transformación urbanística del suelo para vivienda", "https://www.cnmc.es/sites/default/files/6658260.pdf", "2025"],
 }
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias")}
+for k, (f, t) in PDFS.items():
+    SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
 
 # ---------- Efectos indirectos (riesgos) ----------
@@ -554,15 +577,140 @@ NOTAS = [
  {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio y Podemos concurren dentro de Compromís-Front Valencià. El test muestra sus medidas estatales; las propias de Compromís aún no están incluidas."},
  {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
+# ---------------------------------------------------------------------------
+# Derechos y protecciones: medidas sociales, sin valoración a favor/en contra.
+# (partido, tema, número en el programa o None, página del PDF, resumen fiel)
+# ---------------------------------------------------------------------------
+SOC = [
+ # PP
+ ("pp", "igualdad", "28", 17, "Más medios contra la violencia de género: las pulseras de alejamiento pasan a depender de Interior, más unidades especializadas, protección también para los hijos de las víctimas y rendición de cuentas anual del Pacto de Estado."),
+ ("pp", "igualdad", "29", 17, "Ley integral contra la trata y criterios comunes en toda España frente a la mutilación genital femenina y los matrimonios forzados."),
+ ("pp", "igualdad", "115", 35, "Eliminar los obstáculos que frenan la trayectoria de las mujeres y revisar las normas que, a su juicio, han generado inseguridad jurídica en nombre de la igualdad."),
+ ("pp", "lgtbi", "111", 35, "Combatir la discriminación por orientación sexual, entre otras causas, y seguir luchando contra la LGTBIfobia."),
+ ("pp", "lgtbi", "115", 35, "Revisar la Ley Trans y eliminar la libre autodeterminación registral del sexo. El sexo biológico sería el criterio en las categorías deportivas femeninas."),
+ ("pp", "racismo", "111", 35, "Combatir cualquier discriminación por origen, sexo, edad, discapacidad, orientación sexual o religión."),
+ ("pp", "migracion", "42", 19, "Prohibir por ley las regularizaciones masivas. El arraigo sería excepcional y el empadronamiento, por sí solo, no daría acceso a ayudas no urgentes."),
+ ("pp", "migracion", "41", 19, "Cupos anuales de trabajadores extranjeros según sectores y capacidad de acogida, solo con países que colaboren en los retornos."),
+ ("pp", "migracion", "43", 19, "Compromiso de integración obligatorio para renovar la residencia temporal: aprender español y conocer la Constitución."),
+ ("pp", "migracion", "141", 39, "Nueva Ley de Nacionalidad con más requisitos (español, historia, valores constitucionales, sin antecedentes) y trato preferente a los países de la Hispanidad."),
+ ("pp", "discapacidad", "112", 35, "Atención temprana, asistencia personal, vivienda con apoyos y empleo inclusivo. Pensiones de discapacidad compatibles con el empleo y más jubilación anticipada para personas con síndrome de Down."),
+ ("pp", "discapacidad", "213", 51, "No cerrar los centros de educación especial; las familias participarían en la decisión de escolarización."),
+ ("pp", "familia", "159", 44, "Medidas para tener los hijos deseados: el concebido no nacido contaría para las ayudas familiares, congelación de óvulos para mujeres jóvenes y revisión de los límites de edad en reproducción asistida."),
+ ("pp", "familia", "165", 45, "Reconocimiento común en toda España de las familias monoparentales y conciliación adaptada a quien cría en solitario."),
+ ("pp", "educacion", "212", 51, "Libre elección de colegio en todo el municipio. No se eliminaría ningún concierto donde haya demanda y los conciertos durarían al menos seis años."),
+ ("pp", "educacion", "133", 38, "Currículos de Historia elaborados con las Reales Academias; el alumnado estudiaría la Constitución, la Transición y el daño del terrorismo."),
+ ("pp", "vida", "226", 53, "Ley nacional de cuidados paliativos, para que nadie se vea empujado a acelerar su muerte por falta de alternativas. No menciona el aborto."),
+ ("pp", "religion", "43", 19, "Prohibir el burka y el niqab en los espacios públicos."),
+ ("pp", "rural", "196", 49, "Menos impuestos a quien vive, invierte y produce en el medio rural; los jóvenes no pagarían impuestos al comprar vivienda en municipios despoblados."),
+ ("pp", "rural", "105", 34, "Ayudas directas a los municipios de menos de 250 habitantes para sostener sus servicios básicos."),
+ ("pp", "rural", "204", 50, "Plan nacional para la mujer rural y del mar (vivienda, financiación, titularidad, formación)."),
+ # PSOE
+ ("psoe", "igualdad", "333", 82, "Nueva Estrategia Estatal contra las Violencias Machistas."),
+ ("psoe", "igualdad", "335", 82, "Ley Orgánica contra la Violencia Vicaria."),
+ ("psoe", "igualdad", "338", 82, "Ayudas a los huérfanos de la violencia de género hasta los 26 años."),
+ ("psoe", "igualdad", "350", 84, "Incluir las violencias digitales en la Ley integral contra la violencia de género, más allá de la pareja o expareja."),
+ ("psoe", "igualdad", "343", 83, "Programa estatal de salida, protección y reparación para mujeres en servidumbre por deudas dentro de la prostitución."),
+ ("psoe", "lgtbi", "412", 97, "La Ley 4/2023 (Ley Trans y LGTBI) como mínimo común en toda España, y una nueva Ley de Familias que reconozca su diversidad."),
+ ("psoe", "lgtbi", "414", 97, "Penalizar en el Código Penal las llamadas terapias de conversión."),
+ ("psoe", "lgtbi", "415", 97, "Inclusión social y laboral de las personas trans, con acceso y continuidad de los tratamientos hormonales."),
+ ("psoe", "lgtbi", "368", 89, "Máxima protección jurídica del matrimonio igualitario, junto al aborto y la eutanasia."),
+ ("psoe", "racismo", "392", 93, "Desarrollar la Ley Zerolo y poner en marcha la Autoridad Independiente para la Igualdad de Trato y la No Discriminación."),
+ ("psoe", "racismo", "394", 93, "Pacto de Estado contra los discursos y delitos de odio."),
+ ("psoe", "racismo", "398", 94, "Más financiación para la Estrategia Nacional del Pueblo Gitano 2021-2030 y la lucha contra el antigitanismo."),
+ ("psoe", "migracion", "388", 92, "Plan de Integración y Ciudadanía 2026-2030 con 500 millones iniciales."),
+ ("psoe", "migracion", "389", 92, "Más vías legales y seguras de protección internacional, con reasentamiento y visados humanitarios."),
+ ("psoe", "migracion", "391", 93, "Sistema de acogida reforzado, con especial protección de los menores que llegan solos."),
+ ("psoe", "discapacidad", "205", 57, "Aplicar plenamente la reforma de discapacidad y dependencia (Ley 4/2026) para reducir las listas de espera."),
+ ("psoe", "discapacidad", "208", 58, "Más asistencia personal, centros de día y programas de respiro familiar."),
+ ("psoe", "discapacidad", "124", 43, "Hacer cumplir la reserva del 2 % de empleo para personas con discapacidad, con más inspección."),
+ ("psoe", "familia", "325", 80, "Permisos parentales y por cuidados retribuidos, extendidos a familias monoparentales y autónomos; adaptación y reducción de jornada para cuidar a menores hasta los 16 años."),
+ ("psoe", "familia", "199", 57, "Ley de Familias, con reconocimiento y protección de las familias monoparentales."),
+ ("psoe", "familia", "196", 56, "Marco estatal de ayudas para productos y cuidados en los primeros 1.000 días de crianza."),
+ ("psoe", "educacion", "344", 83, "Coeducación y educación afectivo-sexual obligatorias en todas las etapas."),
+ ("psoe", "educacion", "158", 52, "Más becas y un máximo de alumnos por aula, con doble cómputo del alumnado con necesidades especiales."),
+ ("psoe", "vida", "327", 81, "Reforma del artículo 43 de la Constitución para blindar el derecho al aborto."),
+ ("psoe", "vida", "147", 50, "Garantizar el ejercicio efectivo del derecho a la eutanasia según la ley vigente."),
+ ("psoe", "rural", "233", 61, "Servicios públicos de calidad con independencia del lugar de residencia y medidas para fijar y atraer población en la España rural."),
+ ("psoe", "rural", "278", 71, "Vivienda asequible en el medio rural: alquiler para nuevos residentes y rehabilitación de viviendas vacías."),
+ ("psoe", "rural", "163", 52, "Proteger y reforzar la escuela rural pública."),
+ # Vox
+ ("vox", "igualdad", "47", 30, "Derogar las leyes de género, que considera que criminalizan a los hombres, y aprobar normas que protejan a las mujeres víctimas de violencia, en especial de maltrato."),
+ ("vox", "igualdad", "87", 46, "Más prevención, protección policial y judicial y asistencia integral a las mujeres frente a la violencia y las agresiones sexuales."),
+ ("vox", "igualdad", "99", 52, "Combatir la brecha maternal: formación, promoción y reincorporación de las madres que interrumpieron su carrera."),
+ ("vox", "migracion", "9", 15, "Ninguna llegada más de inmigrantes; prohibir las regularizaciones masivas y que quien entra de forma ilegal pueda regularizarse."),
+ ("vox", "migracion", "11", 15, "Suprimir el arraigo y revocar las vías rápidas de acceso a la nacionalidad."),
+ ("vox", "migracion", "13", 15, "Remigración: plan de retorno para extranjeros que no contribuyan o vivan de subsidios."),
+ ("vox", "migracion", "18", 19, "Prioridad nacional: acceso preferente de los españoles a vivienda pública, guarderías, ayudas y servicios sociales."),
+ ("vox", "discapacidad", "95", 52, "Más bonificaciones y deducciones para personas con discapacidad, fin de las barreras arquitectónicas y menos burocracia para reconocer la discapacidad."),
+ ("vox", "familia", "94", 51, "Plan nacional de natalidad: los beneficios de las familias numerosas se extenderían a todas desde el primer hijo, y el Estado cotizaría por quien se dedique a cuidar a sus hijos."),
+ ("vox", "educacion", "67", 41, "Libre elección de centro en todos los niveles."),
+ ("vox", "educacion", "69", 41, "Derogar la LOMLOE y eliminar contenidos ideológicos ajenos a las materias."),
+ ("vox", "educacion", "66", 41, "Garantizar la educación en español en todo el territorio, con currículo y evaluaciones únicas."),
+ ("vox", "educacion", "70", 42, "Número máximo por aula de alumnos de otras culturas o con poco dominio del español, y aulas de nivelación aparte."),
+ ("vox", "vida", "98", 52, "Defensa de la vida desde la concepción hasta la muerte natural, objeción de conciencia de sanitarios y farmacéuticos y más cuidados paliativos."),
+ ("vox", "religion", "71", 42, "Prohibir el burka y el niqab en los espacios públicos y donde se presten servicios públicos."),
+ ("vox", "religion", "72", 42, "Fin de los menús halal en los comedores escolares."),
+ ("vox", "religion", "104", 56, "Proteger las tradiciones religiosas y populares de España."),
+ ("vox", "rural", "24", 20, "Plan de inversiones para recuperar barrios, municipios y provincias abandonados."),
+ # Frente Amplio (apartados sin numerar: se cita la página)
+ ("fa", "igualdad", None, 38, "Al menos un 5 % del presupuesto no financiero del Estado para políticas de igualdad, y un 10 % más cada año contra las violencias machistas."),
+ ("fa", "igualdad", None, 38, "Suspensión cautelar automática de las visitas del progenitor investigado por violencia machista, vicaria o sexual."),
+ ("fa", "igualdad", None, 38, "Acceso prioritario a vivienda pública para mujeres víctimas de violencia machista."),
+ ("fa", "lgtbi", None, 123, "Desplegar la Ley Trans y reconocer a las personas no binarias."),
+ ("fa", "lgtbi", None, 123, "Atención sanitaria a las personas trans despatologizada y basada en el consentimiento informado."),
+ ("fa", "lgtbi", None, 123, "Observatorio estatal y estrategia contra la LGTBQAifobia (así la llama el programa) en deporte, cultura, empleo y educación."),
+ ("fa", "racismo", None, 126, "Ley integral contra el racismo y Estatuto del Pueblo Gitano."),
+ ("fa", "racismo", None, 143, "Restringir las paradas de identificación policial y prohibirlas para aplicar la Ley de Extranjería."),
+ ("fa", "racismo", None, 128, "Comisión parlamentaria de estudio sobre el racismo estructural."),
+ ("fa", "migracion", None, 126, "Procedimiento estable y permanente de regularización en la Ley de Extranjería."),
+ ("fa", "migracion", None, 126, "Derogar el rechazo en frontera."),
+ ("fa", "migracion", None, 127, "Cerrar los Centros de Internamiento de Extranjeros (CIE)."),
+ ("fa", "migracion", None, 128, "Derecho de voto y a ser elegidos de los migrantes residentes en las elecciones municipales."),
+ ("fa", "discapacidad", None, 26, "Desarrollar plenamente la Ley 4/2026: accesibilidad universal, vida independiente y autonomía personal."),
+ ("fa", "discapacidad", None, 32, "Un 60 % más de becas para alumnado con necesidades específicas, incluida la discapacidad."),
+ ("fa", "familia", None, 24, "Permiso por nacimiento de 20 semanas intransferibles por progenitor y permiso parental retribuido hasta 10 semanas."),
+ ("fa", "familia", None, 123, "Reconocimiento de las familias diversas."),
+ ("fa", "educacion", None, 31, "Hoja de ruta para que todo el alumnado pueda ir a la pública; mientras coexistan, prohibir las cuotas obligatorias en los concertados."),
+ ("fa", "educacion", None, 37, "Coeducación y educación sexoafectiva en las aulas."),
+ ("fa", "educacion", None, 150, "Ningún concierto ni subvención para escuelas que segreguen por sexo o por motivos religiosos."),
+ ("fa", "vida", None, 28, "Reformar el artículo 43 de la Constitución para incluir el derecho al aborto y garantizarlo en centros públicos de todas las comunidades."),
+ ("fa", "vida", None, 150, "Recoge el derecho a la interrupción del embarazo, a la eutanasia y al suicidio asistido, junto a una Ley de Libertad de Conciencia."),
+ ("fa", "religion", None, 150, "Revisar los Acuerdos de 1979 con la Santa Sede y suprimir la financiación pública y las exenciones fiscales de las confesiones religiosas."),
+ ("fa", "religion", None, 150, "Recuperar para el Estado los bienes inmatriculados por la Iglesia católica de interés histórico-artístico."),
+ ("fa", "religion", None, 150, "Ley de Libertad de Conciencia que sustituya a la Ley de Libertad Religiosa."),
+ ("fa", "rural", None, 97, "II Estrategia estatal frente al Reto Demográfico y fondos europeos específicos contra la despoblación."),
+ ("fa", "rural", None, 98, "Adaptar la sanidad a las zonas de baja densidad de población."),
+ ("fa", "rural", None, 32, "Reforzar la escuela pública rural contra la despoblación."),
+ # Coalición Canaria
+ ("cc", "igualdad", "17", 10, "Financiación estatal para aplicar el Pacto de Estado contra la violencia de género en todas las islas."),
+ ("cc", "racismo", "86", 19, "Combatir los discursos racistas y financiar programas de convivencia intercultural."),
+ ("cc", "migracion", "82", 18, "Que el Estado y la UE asuman los costes del salvamento y la acogida en la ruta atlántica."),
+ ("cc", "migracion", "83", 19, "Traslados automáticos a otras comunidades cuando un territorio de llegada supere su capacidad."),
+ ("cc", "migracion", "84", 19, "Financiación estable para atender a los menores extranjeros no acompañados acogidos en Canarias."),
+ ("cc", "discapacidad", "20", 10, "Que los programas estatales y europeos de vivienda, transporte y empleo en Canarias incorporen la accesibilidad."),
+ ("cc", "familia", "15", 9, "Programas estatales contra la pobreza infantil mientras Canarias esté por encima de la media."),
+ ("cc", "educacion", "21", 10, "Programas estatales de inversión en infraestructuras educativas."),
+ ("cc", "rural", "74", 17, "Servicios, conectividad e inversiones del Estado adaptados a la doble insularidad y a los municipios rurales."),
+]
+TEMA_IDS = [t["id"] for t in TEMAS_SOC]
+MEAS_SOC = []
+for i, (pid, tema, num, pag, txt) in enumerate(SOC):
+    assert tema in TEMA_IDS and pid in PDFS, (pid, tema)
+    MEAS_SOC.append({"id": "soc-%s-%d" % (pid, i), "partido": pid, "tema": tema,
+                     "texto": txt, "num": num, "pagina": pag, "origen": "programa",
+                     "url": SRC["pdf_" + pid][1] + "#page=%d" % pag, "fuentes": ["pdf_" + pid]})
+for t in TEMAS_SOC:
+    if t["sugerir_si"] is None: t.pop("sugerir_si")
+
 DATA = {
  "meta": {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
-  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
+  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},
   "evidencia": {"hecho": "Dato verificable (cifra, texto del programa o votación).", "consenso": "La literatura económica citada coincide en lo esencial.", "disputada": "Hay estudios serios en sentidos distintos.", "inferencia": "Razonamiento de los autores del test sin estudio específico citado.", "hecho+inferencia": "El dato es verificable; a quién afecta es una inferencia."},
   "origen": {"programa": "Programa electoral publicado para el 29N", "campaña": "Anuncio de campaña o declaración", "previa": "Posición anterior del partido (no confirmada para el 29N)"},
@@ -575,6 +723,8 @@ DATA = {
  "notas": NOTAS,
  "candidaturas": CANDIDATURAS,
  "medidas": MEAS,
+ "temas_sociales": TEMAS_SOC,
+ "medidas_sociales": MEAS_SOC,
  "fuentes": SOURCES,
 }
 
@@ -599,6 +749,8 @@ for r in RISKS:
     for e in r["exposicion"]: chk(e["si"])
 for q in QUESTIONS:
     if "mostrar_si" in q: chk(q["mostrar_si"])
+for t in TEMAS_SOC:
+    if "sugerir_si" in t: chk(t["sugerir_si"])
 for c in CANDIDATURAS:
     for f in c["fuentes"]: assert f in SOURCES, c
     chk(c["si"])

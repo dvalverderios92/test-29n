@@ -89,3 +89,10 @@ Avisos contextuales (desempleo, IVA en Canarias, dependencia…) que se muestran
 ```
 
 `ambito_si` limita un partido territorial a quien cumpla la condición (p. ej., Coalición Canaria solo para residentes en Canarias). Los partidos se muestran en orden alfabético.
+
+## temas_sociales y medidas_sociales (v2.6)
+
+- `temas_sociales`: `{id, nombre, sugerir_si?}`. `sugerir_si` es una condición que deja el tema marcado de partida en la pregunta `temas`.
+- `medidas_sociales`: `{id, partido, tema, texto, num, pagina, origen, url, fuentes}`. `pagina` es la página del PDF de `programas/` y `url` enlaza a ella (`#page=N`). No llevan `efectos` ni `valor`: no se valoran.
+- Preguntas con `sensible: true`: opcionales, con la opción `nc` («Prefiero no contestar»). Solo alimentan `sugerir_si`.
+- `evaluate()` devuelve `derechos`: un elemento por tema elegido, con todas las candidaturas y sus medidas (`de` en candidaturas conjuntas, `sin_programa` para partidos sin programa). `suggestTopics(data, respuestas)` devuelve los temas sugeridos.

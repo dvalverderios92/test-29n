@@ -111,6 +111,30 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(r.notas.some(n => /Unidad del Pueblo Canario/.test(n)), 'Aviso de candidatura conjunta');
 }
 
+// Derechos y protecciones (v2.6)
+{
+  const base = { region: 'madrid', edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'alquiler', tens: 'no', comprar: false, otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const sens = D.preguntas.filter(q => q.sensible);
+  ok(sens.length >= 5 && sens.every(q => q.opciones.some(o => o.valor === 'nc' && /Prefiero no contestar/.test(o.texto))), 'Preguntas sensibles: todas con «Prefiero no contestar»');
+  const temasIds = D.temas_sociales.map(t => t.id);
+  ok(D.medidas_sociales.every(m => temasIds.includes(m.tema) && m.pagina > 0 && /#page=\d+$/.test(m.url)), 'Medidas sociales: tema válido y página enlazada');
+  D.partidos.filter(p => p.programa.estado === 'publicado').forEach(p => ok(D.medidas_sociales.some(m => m.partido === p.id), `${p.nombre}: tiene medidas sociales del programa`));
+  // Las respuestas sensibles no cambian nada del resultado económico
+  const a = T.evaluate(D, Object.assign({}, base, { temas: ['ninguno'] }));
+  const b = T.evaluate(D, Object.assign({}, base, { genero: 'mujer', lgtbi: 'si', etnia: 'si', disc: 'si', relig: 'si', temas: ['ninguno'] }));
+  ok(JSON.stringify(a.partidos.map(p => [p.medidas.map(m => m.id + m.valor), p.riesgos.map(r => r.id + r.exposicion_usuario.nivel)])) ===
+     JSON.stringify(b.partidos.map(p => [p.medidas.map(m => m.id + m.valor), p.riesgos.map(r => r.id + r.exposicion_usuario.nivel)])), 'Las respuestas sensibles no alteran medidas ni riesgos');
+  ok(a.derechos.length === 0, 'Sin temas elegidos no hay bloque de derechos');
+  const sg = T.suggestTopics(D, Object.assign({}, base, { genero: 'mujer', lgtbi: 'si', relig: 'nc' }));
+  ok(sg.includes('igualdad') && sg.includes('lgtbi') && !sg.includes('religion'), 'Sugerencia de temas según respuestas; «Prefiero no contestar» no sugiere nada');
+  const c = T.evaluate(D, Object.assign({}, base, { temas: temasIds }));
+  ok(c.derechos.length === temasIds.length && c.derechos.every(t => t.partidos.length === c.partidos.length), 'Cada tema elegido lista todas las candidaturas');
+  ok(c.derechos[0].partidos.find(p => p.id === 'pod').sin_programa, 'Podemos aparece como sin programa');
+  ok(c.derechos.every(t => t.partidos.every(p => p.medidas.every(m => !('valor' in m)))), 'Derechos y protecciones: sin valoración a favor o en contra');
+  const can = T.evaluate(D, Object.assign({}, base, { region: 'canarias', empad: true, temas: ['lgtbi'] }));
+  ok(can.derechos[0].partidos.find(p => p.id === 'upc').medidas.every(m => m.de), 'Candidatura conjunta: cada medida social indica de qué partido es');
+}
+
 // Fuentes
 ok(Object.values(D.fuentes).every(f => /^https:\/\//.test(f.url)), 'Todas las fuentes usan https');
 

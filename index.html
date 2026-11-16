@@ -116,6 +116,7 @@ button{font:inherit;cursor:pointer;color:inherit}
 .m.r-media::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--trama);border-right:1.5px solid var(--tinta);border-radius:6px 0 0 6px}
 .m.r-baja{border-left:10px solid var(--linea)}
 .m .t{font-weight:800;font-stretch:112%}
+.tema{margin:14px 0}.tema h3{margin:0 0 6px;font-size:1.3rem}.tema .m ul{margin:6px 0 0;padding-left:18px}.tema .m li{margin:6px 0}.tema .pill{text-decoration:none;white-space:normal}
 .lay{font-size:.95rem;margin-top:8px}
 .lay b{font-weight:700}
 details{margin:8px 0}
@@ -152,7 +153,7 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
     <div class="row izq">
       <button class="btn" id="startBtn" disabled>Cargando…</button>
     </div>
-    <p class="mut">Unos 3 minutos. Tus respuestas no salen de tu navegador.</p>
+    <p class="mut">Unos 4 minutos. Tus respuestas no salen de tu navegador.</p>
   </div>
 
   <div class="papeleta muestra" aria-label="Qué verás al terminar">
@@ -161,6 +162,7 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
       <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Los riesgos que corres</b><span class="d">Lo que una medida puede provocar aunque no te toque: menos recaudación, gasto sin financiar, precios, empleo. Comparados entre partidos.</span></div></li>
       <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Lo que ganas o pierdes</b><span class="d">Qué medidas te favorecen, te perjudican o tienen un efecto incierto en tu bolsillo.</span></div></li>
       <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Quién dice cómo pagarlo</b><span class="d">Si cada partido cuantifica su programa y de dónde sale el dinero.</span></div></li>
+      <li><span class="box x"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5L19 19"/><path d="M19 5L5 19"/></svg></span><div><b>Derechos y protecciones</b><span class="d">Si quieres, lo que propone cada partido sobre igualdad, derechos LGTBIQ+, racismo, migración, educación y otros temas, con la página del programa.</span></div></li>
     </ul>
     <p class="mut" style="border-top:3px double var(--tinta);padding-top:10px;margin:14px 0 0">Sin ranking, sin puntuación y sin consejo de voto.</p>
   </div>
@@ -208,8 +210,14 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
   </div>
   <h2>Resumen por partido</h2>
   <div class="sumgrid" id="sumgrid"></div>
+  <div class="fichas">
   <div class="tabs" id="tabs"></div>
   <div id="plist"></div>
+  </div>
+
+  <h2>Derechos y protecciones</h2>
+  <p class="mut">Lo que propone cada partido sobre los temas que elegiste. Aquí no se valora si te favorece o te perjudica: cada medida resume el programa oficial y enlaza a su página.</p>
+  <div id="derechos"></div>
 
   <h2>Limitaciones</h2>
   <div class="card">
@@ -265,6 +273,7 @@ function show(id){['intro','quiz','res'].forEach(function(s){$(s).classList.togg
 function start(){A={};idx=0;show('quiz');render()}
 function render(){
   var vs=vis(),q=vs[idx];
+  if(q.id==='temas'&&A.temas===undefined){var sg=Test29N.suggestTopics(D,A);if(sg.length)A.temas=sg}
   $('qcount').textContent='Pregunta '+(idx+1)+' de '+vs.length;
   $('bar').innerHTML=vs.map(function(x,i){return '<i class="'+(i<idx?'hecha':i===idx?'ahora':'')+'"></i>'}).join('');
   $('qtext').textContent=q.texto;$('qhelp').textContent=q.ayuda||'';
@@ -307,6 +316,7 @@ function results(){
   $('tabs').innerHTML=R.partidos.map(function(p){return '<button class="tab" data-p="'+p.id+'">'+esc(p.nombre)+'</button>'}).join('');
   Array.prototype.forEach.call(document.querySelectorAll('[data-p]'),function(b){b.onclick=function(){pick(b.getAttribute('data-p'))}});
   $('extra').innerHTML=R.notas.map(function(n){return '<p class="note">'+esc(n)+'</p>'}).join('');
+  $('derechos').innerHTML=derechosHTML();
   pick(current&&R.partidos.some(function(p){return p.id===current})?current:R.partidos[0].id,true);
 }
 
@@ -335,6 +345,16 @@ function pick(id,silent){
   if(!silent)$('tabs').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+function cita(m){return (m.de?'Propuesta de '+m.de+'. ':'')+(m.num?'Medida '+m.num+', ':'')+'p. '+m.pagina+' del programa'}
+function derechosHTML(){
+  if(!R.derechos.length)return '<p class="mut">No elegiste ningún tema. Puedes añadirlos con «Cambiar respuestas»: es la última pregunta.</p>';
+  return R.derechos.map(function(t){
+    return '<div class="card tema"><h3>'+esc(t.nombre)+'</h3>'+t.partidos.map(function(p){
+      var c=p.medidas.length?'<ul>'+p.medidas.map(function(m){return '<li>'+esc(m.texto)+' <a class="pill src" href="'+esc(m.url)+'" target="_blank" rel="noopener">'+esc(cita(m))+'</a></li>'}).join('')+'</ul>'
+        :'<p class="mut">'+(p.sin_programa?'Sin programa publicado: no hay propuestas que citar.':'No se han encontrado propuestas sobre este tema en su programa.')+'</p>';
+      return '<div class="m"><div class="t">'+esc(p.nombre)+'</div>'+c+'</div>'}).join('')+'</div>'}).join('');
+}
+
 function asText(){
   var t=['Test 29N, resultado (datos a '+D.meta.fecha_corte+'). No es una recomendación de voto.',''];
   R.notas.forEach(function(n){t.push('Nota: '+n)});
@@ -347,6 +367,10 @@ function asText(){
     p.medidas.forEach(function(m){t.push((m.valor>0?'[+] ':m.valor<0?'[-] ':'[?] ')+m.texto+' → '+m.efecto)});
     t.push('');
   });
+  if(R.derechos.length){t.push('DERECHOS Y PROTECCIONES (sin valoración; resumen del programa con su página)');
+    R.derechos.forEach(function(d){t.push('','== '+d.nombre+' ==');d.partidos.forEach(function(p){
+      if(!p.medidas.length)t.push(p.nombre+': '+(p.sin_programa?'sin programa publicado.':'sin propuestas encontradas en su programa.'));
+      p.medidas.forEach(function(m){t.push(p.nombre+': '+m.texto+' ('+cita(m)+')')})})})}
   return t.join('\n');
 }
 function copy(txt){

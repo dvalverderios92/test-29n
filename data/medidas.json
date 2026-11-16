@@ -3,10 +3,10 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "fecha_corte": "2026-11-16",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
-  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
+  "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
    "1": "a favor",
    "-1": "en contra",
@@ -945,6 +945,168 @@
     }
    ],
    "tipo": "unica"
+  },
+  {
+   "id": "genero",
+   "sensible": true,
+   "texto": "¿Cuál es tu género?",
+   "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.",
+   "opciones": [
+    {
+     "valor": "mujer",
+     "texto": "Mujer"
+    },
+    {
+     "valor": "hombre",
+     "texto": "Hombre"
+    },
+    {
+     "valor": "nobinaria",
+     "texto": "Persona no binaria"
+    },
+    {
+     "valor": "nc",
+     "texto": "Prefiero no contestar"
+    }
+   ],
+   "tipo": "unica"
+  },
+  {
+   "id": "lgtbi",
+   "sensible": true,
+   "texto": "¿Formas parte del colectivo LGTBIQ+?",
+   "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.",
+   "opciones": [
+    {
+     "valor": "si",
+     "texto": "Sí"
+    },
+    {
+     "valor": "no",
+     "texto": "No"
+    },
+    {
+     "valor": "nc",
+     "texto": "Prefiero no contestar"
+    }
+   ],
+   "tipo": "unica"
+  },
+  {
+   "id": "etnia",
+   "sensible": true,
+   "texto": "¿Perteneces a una minoría étnica o eres una persona racializada (por ejemplo, del pueblo gitano)?",
+   "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.",
+   "opciones": [
+    {
+     "valor": "si",
+     "texto": "Sí"
+    },
+    {
+     "valor": "no",
+     "texto": "No"
+    },
+    {
+     "valor": "nc",
+     "texto": "Prefiero no contestar"
+    }
+   ],
+   "tipo": "unica"
+  },
+  {
+   "id": "disc",
+   "sensible": true,
+   "texto": "¿Tienes una discapacidad, o convives con alguien que la tenga?",
+   "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.",
+   "opciones": [
+    {
+     "valor": "si",
+     "texto": "Sí"
+    },
+    {
+     "valor": "no",
+     "texto": "No"
+    },
+    {
+     "valor": "nc",
+     "texto": "Prefiero no contestar"
+    }
+   ],
+   "tipo": "unica"
+  },
+  {
+   "id": "relig",
+   "sensible": true,
+   "texto": "¿Practicas alguna religión?",
+   "ayuda": "Pregunta opcional. Solo sirve para proponerte temas al final: no cambia ningún resultado, no sale de tu navegador y no aparece en el PDF.",
+   "opciones": [
+    {
+     "valor": "si",
+     "texto": "Sí"
+    },
+    {
+     "valor": "no",
+     "texto": "No"
+    },
+    {
+     "valor": "nc",
+     "texto": "Prefiero no contestar"
+    }
+   ],
+   "tipo": "unica"
+  },
+  {
+   "id": "temas",
+   "ninguno": "ninguno",
+   "texto": "¿Sobre qué temas quieres ver también lo que propone cada partido?",
+   "ayuda": "Ya están marcados los que pueden tocarte por tus respuestas; cámbialos como quieras. Se muestran aparte y sin valorar si te favorecen.",
+   "opciones": [
+    {
+     "valor": "igualdad",
+     "texto": "Igualdad y violencia contra las mujeres"
+    },
+    {
+     "valor": "lgtbi",
+     "texto": "Derechos LGTBIQ+"
+    },
+    {
+     "valor": "racismo",
+     "texto": "Racismo, discriminación y pueblo gitano"
+    },
+    {
+     "valor": "migracion",
+     "texto": "Migración, asilo y nacionalidad"
+    },
+    {
+     "valor": "discapacidad",
+     "texto": "Discapacidad"
+    },
+    {
+     "valor": "familia",
+     "texto": "Familia, natalidad y conciliación"
+    },
+    {
+     "valor": "educacion",
+     "texto": "Modelo educativo"
+    },
+    {
+     "valor": "vida",
+     "texto": "Aborto y final de la vida"
+    },
+    {
+     "valor": "religion",
+     "texto": "Religión y laicidad"
+    },
+    {
+     "valor": "rural",
+     "texto": "Mundo rural y despoblación"
+    },
+    {
+     "valor": "ninguno",
+     "texto": "Ninguno"
+    }
+   ],
+   "tipo": "multi"
   }
  ],
  "partidos": [
@@ -4524,6 +4686,1453 @@
    "efectos": []
   }
  ],
+ "temas_sociales": [
+  {
+   "id": "igualdad",
+   "nombre": "Igualdad y violencia contra las mujeres",
+   "sugerir_si": {
+    "q": "genero",
+    "in": [
+     "mujer",
+     "nobinaria"
+    ]
+   }
+  },
+  {
+   "id": "lgtbi",
+   "nombre": "Derechos LGTBIQ+",
+   "sugerir_si": {
+    "any": [
+     {
+      "q": "lgtbi",
+      "eq": "si"
+     },
+     {
+      "q": "genero",
+      "eq": "nobinaria"
+     }
+    ]
+   }
+  },
+  {
+   "id": "racismo",
+   "nombre": "Racismo, discriminación y pueblo gitano",
+   "sugerir_si": {
+    "q": "etnia",
+    "eq": "si"
+   }
+  },
+  {
+   "id": "migracion",
+   "nombre": "Migración, asilo y nacionalidad",
+   "sugerir_si": {
+    "ref": "extranjero"
+   }
+  },
+  {
+   "id": "discapacidad",
+   "nombre": "Discapacidad",
+   "sugerir_si": {
+    "q": "disc",
+    "eq": "si"
+   }
+  },
+  {
+   "id": "familia",
+   "nombre": "Familia, natalidad y conciliación",
+   "sugerir_si": {
+    "any": [
+     {
+      "ref": "con_hijos"
+     },
+     {
+      "ref": "quiere_hijos"
+     }
+    ]
+   }
+  },
+  {
+   "id": "educacion",
+   "nombre": "Modelo educativo",
+   "sugerir_si": {
+    "q": "hijos",
+    "includesAny": [
+     "h3_7",
+     "h8_17"
+    ]
+   }
+  },
+  {
+   "id": "vida",
+   "nombre": "Aborto y final de la vida"
+  },
+  {
+   "id": "religion",
+   "nombre": "Religión y laicidad",
+   "sugerir_si": {
+    "q": "relig",
+    "eq": "si"
+   }
+  },
+  {
+   "id": "rural",
+   "nombre": "Mundo rural y despoblación"
+  }
+ ],
+ "medidas_sociales": [
+  {
+   "id": "soc-pp-0",
+   "partido": "pp",
+   "tema": "igualdad",
+   "texto": "Más medios contra la violencia de género: las pulseras de alejamiento pasan a depender de Interior, más unidades especializadas, protección también para los hijos de las víctimas y rendición de cuentas anual del Pacto de Estado.",
+   "num": "28",
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=17",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-1",
+   "partido": "pp",
+   "tema": "igualdad",
+   "texto": "Ley integral contra la trata y criterios comunes en toda España frente a la mutilación genital femenina y los matrimonios forzados.",
+   "num": "29",
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=17",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-2",
+   "partido": "pp",
+   "tema": "igualdad",
+   "texto": "Eliminar los obstáculos que frenan la trayectoria de las mujeres y revisar las normas que, a su juicio, han generado inseguridad jurídica en nombre de la igualdad.",
+   "num": "115",
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-3",
+   "partido": "pp",
+   "tema": "lgtbi",
+   "texto": "Combatir la discriminación por orientación sexual, entre otras causas, y seguir luchando contra la LGTBIfobia.",
+   "num": "111",
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-4",
+   "partido": "pp",
+   "tema": "lgtbi",
+   "texto": "Revisar la Ley Trans y eliminar la libre autodeterminación registral del sexo. El sexo biológico sería el criterio en las categorías deportivas femeninas.",
+   "num": "115",
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-5",
+   "partido": "pp",
+   "tema": "racismo",
+   "texto": "Combatir cualquier discriminación por origen, sexo, edad, discapacidad, orientación sexual o religión.",
+   "num": "111",
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-6",
+   "partido": "pp",
+   "tema": "migracion",
+   "texto": "Prohibir por ley las regularizaciones masivas. El arraigo sería excepcional y el empadronamiento, por sí solo, no daría acceso a ayudas no urgentes.",
+   "num": "42",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=19",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-7",
+   "partido": "pp",
+   "tema": "migracion",
+   "texto": "Cupos anuales de trabajadores extranjeros según sectores y capacidad de acogida, solo con países que colaboren en los retornos.",
+   "num": "41",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=19",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-8",
+   "partido": "pp",
+   "tema": "migracion",
+   "texto": "Compromiso de integración obligatorio para renovar la residencia temporal: aprender español y conocer la Constitución.",
+   "num": "43",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=19",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-9",
+   "partido": "pp",
+   "tema": "migracion",
+   "texto": "Nueva Ley de Nacionalidad con más requisitos (español, historia, valores constitucionales, sin antecedentes) y trato preferente a los países de la Hispanidad.",
+   "num": "141",
+   "pagina": 39,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=39",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-10",
+   "partido": "pp",
+   "tema": "discapacidad",
+   "texto": "Atención temprana, asistencia personal, vivienda con apoyos y empleo inclusivo. Pensiones de discapacidad compatibles con el empleo y más jubilación anticipada para personas con síndrome de Down.",
+   "num": "112",
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=35",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-11",
+   "partido": "pp",
+   "tema": "discapacidad",
+   "texto": "No cerrar los centros de educación especial; las familias participarían en la decisión de escolarización.",
+   "num": "213",
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=51",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-12",
+   "partido": "pp",
+   "tema": "familia",
+   "texto": "Medidas para tener los hijos deseados: el concebido no nacido contaría para las ayudas familiares, congelación de óvulos para mujeres jóvenes y revisión de los límites de edad en reproducción asistida.",
+   "num": "159",
+   "pagina": 44,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=44",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-13",
+   "partido": "pp",
+   "tema": "familia",
+   "texto": "Reconocimiento común en toda España de las familias monoparentales y conciliación adaptada a quien cría en solitario.",
+   "num": "165",
+   "pagina": 45,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=45",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-14",
+   "partido": "pp",
+   "tema": "educacion",
+   "texto": "Libre elección de colegio en todo el municipio. No se eliminaría ningún concierto donde haya demanda y los conciertos durarían al menos seis años.",
+   "num": "212",
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=51",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-15",
+   "partido": "pp",
+   "tema": "educacion",
+   "texto": "Currículos de Historia elaborados con las Reales Academias; el alumnado estudiaría la Constitución, la Transición y el daño del terrorismo.",
+   "num": "133",
+   "pagina": 38,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=38",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-16",
+   "partido": "pp",
+   "tema": "vida",
+   "texto": "Ley nacional de cuidados paliativos, para que nadie se vea empujado a acelerar su muerte por falta de alternativas. No menciona el aborto.",
+   "num": "226",
+   "pagina": 53,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=53",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-17",
+   "partido": "pp",
+   "tema": "religion",
+   "texto": "Prohibir el burka y el niqab en los espacios públicos.",
+   "num": "43",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=19",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-18",
+   "partido": "pp",
+   "tema": "rural",
+   "texto": "Menos impuestos a quien vive, invierte y produce en el medio rural; los jóvenes no pagarían impuestos al comprar vivienda en municipios despoblados.",
+   "num": "196",
+   "pagina": 49,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=49",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-19",
+   "partido": "pp",
+   "tema": "rural",
+   "texto": "Ayudas directas a los municipios de menos de 250 habitantes para sostener sus servicios básicos.",
+   "num": "105",
+   "pagina": 34,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=34",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-pp-20",
+   "partido": "pp",
+   "tema": "rural",
+   "texto": "Plan nacional para la mujer rural y del mar (vivienda, financiación, titularidad, formación).",
+   "num": "204",
+   "pagina": 50,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=50",
+   "fuentes": [
+    "pdf_pp"
+   ]
+  },
+  {
+   "id": "soc-psoe-21",
+   "partido": "psoe",
+   "tema": "igualdad",
+   "texto": "Nueva Estrategia Estatal contra las Violencias Machistas.",
+   "num": "333",
+   "pagina": 82,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=82",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-22",
+   "partido": "psoe",
+   "tema": "igualdad",
+   "texto": "Ley Orgánica contra la Violencia Vicaria.",
+   "num": "335",
+   "pagina": 82,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=82",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-23",
+   "partido": "psoe",
+   "tema": "igualdad",
+   "texto": "Ayudas a los huérfanos de la violencia de género hasta los 26 años.",
+   "num": "338",
+   "pagina": 82,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=82",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-24",
+   "partido": "psoe",
+   "tema": "igualdad",
+   "texto": "Incluir las violencias digitales en la Ley integral contra la violencia de género, más allá de la pareja o expareja.",
+   "num": "350",
+   "pagina": 84,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=84",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-25",
+   "partido": "psoe",
+   "tema": "igualdad",
+   "texto": "Programa estatal de salida, protección y reparación para mujeres en servidumbre por deudas dentro de la prostitución.",
+   "num": "343",
+   "pagina": 83,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=83",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-26",
+   "partido": "psoe",
+   "tema": "lgtbi",
+   "texto": "La Ley 4/2023 (Ley Trans y LGTBI) como mínimo común en toda España, y una nueva Ley de Familias que reconozca su diversidad.",
+   "num": "412",
+   "pagina": 97,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=97",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-27",
+   "partido": "psoe",
+   "tema": "lgtbi",
+   "texto": "Penalizar en el Código Penal las llamadas terapias de conversión.",
+   "num": "414",
+   "pagina": 97,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=97",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-28",
+   "partido": "psoe",
+   "tema": "lgtbi",
+   "texto": "Inclusión social y laboral de las personas trans, con acceso y continuidad de los tratamientos hormonales.",
+   "num": "415",
+   "pagina": 97,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=97",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-29",
+   "partido": "psoe",
+   "tema": "lgtbi",
+   "texto": "Máxima protección jurídica del matrimonio igualitario, junto al aborto y la eutanasia.",
+   "num": "368",
+   "pagina": 89,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=89",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-30",
+   "partido": "psoe",
+   "tema": "racismo",
+   "texto": "Desarrollar la Ley Zerolo y poner en marcha la Autoridad Independiente para la Igualdad de Trato y la No Discriminación.",
+   "num": "392",
+   "pagina": 93,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=93",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-31",
+   "partido": "psoe",
+   "tema": "racismo",
+   "texto": "Pacto de Estado contra los discursos y delitos de odio.",
+   "num": "394",
+   "pagina": 93,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=93",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-32",
+   "partido": "psoe",
+   "tema": "racismo",
+   "texto": "Más financiación para la Estrategia Nacional del Pueblo Gitano 2021-2030 y la lucha contra el antigitanismo.",
+   "num": "398",
+   "pagina": 94,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=94",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-33",
+   "partido": "psoe",
+   "tema": "migracion",
+   "texto": "Plan de Integración y Ciudadanía 2026-2030 con 500 millones iniciales.",
+   "num": "388",
+   "pagina": 92,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=92",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-34",
+   "partido": "psoe",
+   "tema": "migracion",
+   "texto": "Más vías legales y seguras de protección internacional, con reasentamiento y visados humanitarios.",
+   "num": "389",
+   "pagina": 92,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=92",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-35",
+   "partido": "psoe",
+   "tema": "migracion",
+   "texto": "Sistema de acogida reforzado, con especial protección de los menores que llegan solos.",
+   "num": "391",
+   "pagina": 93,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=93",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-36",
+   "partido": "psoe",
+   "tema": "discapacidad",
+   "texto": "Aplicar plenamente la reforma de discapacidad y dependencia (Ley 4/2026) para reducir las listas de espera.",
+   "num": "205",
+   "pagina": 57,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=57",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-37",
+   "partido": "psoe",
+   "tema": "discapacidad",
+   "texto": "Más asistencia personal, centros de día y programas de respiro familiar.",
+   "num": "208",
+   "pagina": 58,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=58",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-38",
+   "partido": "psoe",
+   "tema": "discapacidad",
+   "texto": "Hacer cumplir la reserva del 2 % de empleo para personas con discapacidad, con más inspección.",
+   "num": "124",
+   "pagina": 43,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=43",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-39",
+   "partido": "psoe",
+   "tema": "familia",
+   "texto": "Permisos parentales y por cuidados retribuidos, extendidos a familias monoparentales y autónomos; adaptación y reducción de jornada para cuidar a menores hasta los 16 años.",
+   "num": "325",
+   "pagina": 80,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=80",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-40",
+   "partido": "psoe",
+   "tema": "familia",
+   "texto": "Ley de Familias, con reconocimiento y protección de las familias monoparentales.",
+   "num": "199",
+   "pagina": 57,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=57",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-41",
+   "partido": "psoe",
+   "tema": "familia",
+   "texto": "Marco estatal de ayudas para productos y cuidados en los primeros 1.000 días de crianza.",
+   "num": "196",
+   "pagina": 56,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=56",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-42",
+   "partido": "psoe",
+   "tema": "educacion",
+   "texto": "Coeducación y educación afectivo-sexual obligatorias en todas las etapas.",
+   "num": "344",
+   "pagina": 83,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=83",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-43",
+   "partido": "psoe",
+   "tema": "educacion",
+   "texto": "Más becas y un máximo de alumnos por aula, con doble cómputo del alumnado con necesidades especiales.",
+   "num": "158",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=52",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-44",
+   "partido": "psoe",
+   "tema": "vida",
+   "texto": "Reforma del artículo 43 de la Constitución para blindar el derecho al aborto.",
+   "num": "327",
+   "pagina": 81,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=81",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-45",
+   "partido": "psoe",
+   "tema": "vida",
+   "texto": "Garantizar el ejercicio efectivo del derecho a la eutanasia según la ley vigente.",
+   "num": "147",
+   "pagina": 50,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=50",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-46",
+   "partido": "psoe",
+   "tema": "rural",
+   "texto": "Servicios públicos de calidad con independencia del lugar de residencia y medidas para fijar y atraer población en la España rural.",
+   "num": "233",
+   "pagina": 61,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=61",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-47",
+   "partido": "psoe",
+   "tema": "rural",
+   "texto": "Vivienda asequible en el medio rural: alquiler para nuevos residentes y rehabilitación de viviendas vacías.",
+   "num": "278",
+   "pagina": 71,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=71",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-psoe-48",
+   "partido": "psoe",
+   "tema": "rural",
+   "texto": "Proteger y reforzar la escuela rural pública.",
+   "num": "163",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=52",
+   "fuentes": [
+    "pdf_psoe"
+   ]
+  },
+  {
+   "id": "soc-vox-49",
+   "partido": "vox",
+   "tema": "igualdad",
+   "texto": "Derogar las leyes de género, que considera que criminalizan a los hombres, y aprobar normas que protejan a las mujeres víctimas de violencia, en especial de maltrato.",
+   "num": "47",
+   "pagina": 30,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=30",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-50",
+   "partido": "vox",
+   "tema": "igualdad",
+   "texto": "Más prevención, protección policial y judicial y asistencia integral a las mujeres frente a la violencia y las agresiones sexuales.",
+   "num": "87",
+   "pagina": 46,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=46",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-51",
+   "partido": "vox",
+   "tema": "igualdad",
+   "texto": "Combatir la brecha maternal: formación, promoción y reincorporación de las madres que interrumpieron su carrera.",
+   "num": "99",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=52",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-52",
+   "partido": "vox",
+   "tema": "migracion",
+   "texto": "Ninguna llegada más de inmigrantes; prohibir las regularizaciones masivas y que quien entra de forma ilegal pueda regularizarse.",
+   "num": "9",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=15",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-53",
+   "partido": "vox",
+   "tema": "migracion",
+   "texto": "Suprimir el arraigo y revocar las vías rápidas de acceso a la nacionalidad.",
+   "num": "11",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=15",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-54",
+   "partido": "vox",
+   "tema": "migracion",
+   "texto": "Remigración: plan de retorno para extranjeros que no contribuyan o vivan de subsidios.",
+   "num": "13",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=15",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-55",
+   "partido": "vox",
+   "tema": "migracion",
+   "texto": "Prioridad nacional: acceso preferente de los españoles a vivienda pública, guarderías, ayudas y servicios sociales.",
+   "num": "18",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=19",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-56",
+   "partido": "vox",
+   "tema": "discapacidad",
+   "texto": "Más bonificaciones y deducciones para personas con discapacidad, fin de las barreras arquitectónicas y menos burocracia para reconocer la discapacidad.",
+   "num": "95",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=52",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-57",
+   "partido": "vox",
+   "tema": "familia",
+   "texto": "Plan nacional de natalidad: los beneficios de las familias numerosas se extenderían a todas desde el primer hijo, y el Estado cotizaría por quien se dedique a cuidar a sus hijos.",
+   "num": "94",
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=51",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-58",
+   "partido": "vox",
+   "tema": "educacion",
+   "texto": "Libre elección de centro en todos los niveles.",
+   "num": "67",
+   "pagina": 41,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=41",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-59",
+   "partido": "vox",
+   "tema": "educacion",
+   "texto": "Derogar la LOMLOE y eliminar contenidos ideológicos ajenos a las materias.",
+   "num": "69",
+   "pagina": 41,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=41",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-60",
+   "partido": "vox",
+   "tema": "educacion",
+   "texto": "Garantizar la educación en español en todo el territorio, con currículo y evaluaciones únicas.",
+   "num": "66",
+   "pagina": 41,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=41",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-61",
+   "partido": "vox",
+   "tema": "educacion",
+   "texto": "Número máximo por aula de alumnos de otras culturas o con poco dominio del español, y aulas de nivelación aparte.",
+   "num": "70",
+   "pagina": 42,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=42",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-62",
+   "partido": "vox",
+   "tema": "vida",
+   "texto": "Defensa de la vida desde la concepción hasta la muerte natural, objeción de conciencia de sanitarios y farmacéuticos y más cuidados paliativos.",
+   "num": "98",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=52",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-63",
+   "partido": "vox",
+   "tema": "religion",
+   "texto": "Prohibir el burka y el niqab en los espacios públicos y donde se presten servicios públicos.",
+   "num": "71",
+   "pagina": 42,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=42",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-64",
+   "partido": "vox",
+   "tema": "religion",
+   "texto": "Fin de los menús halal en los comedores escolares.",
+   "num": "72",
+   "pagina": 42,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=42",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-65",
+   "partido": "vox",
+   "tema": "religion",
+   "texto": "Proteger las tradiciones religiosas y populares de España.",
+   "num": "104",
+   "pagina": 56,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=56",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-vox-66",
+   "partido": "vox",
+   "tema": "rural",
+   "texto": "Plan de inversiones para recuperar barrios, municipios y provincias abandonados.",
+   "num": "24",
+   "pagina": 20,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf#page=20",
+   "fuentes": [
+    "pdf_vox"
+   ]
+  },
+  {
+   "id": "soc-fa-67",
+   "partido": "fa",
+   "tema": "igualdad",
+   "texto": "Al menos un 5 % del presupuesto no financiero del Estado para políticas de igualdad, y un 10 % más cada año contra las violencias machistas.",
+   "num": null,
+   "pagina": 38,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=38",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-68",
+   "partido": "fa",
+   "tema": "igualdad",
+   "texto": "Suspensión cautelar automática de las visitas del progenitor investigado por violencia machista, vicaria o sexual.",
+   "num": null,
+   "pagina": 38,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=38",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-69",
+   "partido": "fa",
+   "tema": "igualdad",
+   "texto": "Acceso prioritario a vivienda pública para mujeres víctimas de violencia machista.",
+   "num": null,
+   "pagina": 38,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=38",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-70",
+   "partido": "fa",
+   "tema": "lgtbi",
+   "texto": "Desplegar la Ley Trans y reconocer a las personas no binarias.",
+   "num": null,
+   "pagina": 123,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=123",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-71",
+   "partido": "fa",
+   "tema": "lgtbi",
+   "texto": "Atención sanitaria a las personas trans despatologizada y basada en el consentimiento informado.",
+   "num": null,
+   "pagina": 123,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=123",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-72",
+   "partido": "fa",
+   "tema": "lgtbi",
+   "texto": "Observatorio estatal y estrategia contra la LGTBQAifobia (así la llama el programa) en deporte, cultura, empleo y educación.",
+   "num": null,
+   "pagina": 123,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=123",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-73",
+   "partido": "fa",
+   "tema": "racismo",
+   "texto": "Ley integral contra el racismo y Estatuto del Pueblo Gitano.",
+   "num": null,
+   "pagina": 126,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=126",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-74",
+   "partido": "fa",
+   "tema": "racismo",
+   "texto": "Restringir las paradas de identificación policial y prohibirlas para aplicar la Ley de Extranjería.",
+   "num": null,
+   "pagina": 143,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=143",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-75",
+   "partido": "fa",
+   "tema": "racismo",
+   "texto": "Comisión parlamentaria de estudio sobre el racismo estructural.",
+   "num": null,
+   "pagina": 128,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=128",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-76",
+   "partido": "fa",
+   "tema": "migracion",
+   "texto": "Procedimiento estable y permanente de regularización en la Ley de Extranjería.",
+   "num": null,
+   "pagina": 126,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=126",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-77",
+   "partido": "fa",
+   "tema": "migracion",
+   "texto": "Derogar el rechazo en frontera.",
+   "num": null,
+   "pagina": 126,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=126",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-78",
+   "partido": "fa",
+   "tema": "migracion",
+   "texto": "Cerrar los Centros de Internamiento de Extranjeros (CIE).",
+   "num": null,
+   "pagina": 127,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=127",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-79",
+   "partido": "fa",
+   "tema": "migracion",
+   "texto": "Derecho de voto y a ser elegidos de los migrantes residentes en las elecciones municipales.",
+   "num": null,
+   "pagina": 128,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=128",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-80",
+   "partido": "fa",
+   "tema": "discapacidad",
+   "texto": "Desarrollar plenamente la Ley 4/2026: accesibilidad universal, vida independiente y autonomía personal.",
+   "num": null,
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=26",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-81",
+   "partido": "fa",
+   "tema": "discapacidad",
+   "texto": "Un 60 % más de becas para alumnado con necesidades específicas, incluida la discapacidad.",
+   "num": null,
+   "pagina": 32,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=32",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-82",
+   "partido": "fa",
+   "tema": "familia",
+   "texto": "Permiso por nacimiento de 20 semanas intransferibles por progenitor y permiso parental retribuido hasta 10 semanas.",
+   "num": null,
+   "pagina": 24,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=24",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-83",
+   "partido": "fa",
+   "tema": "familia",
+   "texto": "Reconocimiento de las familias diversas.",
+   "num": null,
+   "pagina": 123,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=123",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-84",
+   "partido": "fa",
+   "tema": "educacion",
+   "texto": "Hoja de ruta para que todo el alumnado pueda ir a la pública; mientras coexistan, prohibir las cuotas obligatorias en los concertados.",
+   "num": null,
+   "pagina": 31,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=31",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-85",
+   "partido": "fa",
+   "tema": "educacion",
+   "texto": "Coeducación y educación sexoafectiva en las aulas.",
+   "num": null,
+   "pagina": 37,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=37",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-86",
+   "partido": "fa",
+   "tema": "educacion",
+   "texto": "Ningún concierto ni subvención para escuelas que segreguen por sexo o por motivos religiosos.",
+   "num": null,
+   "pagina": 150,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=150",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-87",
+   "partido": "fa",
+   "tema": "vida",
+   "texto": "Reformar el artículo 43 de la Constitución para incluir el derecho al aborto y garantizarlo en centros públicos de todas las comunidades.",
+   "num": null,
+   "pagina": 28,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=28",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-88",
+   "partido": "fa",
+   "tema": "vida",
+   "texto": "Recoge el derecho a la interrupción del embarazo, a la eutanasia y al suicidio asistido, junto a una Ley de Libertad de Conciencia.",
+   "num": null,
+   "pagina": 150,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=150",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-89",
+   "partido": "fa",
+   "tema": "religion",
+   "texto": "Revisar los Acuerdos de 1979 con la Santa Sede y suprimir la financiación pública y las exenciones fiscales de las confesiones religiosas.",
+   "num": null,
+   "pagina": 150,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=150",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-90",
+   "partido": "fa",
+   "tema": "religion",
+   "texto": "Recuperar para el Estado los bienes inmatriculados por la Iglesia católica de interés histórico-artístico.",
+   "num": null,
+   "pagina": 150,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=150",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-91",
+   "partido": "fa",
+   "tema": "religion",
+   "texto": "Ley de Libertad de Conciencia que sustituya a la Ley de Libertad Religiosa.",
+   "num": null,
+   "pagina": 150,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=150",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-92",
+   "partido": "fa",
+   "tema": "rural",
+   "texto": "II Estrategia estatal frente al Reto Demográfico y fondos europeos específicos contra la despoblación.",
+   "num": null,
+   "pagina": 97,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=97",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-93",
+   "partido": "fa",
+   "tema": "rural",
+   "texto": "Adaptar la sanidad a las zonas de baja densidad de población.",
+   "num": null,
+   "pagina": 98,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=98",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-fa-94",
+   "partido": "fa",
+   "tema": "rural",
+   "texto": "Reforzar la escuela pública rural contra la despoblación.",
+   "num": null,
+   "pagina": 32,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=32",
+   "fuentes": [
+    "pdf_fa"
+   ]
+  },
+  {
+   "id": "soc-cc-95",
+   "partido": "cc",
+   "tema": "igualdad",
+   "texto": "Financiación estatal para aplicar el Pacto de Estado contra la violencia de género en todas las islas.",
+   "num": "17",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=10",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-96",
+   "partido": "cc",
+   "tema": "racismo",
+   "texto": "Combatir los discursos racistas y financiar programas de convivencia intercultural.",
+   "num": "86",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=19",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-97",
+   "partido": "cc",
+   "tema": "migracion",
+   "texto": "Que el Estado y la UE asuman los costes del salvamento y la acogida en la ruta atlántica.",
+   "num": "82",
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=18",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-98",
+   "partido": "cc",
+   "tema": "migracion",
+   "texto": "Traslados automáticos a otras comunidades cuando un territorio de llegada supere su capacidad.",
+   "num": "83",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=19",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-99",
+   "partido": "cc",
+   "tema": "migracion",
+   "texto": "Financiación estable para atender a los menores extranjeros no acompañados acogidos en Canarias.",
+   "num": "84",
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=19",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-100",
+   "partido": "cc",
+   "tema": "discapacidad",
+   "texto": "Que los programas estatales y europeos de vivienda, transporte y empleo en Canarias incorporen la accesibilidad.",
+   "num": "20",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=10",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-101",
+   "partido": "cc",
+   "tema": "familia",
+   "texto": "Programas estatales contra la pobreza infantil mientras Canarias esté por encima de la media.",
+   "num": "15",
+   "pagina": 9,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=9",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-102",
+   "partido": "cc",
+   "tema": "educacion",
+   "texto": "Programas estatales de inversión en infraestructuras educativas.",
+   "num": "21",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=10",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  },
+  {
+   "id": "soc-cc-103",
+   "partido": "cc",
+   "tema": "rural",
+   "texto": "Servicios, conectividad e inversiones del Estado adaptados a la doble insularidad y a los municipios rurales.",
+   "num": "74",
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf#page=17",
+   "fuentes": [
+    "pdf_cc"
+   ]
+  }
+ ],
  "fuentes": {
   "rankia": {
    "titulo": "Rankia: Programas electorales del 29-N, qué propone cada partido en economía",
@@ -4689,6 +6298,31 @@
    "titulo": "CNMC: Estudio sobre la transformación urbanística del suelo para vivienda",
    "url": "https://www.cnmc.es/sites/default/files/6658260.pdf",
    "fecha": "2025"
+  },
+  "pdf_pp": {
+   "titulo": "PP: La Reconstrucción Nacional (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_psoe": {
+   "titulo": "PSOE: La fuerza de seguir avanzando (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_vox": {
+   "titulo": "Vox: Es sentido común (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/vox.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_fa": {
+   "titulo": "Frente Amplio: Programa electoral 2026 (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_cc": {
+   "titulo": "Coalición Canaria: Defiende Canarias (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/coalicion-canaria.pdf",
+   "fecha": "2026-11"
   }
  }
 }

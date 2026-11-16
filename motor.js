@@ -100,7 +100,8 @@
             riesgos_altos: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'alta'; }).length,
             riesgos_medios: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length
           },
-          medidas: medidas, universales: universales, riesgos: riesgos
+          medidas: medidas, universales: universales, riesgos: riesgos,
+          sociales: (data.medidas_sociales || []).filter(function (m) { return m.partido === p.id; })
         };
       });
     // Candidaturas reales de la comunidad: fusiones (varios partidos en una papeleta), cambios de nombre y exclusiones.
@@ -124,8 +125,9 @@
             } else prev.medidas_origen = prev.medidas_origen.concat(r.medidas_origen);
           });
         });
-        var meds = [], univ = [];
+        var meds = [], univ = [], soc = [];
         miembros.forEach(function (p) {
+          p.sociales.forEach(function (m) { soc.push(Object.assign({}, m, { de: p.nombre })); });
           p.medidas.forEach(function (m) { meds.push(Object.assign({}, m, { de: p.nombre })); });
           p.universales.forEach(function (m) { univ.push(Object.assign({}, m, { de: p.nombre })); });
         });
@@ -136,7 +138,7 @@
           programa: { titulo: 'Candidatura conjunta', fecha: null, estado: 'coalicion', nota: c.integrantes + '. ' + c.nota },
           financiacion: { cuantifica: 'varias', resumen: miembros.map(function (p) { return p.nombre + ': ' + p.financiacion.resumen; }).join(' '),
             fuentes: [].concat.apply([], miembros.map(function (p) { return p.financiacion.fuentes; })) },
-          medidas: meds, universales: univ, riesgos: riesgos, fuentes_candidatura: c.fuentes
+          medidas: meds, universales: univ, riesgos: riesgos, sociales: soc, fuentes_candidatura: c.fuentes
         };
         fusion.recuento = {
           a_favor: meds.filter(function (x) { return x.valor > 0; }).length,
@@ -167,8 +169,26 @@
 
     var notas = avisos.concat((data.notas || []).filter(function (n) { return evalCond(n.si, ans, named); }).map(function (n) { return n.texto; }));
 
-    return { meta: data.meta, respuestas: ans, partidos: partidos, matriz_riesgos: matriz, notas: notas };
+    // Derechos y protecciones: solo los temas elegidos, sin valoración a favor o en contra.
+    var elegidos = Array.isArray(ans.temas) ? ans.temas : [];
+    var derechos = (data.temas_sociales || []).filter(function (t) { return elegidos.indexOf(t.id) !== -1; }).map(function (t) {
+      return {
+        id: t.id, nombre: t.nombre,
+        partidos: partidos.map(function (p) {
+          return { id: p.id, nombre: p.nombre, sin_programa: !!(p.programa && p.programa.estado === 'sin_programa'),
+            medidas: (p.sociales || []).filter(function (m) { return m.tema === t.id; }) };
+        })
+      };
+    });
+
+    return { meta: data.meta, respuestas: ans, partidos: partidos, matriz_riesgos: matriz, notas: notas, derechos: derechos };
   }
 
-  return { evalCond: evalCond, visibleQuestions: visibleQuestions, cleanAnswers: cleanAnswers, evaluate: evaluate };
+  // Temas que se proponen marcados de partida, según las respuestas anteriores.
+  function suggestTopics(data, ans) {
+    return (data.temas_sociales || []).filter(function (t) { return t.sugerir_si && evalCond(t.sugerir_si, ans, data.condiciones); })
+      .map(function (t) { return t.id; });
+  }
+
+  return { evalCond: evalCond, visibleQuestions: visibleQuestions, cleanAnswers: cleanAnswers, evaluate: evaluate, suggestTopics: suggestTopics };
 });

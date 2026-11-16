@@ -43,3 +43,12 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 ## Cómo proponer cambios
 
 Toda medida, riesgo o exposición nueva debe llevar al menos una fuente enlazada (preferiblemente el programa oficial o un organismo independiente: AIReF, Banco de España, CNMC, Funcas, universidades). Si añades un riesgo a un partido, revisa si la misma lógica aplica a medidas equivalentes de otros partidos.
+
+## Derechos y protecciones (desde la v2.6)
+
+Bloque aparte y opcional sobre temas sociales: igualdad y violencia contra las mujeres, derechos LGTBIQ+, racismo y pueblo gitano, migración, discapacidad, familia, modelo educativo, aborto y final de la vida, religión y laicidad, y mundo rural.
+
+- **Sin valoración.** En lo económico se puede decir si pagas más o menos. En lo social, la misma medida la valoran al revés personas en la misma situación, así que el test no marca nada como «a favor» o «en contra». Cada medida es un resumen fiel del programa oficial, con su número y un enlace a la página del PDF.
+- **Preguntas sensibles opcionales.** Género, pertenencia al colectivo LGTBIQ+, minoría étnica, discapacidad y religión. Todas tienen «Prefiero no contestar». Solo sirven para dejar marcados de partida los temas de la última pregunta: no cambian ninguna medida ni riesgo, y no aparecen en el PDF ni en el texto copiado. Las pruebas automáticas lo comprueban.
+- **Simetría.** Los temas incluyen asuntos que priorizan votantes de sensibilidades distintas, y se recogen con el mismo criterio para todos los partidos. Si un programa no dice nada sobre un tema, se indica así: «No se han encontrado propuestas sobre este tema en su programa».
+- **Partidos sin programa.** Podemos aparece como «sin programa publicado».

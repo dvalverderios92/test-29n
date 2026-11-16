@@ -5,6 +5,7 @@ Cuestionario abierto y neutral sobre las **elecciones generales de España del 2
 1. **Riesgos indirectos**: lo que las medidas pueden provocar aunque no te toquen directamente (recaudación, gasto sin financiar, precios, empleo, oferta), según tu exposición.
 2. **Efecto directo**: qué medidas te favorecen, te perjudican o tienen un efecto incierto.
 3. **Financiación**: si el partido dice cuánto cuesta su programa y cómo lo paga.
+4. **Derechos y protecciones** (opcional): lo que propone cada partido sobre los temas sociales que elijas, resumido del programa oficial con su página y sin valorar si te favorece.
 
 Cada dato separa **hecho** de **inferencia** y lleva su fuente. No hay puntuación total ni recomendación de voto. El resultado se puede descargar como presentación PDF.
 
