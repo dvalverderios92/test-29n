@@ -29,7 +29,7 @@
 
   function generar(D, R, jsPDF) {
     var doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: [W, H], compress: true });
-    doc.setProperties({ title: 'Test 29N: lo que te juegas', subject: 'Resultado personal del Test 29N', creator: 'Test 29N' });
+    doc.setProperties({ title: 'Test 29N: cómo te afecta', subject: 'Resultado personal del Test 29N', creator: 'Test 29N' });
     var primera = true;
     var fecha = D.meta.fecha_corte.split('-').reverse().join('/');
 
@@ -72,7 +72,7 @@
     // ---------- 1. Portada ----------
     nueva(true);
     escribir(lineas('Elecciones generales del 29 de noviembre de 2026', 420, 13, true), M, M, 13, true, SEPIA);
-    var y = escribir(lineas('Lo que te juegas el 29N', 430, 44, true), M, 90, 44, true, PAPEL);
+    var y = escribir(lineas('Cómo te afecta el 29N', 430, 44, true), M, 90, 44, true, PAPEL);
     var perfil = ['region', 'lab', 'viv', 'ing'].map(function (id) {
       var q = D.preguntas.filter(function (x) { return x.id === id; })[0], v = R.respuestas[id];
       var o = q && q.opciones.filter(function (x) { return x.valor === v; })[0];
