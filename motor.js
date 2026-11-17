@@ -148,7 +148,8 @@
           riesgos_medios: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length
         };
         partidos = partidos.filter(function (p) { return c.partidos.indexOf(p.id) === -1; }).concat([fusion]);
-        avisos.push('En tu comunidad, ' + miembros.map(function (p) { return p.nombre; }).join(' y ') + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura, así que su recuento suma las de varios partidos y no es comparable con el de los demás.');
+        var nombres = miembros.map(function (p) { return p.nombre; });
+        avisos.push('En tu comunidad, ' + (nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0]) + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura, así que su recuento suma las de varios partidos y no es comparable con el de los demás.');
       }
     });
     partidos.sort(function (a, b) { return a.nombre.localeCompare(b.nombre, 'es'); });
