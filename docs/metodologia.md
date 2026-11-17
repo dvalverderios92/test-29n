@@ -38,7 +38,7 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 - Muchas medidas carecen de cifras. En ese caso, el efecto es incierto o se indica «sin cifras».
 - Frente Amplio y Podemos no habían publicado programa en la fecha de corte.
 - Los niveles de exposición son juicios de los autores, explícitos en `data/medidas.json` y discutibles. Por eso son abiertos.
-- Cobertura territorial desigual: los partidos territoriales incluidos son Coalición Canaria y ERC (desde la v2.7; su programa está en catalán y los resúmenes son traducciones). Junts, PNV, EH Bildu, BNG, Compromís y otras candidaturas (como SALF) aún no están incluidos; el resultado lo avisa expresamente según la comunidad de quien responde. Se irán incorporando con la revisión diaria. Se aceptan contribuciones.
+- Cobertura territorial desigual: los partidos territoriales incluidos son Coalición Canaria y ERC (desde la v2.7, en Cataluña y, dentro de Ara Més-Front Ampli, en Baleares; su programa está en catalán y los resúmenes son traducciones). Junts, PNV, EH Bildu, BNG, Compromís y otras candidaturas (como SALF) aún no están incluidos; el resultado lo avisa expresamente según la comunidad de quien responde. Se irán incorporando con la revisión diaria. Se aceptan contribuciones.
 
 ## Cómo proponer cambios
 

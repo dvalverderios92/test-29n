@@ -1139,13 +1139,20 @@
    "id": "erc",
    "nombre": "ERC",
    "ambito_si": {
-    "ref": "cataluna"
+    "any": [
+     {
+      "ref": "cataluna"
+     },
+     {
+      "ref": "baleares"
+     }
+    ]
    },
    "programa": {
     "titulo": "Pel país. Per la gent. Pel futur.",
     "fecha": "2026-11-05",
     "estado": "publicado",
-    "nota": "Programa en catalán. Solo se presenta en Cataluña; en su lista van candidatos independientes de Podemos."
+    "nota": "Programa en catalán, pensado para Cataluña. Lista propia solo en Cataluña, donde lleva candidatos independientes de Podemos; en Baleares concurre dentro de Ara Més-Front Ampli."
    },
    "financiacion": {
     "cuantifica": "no",
@@ -1804,11 +1811,12 @@
    },
    "partidos": [
     "fa",
-    "pod"
+    "pod",
+    "erc"
    ],
    "nombre": "Ara Més-Front Ampli",
    "integrantes": "Més per Mallorca, Més per Menorca, Ara Eivissa, los partidos del Frente Amplio y ERC; Podemos va como independiente dentro de la lista",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Ara Més aún no están incluidas.",
+   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos, y las de ERC, tomadas de su programa para Cataluña (en catalán; los resúmenes son traducciones). Las propuestas propias de Ara Més aún no están incluidas.",
    "fuentes": [
     "democrata_listas",
     "diari_fa"
@@ -5292,7 +5300,7 @@
       "ref": "pensionista"
      },
      "valor": 1,
-     "texto": "Mantendrías la subida con los precios, calculada con el IPC de Cataluña: si allí suben más que la media, tu pensión subiría algo más (y al revés)."
+     "texto": "Mantendrías la subida con los precios, calculada con el IPC de tu territorio: si allí suben más que la media, tu pensión subiría algo más (y al revés)."
     }
    ],
    "pagina": 26,

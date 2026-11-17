@@ -101,6 +101,9 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const ids = region => T.evaluate(D, Object.assign({ region }, base)).partidos.map(p => p.id);
   ok(ids('cataluna').includes('erc'), 'Cataluña: aparece ERC');
   ok(['madrid', 'valencia', 'baleares', 'aragon', 'pais_vasco'].every(r => !ids(r).includes('erc')), 'Fuera de Cataluña: ERC no aparece');
+  const bal = T.evaluate(D, Object.assign({ region: 'baleares' }, base)).partidos.find(p => p.id === 'ara_mes');
+  ok(bal && bal.partidos_test.includes('ERC') && bal.partidos_test.includes('Podemos') && !ids('baleares').includes('erc'), 'Baleares: ERC concurre dentro de Ara Més-Front Ampli, sin papeleta propia');
+  ok(['madrid', 'valencia', 'aragon', 'pais_vasco', 'canarias'].every(r => !T.evaluate(D, Object.assign({ region: r }, base)).partidos.some(p => (p.partidos_test || []).includes('ERC'))), 'Fuera de Cataluña y Baleares: ninguna candidatura incluye a ERC');
 }
 
 // Candidaturas reales (v2.4)
