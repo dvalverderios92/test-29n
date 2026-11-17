@@ -102,10 +102,10 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(ids('cataluna').includes('erc'), 'Cataluña: aparece ERC');
   ok(['madrid', 'valencia', 'baleares', 'aragon', 'pais_vasco'].every(r => !ids(r).includes('erc')), 'Fuera de Cataluña: ERC no tiene papeleta propia');
   const bal = T.evaluate(D, Object.assign({ region: 'baleares' }, base)).partidos.find(p => p.id === 'ara_mes');
-  ok(bal && bal.partidos_test.includes('ERC') && bal.partidos_test.includes('Podemos') && !ids('baleares').includes('erc'), 'Baleares: ERC concurre dentro de Ara Més-Front Ampli, sin papeleta propia');
+  ok(bal && bal.partidos_test.includes('Esquerra Republicana de les Illes Balears') && bal.partidos_test.includes('Podemos') && bal.medidas.some(m => m.de === 'Esquerra Republicana de les Illes Balears') && !ids('baleares').includes('erc'), 'Baleares: ERC concurre dentro de Ara Més-Front Ampli, sin papeleta propia');
   const val = T.evaluate(D, Object.assign({ region: 'valencia' }, base)).partidos.find(p => p.id === 'compromis');
-  ok(val && val.partidos_test.includes('ERC'), 'Comunitat Valenciana: ERC concurre dentro de Compromís-Front Valencià');
-  ok(['madrid', 'aragon', 'pais_vasco', 'canarias'].every(r => !T.evaluate(D, Object.assign({ region: r }, base)).partidos.some(p => (p.partidos_test || []).includes('ERC'))), 'Fuera de Cataluña, Baleares y la Comunitat Valenciana: ninguna candidatura incluye a ERC');
+  ok(val && val.partidos_test.includes('Esquerra Republicana del País Valencià'), 'Comunitat Valenciana: Esquerra Republicana del País Valencià concurre dentro de Compromís-Front Valencià');
+  ok(['madrid', 'aragon', 'pais_vasco', 'canarias'].every(r => !T.evaluate(D, Object.assign({ region: r }, base)).partidos.some(p => (p.partidos_test || []).some(n => /ERC|Esquerra/.test(n)))), 'Fuera de Cataluña, Baleares y la Comunitat Valenciana: ninguna candidatura incluye a ERC');
 }
 
 // Candidaturas reales (v2.4)

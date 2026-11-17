@@ -116,6 +116,8 @@
       } else if (c.tipo === 'fusion') {
         var miembros = partidos.filter(function (p) { return c.partidos.indexOf(p.id) !== -1; });
         if (!miembros.length) return;
+        // Nombre del partido en esa comunidad (p. ej., la federación territorial de un partido estatal)
+        var nm = function (p) { return (c.alias && c.alias[p.id]) || p.nombre; };
         var rmap = {};
         miembros.forEach(function (p) {
           p.riesgos.forEach(function (r) {
@@ -127,16 +129,16 @@
         });
         var meds = [], univ = [], soc = [];
         miembros.forEach(function (p) {
-          p.sociales.forEach(function (m) { soc.push(Object.assign({}, m, { de: p.nombre })); });
-          p.medidas.forEach(function (m) { meds.push(Object.assign({}, m, { de: p.nombre })); });
-          p.universales.forEach(function (m) { univ.push(Object.assign({}, m, { de: p.nombre })); });
+          p.sociales.forEach(function (m) { soc.push(Object.assign({}, m, { de: nm(p) })); });
+          p.medidas.forEach(function (m) { meds.push(Object.assign({}, m, { de: nm(p) })); });
+          p.universales.forEach(function (m) { univ.push(Object.assign({}, m, { de: nm(p) })); });
         });
         var riesgos = Object.keys(rmap).map(function (k) { return rmap[k]; })
           .sort(function (a, b) { return (NIVEL[b.exposicion_usuario.nivel] || 0) - (NIVEL[a.exposicion_usuario.nivel] || 0); });
         var fusion = {
-          id: c.id, nombre: c.nombre, integrantes: c.integrantes, partidos_test: miembros.map(function (p) { return p.nombre; }),
+          id: c.id, nombre: c.nombre, integrantes: c.integrantes, partidos_test: miembros.map(function (p) { return nm(p); }),
           programa: { titulo: 'Candidatura conjunta', fecha: null, estado: 'coalicion', nota: c.integrantes + '. ' + c.nota },
-          financiacion: { cuantifica: 'varias', resumen: miembros.map(function (p) { return p.nombre + ': ' + p.financiacion.resumen; }).join(' '),
+          financiacion: { cuantifica: 'varias', resumen: miembros.map(function (p) { return nm(p) + ': ' + p.financiacion.resumen; }).join(' '),
             fuentes: [].concat.apply([], miembros.map(function (p) { return p.financiacion.fuentes; })) },
           medidas: meds, universales: univ, riesgos: riesgos, sociales: soc, fuentes_candidatura: c.fuentes
         };
@@ -148,7 +150,7 @@
           riesgos_medios: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length
         };
         partidos = partidos.filter(function (p) { return c.partidos.indexOf(p.id) === -1; }).concat([fusion]);
-        var nombres = miembros.map(function (p) { return p.nombre; });
+        var nombres = miembros.map(function (p) { return nm(p); });
         avisos.push('En tu comunidad, ' + (nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0]) + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura, así que su recuento suma las de varios partidos y no es comparable con el de los demás.');
       }
     });
