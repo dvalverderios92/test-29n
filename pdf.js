@@ -79,7 +79,7 @@
       return o ? o.texto : null;
     }).filter(Boolean);
     y = escribir(lineas('Tu perfil: ' + perfil.join('; ') + '.', 430, 13), M, y + 18, 13, false, SEPIA);
-    escribir(lineas('Datos a ' + fecha + ', versión ' + D.meta.version + '. No es una recomendación de voto: no hay ranking ni puntuación.', 430, 11), M, H - M - 28, 11, false, SEPIA);
+    escribir(lineas('Datos revisados el ' + fecha + ', versión ' + D.meta.version + '. No es una recomendación de voto: no hay ranking ni puntuación.', 430, 11), M, H - M - 28, 11, false, SEPIA);
     // gran casilla con X
     color(PAPEL, 'd'); doc.setLineWidth(5); doc.rect(W - M - 170, 95, 170, 170, 'S');
     doc.setLineWidth(9); doc.line(W - M - 140, 125, W - M - 30, 235); doc.line(W - M - 30, 125, W - M - 140, 235);

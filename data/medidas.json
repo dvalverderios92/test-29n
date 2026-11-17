@@ -1145,6 +1145,10 @@
      },
      {
       "ref": "baleares"
+     },
+     {
+      "q": "region",
+      "eq": "valencia"
      }
     ]
    },
@@ -1753,7 +1757,7 @@
     "q": "region",
     "eq": "valencia"
    },
-   "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio y Podemos concurren dentro de Compromís-Front Valencià. El test muestra sus medidas estatales; las propias de Compromís aún no están incluidas."
+   "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio, Podemos y ERC concurren dentro de Compromís-Front Valencià. El test muestra sus medidas (las de ERC, de su programa para Cataluña); las propias de Compromís aún no están incluidas."
   },
   {
    "si": {
@@ -1792,14 +1796,16 @@
    },
    "partidos": [
     "fa",
-    "pod"
+    "pod",
+    "erc"
    ],
    "nombre": "Compromís-Front Valencià",
    "integrantes": "Compromís, Podemos, los partidos del Frente Amplio y Esquerra Republicana del País Valencià",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Compromís aún no están incluidas.",
+   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos, y las de ERC, tomadas de su programa para Cataluña (en catalán; los resúmenes son traducciones). Las propuestas propias de Compromís aún no están incluidas.",
    "fuentes": [
     "democrata_listas",
-    "diari_fa"
+    "diari_fa",
+    "democrata_erc"
    ]
   },
   {
@@ -1819,7 +1825,8 @@
    "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos, y las de ERC, tomadas de su programa para Cataluña (en catalán; los resúmenes son traducciones). Las propuestas propias de Ara Més aún no están incluidas.",
    "fuentes": [
     "democrata_listas",
-    "diari_fa"
+    "diari_fa",
+    "democrata_erc"
    ]
   },
   {
@@ -7504,6 +7511,11 @@
    "url": "https://www.elsaltodiario.com/reduccion-jornada/laboral-375-horas-semanales-costara-poco-empresas-sera-fuente-bienestar-crecimiento",
    "fecha": "2025"
   },
+  "democrata_erc": {
+   "titulo": "Demócrata: ERC lleva el referéndum de autodeterminación al 29N y exige la financiación singular y el traspaso de Rodalies",
+   "url": "https://www.democrata.es/elecciones-generales-espana/programa-electoral-erc-29n-referendum/",
+   "fecha": "2026-11-05"
+  },
   "democrata_listas": {
    "titulo": "Demócrata: La izquierda alternativa solo logra listas unitarias en Baleares y la Comunidad Valenciana tras registrar sus candidaturas",
    "url": "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/",
@@ -7563,11 +7575,6 @@
    "titulo": "ACI Prensa: El PSOE incluye en su programa denunciar los acuerdos con la Santa Sede (elecciones de noviembre de 2019)",
    "url": "https://www.aciprensa.com/noticias/psoe-amenaza-con-denunciar-acuerdos-entre-santa-sede-y-espana-27988",
    "fecha": "2019-10"
-  },
-  "democrata_erc": {
-   "titulo": "Demócrata: ERC lleva el referéndum de autodeterminación al 29N y exige la financiación singular y el traspaso de Rodalies",
-   "url": "https://www.democrata.es/elecciones-generales-espana/programa-electoral-erc-29n-referendum/",
-   "fecha": "2026-11-05"
   },
   "nacio_erc_disc": {
    "titulo": "Nació Digital: ERC vol augmentar les pensions per discapacitat almenys fins al 80 % del salari mínim",

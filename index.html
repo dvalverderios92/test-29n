@@ -224,7 +224,7 @@ ul.srcs{padding-left:18px;font-size:.88rem;margin:6px 0}
       <li>Las medidas salen de los <a href="https://github.com/dvalverderios92/test-29n/tree/main/programas" target="_blank" rel="noopener">programas oficiales</a>, con su página. Cuando el programa no recoge algo, o el partido no tiene programa, se usan anuncios de campaña y, si no hay, posiciones anteriores; cada medida indica su origen. Comprueba en el original lo que vaya a pesar en tu decisión.</li>
       <li>Muchas medidas no traen cifras. Cuando faltan, el efecto se marca como incierto o “sin cifras”.</li>
       <li>Los riesgos indirectos no se suman ni se restan a los directos: son de otra naturaleza y su probabilidad no se puede cuantificar con rigor.</li>
-      <li>Podemos no tiene programa publicado (a la fecha de corte). ERC está incluido (en Cataluña, y en Baleares dentro de Ara Més-Front Ampli). PNV, BNG, EH Bildu, Junts y otras candidaturas aún no lo están.</li>
+      <li>Podemos no tiene programa publicado (a la fecha de corte). ERC está incluido (en Cataluña; en Baleares y la Comunitat Valenciana, dentro de las candidaturas conjuntas). PNV, BNG, EH Bildu, Junts y otras candidaturas aún no lo están.</li>
       <li>En Canarias no se aplica el IVA (rige el IGIC) y en Ceuta y Melilla rige el IPSI.</li>
     </ul>
   </div>
@@ -253,7 +253,7 @@ var FIN={varias:'Según cada partido',no:'No cuantifica',cifras_propias:'Cifras 
 
 fetch('data/medidas.json').then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).then(function(d){
   D=d;
-  $('corte').textContent='datos a '+d.meta.fecha_corte.split('-').reverse().join('/');
+  $('corte').textContent='datos revisados el '+d.meta.fecha_corte.split('-').reverse().join('/');
   var deProg=function(p){return d.medidas.some(function(m){return m.partido===p.id&&m.origen==='programa'})};
   var lista=function(a){return a.length>1?a.slice(0,-1).join(', ')+' y '+a[a.length-1]:a[0]||''};
   var pub=d.partidos.filter(function(p){return p.programa.estado==='publicado'});
@@ -355,7 +355,7 @@ function derechosHTML(){
 }
 
 function asText(){
-  var t=['Test 29N, resultado (datos a '+D.meta.fecha_corte+'). No es una recomendación de voto.',''];
+  var t=['Test 29N, resultado (datos revisados el '+D.meta.fecha_corte.split('-').reverse().join('/')+'). No es una recomendación de voto.',''];
   R.notas.forEach(function(n){t.push('Nota: '+n)});
   t.push('','RIESGOS INDIRECTOS COMPARADOS (exposición: alta/media/baja; — = no aplica)');
   R.matriz_riesgos.forEach(function(f){t.push('- '+f.titulo+' ['+(EVID[f.evidencia]||f.evidencia)+']: '+R.partidos.map(function(p){return p.nombre+' '+(f.niveles[p.id]||'—')}).join(' · '))});
