@@ -11,9 +11,9 @@ Cada dato separa **hecho** de **inferencia** y lleva su fuente. No hay puntuaci�
 
 **Web:** https://dvalverderios92.github.io/test-29n/
 
-## Quién lo hace
+## Privacidad y contacto
 
-Daniel, a título personal. No ha colaborado con ningún partido ni recibe financiación de ninguno. La web no guarda respuestas: todo se calcula en el navegador, sin cookies ni analítica. Para avisar de un error: [formulario en GitHub](https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml).
+La web no guarda respuestas: todo se calcula en el navegador, sin cookies ni analítica. Para avisar de un error: [formulario en GitHub](https://github.com/dvalverderios92/test-29n/issues/new?template=error.yml).
 
 ## Estructura
 
