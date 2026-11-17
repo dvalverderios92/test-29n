@@ -274,25 +274,25 @@ RISKS = [
 PARTIES = [
  {"id": "cc", "nombre": "Coalición Canaria", "ambito_si": R("canarias"),
   "programa": {"titulo": "Defiende Canarias", "fecha": "2026-11-09", "estado": "publicado", "nota": "10 causas y 100 acciones. Solo se presenta en Canarias."},
-  "financiacion": {"cuantifica": "no", "resumen": "En las fuentes consultadas no aparece coste ni financiación. Buena parte de sus medidas reclama financiación al Estado.", "fuentes": ["pe_cc", "eldiario_cc"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total. Buena parte de sus medidas pide financiación al Estado para Canarias.", "fuentes": ["pe_cc", "eldiario_cc"]}},
  {"id": "erc", "nombre": "ERC", "ambito_si": ANY(R("cataluna"), R("baleares"), Q("region", eq="valencia")),
   "programa": {"titulo": "Pel país. Per la gent. Pel futur.", "fecha": "2026-11-05", "estado": "publicado", "nota": "Programa en catalán, pensado para Cataluña. Lista propia solo en Cataluña, donde lleva candidatos independientes de Podemos; en Baleares concurre dentro de Ara Més-Front Ampli."},
-  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras de gasto (vivienda, al menos el 1,5 % del PIB; educación, el 6 % del PIB; prestación por crianza desde 200 € por familia) y señala como fuentes la tributación de grandes fortunas, banca y energéticas y de las rentas del capital.", "fuentes": ["pdf_erc", "democrata_erc"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: al menos el 1,5 % del PIB en vivienda, el 6 % del PIB en educación y una prestación por crianza desde 200 € por familia. Dice financiarlo con impuestos a grandes fortunas, banca, energéticas y rentas del capital.", "fuentes": ["pdf_erc", "democrata_erc"]}},
  {"id": "fa", "nombre": "Frente Amplio",
-  "programa": {"titulo": "Programa electoral 2026", "fecha": None, "estado": "publicado", "nota": "Programa publicado en noviembre. Las cifras de coste son de campaña."},
-  "financiacion": {"cuantifica": "cifras_propias", "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.", "fuentes": ["marcos_fa", "democrata_fa"]}},
+  "programa": {"titulo": "Programa electoral 2026", "fecha": None, "estado": "publicado", "nota": "Programa publicado en noviembre."},
+  "financiacion": {"cuantifica": "cifras_propias", "resumen": "El programa no cuantifica el coste total. En campaña da cifras propias: unos 20.000 M€/año en pensiones, a pagar con el impuesto a patrimonios de más de 1 M€ (más de 10.000 M€, según el partido), la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas.", "fuentes": ["marcos_fa", "democrata_fa"]}},
  {"id": "pod", "nombre": "Podemos",
   "programa": {"titulo": "Paz, casa y trabajo (lema)", "fecha": None, "estado": "sin_programa", "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas."},
   "financiacion": {"cuantifica": "no", "resumen": "En las fuentes consultadas no aparece coste ni financiación de sus medidas.", "fuentes": ["democrata_pod", "telemadrid"]}},
  {"id": "pp", "nombre": "PP",
   "programa": {"titulo": "La Reconstrucción Nacional", "fecha": "2026-11-10", "estado": "publicado", "nota": "249 medidas."},
-  "financiacion": {"cuantifica": "no", "resumen": "No incluye memoria económica (Rankia ve financiación parcial en algunas medidas). Remite a una auditoría del gasto en los primeros 100 días y promete reducir déficit y deuda sin precisar ajustes. Las únicas cifras son de inversión: más de 300.000 M€ en infraestructuras en 15 años y 40.000 M€ en agua.", "fuentes": ["democrata_pp", "rankia"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.", "fuentes": ["democrata_pp", "rankia"]}},
  {"id": "psoe", "nombre": "PSOE",
   "programa": {"titulo": "La fuerza de seguir avanzando", "fecha": "2026-11-15", "estado": "publicado", "nota": "Más de 370 compromisos."},
-  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían los nuevos impuestos. Señala como fuentes los grandes patrimonios, las rentas del capital, las tecnológicas, las transacciones financieras y la lucha contra el fraude.", "fuentes": ["rankia"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.", "fuentes": ["rankia"]}},
  {"id": "vox", "nombre": "Vox",
   "programa": {"titulo": "Es sentido común", "fecha": "2026-11-12", "estado": "publicado", "nota": "115 medidas."},
-  "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica costes ni tipos. Su portavoz económico cifra el paquete fiscal en unos 120.000 M€, a cubrir con recortes de subvenciones y gasto autonómico. Para su IRPF de 2025, Hacienda estima 85.000 M€ frente a los 46.000 M€ de Vox.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
+  "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
 ]
 
 def M(id, p, tema, texto, num, origen, fuentes, efectos, riesgos=(), universal=False):
@@ -335,7 +335,7 @@ M("pp-156b", "pp", "Vivienda", "«Tres años+»: ventaja fiscal a caseros que re
   [(R("casero"), 1, "Pagarías menos impuestos si mantienes la renta contenida.")], ["rebaja_sin_financiar"]),
 M("pp-okupa", "pp", "Vivienda", "Ley para que el propietario recupere en 48 horas su vivienda ocupada; no pagaría suministros ni impuestos mientras dure la ocupación.", "157", "programa", ["brains", "democrata_pp"],
   [(R("tiene_otras_viviendas"), 1, "Más protección para tus viviendas, sobre todo si alguna está vacía.")]),
-M("pp-arraigo", "pp", "Ayudas", "Prioridad en determinadas ayudas y prestaciones para quien tenga un arraigo real con España (empadronamiento, cotización, permanencia), no basada solo en la nacionalidad. Sin umbrales publicados.", "98", "programa", ["democrata_pp", "ara_prioridad"],
+M("pp-arraigo", "pp", "Ayudas", "Prioridad en determinadas ayudas y prestaciones para quien tenga un arraigo real con España (empadronamiento, cotización, permanencia), no basada solo en la nacionalidad.", "98", "programa", ["democrata_pp", "ara_prioridad"],
   [(R("arraigo_corto"), -1, "Con poco tiempo empadronado/a, podrías quedar por detrás o fuera de algunas ayudas."),
    (R("extranjero"), 0, "Con varios años de residencia y cotización probablemente no te afecte; depende de los umbrales.")], ["prioridad_legal"]),
 M("pp-108", "pp", "Pensiones", "Revalorización anual de las pensiones con el IPC.", "108", "programa", ["rankia"],
@@ -408,7 +408,7 @@ M("psoe-136", "psoe", "Sanidad", "Financiación sanitaria pública en torno al 7
 M("psoe-229", "psoe", "Territorio", "Nuevo modelo autonómico con 21.000 M€ adicionales y asunción parcial de 83.000 M€ de deuda autonómica; 19.000 M€ para ferrocarril hasta 2030.", "128, 229, 231", "programa", ["rankia"], [], ["gasto_sin_financiar"], universal=True),
 
 # ===== VOX =====
-M("vox-3a", "vox", "IRPF", "Rebajar y simplificar el IRPF, con tipos más bajos según el número de hijos. El programa no concreta tipos ni tramos.", "2", "programa", ["rankia", "democrata_vox"],
+M("vox-3a", "vox", "IRPF", "Rebajar y simplificar el IRPF, con tipos más bajos según el número de hijos.", "2", "programa", ["rankia", "democrata_vox"],
   [(ALL(R("paga_irpf"), R("con_hijos")), 1, "Pagarías menos IRPF, y más rebaja por tener hijos. Cuánto, no se sabe."),
    (R("paga_irpf"), 1, "Pagarías menos IRPF. Cuánto, no se sabe: el programa no da tipos."),
    (ALL(R("trabaja"), R("renta_smi")), 0, "Con ingresos cercanos al SMI apenas notarías diferencia.")], ["irpf_reparto", "rebaja_sin_financiar"]),
@@ -463,7 +463,7 @@ M("fa-irpf", "fa", "IRPF", "Bajar el IRPF a las rentas del trabajo de hasta 27.0
 M("fa-tope", "fa", "Cotizaciones", "Seguir elevando progresivamente el tope máximo de cotización a la Seguridad Social y una aportación adicional de las empresas más automatizadas.", None, "programa", ["marcos_fa"],
   [(ALL(R("asalariado"), R("renta_alta")), -1, "Cotizarías por una parte mayor de tu salario por encima de la base máxima actual (unos 60.000 €)."),
    (ALL(R("empleador"), Q("ing", gte=4)), -1, "Subiría el coste de tus empleados con sueldos altos.")]),
-M("fa-pension", "fa", "Pensiones", "Pensión mínima igual al salario mínimo y edad de jubilación de vuelta a los 65 años (coste estimado por el partido en campaña: unos 20.000 M€/año).", None, "programa", ["marcos_fa"],
+M("fa-pension", "fa", "Pensiones", "Pensión mínima igual al salario mínimo y edad de jubilación de vuelta a los 65 años.", None, "programa", ["marcos_fa"],
   [(ALL(R("pensionista"), R("renta_smi")), 1, "Tu pensión subiría hasta el salario mínimo."),
    (R("pensionista"), 0, "Tu pensión ya supera el mínimo; no cambia directamente."),
    (ALL(R("trabaja"), ANY(R("edad_41_64"), Q("edad", eq="36-40"))), 1, "Podrías jubilarte a los 65 sin penalización.")], ["gasto_sin_financiar"]),
@@ -529,7 +529,7 @@ M("cc-agua", "cc", "Agua y sanidad", "Compensaciones estatales actualizadas por 
 # ===== ERC (programa en catalán; resúmenes traducidos) =====
 M("erc-69a", "erc", "Ahorro", "Subir del 30 % al 35 % el tipo máximo del IRPF sobre las ganancias de capital.", "69", "programa", ["democrata_erc"],
   [(R("ahorro_mas_300k"), -1, "Pagarías más por tus rentas del ahorro del tramo más alto.")]),
-M("erc-69b", "erc", "IRPF", "Rebajar los tipos del IRPF sobre el trabajo en los tramos inferiores a 35.000 €. El programa no concreta tipos.", "69", "programa", ["democrata_erc"],
+M("erc-69b", "erc", "IRPF", "Rebajar los tipos del IRPF sobre el trabajo en los tramos inferiores a 35.000 €.", "69", "programa", ["democrata_erc"],
   [(ALL(R("paga_irpf"), Q("ing", lte=3)), 1, "Pagarías menos IRPF por tu trabajo o pensión. Cuánto, no se sabe: no da tipos."),
    (R("paga_irpf"), 0, "La rebaja es para los tramos inferiores a 35.000 €; si te alcanza en parte depende de cómo se diseñe.")], ["rebaja_sin_financiar"]),
 M("erc-70", "erc", "IVA", "Rebajar el IVA de los alimentos básicos y los productos de higiene, y suprimir buena parte de los tipos reducidos y deducciones por encima de la media europea.", "70", "programa", ["democrata_erc"],
@@ -807,6 +807,12 @@ for i, (pid, tema, origen, fuentes, ref, txt) in enumerate(SOC_EXT):
 for t in TEMAS_SOC:
     if t["sugerir_si"] is None: t.pop("sugerir_si")
 
+# Plazo y coste de una medida, solo cuando la fuente los da. Si no hay entrada, la web indica que el programa no los fija.
+DETALLE = {
+ "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
+ "pp-228": {"plazo": "en los primeros cien días de Gobierno"},
+ "fa-pension": {"coste": "unos 20.000 M€ al año, según el partido en campaña"},
+}
 PROG_PAG = {
  "pp-177": 47, "pp-178": 47, "pp-179": 47, "pp-180": 47, "pp-181": 47, "pp-170": 46, "pp-171": 46,
  "pp-145": 41, "pp-153": 43, "pp-156a": 43, "pp-156b": 43, "pp-okupa": 43, "pp-arraigo": 32, "pp-108": 34,
@@ -822,7 +828,9 @@ PROG_PAG = {
  "erc-69a": 21, "erc-69b": 21, "erc-70": 21, "erc-74": 22, "erc-59": 19, "erc-56": 19, "erc-66": 20,
  "erc-105": 26, "erc-103": 26, "erc-106": 26, "erc-112": 26, "erc-68": 21,
 }
+for k in DETALLE: assert any(m["id"] == k for m in MEAS), k
 for m in MEAS:
+    if m["id"] in DETALLE: m["detalle"] = DETALLE[m["id"]]
     pag = PROG_PAG.get(m["id"])
     if pag:
         assert m["origen"] == "programa", m["id"]
@@ -837,7 +845,7 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",

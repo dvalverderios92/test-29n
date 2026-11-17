@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1128,7 +1128,7 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "En las fuentes consultadas no aparece coste ni financiación. Buena parte de sus medidas reclama financiación al Estado.",
+    "resumen": "No cuantifica el coste total. Buena parte de sus medidas pide financiación al Estado para Canarias.",
     "fuentes": [
      "pe_cc",
      "eldiario_cc"
@@ -1160,7 +1160,7 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras de gasto (vivienda, al menos el 1,5 % del PIB; educación, el 6 % del PIB; prestación por crianza desde 200 € por familia) y señala como fuentes la tributación de grandes fortunas, banca y energéticas y de las rentas del capital.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: al menos el 1,5 % del PIB en vivienda, el 6 % del PIB en educación y una prestación por crianza desde 200 € por familia. Dice financiarlo con impuestos a grandes fortunas, banca, energéticas y rentas del capital.",
     "fuentes": [
      "pdf_erc",
      "democrata_erc"
@@ -1174,11 +1174,11 @@
     "titulo": "Programa electoral 2026",
     "fecha": null,
     "estado": "publicado",
-    "nota": "Programa publicado en noviembre. Las cifras de coste son de campaña."
+    "nota": "Programa publicado en noviembre."
    },
    "financiacion": {
     "cuantifica": "cifras_propias",
-    "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.",
+    "resumen": "El programa no cuantifica el coste total. En campaña da cifras propias: unos 20.000 M€/año en pensiones, a pagar con el impuesto a patrimonios de más de 1 M€ (más de 10.000 M€, según el partido), la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas.",
     "fuentes": [
      "marcos_fa",
      "democrata_fa"
@@ -1214,7 +1214,7 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No incluye memoria económica (Rankia ve financiación parcial en algunas medidas). Remite a una auditoría del gasto en los primeros 100 días y promete reducir déficit y deuda sin precisar ajustes. Las únicas cifras son de inversión: más de 300.000 M€ en infraestructuras en 15 años y 40.000 M€ en agua.",
+    "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.",
     "fuentes": [
      "democrata_pp",
      "rankia"
@@ -1232,7 +1232,7 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían los nuevos impuestos. Señala como fuentes los grandes patrimonios, las rentas del capital, las tecnológicas, las transacciones financieras y la lucha contra el fraude.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.",
     "fuentes": [
      "rankia"
     ]
@@ -1249,7 +1249,7 @@
    },
    "financiacion": {
     "cuantifica": "fuera_del_programa",
-    "resumen": "El programa no cuantifica costes ni tipos. Su portavoz económico cifra el paquete fiscal en unos 120.000 M€, a cubrir con recortes de subvenciones y gasto autonómico. Para su IRPF de 2025, Hacienda estima 85.000 M€ frente a los 46.000 M€ de Vox.",
+    "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.",
     "fuentes": [
      "democrata_vox",
      "vox_coste",
@@ -2405,7 +2405,7 @@
    "id": "pp-arraigo",
    "partido": "pp",
    "tema": "Ayudas",
-   "texto": "Prioridad en determinadas ayudas y prestaciones para quien tenga un arraigo real con España (empadronamiento, cotización, permanencia), no basada solo en la nacionalidad. Sin umbrales publicados.",
+   "texto": "Prioridad en determinadas ayudas y prestaciones para quien tenga un arraigo real con España (empadronamiento, cotización, permanencia), no basada solo en la nacionalidad.",
    "num": "98",
    "origen": "programa",
    "fuentes": [
@@ -2550,6 +2550,9 @@
      "texto": "Solo si finalmente tienes un hijo (o uno más): te ahorrarías la escuela infantil (llegaría al final de la legislatura)."
     }
    ],
+   "detalle": {
+    "coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"
+   },
    "pagina": 44,
    "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=44"
   },
@@ -2726,6 +2729,9 @@
    ],
    "universal": true,
    "efectos": [],
+   "detalle": {
+    "plazo": "en los primeros cien días de Gobierno"
+   },
    "pagina": 54,
    "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=54"
   },
@@ -3398,7 +3404,7 @@
    "id": "vox-3a",
    "partido": "vox",
    "tema": "IRPF",
-   "texto": "Rebajar y simplificar el IRPF, con tipos más bajos según el número de hijos. El programa no concreta tipos ni tramos.",
+   "texto": "Rebajar y simplificar el IRPF, con tipos más bajos según el número de hijos.",
    "num": "2",
    "origen": "programa",
    "fuentes": [
@@ -4180,7 +4186,7 @@
    "id": "fa-pension",
    "partido": "fa",
    "tema": "Pensiones",
-   "texto": "Pensión mínima igual al salario mínimo y edad de jubilación de vuelta a los 65 años (coste estimado por el partido en campaña: unos 20.000 M€/año).",
+   "texto": "Pensión mínima igual al salario mínimo y edad de jubilación de vuelta a los 65 años.",
    "num": null,
    "origen": "programa",
    "fuentes": [
@@ -4238,6 +4244,9 @@
      "texto": "Podrías jubilarte a los 65 sin penalización."
     }
    ],
+   "detalle": {
+    "coste": "unos 20.000 M€ al año, según el partido en campaña"
+   },
    "pagina": 57,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=57"
   },
@@ -4993,7 +5002,7 @@
    "id": "erc-69b",
    "partido": "erc",
    "tema": "IRPF",
-   "texto": "Rebajar los tipos del IRPF sobre el trabajo en los tramos inferiores a 35.000 €. El programa no concreta tipos.",
+   "texto": "Rebajar los tipos del IRPF sobre el trabajo en los tramos inferiores a 35.000 €.",
    "num": "69",
    "origen": "programa",
    "fuentes": [

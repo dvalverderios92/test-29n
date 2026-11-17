@@ -331,10 +331,10 @@ function pick(id,silent){
       '<div><span class="pill '+(e.nivel==='alta'?'hi':e.nivel==='media'?'u':'src')+'">Exposición '+e.nivel+'</span><span class="pill src">'+esc(EVID[r.evidencia]||r.evidencia)+'</span></div>'+
       '<div class="lay"><b>Para ti:</b> '+esc(e.texto)+'</div>'+
       '<details><summary>Qué dice la evidencia</summary><div class="mut">Viene de: '+esc(orig)+'</div><div class="lay">'+esc(r.que_pasa)+'</div>'+srcList(r.fuentes)+'</details></div>'}).join(''):'<p class="mut">Sin riesgos indirectos registrados para este partido.</p>';
-  h+='<h2>Lo que ganas o pierdes</h2>';
+  h+='<h2>Lo que ganas o pierdes</h2><p class="mut">Salvo que se indique, el partido no fija plazo ni coste para cada medida.</p>';
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
-      '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+'</div>'+
+      '<div class="lay"><b>Hecho:</b> '+esc(x.texto)+(x.detalle?(x.detalle.plazo?' <span class="mut">Plazo: '+esc(x.detalle.plazo)+'.</span>':'')+(x.detalle.coste?' <span class="mut">Coste: '+esc(x.detalle.coste)+'.</span>':''):'')+'</div>'+
       '<div>'+(x.url?'<a class="pill src" style="text-decoration:none" href="'+esc(x.url)+'" target="_blank" rel="noopener">':'<span class="pill src">')+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+(x.pagina?', p. '+x.pagina:'')+(x.url?'</a>':'</span>')+'</div>'+
       '<div class="lay"><b>Cómo te afecta (inferencia):</b> '+esc(x.efecto)+'</div>'+
       '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};

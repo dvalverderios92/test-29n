@@ -52,3 +52,10 @@ Bloque aparte y opcional sobre temas sociales: igualdad y violencia contra las m
 - **Preguntas sensibles opcionales.** Género, pertenencia al colectivo LGTBIQ+, minoría étnica, discapacidad y religión. Todas tienen «Prefiero no contestar». Solo sirven para dejar marcados de partida los temas de la última pregunta: no cambian ninguna medida ni riesgo, y no aparecen en el PDF ni en el texto copiado. Las pruebas automáticas lo comprueban.
 - **Simetría.** Los temas incluyen asuntos que priorizan votantes de sensibilidades distintas, y se recogen con el mismo criterio para todos los partidos. Si no hay nada ni en el programa ni en otras fuentes consultadas, se indica así.
 - **Partidos sin programa o temas que el programa no trata.** Se aplica la misma jerarquía: anuncios de campaña y, si no hay, posiciones anteriores (en el caso de Podemos, su programa europeo de 2024, con su página). Si no hay nada en ninguna fuente consultada, se indica así.
+
+## Plazo, coste y criterios de redacción (desde la v2.8)
+
+- **Plazo y coste.** Solo se indican cuando la fuente los da, en el campo `detalle` (tabla `DETALLE` del generador). Si no hay, la web y el PDF dicen una vez, para todos los partidos: «Salvo que se indique, el partido no fija plazo ni coste para cada medida». Las cifras de campaña se atribuyen («según el partido en campaña»).
+- **Misma redacción para todos.** No se añaden acotaciones como «sin concretar» o «sin umbrales» a unas medidas y no a otras. Lo que la medida no concreta se ve en el propio texto.
+- **Financiación.** El resumen de cada partido sigue la misma estructura: si cuantifica el coste total, qué cifras da y de dónde dice sacar el dinero. Sin valoraciones de terceros (Gobierno, oposición o analistas) aplicadas solo a algunos partidos.
+- **Vocabulario.** Los términos propios de cada partido se mantienen solo cuando resumen su propuesta; el test no los usa en sus propios textos.
