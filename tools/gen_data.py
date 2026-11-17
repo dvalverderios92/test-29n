@@ -59,6 +59,7 @@ COND = {
  "arraigo_corto": ALL(Q("nac", **{"in": ["ue", "nue"]}), Q("arraigo", eq="lt3")),
  "envia_remesas": Q("remesas", eq=True),
  "canarias": Q("region", eq="canarias"),
+ "cataluna": Q("region", eq="cataluna"),
  "baleares": Q("region", eq="baleares"),
  "sin_iva": Q("region", **{"in": ["canarias", "ceuta", "melilla"]}),
  "empadronado_10_canarias": Q("empad", eq=True),
@@ -158,9 +159,12 @@ SRC.update({
  "que_voxdesreg": ["Qué!: Vox propone una derogación masiva de leyes: reforma laboral, igualdad y vivienda", "https://www.que.es/2026/06/28/vox-derogacion-masiva-leyes/", "2026-06-28"],
  "debate_vox23": ["El Debate: Vox promete derogar las leyes del aborto y la eutanasia (programa del 23J)", "https://www.eldebate.com/sociedad/20230708/vox-apuesta-vida-promete-derogar-leyes-aborto-eutanasia_126854.html", "2023-07-08"],
  "aci_psoe19": ["ACI Prensa: El PSOE incluye en su programa denunciar los acuerdos con la Santa Sede (elecciones de noviembre de 2019)", "https://www.aciprensa.com/noticias/psoe-amenaza-con-denunciar-acuerdos-entre-santa-sede-y-espana-27988", "2019-10"],
+ "democrata_erc": ["Demócrata: ERC lleva el referéndum de autodeterminación al 29N y exige la financiación singular y el traspaso de Rodalies", "https://www.democrata.es/elecciones-generales-espana/programa-electoral-erc-29n-referendum/", "2026-11-05"],
+ "nacio_erc_disc": ["Nació Digital: ERC vol augmentar les pensions per discapacitat almenys fins al 80 % del salari mínim", "https://naciodigital.cat/politica/erc-vol-augmentar-les-pensions-per-discapacitat-almenys-fins-al-80-del-salari-minim.html", "2025-04-17"],
+ "salto_aborto": ["El Salto: El Congreso rechaza las enmiendas a la totalidad de PP y Vox a incluir el aborto en la Constitución", "https://www.elsaltodiario.com/derechos-reproductivos/congreso-rechaza-enmiendas-totalidad-pp-vox-incluir-aborto-constitucion", "2026-04-30"],
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
 })
-PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias")}
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)")}
 for k, (f, t) in PDFS.items():
     SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -269,6 +273,9 @@ PARTIES = [
  {"id": "cc", "nombre": "Coalición Canaria", "ambito_si": R("canarias"),
   "programa": {"titulo": "Defiende Canarias", "fecha": "2026-11-09", "estado": "publicado", "nota": "10 causas y 100 acciones. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "En las fuentes consultadas no aparece coste ni financiación. Buena parte de sus medidas reclama financiación al Estado.", "fuentes": ["pe_cc", "eldiario_cc"]}},
+ {"id": "erc", "nombre": "ERC", "ambito_si": R("cataluna"),
+  "programa": {"titulo": "Pel país. Per la gent. Pel futur.", "fecha": "2026-11-05", "estado": "publicado", "nota": "Programa en catalán. Solo se presenta en Cataluña; en su lista van candidatos independientes de Podemos."},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras de gasto (vivienda, al menos el 1,5 % del PIB; educación, el 6 % del PIB; prestación por crianza desde 200 € por familia) y señala como fuentes la tributación de grandes fortunas, banca y energéticas y de las rentas del capital.", "fuentes": ["pdf_erc", "democrata_erc"]}},
  {"id": "fa", "nombre": "Frente Amplio",
   "programa": {"titulo": "Programa electoral 2026", "fecha": None, "estado": "publicado", "nota": "Programa publicado en noviembre. Las cifras de coste son de campaña."},
   "financiacion": {"cuantifica": "cifras_propias", "resumen": "Da cifras propias sin verificación independiente: unos 20.000 M€/año en pensiones, financiados con un impuesto del 2 % a patrimonios de más de 1 M€, la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas. Estima más de 10.000 M€ con el impuesto a fortunas.", "fuentes": ["marcos_fa", "democrata_fa"]}},
@@ -516,6 +523,43 @@ M("cc-transp", "cc", "Transporte", "Consolidar el descuento de residente del 75 
 M("cc-03", "cc", "Familia", "Más financiación estatal para plazas públicas gratuitas de 0 a 3 años.", "14", "programa", ["pe_cc"],
   [(ANY(R("hijos_0_3"), R("quiere_hijos")), 1, "Te ahorrarías la escuela infantil.")], ["gasto_sin_financiar"]),
 M("cc-agua", "cc", "Agua y sanidad", "Compensaciones estatales actualizadas por el sobrecoste del agua desalada y por el coste sanitario de la insularidad.", "10, 66", "programa", ["pe_cc"], [], ["gasto_sin_financiar"], universal=True),
+
+# ===== ERC (programa en catalán; resúmenes traducidos) =====
+M("erc-69a", "erc", "Ahorro", "Subir del 30 % al 35 % el tipo máximo del IRPF sobre las ganancias de capital.", "69", "programa", ["democrata_erc"],
+  [(R("ahorro_mas_300k"), -1, "Pagarías más por tus rentas del ahorro del tramo más alto.")]),
+M("erc-69b", "erc", "IRPF", "Rebajar los tipos del IRPF sobre el trabajo en los tramos inferiores a 35.000 €. El programa no concreta tipos.", "69", "programa", ["democrata_erc"],
+  [(ALL(R("paga_irpf"), Q("ing", lte=3)), 1, "Pagarías menos IRPF por tu trabajo o pensión. Cuánto, no se sabe: no da tipos."),
+   (R("paga_irpf"), 0, "La rebaja es para los tramos inferiores a 35.000 €; si te alcanza en parte depende de cómo se diseñe.")], ["rebaja_sin_financiar"]),
+M("erc-70", "erc", "IVA", "Rebajar el IVA de los alimentos básicos y los productos de higiene, y suprimir buena parte de los tipos reducidos y deducciones por encima de la media europea.", "70", "programa", ["democrata_erc"],
+  [(R("sin_iva"), 0, IGIC), (ALWAYS, 1, "Abarataría tu compra básica (sin tipos concretos); otros productos con IVA reducido podrían encarecerse.")], ["iva_poco_focalizado", "rebaja_sin_financiar"]),
+M("erc-74", "erc", "Patrimonio", "Hacer permanente el impuesto temporal de solidaridad de las grandes fortunas, con un tipo más alto por encima de 10 millones de euros y un tramo nuevo desde 100 millones.", "74", "programa", ["democrata_erc"],
+  [(Q("patr", eq=4), -1, "Con más de 3 millones de patrimonio seguirías pagando este impuesto de forma permanente (más por encima de 10 millones)."),
+   (R("patrimonio_mas_1M"), 0, "El impuesto actual empieza en 3 millones de patrimonio neto; por debajo no lo pagarías.")]),
+M("erc-59", "erc", "Vivienda", "Subir el IVA y el ITP de la compra de vivienda que no vaya a ser residencia habitual (uso turístico, temporada, segunda residencia o vacía) y bajarlos cuando sea primera residencia; IVA del 21 % en el alquiler turístico.", "59-60", "programa", ["democrata_erc"],
+  [(R("vivienda_turistica"), -1, "Tus alquileres turísticos pasarían a llevar un IVA del 21 %."),
+   (R("quiere_comprar"), 1, "Pagarías menos impuestos al comprar tu vivienda habitual (tipos no concretados)."),
+   (R("tiene_otras_viviendas"), 0, "Si compras otra vivienda que no sea residencia habitual, pagarías más IVA o ITP.")], ["ayuda_demanda_precio", "rebaja_sin_financiar"]),
+M("erc-56", "erc", "Vivienda", "Dedicar al menos el 1,5 % del PIB a políticas de vivienda, transferido a las comunidades para ampliar el parque público de alquiler, y traspasar a la Generalitat los inmuebles de la Sareb y Casa 47.", "56-57", "programa", ["democrata_erc"],
+  [(R("busca_vivienda_asequible"), 1, "Más vivienda pública de alquiler asequible a la que optar.")], ["gasto_sin_financiar"]),
+M("erc-66", "erc", "Empleo", "Salario mínimo estatal al 60 % del salario medio bruto y competencia para que la Generalitat fije un salario mínimo catalán de 1.460 €.", "66-67", "programa", ["democrata_erc"],
+  [(ALL(R("asalariado"), R("renta_baja")), 1, "Tu sueldo subiría si estás cerca del mínimo."),
+   (R("empleador"), -1, "Más coste si tienes plantilla con salarios bajos.")], ["smi_empleo"]),
+M("erc-105", "erc", "Empleo", "Jornada máxima de 37,5 horas semanales sin reducción salarial.", "105", "programa", ["democrata_erc"],
+  [(R("asalariado"), 1, "Trabajarías menos horas por el mismo sueldo."),
+   (R("empleador"), -1, "Te subiría el coste por hora de tu plantilla.")], ["jornada_ley"]),
+M("erc-103", "erc", "Empleo", "Recuperar la indemnización por despido improcedente de 45 días por año (máximo 42 mensualidades) y los salarios de tramitación, y una indemnización adicional sin tope en los despidos sin causa.", "103-104", "programa", [],
+  [(R("asalariado"), 1, "Más protección económica si te despiden de forma improcedente."),
+   (R("empleador"), -1, "Despedir sin causa te costaría más."),
+   (R("parado"), 0, "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida.")]),
+M("erc-106", "erc", "Pensiones", "Blindar la revalorización de las pensiones con la inflación y actualizarlas con el IPC de cada territorio.", "106-107", "programa", ["democrata_erc"],
+  [(R("pensionista"), 1, "Mantendrías la subida con los precios, calculada con el IPC de Cataluña: si allí suben más que la media, tu pensión subiría algo más (y al revés).")]),
+M("erc-112", "erc", "Autónomos", "Cuotas de autónomos según ingresos reales, con cuotas reducidas por debajo del salario mínimo (con aportación de los Presupuestos) y nuevos tramos para ingresos de más de 6.000 € al mes.", "112", "programa", [],
+  [(ALL(R("autonomo_o_futuro"), R("renta_smi")), 1, "Con tus ingresos pagarías una cuota reducida."),
+   (ALL(R("autonomo"), Q("ing", eq=6)), -1, "Con ingresos altos podrías entrar en los nuevos tramos de más de 6.000 € al mes."),
+   (R("autonomo_o_futuro"), 0, "Tu cuota dependería de tus ingresos reales; la escala no está publicada.")], ["gasto_sin_financiar"]),
+M("erc-68", "erc", "Familia", "Prestación universal por crianza desde 200 € por familia, más alta en territorios con mayor coste de vida, como Cataluña.", "68", "programa", ["democrata_erc"],
+  [(R("con_hijos"), 1, "Cobrarías al menos 200 € por familia (el programa no aclara si es al mes; la prensa habla de 200 € mensuales)."),
+   (R("quiere_hijos"), 1, "La cobrarías al tener hijos.")], ["gasto_sin_financiar"]),
 ]
 
 
@@ -544,6 +588,7 @@ ACOTADA = {
  ("psoe-134","gasto_sin_financiar"),("psoe-105","gasto_sin_financiar"),("psoe-193","gasto_sin_financiar"),
  ("vox-94","gasto_sin_financiar"),("cc-viv","gasto_sin_financiar"),("cc-empleo","gasto_sin_financiar"),
  ("cc-03","gasto_sin_financiar"),("cc-agua","gasto_sin_financiar"),
+ ("erc-69b","rebaja_sin_financiar"),("erc-59","rebaja_sin_financiar"),("erc-112","gasto_sin_financiar"),
 }
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
@@ -581,7 +626,7 @@ NOTAS = [
  {"si": R("parado"), "texto": "Desempleo: las fuentes consultadas no recogen medidas concretas de los partidos estatales sobre la prestación por desempleo. Si es tu prioridad, revisa ese capítulo en cada programa."},
  {"si": R("sin_iva"), "texto": "IVA: en tu territorio no se aplica (Canarias: IGIC; Ceuta y Melilla: IPSI). Las rebajas de IVA aparecen como inciertas para ti, aunque su coste en la recaudación estatal sí cuenta en los riesgos."},
  {"si": R("cuida_dependiente"), "texto": "Dependencia: comprueba si cada medida cubre el cuidado familiar o solo el gasto en cuidados profesionales."},
- {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presentan ERC (programa publicado el 5-nov; en su lista van candidatos independientes de Podemos) y Junts (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
+ {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones)."},
  {"si": Q("region", eq="pais_vasco"), "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."},
  {"si": Q("region", eq="galicia"), "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."},
@@ -701,6 +746,27 @@ SOC = [
  ("cc", "discapacidad", "20", 10, "Que los programas estatales y europeos de vivienda, transporte y empleo en Canarias incorporen la accesibilidad."),
  ("cc", "familia", "15", 9, "Programas estatales contra la pobreza infantil mientras Canarias esté por encima de la media."),
  ("cc", "educacion", "21", 10, "Programas estatales de inversión en infraestructuras educativas."),
+ # ERC (programa en catalán; resúmenes traducidos)
+ ("erc", "igualdad", "88", 24, "Reformar la Ley Orgánica 1/2004 para cubrir todas las violencias machistas, incluidas la económica, la vicaria y la digital; regulación específica de la violencia vicaria y peritajes digitales gratuitos."),
+ ("erc", "igualdad", "89", 24, "Ley integral contra la trata y la explotación de seres humanos, con derechos para las víctimas sea cual sea su situación administrativa y un fondo estatal que garantice sus indemnizaciones."),
+ ("erc", "lgtbi", "93", 24, "Reconocer legalmente las identidades no binarias, sin requisitos patologizantes."),
+ ("erc", "lgtbi", "94", 24, "Eliminar las discriminaciones en la filiación de las familias de dos madres y de las personas trans y no binarias."),
+ ("erc", "lgtbi", "95", 24, "Reforzar la prohibición de las prácticas de conversión y castigar penalmente los casos graves o coercitivos."),
+ ("erc", "racismo", "99", 25, "Combatir la discriminación racial y étnica en el empleo, la vivienda y el acceso a bienes y servicios, con más garantías legales y protección para quien denuncia."),
+ ("erc", "racismo", "101", 25, "Perseguir las organizaciones que fomenten de forma organizada el odio, la discriminación y la violencia por origen o pertenencia étnica."),
+ ("erc", "migracion", "35", 14, "Traspaso a Cataluña de todas las competencias en migración y asilo; rechaza los centros de retorno en terceros países y las deportaciones automáticas."),
+ ("erc", "migracion", "51", 17, "Ampliar las vías legales y seguras de migración y protección internacional, y una nueva Ley de asilo que impida externalizar las solicitudes a terceros países."),
+ ("erc", "familia", "68", 21, "Prestación universal por crianza desde 200 € por familia, más alta en territorios con mayor coste de vida, como Cataluña."),
+ ("erc", "familia", "92", 24, "Equiparar las familias monoparentales a las numerosas en beneficios fiscales, sociales y laborales."),
+ ("erc", "familia", "111", 26, "Ampliar los permisos parentales retribuidos."),
+ ("erc", "educacion", "17", 10, "Escuela pública, laica, gratuita y de calidad, con el catalán como lengua vehicular, e impedir que el Estado imponga porcentajes lingüísticos a los centros."),
+ ("erc", "educacion", "19", 11, "Destinar el 6 % del PIB a educación, con menos alumnos por aula y mejores salarios para el profesorado."),
+ ("erc", "educacion", "20", 11, "Financiación estatal para que la escuela de 0 a 3 años sea pública, universal y gratuita, de forma progresiva."),
+ ("erc", "vida", None, 23, "En la introducción de su apartado feminista defiende «garantizar los derechos sexuales y reproductivos», sin una medida numerada sobre el aborto ni sobre la eutanasia."),
+ ("erc", "religion", "8", 8, "Aplicar el IBI a todas las propiedades de las confesiones religiosas, sin excepciones y dejando sin efecto los Acuerdos de 1979 con la Santa Sede y sus actualizaciones de 2023, así como los de 1992 con otras confesiones."),
+ ("erc", "religion", "3", 8, "Suprimir del Código Penal el delito de ofensa a los sentimientos religiosos."),
+ ("erc", "rural", "156", 32, "Descentralizar la PAC y los fondos europeos agrarios, pesqueros y de desarrollo rural, con recursos suficientes en el marco financiero 2028-2034."),
+ ("erc", "rural", "167", 33, "Fondo estatal para municipios propietarios forestales, para financiar la gestión de los bosques y la prevención de grandes incendios."),
  ("cc", "rural", "74", 17, "Servicios, conectividad e inversiones del Estado adaptados a la doble insularidad y a los municipios rurales."),
 ]
 # Cuando el programa del 29N no dice nada sobre un tema: anuncios de campaña y, si no hay, posiciones previas.
@@ -721,6 +787,8 @@ SOC_EXT = [
  ("pp", "vida", "campaña", ["ara_feijoo", "que_feijoo"], "entrevista de Feijóo, 23-10-2026", "Reabrir el debate sobre el aborto de las chicas de 16 y 17 años y reformar la ley de eutanasia."),
  ("vox", "lgtbi", "previa", ["debate_vox23"], "programa de 2023", "Derogar la Ley Trans."),
  ("vox", "lgtbi", "previa", ["que_voxdesreg"], "plan de desregulación, junio de 2026", "Eliminar las normas de igualdad y LGTBI en las empresas, entre una decena de leyes a derogar."),
+ ("erc", "discapacidad", "previa", ["nacio_erc_disc"], "proposición de ley en el Parlament de Cataluña, abril de 2025", "Subir las pensiones no contributivas por discapacidad al menos al 80 % del salario mínimo, sin contar los ingresos familiares y exentas de impuestos."),
+ ("erc", "vida", "previa", ["salto_aborto"], "debate en el Congreso, 30-4-2026", "En el debate de la reforma constitucional del aborto, su diputada Pilar Vallugera expresó su «apoyo absoluto» al derecho de las mujeres a decidir sobre su propio cuerpo, aunque criticó cómo lo planteaba el Gobierno."),
  ("psoe", "religion", "previa", ["aci_psoe19", "maldita_psoe21"], "programa de 2019 y congreso de 2021", "Revisar los Acuerdos de 1979 con la Santa Sede: en 2019 proponía denunciarlos y en 2021, actualizarlos de forma pactada con la Iglesia."),
 ]
 TEMA_IDS = [t["id"] for t in TEMAS_SOC]
@@ -749,6 +817,8 @@ PROG_PAG = {
  "fa-fortunas": 45, "fa-rentas": 46, "fa-irpf": 46, "fa-tope": 58, "fa-pension": 57, "fa-viv": 10, "fa-acum": 18,
  "fa-indef": 14, "fa-autonomos": 92, "fa-smi": 51, "fa-sanidad": 27,
  "cc-viv": 10, "cc-empleo": 12, "cc-pens": 10, "cc-transp": 17, "cc-03": 9, "cc-agua": 9,
+ "erc-69a": 21, "erc-69b": 21, "erc-70": 21, "erc-74": 22, "erc-59": 19, "erc-56": 19, "erc-66": 20,
+ "erc-105": 26, "erc-103": 26, "erc-106": 26, "erc-112": 26, "erc-68": 21,
 }
 for m in MEAS:
     pag = PROG_PAG.get(m["id"])
@@ -765,8 +835,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.6.0",
-  "fecha_corte": "2026-11-16",
+  "version": "2.7.0",
+  "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},

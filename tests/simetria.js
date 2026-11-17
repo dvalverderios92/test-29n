@@ -90,9 +90,17 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const ev = region => T.evaluate(D, Object.assign({ region }, base));
   ok(ev('baleares').partidos.find(p => p.id === 'vox').medidas.some(m => m.id === 'vox-4'), 'Baleares: aparece el alivio fiscal de Vox para las islas');
   ok(!ev('madrid').partidos.some(p => p.id === 'cc'), 'Madrid: Coalición Canaria no aparece');
-  ok(ev('cataluna').notas.some(n => /ERC/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
+  ok(ev('cataluna').notas.some(n => /Junts/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
   ok(ev('madrid').notas.every(n => !/ERC|PNV|BNG/.test(n)), 'Madrid: sin avisos de partidos territoriales ajenos');
   ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /SALF/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
+}
+
+// ERC (v2.7): solo en Cataluña
+{
+  const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'propio', otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const ids = region => T.evaluate(D, Object.assign({ region }, base)).partidos.map(p => p.id);
+  ok(ids('cataluna').includes('erc'), 'Cataluña: aparece ERC');
+  ok(['madrid', 'valencia', 'baleares', 'aragon', 'pais_vasco'].every(r => !ids(r).includes('erc')), 'Fuera de Cataluña: ERC no aparece');
 }
 
 // Candidaturas reales (v2.4)
