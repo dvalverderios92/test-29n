@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -4323,6 +4323,59 @@
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=18"
   },
   {
+   "id": "fa-compra",
+   "partido": "fa",
+   "tema": "Vivienda",
+   "texto": "Prohibir por ley comprar vivienda para un uso distinto de la residencia habitual propia o el alquiler asequible regulado; prohibición total para empresas con ánimo de lucro.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_fa"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": -1,
+     "texto": "No podrías comprar otra vivienda como inversión o segunda residencia, salvo para alquilarla a precio asequible regulado."
+    },
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": 0,
+     "texto": "Si pensabas invertir tus ahorros en vivienda, solo podrías hacerlo para alquiler asequible regulado."
+    }
+   ],
+   "pagina": 11,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=11"
+  },
+  {
+   "id": "fa-turis",
+   "partido": "fa",
+   "tema": "Vivienda",
+   "texto": "Pisos turísticos: IVA del 21 %, sin deducciones en IRPF ni Sociedades, más imputación de rentas por los periodos vacíos y recargo del IBI de hasta el 150 %.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_fa"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "Tu vivienda turística pagaría bastante más impuestos."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=12"
+  },
+  {
    "id": "fa-indef",
    "partido": "fa",
    "tema": "Vivienda",
@@ -5075,8 +5128,8 @@
      "si": {
       "siempre": true
      },
-     "valor": 1,
-     "texto": "Abarataría tu compra básica (sin tipos concretos); otros productos con IVA reducido podrían encarecerse."
+     "valor": 0,
+     "texto": "Abarataría la compra básica, pero otros productos con IVA reducido se encarecerían; el saldo depende de lo que compres."
     }
    ],
    "pagina": 21,

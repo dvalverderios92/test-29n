@@ -306,8 +306,8 @@ function results(){
   $('sumgrid').innerHTML=R.partidos.map(function(p){var c=p.recuento;
     return '<button class="sum" data-p="'+p.id+'"><b>'+esc(p.nombre)+'</b>'+
       (p.partidos_test?'<span class="lbl">Reúne las medidas de '+esc(p.partidos_test.join(' y '))+': su recuento no es comparable</span>':'')+
-      '<span class="lbl">Riesgos indirectos</span><span class="pill '+(c.riesgos_altos?'hi':'src')+'">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill '+(c.riesgos_medios?'u':'src')+'">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
-      '<span class="lbl">Efecto directo</span><span class="pill '+(c.a_favor?'p':'src')+'">+'+c.a_favor+'</span><span class="pill '+(c.en_contra?'n':'src')+'">−'+c.en_contra+'</span><span class="pill '+(c.incierto?'u':'src')+'">'+c.incierto+' ?</span></button>'}).join('');
+      '<span class="lbl">Riesgos que te tocan</span><span class="pill '+(c.riesgos_altos?'hi':'src')+'">'+c.riesgos_altos+(c.riesgos_altos===1?' alto':' altos')+'</span><span class="pill '+(c.riesgos_medios?'u':'src')+'">'+c.riesgos_medios+(c.riesgos_medios===1?' medio':' medios')+'</span>'+
+      '<span class="lbl">Medidas: a favor, en contra, inciertas</span><span class="pill '+(c.a_favor?'p':'src')+'">+'+c.a_favor+'</span><span class="pill '+(c.en_contra?'n':'src')+'">−'+c.en_contra+'</span><span class="pill '+(c.incierto?'u':'src')+'">'+c.incierto+' ?</span></button>'}).join('');
   var ab={cc:'CC',fa:'FA',pod:'Pod.',pp:'PP',psoe:'PSOE',vox:'Vox',upc:'UPC',compromis:'Compr.',ara_mes:'Ara Més'};
   $('matriz').innerHTML='<table class="mx"><thead><tr><th>Riesgo y evidencia</th>'+R.partidos.map(function(p){return '<th>'+esc(ab[p.id]||p.nombre)+'</th>'}).join('')+'</tr></thead><tbody>'+
     R.matriz_riesgos.map(function(f){return '<tr><td>'+esc(f.titulo)+'<span class="ev">'+esc(EVID[f.evidencia]||f.evidencia)+'</span></td>'+

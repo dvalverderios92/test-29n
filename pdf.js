@@ -170,7 +170,7 @@
       var orden = function (v) { return v > 0 ? 0 : v < 0 ? 1 : 2; };
       var meds = p.medidas.slice().sort(function (a, b) { return orden(a.valor) - orden(b.valor); });
       lista(limpio(p.nombre) + ': lo que ganas o pierdes',
-        'En negrita, cómo te afectaría (inferencia del test). Debajo, lo que propone el partido. Salvo que se indique, sin plazo ni coste.',
+        'A tu favor: ' + p.recuento.a_favor + '. En tu contra: ' + p.recuento.en_contra + '. Inciertas: ' + p.recuento.incierto + '. Riesgos indirectos que te tocan: ' + p.recuento.riesgos_altos + ' altos y ' + p.recuento.riesgos_medios + ' medios. Salvo que se indique, sin plazo ni coste.',
         meds.map(function (m) {
           return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propuesta: ') + m.texto + (m.detalle && m.detalle.plazo ? ' Plazo: ' + m.detalle.plazo + '.' : '') + (m.detalle && m.detalle.coste ? ' Coste: ' + m.detalle.coste + '.' : '') + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
         }), null,
