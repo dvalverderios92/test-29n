@@ -36,9 +36,9 @@ En los tres casos, el sesgo favorece a quien promete más sin decir cuánto cues
 
 - **Jerarquía de fuentes, igual en todos los bloques:** 1) el programa oficial del 29N, con su página (carpeta `programas/`); 2) si el programa no recoge el asunto o el partido no tiene programa, anuncios de campaña del 29N; 3) si tampoco hay, posiciones anteriores (programas o declaraciones previas). Cada medida indica su origen y enlaza a su fuente. Las cifras que el programa no da y aparecen en prensa se atribuyen a esa fuente.
 - Muchas medidas carecen de cifras. En ese caso, el efecto es incierto o se indica «sin cifras».
-- Frente Amplio y Podemos no habían publicado programa en la fecha de corte.
+- Podemos presentó su programa el 17-11-2026; aún no se ha incorporado, así que se usan sus anuncios de campaña y posiciones previas.
 - Los niveles de exposición son juicios de los autores, explícitos en `data/medidas.json` y discutibles. Por eso son abiertos.
-- Cobertura territorial desigual: los partidos territoriales incluidos son Coalición Canaria y ERC (desde la v2.7, en Cataluña y, dentro de Ara Més-Front Ampli, en Baleares; su programa está en catalán y los resúmenes son traducciones). Junts, PNV, EH Bildu, BNG, Compromís y otras candidaturas (como SALF) aún no están incluidos; el resultado lo avisa expresamente según la comunidad de quien responde. Se irán incorporando con la revisión diaria. Se aceptan contribuciones.
+- Cobertura territorial desigual: los partidos territoriales incluidos son Coalición Canaria, ERC (desde la v2.7, en Cataluña y, dentro de Ara Més-Front Ampli, en Baleares; su programa está en catalán y los resúmenes son traducciones) y el BNG (desde la v2.11, en Galicia; su programa está en gallego y los resúmenes son traducciones). Junts, PNV, EH Bildu, Compromís y otras candidaturas (como SALF) aún no están incluidos; el resultado lo avisa expresamente según la comunidad de quien responde. Se irán incorporando con la revisión diaria. Se aceptan contribuciones.
 
 ## Cómo proponer cambios
 

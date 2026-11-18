@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.10.0",
-  "fecha_corte": "2026-11-17",
+  "version": "2.11.0",
+  "fecha_corte": "2026-11-18",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -317,6 +317,10 @@
   "baleares": {
    "q": "region",
    "eq": "baleares"
+  },
+  "galicia": {
+   "q": "region",
+   "eq": "galicia"
   },
   "sin_iva": {
    "q": "region",
@@ -1115,6 +1119,26 @@
  ],
  "partidos": [
   {
+   "id": "bng",
+   "nombre": "BNG",
+   "ambito_si": {
+    "ref": "galicia"
+   },
+   "programa": {
+    "titulo": "Programa electoral 29N. Xerais 2026",
+    "fecha": "2026-11-03",
+    "estado": "publicado",
+    "nota": "Programa en gallego; los resúmenes son traducciones. Solo se presenta en Galicia."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: el 3 % de los Presupuestos Generales del Estado para un parque público de alquiler, el 1 % para políticas de juventud y el 3 % del PIB en I+D+i en 2030. Dice financiarlo con un IRPF y un Impuesto de Sociedades más progresivos, impuestos permanentes a la banca, las energéticas y las grandes fortunas y la lucha contra el fraude; las pensiones, con cargo a los Presupuestos, a impuestos sobre la riqueza y a la supresión del tope de cotización.",
+    "fuentes": [
+     "pdf_bng"
+    ]
+   }
+  },
+  {
    "id": "cc",
    "nombre": "Coalición Canaria",
    "ambito_si": {
@@ -1192,7 +1216,7 @@
     "titulo": "Paz, casa y trabajo (lema)",
     "fecha": null,
     "estado": "sin_programa",
-    "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas."
+    "nota": "Presentó su programa el 17-11-2026, pero aún no se ha incorporado al test: se usan anuncios de campaña y posiciones previas."
    },
    "financiacion": {
     "cuantifica": "no",
@@ -1756,13 +1780,6 @@
     "eq": "navarra"
    },
    "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."
-  },
-  {
-   "si": {
-    "q": "region",
-    "eq": "galicia"
-   },
-   "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."
   },
   {
    "si": {
@@ -5494,6 +5511,462 @@
    ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=21"
+  },
+  {
+   "id": "bng-alq",
+   "partido": "bng",
+   "tema": "Vivienda",
+   "texto": "Topar por ley los precios del alquiler, renovación automática y contratos de alquiler indefinidos por ley, prohibir los desahucios de personas vulnerables y suspender de forma automática e indefinida cualquier lanzamiento sin alternativa habitacional.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "La renta que puedes cobrar quedaría topada y tus inquilinos podrían quedarse indefinidamente."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu renta quedaría topada y no tendrías que irte al acabar el contrato."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=12"
+  },
+  {
+   "id": "bng-viv",
+   "partido": "bng",
+   "tema": "Vivienda",
+   "texto": "Destinar el 3 % de los Presupuestos Generales del Estado, a través del Plan estatal de vivienda, a crear un parque público de alquiler permanente.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "busca_vivienda_asequible"
+     },
+     "valor": 1,
+     "texto": "Más vivienda pública de alquiler a la que optar."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=12"
+  },
+  {
+   "id": "bng-irpf",
+   "partido": "bng",
+   "tema": "IRPF",
+   "texto": "IRPF más progresivo: menos tributación de las rentas del trabajo y más de las del capital, y tramos estatales actualizados con el IPC de Galicia.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del ahorro tributarían más (tipos no concretados)."
+    },
+    {
+     "si": {
+      "ref": "paga_irpf"
+     },
+     "valor": 0,
+     "texto": "Las rentas del trabajo tributarían menos y las más altas, más; cuánto, no se sabe: no da tipos."
+    }
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=43"
+  },
+  {
+   "id": "bng-iva",
+   "partido": "bng",
+   "tema": "IVA",
+   "texto": "Rebaja permanente del IVA de la alimentación básica, los productos del mar, la higiene personal y femenina y el transporte público, e IVA del 5 % permanente en electricidad, gas y otros suministros básicos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "iva_poco_focalizado",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "sin_iva"
+     },
+     "valor": 0,
+     "texto": "En tu territorio no se aplica el IVA (Canarias: IGIC; Ceuta y Melilla: IPSI), así que no te afectaría directamente."
+    },
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Abarataría la compra básica y las facturas de luz y gas."
+    }
+   ],
+   "pagina": 44,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=44"
+  },
+  {
+   "id": "bng-fortunas",
+   "partido": "bng",
+   "tema": "Patrimonio",
+   "texto": "Hacer permanentes los impuestos a los beneficios de la banca y las grandes energéticas y el de grandes fortunas, con menos exención y más progresividad, y traspasar su gestión a Galicia.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "q": "patr",
+      "eq": 4
+     },
+     "valor": -1,
+     "texto": "Con más de 3 millones de patrimonio seguirías pagando el impuesto de grandes fortunas de forma permanente, y más."
+    },
+    {
+     "si": {
+      "ref": "patrimonio_mas_1M"
+     },
+     "valor": 0,
+     "texto": "El impuesto actual empieza en 3 millones; propone reducir la exención, sin decir hasta dónde."
+    }
+   ],
+   "pagina": 44,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=44"
+  },
+  {
+   "id": "bng-smi",
+   "partido": "bng",
+   "tema": "Empleo",
+   "texto": "Salario mínimo en el 60 % del salario medio, sin que se pueda compensar ni absorber con otros complementos, y competencia para que Galicia mejore el estatal.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu sueldo subiría si estás cerca del mínimo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Más coste si tienes plantilla con salarios bajos."
+    }
+   ],
+   "pagina": 15,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=15"
+  },
+  {
+   "id": "bng-jornada",
+   "partido": "bng",
+   "tema": "Empleo",
+   "texto": "Jornada de 35 horas semanales sin reducción salarial y avanzar hacia 32 horas en cuatro días.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "jornada_ley",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Trabajarías menos horas por el mismo sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Te subiría el coste por hora de tu plantilla."
+    }
+   ],
+   "pagina": 15,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=15"
+  },
+  {
+   "id": "bng-despido",
+   "partido": "bng",
+   "tema": "Empleo",
+   "texto": "Recuperar la indemnización de 45 días por año (máximo 42 mensualidades) por despido improcedente, los salarios de tramitación y la autorización administrativa en los despidos colectivos, y que la persona trabajadora elija entre readmisión e indemnización.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Más protección económica si te despiden de forma improcedente."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Despedir te costaría más."
+    },
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 0,
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+    }
+   ],
+   "pagina": 15,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=15"
+  },
+  {
+   "id": "bng-paro",
+   "partido": "bng",
+   "tema": "Desempleo",
+   "texto": "Prestación contributiva por desempleo del 75 % de la base reguladora los primeros 180 días y del 65 % después, nunca inferior al salario mínimo, y subsidio no inferior al salario mínimo en toda su duración.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 1,
+     "texto": "Cobrarías más de paro: nunca menos que el salario mínimo."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=17"
+  },
+  {
+   "id": "bng-pens",
+   "partido": "bng",
+   "tema": "Pensiones",
+   "texto": "Pensiones mínimas al menos iguales al salario mínimo, revalorización anual con el IPC real, jubilación ordinaria a los 65 años y no contributivas al 75 % del umbral de pobreza de un hogar unipersonal de inmediato.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva subiría de inmediato."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión subiría hasta el salario mínimo."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión se seguiría revalorizando cada año con el IPC real (la ley actual ya la liga al IPC)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "any": [
+         {
+          "ref": "edad_41_64"
+         },
+         {
+          "q": "edad",
+          "eq": "36-40"
+         }
+        ]
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Podrías jubilarte a los 65 sin penalización."
+    }
+   ],
+   "pagina": 18,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=18"
+  },
+  {
+   "id": "bng-tope",
+   "partido": "bng",
+   "tema": "Cotizaciones",
+   "texto": "Eliminar el tope máximo de las bases de cotización a la Seguridad Social y revisar y reducir las bonificaciones de las cotizaciones empresariales.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_alta"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Cotizarías por todo tu salario, también por encima de la base máxima actual (unos 60.000 €)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "empleador"
+       },
+       {
+        "q": "ing",
+        "gte": 4
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Subiría el coste de tus empleados con sueldos altos y podrías perder bonificaciones."
+    }
+   ],
+   "pagina": 19,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=19"
+  },
+  {
+   "id": "bng-ap9",
+   "partido": "bng",
+   "tema": "Transporte",
+   "texto": "AP-9 pública y sin peajes, anulando la prórroga de la concesión de 2000, y transferir a Galicia y liberar de peajes la AP-53.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bng"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "galicia"
+     },
+     "valor": 1,
+     "texto": "Si usas la AP-9 o la AP-53, dejarías de pagar peajes."
+    }
+   ],
+   "pagina": 62,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=62"
   }
  ],
  "temas_sociales": [
@@ -7203,6 +7676,292 @@
    ]
   },
   {
+   "id": "soc-bng-124",
+   "partido": "bng",
+   "tema": "igualdad",
+   "texto": "Reforma legislativa integral para que la ley orgánica cubra todas las formas de violencia contra las mujeres y dé rango de ley efectivo a la violencia vicaria, conforme al Convenio de Estambul.",
+   "num": null,
+   "pagina": 24,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=24",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-125",
+   "partido": "bng",
+   "tema": "igualdad",
+   "texto": "Introducir el término feminicidio en la legislación y un Estatuto de Víctima de Feminicidio.",
+   "num": null,
+   "pagina": 25,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=25",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-126",
+   "partido": "bng",
+   "tema": "igualdad",
+   "texto": "Medidas para abolir la prostitución que persigan al proxeneta y al prostituidor, sin criminalizar a las mujeres prostituidas, con una red que cubra sus necesidades básicas si quieren dejarla.",
+   "num": null,
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=26",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-127",
+   "partido": "bng",
+   "tema": "lgtbi",
+   "texto": "Reconocer a las personas no binarias y proteger a las personas trans menores de 12 años, respetando su derecho a la autodeterminación de género.",
+   "num": null,
+   "pagina": 29,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=29",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-128",
+   "partido": "bng",
+   "tema": "lgtbi",
+   "texto": "Medidas positivas para la inclusión laboral y social de las personas trans.",
+   "num": null,
+   "pagina": 29,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=29",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-129",
+   "partido": "bng",
+   "tema": "lgtbi",
+   "texto": "Suprimir cualquier subvención o ayuda pública, e imponer sanciones, a las organizaciones que tengan como objetivo negar o vulnerar los derechos de las personas LGBT o que se expresen en ese sentido.",
+   "num": null,
+   "pagina": 29,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=29",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-130",
+   "partido": "bng",
+   "tema": "racismo",
+   "texto": "Erradicar cualquier forma de discriminación y actitud racista en las administraciones públicas.",
+   "num": null,
+   "pagina": 23,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=23",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-131",
+   "partido": "bng",
+   "tema": "migracion",
+   "texto": "Promover la regularización administrativa como vía para eliminar la irregularidad como herramienta de explotación.",
+   "num": null,
+   "pagina": 22,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=22",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-132",
+   "partido": "bng",
+   "tema": "migracion",
+   "texto": "Cierre de los centros de internamiento de extranjeros (CIE) y fin de las devoluciones en caliente.",
+   "num": null,
+   "pagina": 23,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=23",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-133",
+   "partido": "bng",
+   "tema": "migracion",
+   "texto": "Que un conocimiento acreditado de la lengua y la cultura gallegas se admita como criterio para acceder a la nacionalidad española, con independencia del conocimiento del español.",
+   "num": null,
+   "pagina": 23,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=23",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-134",
+   "partido": "bng",
+   "tema": "discapacidad",
+   "texto": "Desarrollar y financiar la asistencia personal para garantizar la autonomía de las personas con discapacidad.",
+   "num": null,
+   "pagina": 41,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=41",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-135",
+   "partido": "bng",
+   "tema": "discapacidad",
+   "texto": "Plan de accesibilidad universal para suprimir las barreras físicas, cognitivas y sensoriales en las instituciones y servicios del Estado.",
+   "num": null,
+   "pagina": 41,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=41",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-136",
+   "partido": "bng",
+   "tema": "familia",
+   "texto": "Reconocer legalmente a las familias monoparentales de origen, con una legislación específica que garantice sus derechos.",
+   "num": null,
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=27",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-137",
+   "partido": "bng",
+   "tema": "familia",
+   "texto": "Conciliación: compensación económica de las reducciones de jornada, ingresos garantizados en las excedencias y aportación del Estado a la gratuidad de las escuelas infantiles gallegas.",
+   "num": null,
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=27",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-138",
+   "partido": "bng",
+   "tema": "familia",
+   "texto": "Cotización al 100 % en las reducciones de jornada por cuidados y computar como cotizadas las excedencias por cuidados más allá de tres años.",
+   "num": null,
+   "pagina": 20,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=20",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-139",
+   "partido": "bng",
+   "tema": "educacion",
+   "texto": "Derecho universal a la educación de 0 a 18 años, obligatoria de 3 a 18, en una única red de enseñanza pública, con libros de texto, material escolar y actividades extraescolares gratuitos.",
+   "num": null,
+   "pagina": 34,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=34",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-140",
+   "partido": "bng",
+   "tema": "educacion",
+   "texto": "Transferir a Galicia todas las competencias educativas pendientes, para que pueda ordenar su sistema educativo con leyes propias.",
+   "num": null,
+   "pagina": 34,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=34",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-141",
+   "partido": "bng",
+   "tema": "religion",
+   "texto": "Denunciar y revocar el Concordato con la Iglesia católica y los Acuerdos vigentes con la Santa Sede, eliminando los privilegios de la Iglesia y la presencia de la religión en las instituciones y servicios públicos.",
+   "num": null,
+   "pagina": 32,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=32",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-142",
+   "partido": "bng",
+   "tema": "religion",
+   "texto": "Enseñanza laica: la asignatura de Religión no formaría parte del currículo escolar.",
+   "num": null,
+   "pagina": 35,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=35",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-143",
+   "partido": "bng",
+   "tema": "rural",
+   "texto": "Gestión descentralizada y más fondos para el desarrollo territorial y la PAC frente a los recortes previstos en el marco financiero europeo 2028-2034.",
+   "num": null,
+   "pagina": 48,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=48",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-144",
+   "partido": "bng",
+   "tema": "rural",
+   "texto": "Programa de rehabilitación de viviendas vacías en el rural, con mejores servicios públicos, transporte y conectividad, para dar a la juventud empleo, vivienda y oportunidades de emprender.",
+   "num": null,
+   "pagina": 85,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=85",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
+   "id": "soc-bng-145",
+   "partido": "bng",
+   "tema": "rural",
+   "texto": "Financiar medidas de igualdad en el medio rural, en particular en los programas de empleabilidad y emprendimiento.",
+   "num": null,
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=27",
+   "fuentes": [
+    "pdf_bng"
+   ]
+  },
+  {
    "id": "soc-ext-pod-0",
    "partido": "pod",
    "tema": "igualdad",
@@ -7455,6 +8214,20 @@
     "aci_psoe19",
     "maldita_psoe21"
    ]
+  },
+  {
+   "id": "soc-ext-bng-18",
+   "partido": "bng",
+   "tema": "vida",
+   "texto": "Defender los derechos sexuales y reproductivos y de decisión de las mujeres sobre sus cuerpos. El programa del 29N no trata el aborto ni la eutanasia.",
+   "num": null,
+   "pagina": null,
+   "referencia": "programa europeo de 2024, p. 19",
+   "origen": "previa",
+   "url": "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf",
+   "fuentes": [
+    "bng_ue24"
+   ]
   }
  ],
  "fuentes": {
@@ -7673,6 +8446,11 @@
    "url": "https://www.elsaltodiario.com/derechos-reproductivos/congreso-rechaza-enmiendas-totalidad-pp-vox-incluir-aborto-constitucion",
    "fecha": "2026-04-30"
   },
+  "bng_ue24": {
+   "titulo": "BNG: Programa de las elecciones europeas de 2024 (PDF)",
+   "url": "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf",
+   "fecha": "2024-05"
+  },
   "maldita_psoe21": {
    "titulo": "Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones",
    "url": "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano",
@@ -7706,6 +8484,11 @@
   "pdf_erc": {
    "titulo": "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán) (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_bng": {
+   "titulo": "BNG: Programa electoral 29N. Xerais 2026 (en gallego) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf",
    "fecha": "2026-11"
   }
  }
