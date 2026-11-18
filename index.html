@@ -342,13 +342,13 @@ function pick(id,silent){
   var r0=Test29N.resumenPartido(p);
   var h='<div class="papeleta" style="margin-top:6px"><h3 style="margin:0 0 4px;font-size:1.5rem">'+esc(p.nombre)+'</h3><span class="mut">'+esc(p.programa.titulo)+(p.programa.fecha?' ('+esc(p.programa.fecha.split('-').reverse().join('/'))+')':'')+'</span><div class="mut">'+esc(p.programa.nota||'')+'</div>'+
     '<p style="margin:10px 0 0"><b>'+esc(r0.medidas)+'</b> '+esc(r0.riesgos)+'</p></div>';
-  h+='<h2>Lo que ganas o pierdes</h2><p class="mut">En negrita, cómo te afectaría según tus respuestas (deducción del test). Debajo, lo que propone el partido. Salvo que se indique, el partido no fija plazo ni coste.</p>';
+  h+='<h2>Lo que ganas o pierdes</h2><p class="mut">En negrita, cómo te afectaría según tus respuestas (deducción del test). Toca «Qué propone y fuente» para ver la medida tal como la presenta el partido. Salvo que se indique, no fija plazo ni coste.</p>';
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
       '<div class="ef">'+esc(x.efecto)+'</div>'+
-      '<div class="prop">Propone: '+esc(x.texto)+(x.detalle?(x.detalle.plazo?' Plazo: '+esc(x.detalle.plazo)+'.':'')+(x.detalle.coste?' Coste: '+esc(x.detalle.coste)+'.':''):'')+'</div>'+
+      '<details><summary>Qué propone y fuente</summary><div class="prop">'+esc(x.texto)+(x.detalle?(x.detalle.plazo?' Plazo: '+esc(x.detalle.plazo)+'.':'')+(x.detalle.coste?' Coste: '+esc(x.detalle.coste)+'.':''):'')+'</div>'+
       '<div>'+(x.url?'<a class="pill src" style="text-decoration:none" href="'+esc(x.url)+'" target="_blank" rel="noopener">':'<span class="pill src">')+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+(x.pagina?', p. '+x.pagina:'')+(x.url?'</a>':'</span>')+'</div>'+
-      '<details><summary>Fuentes</summary>'+srcList(x.fuentes)+'</details></div>'}).join('')};
+      srcList(x.fuentes)+'</details></div>'}).join('')};
   h+=p.medidas.length?grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto')+grp(1,'pos','A tu favor'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';
   var imp=p.riesgos.filter(function(r){return r.exposicion_usuario.nivel!=='baja'}),poco=p.riesgos.filter(function(r){return r.exposicion_usuario.nivel==='baja'});
   h+='<h2>Riesgos con este partido</h2>';
