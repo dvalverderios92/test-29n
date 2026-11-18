@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1292,7 +1292,8 @@
      "nivel": "baja",
      "texto": "Dependes poco de servicios públicos, pero un mayor déficit o deuda afecta a toda la economía."
     }
-   ]
+   ],
+   "corto": "Rebajas de impuestos sin financiar"
   },
   {
    "id": "gasto_sin_financiar",
@@ -1341,7 +1342,8 @@
      "nivel": "baja",
      "texto": "Un mayor déficit o deuda afecta a toda la economía."
     }
-   ]
+   ],
+   "corto": "Gasto nuevo sin financiar"
   },
   {
    "id": "ayuda_demanda_precio",
@@ -1373,7 +1375,8 @@
      "nivel": "baja",
      "texto": "Afecta sobre todo a quien compra o alquila."
     }
-   ]
+   ],
+   "corto": "Ayudas que suben precios"
   },
   {
    "id": "tope_alquiler_oferta",
@@ -1406,7 +1409,8 @@
      "nivel": "baja",
      "texto": "Afecta sobre todo a quien busca alquiler."
     }
-   ]
+   ],
+   "corto": "Topes de alquiler y oferta"
   },
   {
    "id": "fin_topes_alquiler",
@@ -1439,7 +1443,8 @@
      "nivel": "baja",
      "texto": "Afecta sobre todo a inquilinos en zonas tensionadas."
     }
-   ]
+   ],
+   "corto": "Fin de los topes de alquiler"
   },
   {
    "id": "smi_empleo",
@@ -1486,7 +1491,8 @@
      "nivel": "baja",
      "texto": "Efecto general pequeño según las evaluaciones disponibles."
     }
-   ]
+   ],
+   "corto": "Salario mínimo y empleo"
   },
   {
    "id": "jornada_ley",
@@ -1527,7 +1533,8 @@
      "nivel": "baja",
      "texto": "Afecta sobre todo a asalariados y empresas."
     }
-   ]
+   ],
+   "corto": "Jornada más corta por ley"
   },
   {
    "id": "iva_poco_focalizado",
@@ -1567,7 +1574,8 @@
      "nivel": "baja",
      "texto": "Ahorro real pero repartido de forma poco progresiva."
     }
-   ]
+   ],
+   "corto": "IVA de alimentos poco focalizado"
   },
   {
    "id": "irpf_reparto",
@@ -1608,7 +1616,8 @@
      "nivel": "baja",
      "texto": "Ganarías más en IRPF; el riesgo está en cómo se cubre el coste."
     }
-   ]
+   ],
+   "corto": "Rebaja amplia del IRPF"
   },
   {
    "id": "prioridad_legal",
@@ -1636,7 +1645,8 @@
      "nivel": "baja",
      "texto": "No te afecta directamente."
     }
-   ]
+   ],
+   "corto": "Prioridad nacional en ayudas"
   },
   {
    "id": "expropiacion_plazos",
@@ -1662,7 +1672,8 @@
      "nivel": "baja",
      "texto": "Afecta sobre todo a grandes propietarios y a las cuentas públicas."
     }
-   ]
+   ],
+   "corto": "Expropiaciones de vivienda"
   },
   {
    "id": "pensiones_transicion",
@@ -1702,7 +1713,8 @@
      "nivel": "baja",
      "texto": "Afecta a las cuentas de la Seguridad Social en la transición."
     }
-   ]
+   ],
+   "corto": "Pensiones con capitalización"
   }
  ],
  "notas": [

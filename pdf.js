@@ -65,10 +65,11 @@
       if (tipo === 'menos') { doc.setLineWidth(2); color(PAPEL, 'd'); doc.line(x + s * .25, y + s / 2, x + s * .75, y + s / 2); }
       if (tipo === 'inc') { fuente(s * .7, true); color(TINTA); doc.text('?', x + s / 2, y + s / 2, { align: 'center', baseline: 'middle' }); }
     }
-    var NIVEL = { alta: 'Exposición alta', media: 'Exposición media', baja: 'Exposición baja' };
-    var EVID = { hecho: 'Hecho', 'hecho+inferencia': 'Hecho + inferencia', consenso: 'Consenso', disputada: 'Evidencia disputada', inferencia: 'Inferencia' };
-    var FIN = { varias: 'Según cada partido', no: 'No cuantifica su programa', cifras_propias: 'Cifras propias sin verificar', fuera_del_programa: 'Cifras fuera del programa', si: 'Cuantifica su programa' };
-
+    var NIVEL = { alta: 'Te afecta mucho', media: 'Te afecta algo', baja: 'Te afecta poco' };
+    var EVID = { hecho: 'Comprobado', 'hecho+inferencia': 'Comprobado y deducción del test', consenso: 'La mayoría de expertos coincide', disputada: 'Los expertos discrepan', inferencia: 'Deducción del test' };
+    var FIN = { varias: 'Según cada partido', no: 'No cuantifica su programa', cifras_propias: 'Cifras propias', fuera_del_programa: 'Cifras fuera del programa', si: 'Cuantifica su programa' };
+    var resumenDe = function (p) { return root.Test29N.resumenPartido(p); };
+    var LIM = H - M;
     // ---------- 1. Portada ----------
     nueva(true);
     escribir(lineas('Elecciones generales del 29 de noviembre de 2026', 420, 13, true), M, M, 13, true, SEPIA);
@@ -84,13 +85,117 @@
     color(PAPEL, 'd'); doc.setLineWidth(5); doc.rect(W - M - 170, 95, 170, 170, 'S');
     doc.setLineWidth(9); doc.line(W - M - 140, 125, W - M - 30, 235); doc.line(W - M - 30, 125, W - M - 140, 235);
 
-    // ---------- 2. Cómo leerlo ----------
+    // ---------- 2. Tu resultado en un minuto ----------
+    (function () {
+      var bloques = R.partidos.map(function (p) {
+        var r = resumenDe(p);
+        var rie = r.riesgos;
+        return { nombre: p.nombre + (p.partidos_test ? ' (candidatura conjunta)' : ''), lin: [[r.medidas, false], [r.contra, true], [rie, false]].filter(function (x) { return x[0]; }) };
+      });
+      var ncol = bloques.length > 4 ? 3 : bloques.length > 1 ? 2 : 1, colW = (W - 2 * M - 24 * (ncol - 1)) / ncol, tl = ncol === 3 ? 10.5 : 12;
+      var medir = function (b) {
+        var cab = lineas(b.nombre, colW - 4, 14, true), cuerpo = b.lin.map(function (l) { return [lineas(l[0], colW - 4, tl, l[1]), l[1]]; });
+        return { cab: cab, cuerpo: cuerpo, alto: cab.length * 17.5 + cuerpo.reduce(function (a, c) { return a + c[0].length * tl * 1.25 + 2; }, 0) + 16 };
+      };
+      var ms = bloques.map(medir), filas = [];
+      for (var k = 0; k < ms.length; k += ncol) filas.push(ms.slice(k, k + ncol));
+      nueva(false);
+      var yy = titulo('Tu resultado en un minuto', 'Partidos en orden alfabético. Lo que te favorece o perjudica directamente y los riesgos que más te afectan.');
+      filas.forEach(function (fila, n) {
+        var alto = Math.max.apply(null, fila.map(function (b) { return b.alto; }));
+        if (yy + alto > LIM && n) { nueva(false); yy = titulo('Tu resultado en un minuto (continuación)', null); }
+        fila.forEach(function (b, c) {
+          var x = M + c * (colW + 24);
+          color(TINTA, 'd'); doc.setLineWidth(1.6); doc.line(x, yy, x + colW, yy);
+          var y2 = escribir(b.cab, x, yy + 6, 14, true);
+          b.cuerpo.forEach(function (cc) { y2 = escribir(cc[0], x, y2 + 1, tl, cc[1], cc[1] ? TINTA : TINTA2) + 1; });
+        });
+        yy += alto;
+      });
+    })();
+
+    // ---------- 3. Riesgos comparados ----------
+    var ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox', upc: 'UPC', compromis: 'Compromís', ara_mes: 'Ara Més', erc: 'ERC' };
+    var toca = function (f) { return R.partidos.some(function (p) { var n = f.niveles[p.id]; return n === 'alta' || n === 'media'; }); };
+    var f1 = R.matriz_riesgos.filter(toca), f2 = R.matriz_riesgos.filter(function (f) { return !toca(f); });
+    (function () {
+      var porPag = 10;
+      for (var ini = 0; ini < Math.max(f1.length, 1); ini += porPag) {
+        nueva(false);
+        var y = titulo('Riesgos: lo que podría pasar además' + (ini ? ' (continuación)' : ''), ini ? null : 'Efectos que una medida puede tener aunque no te toque directamente. Cada casilla dice cuánto te afectaría con ese partido.');
+        var c0 = 300, cw = (W - 2 * M - c0) / R.partidos.length;
+        fuente(12, true); color(TINTA);
+        R.partidos.forEach(function (p, j) { doc.text(limpio(ab[p.id] || p.nombre), M + c0 + j * cw + cw / 2, y, { align: 'center', baseline: 'top' }); });
+        y += 20; color(TINTA, 'd'); doc.setLineWidth(1.6); doc.line(M, y - 4, W - M, y - 4);
+        var trozo = f1.slice(ini, ini + porPag), ult = ini + porPag >= f1.length;
+        var pie = ult ? [lineas('Leyenda: casilla negra, te afecta mucho; rayada, algo; vacía, poco; raya, no aplica.' + (f2.length ? ' Además, te afectan poco o no aplican: ' + f2.map(function (f) { return f.corto; }).join(', ') + '.' : ''), W - 2 * M, 11)] : [];
+        var pieH = ult ? pie[0].length * 13.75 + 10 : 0;
+        if (!trozo.length) escribir(lineas('Ningún riesgo te afecta mucho ni algo con ningún partido.', W - 2 * M, 14), M, y + 6, 14, false, TINTA2);
+        var alto = Math.min(44, (LIM - pieH - y) / Math.max(trozo.length, 1)), tt = alto < 32 ? 12 : 13, conEv = alto >= 30;
+        trozo.forEach(function (f, k) {
+          var fy = y + k * alto;
+          var yy = escribir(lineas(f.corto, c0 - 12, tt, true).slice(0, 1), M, fy + Math.max(3, (alto - tt * 1.25 - (conEv ? 12 : 0)) / 2), tt, true);
+          if (conEv) escribir([limpio(EVID[f.evidencia] || f.evidencia)], M, yy + 1, 9.5, false, TINTA2);
+          R.partidos.forEach(function (p, j) {
+            var n = f.niveles[p.id], cx = M + c0 + j * cw + cw / 2;
+            if (n) casilla(cx - 9, fy + alto / 2 - 9, 18, n);
+            else { color(LINEA, 'd'); doc.setLineWidth(1.4); doc.line(cx - 7, fy + alto / 2, cx + 7, fy + alto / 2); }
+          });
+          color(LINEA, 'd'); doc.setLineWidth(.6); doc.line(M, fy + alto, W - M, fy + alto);
+        });
+        if (ult) escribir(pie[0], M, LIM - pieH + 6, 11, false, TINTA2);
+      }
+    })();
+
+    // ---------- 4. Una diapositiva por partido (misma regla para todos) ----------
+    var MAXMED = 6, orden = function (v) { return v < 0 ? 0 : v === 0 ? 1 : 2; };
+    R.partidos.forEach(function (p) {
+      var r = resumenDe(p);
+      nueva(false);
+      var y = titulo(p.nombre, r.medidas + ' ' + r.riesgos);
+      var meds = p.medidas.slice().sort(function (a, b) { return orden(a.valor) - orden(b.valor); });
+      var pieTxt = 'Cómo dice pagarlo: ' + (FIN[p.financiacion.cuantifica] || p.financiacion.cuantifica) + '. Lo que propone cada medida, con su página, está en el anexo.';
+      var pieL = lineas(pieTxt, W - 2 * M - 28, 11), pieH = pieL.length * 13.75 + 16;
+      var mostradas = 0;
+      if (!meds.length) escribir(lineas('Ninguna medida recogida te afecta directamente según tus respuestas.', W - 2 * M, 14), M, y, 14, false, TINTA2);
+      for (var k = 0; k < meds.length && k < MAXMED; k++) {
+        var m = meds[k], cab = lineas(m.tema + ': ' + m.efecto, W - 2 * M - 34, 13, true);
+        var restan = meds.length - k - 1, notaH = restan ? 18 : 0;
+        if (y + cab.length * 16.25 + 8 + notaH > LIM - pieH) break;
+        casilla(M, y + 1, 16, m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc');
+        y = escribir(cab, M + 30, y, 13, true) + 8; mostradas++;
+      }
+      if (meds.length > mostradas) escribir(lineas('Y ' + (meds.length - mostradas) + (meds.length - mostradas === 1 ? ' medida más' : ' medidas más') + ' en el anexo.', W - 2 * M - 30, 12), M + 30, y, 12, false, TINTA2);
+      color(SEPIA, 'f'); doc.roundedRect(M, H - M - pieH, W - 2 * M, pieH, 5, 5, 'F');
+      escribir(pieL, M + 14, H - M - pieH + 8, 11, false, TINTA);
+    });
+
+    // ---------- 5. Antes de decidir ----------
+    nueva(true);
+    y = escribir(lineas('Antes de decidir', W - 2 * M, 26, true), M, M, 26, true, PAPEL) + 14;
+    var notas = R.notas.concat([
+      'Las medidas salen de los programas oficiales, con su página. Si el programa no recoge algo, se usan anuncios de campaña o posiciones anteriores, y así se indica. Comprueba en el original lo que vaya a pesar en tu decisión.',
+      'El número de medidas no mide su peso, y los riesgos no se suman a lo que ganas o pierdes.',
+      'Este resultado no es una recomendación de voto. Detalle, fuentes y metodología: ' + D.meta.url_canonica]);
+    notas.forEach(function (n) {
+      var ls = lineas(n, W - 2 * M - 30, 12);
+      if (y + ls.length * 15 > H - M) return;
+      color(PAPEL, 'd'); doc.setLineWidth(1.4); doc.rect(M, y + 1, 12, 12, 'S');
+      y = escribir(ls, M + 24, y, 12, false, SEPIA) + 8;
+    });
+
+    // ---------- ANEXO ----------
+    nueva(true);
+    escribir(lineas('Anexo', W - 2 * M, 40, true), M, 120, 40, true, PAPEL);
+    escribir(lineas('El detalle: cómo leer el resultado, los riesgos explicados y lo que propone cada partido en cada medida, con su fuente.', 460, 14), M, 180, 14, false, SEPIA);
+
+    // Cómo leer
     nueva(false);
-    y = titulo('Cómo leer este resultado', 'Tres capas que no se suman entre sí. Cada dato separa el hecho (lo que propone el partido) de la inferencia (cómo te afecta).');
+    y = titulo('Cómo leer este resultado', 'Tres partes que no se suman entre sí. Cada medida separa lo que propone el partido de cómo te afectaría (deducción del test).');
     var capas = [
-      ['Los riesgos que corres', 'Lo que una medida puede provocar aunque no te toque: menos recaudación, gasto sin financiar, precios, empleo, oferta.'],
       ['Lo que ganas o pierdes', 'Las medidas que te favorecen, te perjudican o tienen un efecto incierto en tu bolsillo.'],
-      ['Quién dice cómo pagarlo', 'Si cada partido cuantifica su programa y de dónde sale el dinero.']];
+      ['Riesgos: lo que podría pasar además', 'Efectos que una medida puede tener aunque no te toque: menos recaudación, gasto sin pagar, precios, empleo, oferta.'],
+      ['Cómo dice pagarlo', 'Si cada partido calcula lo que cuesta su programa y de dónde sale el dinero.']];
     var colW = (W - 2 * M - 40) / 3;
     capas.forEach(function (c, i) {
       var x = M + i * (colW + 20);
@@ -100,7 +205,7 @@
     });
     var yl = H - M - 112;
     color(SEPIA, 'f'); doc.roundedRect(M, yl, W - 2 * M, 104, 6, 6, 'F');
-    [['Exposición a cada riesgo', [['alta', 'Alta'], ['media', 'Media'], ['baja', 'Baja']]],
+    [['Cuánto te afecta un riesgo', [['alta', 'Mucho'], ['media', 'Algo'], ['baja', 'Poco']]],
      ['Efecto de cada medida', [['mas', 'A tu favor'], ['menos', 'En tu contra'], ['inc', 'Incierto']]]].forEach(function (g, f) {
       var fy = yl + 14 + f * 32;
       escribir([g[0]], M + 14, fy + 3, 12, true);
@@ -108,32 +213,6 @@
     });
     escribir(lineas('Partidos en orden alfabético. Detalle y fuentes en ' + D.meta.url_canonica, W - 2 * M - 28, 11), M + 14, yl + 80, 11, false, TINTA2);
 
-    // ---------- 3. Matriz de riesgos ----------
-    var filas = R.matriz_riesgos, porPag = 5, ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox', upc: 'UPC', compromis: 'Compromís', ara_mes: 'Ara Més' };
-    for (var ini = 0; ini < filas.length; ini += porPag) {
-      nueva(false);
-      y = titulo('Tus riesgos indirectos, comparados' + (ini ? ' (continuación)' : ''), 'Cuánto te expone tu situación a cada riesgo, según las medidas de cada partido. Raya: el partido no lo activa.');
-      var c0 = 330, cw = (W - 2 * M - c0) / R.partidos.length;
-      fuente(12, true); color(TINTA);
-      R.partidos.forEach(function (p, j) { doc.text(limpio(ab[p.id] || p.nombre), M + c0 + j * cw + cw / 2, y, { align: 'center', baseline: 'top' }); });
-      y += 22; color(TINTA, 'd'); doc.setLineWidth(1.6); doc.line(M, y - 4, W - M, y - 4);
-      var alto = (H - M - 14 - y) / porPag;
-      filas.slice(ini, ini + porPag).forEach(function (f, k) {
-        var fy = y + k * alto;
-        var ls = lineas(f.titulo, c0 - 16, 12, true).slice(0, 2);
-        var yy = escribir(ls, M, fy + Math.max(6, (alto - ls.length * 15 - 13) / 2), 12, true);
-        escribir([limpio(EVID[f.evidencia] || f.evidencia)], M, yy + 1, 10, false, TINTA2);
-        R.partidos.forEach(function (p, j) {
-          var n = f.niveles[p.id], cx = M + c0 + j * cw + cw / 2;
-          if (n) casilla(cx - 9, fy + alto / 2 - 9, 18, n);
-          else { color(LINEA, 'd'); doc.setLineWidth(1.4); doc.line(cx - 7, fy + alto / 2, cx + 7, fy + alto / 2); }
-        });
-        color(LINEA, 'd'); doc.setLineWidth(.6); doc.line(M, fy + alto, W - M, fy + alto);
-      });
-    }
-
-    // ---------- 4. Por partido: riesgos y medidas ----------
-    var LIM = H - M;
     function lista(tituloBase, sub, elementos, resumen, pie) {
       var cont = 0;
       function pagina() { nueva(false); return titulo(tituloBase + (cont++ ? ' (continuación)' : ''), cont === 1 ? sub : null); }
@@ -142,14 +221,14 @@
       var yy = pagina();
       if (!elementos.length && !resumen) yy = escribir(lineas('Ninguna medida recogida te afecta directamente según tus respuestas.', W - 2 * M, 14), M, yy, 14, false, TINTA2) + 10;
       elementos.forEach(function (e, k) {
-        var cab = lineas(e.cab, W - 2 * M - 34, 14, true), det = lineas(e.det, W - 2 * M - 34, 10.5);
-        var alto = cab.length * 17.5 + det.length * 13.125 + 8;
+        var cab = lineas(e.cab, W - 2 * M - 34, 13, true), det = lineas(e.det, W - 2 * M - 34, 11);
+        var alto = cab.length * 16.25 + det.length * 13.75 + 8;
         var reserva = (k === elementos.length - 1) ? resH + pieH : 0;
         if (yy + alto + reserva > LIM && yy + alto > LIM - pieH) yy = pagina();
         else if (yy + alto > LIM) yy = pagina();
         casilla(M, yy + 1, 16, e.marca);
-        var y2 = escribir(cab, M + 30, yy, 14, true);
-        yy = escribir(det, M + 30, y2 + 1, 10.5, false, TINTA2) + 8;
+        var y2 = escribir(cab, M + 30, yy, 13, true);
+        yy = escribir(det, M + 30, y2 + 1, 11, false, TINTA2) + 8;
       });
       if (resumen) { if (yy + resH > LIM - pieH) yy = pagina(); yy = escribir(resL, M + 30, yy, 12, false, TINTA2) + 10; }
       if (pie) {
@@ -158,26 +237,28 @@
         escribir(pieL, M + 14, H - M - pieH + 8, 11, false, TINTA);
       }
     }
+
+    // Riesgos explicados (una vez, no por partido)
+    var NORD = { alta: 3, media: 2, baja: 1 };
+    var maxNivel = function (f) { var m = null; R.partidos.forEach(function (p) { var n = f.niveles[p.id]; if (n && (!m || NORD[n] > NORD[m])) m = n; }); return m; };
+    if (f1.length) lista('Los riesgos, explicados', 'Qué puede pasar y qué dicen los expertos. La casilla indica el nivel más alto con algún partido.',
+      f1.map(function (f) {
+        var rd = D.riesgos.filter(function (x) { return x.id === f.id; })[0] || {};
+        return { marca: maxNivel(f), cab: f.corto + ' (' + (EVID[f.evidencia] || f.evidencia).toLowerCase() + ')', det: rd.que_pasa || f.titulo };
+      }), null, null);
+
+    // Todas las medidas de cada partido, con lo que propone
     R.partidos.forEach(function (p) {
-      var importantes = p.riesgos.filter(function (r) { return r.exposicion_usuario.nivel !== 'baja'; });
-      var bajos = p.riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'baja'; });
-      lista(limpio(p.nombre) + ': los riesgos que corres',
-        'Lo que sus medidas pueden provocar aunque no te toquen, ordenado por tu exposición.',
-        importantes.map(function (r) {
-          return { marca: r.exposicion_usuario.nivel, cab: r.titulo, det: NIVEL[r.exposicion_usuario.nivel] + ', ' + (EVID[r.evidencia] || r.evidencia).toLowerCase() + '. ' + r.exposicion_usuario.texto };
-        }),
-        bajos.length ? (importantes.length ? 'Con exposición baja: ' : 'Todos con exposición baja: ') + bajos.map(function (r) { return r.titulo; }).join('; ') + '.' : null, null);
-      var orden = function (v) { return v > 0 ? 0 : v < 0 ? 1 : 2; };
       var meds = p.medidas.slice().sort(function (a, b) { return orden(a.valor) - orden(b.valor); });
-      lista(limpio(p.nombre) + ': lo que ganas o pierdes',
-        'A tu favor: ' + p.recuento.a_favor + '. En tu contra: ' + p.recuento.en_contra + '. Inciertas: ' + p.recuento.incierto + '. Riesgos indirectos que te tocan: ' + p.recuento.riesgos_altos + ' altos y ' + p.recuento.riesgos_medios + ' medios. Salvo que se indique, sin plazo ni coste.',
+      lista(limpio(p.nombre) + ': todas sus medidas que te afectan',
+        'En negrita, cómo te afectaría (deducción del test). Debajo, lo que propone. Salvo que se indique, sin plazo ni coste.',
         meds.map(function (m) {
-          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propuesta: ') + m.texto + (m.detalle && m.detalle.plazo ? ' Plazo: ' + m.detalle.plazo + '.' : '') + (m.detalle && m.detalle.coste ? ' Coste: ' + m.detalle.coste + '.' : '') + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
+          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propone: ') + m.texto + (m.detalle && m.detalle.plazo ? ' Plazo: ' + m.detalle.plazo + '.' : '') + (m.detalle && m.detalle.coste ? ' Coste: ' + m.detalle.coste + '.' : '') + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
         }), null,
-        (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones previas. ') + 'Financiación: ' + (FIN[p.financiacion.cuantifica] || '') + '. ' + p.financiacion.resumen);
+        (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones anteriores. ') + 'Cómo dice pagarlo: ' + (FIN[p.financiacion.cuantifica] || p.financiacion.cuantifica) + '. ' + p.financiacion.resumen);
     });
 
-    // ---------- 4b. Derechos y protecciones (sin valoración) ----------
+    // Derechos y protecciones (sin valoración)
     (R.derechos || []).forEach(function (t) {
       lista('Derechos y protecciones: ' + t.nombre,
         'Lo que propone cada partido, resumido de su programa oficial. Sin valoración a favor o en contra.',
@@ -186,20 +267,6 @@
             det: p.medidas.length ? p.medidas.map(function (m) { return (m.de ? m.de + ': ' : '') + m.texto + ' (' + (m.pagina ? (m.num ? 'medida ' + m.num + ', ' : '') + 'p. ' + m.pagina : (m.origen === 'campaña' ? 'anuncio de campaña' : 'posición anterior') + (m.referencia ? ': ' + m.referencia : '')) + ')'; }).join(' ')
               : 'No se han encontrado propuestas sobre este tema ni en su programa ni en otras fuentes consultadas.' };
         }), null, null);
-    });
-
-    // ---------- 5. Notas y límites ----------
-    nueva(true);
-    y = escribir(lineas('Antes de decidir', W - 2 * M, 26, true), M, M, 26, true, PAPEL) + 14;
-    var notas = R.notas.concat([
-      'Las medidas salen de los programas oficiales, con su página. Si el programa no recoge algo, se usan anuncios de campaña o posiciones anteriores, y así se indica. Comprueba en el original lo que vaya a pesar en tu decisión.',
-      'El número de medidas no mide su peso, y los riesgos indirectos no se suman a los efectos directos.',
-      'Este resultado no es una recomendación de voto. Detalle, fuentes y metodología: ' + D.meta.url_canonica]);
-    notas.forEach(function (n) {
-      var ls = lineas(n, W - 2 * M - 30, 12);
-      if (y + ls.length * 15 > H - M) return;
-      color(PAPEL, 'd'); doc.setLineWidth(1.4); doc.rect(M, y + 1, 12, 12, 'S');
-      y = escribir(ls, M + 24, y, 12, false, SEPIA) + 8;
     });
 
     // ---------- Numeración ----------

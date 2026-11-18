@@ -812,6 +812,24 @@ for i, (pid, tema, origen, fuentes, ref, txt) in enumerate(SOC_EXT):
 for t in TEMAS_SOC:
     if t["sugerir_si"] is None: t.pop("sugerir_si")
 
+# Títulos cortos de los riesgos, para el resumen, la tabla y el PDF
+CORTO = {
+ "rebaja_sin_financiar": "Rebajas de impuestos sin financiar",
+ "gasto_sin_financiar": "Gasto nuevo sin financiar",
+ "ayuda_demanda_precio": "Ayudas que suben precios",
+ "tope_alquiler_oferta": "Topes de alquiler y oferta",
+ "fin_topes_alquiler": "Fin de los topes de alquiler",
+ "smi_empleo": "Salario mínimo y empleo",
+ "jornada_ley": "Jornada más corta por ley",
+ "iva_poco_focalizado": "IVA de alimentos poco focalizado",
+ "irpf_reparto": "Rebaja amplia del IRPF",
+ "prioridad_legal": "Prioridad nacional en ayudas",
+ "expropiacion_plazos": "Expropiaciones de vivienda",
+ "pensiones_transicion": "Pensiones con capitalización",
+}
+for r in RISKS:
+    r["corto"] = CORTO[r["id"]]
+
 # Plazo y coste de una medida, solo cuando la fuente los da. Si no hay entrada, la web indica que el programa no los fija.
 DETALLE = {
  "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
@@ -850,7 +868,7 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.9.0",
+  "version": "2.10.0",
   "fecha_corte": "2026-11-17",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",

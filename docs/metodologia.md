@@ -59,3 +59,9 @@ Bloque aparte y opcional sobre temas sociales: igualdad y violencia contra las m
 - **Misma redacción para todos.** No se añaden acotaciones como «sin concretar» o «sin umbrales» a unas medidas y no a otras. Lo que la medida no concreta se ve en el propio texto.
 - **Financiación.** El resumen de cada partido sigue la misma estructura: si cuantifica el coste total, qué cifras da y de dónde dice sacar el dinero. Sin valoraciones de terceros (Gobierno, oposición o analistas) aplicadas solo a algunos partidos.
 - **Vocabulario.** Los términos propios de cada partido se mantienen solo cuando resumen su propuesta; el test no los usa en sus propios textos.
+
+## Presentación del resultado (desde la v2.10)
+
+- **Resumen en un minuto:** una línea por partido, en orden alfabético y con la misma plantilla (`resumenPartido` en `motor.js`): medidas a favor, en contra e inciertas; los temas de las que van en contra; los riesgos que te afectan mucho, por su nombre, y cuántos te afectan algo.
+- **Lenguaje llano:** «te afecta mucho, algo, poco» en lugar de «exposición alta, media, baja», y la evidencia como «comprobado», «la mayoría de expertos coincide», «los expertos discrepan» o «deducción del test».
+- **PDF:** primero la presentación (portada, resumen, riesgos, una diapositiva por partido y «antes de decidir») y después un anexo con el detalle. En la diapositiva de cada partido, la misma regla para todos: primero las medidas en contra, después las inciertas y después las a favor, hasta seis; el resto va al anexo.

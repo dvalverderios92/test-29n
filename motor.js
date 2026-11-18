@@ -158,7 +158,7 @@
 
     // Matriz de riesgos: filas = riesgos, columnas = partidos, celda = nivel de exposición (o null si el partido no lo activa).
     var matriz = data.riesgos.map(function (r) {
-      var fila = { id: r.id, titulo: r.titulo, evidencia: r.evidencia, niveles: {} };
+      var fila = { id: r.id, titulo: r.titulo, corto: r.corto || r.titulo, evidencia: r.evidencia, niveles: {} };
       partidos.forEach(function (p) {
         var x = p.riesgos.filter(function (y) { return y.id === r.id; })[0];
         fila.niveles[p.id] = x ? x.exposicion_usuario.nivel : null;
@@ -193,5 +193,20 @@
       .map(function (t) { return t.id; });
   }
 
-  return { evalCond: evalCond, visibleQuestions: visibleQuestions, cleanAnswers: cleanAnswers, evaluate: evaluate, suggestTopics: suggestTopics };
+  // Resumen en lenguaje llano de un partido: misma plantilla para todos.
+  function resumenPartido(p) {
+    var c = p.recuento, y = function (a) { return a.length > 1 ? a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1] : (a[0] || ''); };
+    var med;
+    if (!c.a_favor && !c.en_contra && !c.incierto) med = 'Ninguna medida te afecta directamente.';
+    else med = c.a_favor + (c.a_favor === 1 ? ' medida a tu favor, ' : ' medidas a tu favor, ') + c.en_contra + ' en contra y ' + c.incierto + (c.incierto === 1 ? ' incierta.' : ' inciertas.');
+    var temas = p.medidas.filter(function (m) { return m.valor < 0; }).map(function (m) { return m.tema; }).filter(function (v, i, a) { return a.indexOf(v) === i; });
+    var contra = temas.length ? 'En contra: ' + y(temas) + '.' : '';
+    var altos = p.riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'alta'; }).map(function (r) { return r.corto || r.titulo; });
+    var nm = p.riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length;
+    var rie = (altos.length ? 'Te afectan mucho: ' + y(altos) + '. ' : '') + (nm ? nm + (altos.length ? (nm === 1 ? ' riesgo más te afecta algo.' : ' riesgos más te afectan algo.') : (nm === 1 ? ' riesgo te afecta algo.' : ' riesgos te afectan algo.')) : (altos.length ? '' : 'Ningún riesgo te afecta mucho ni algo.'));
+    rie = rie.trim();
+    return { medidas: med, contra: contra, riesgos: rie };
+  }
+
+  return { evalCond: evalCond, visibleQuestions: visibleQuestions, cleanAnswers: cleanAnswers, evaluate: evaluate, suggestTopics: suggestTopics, resumenPartido: resumenPartido };
 });
