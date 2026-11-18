@@ -61,6 +61,7 @@ COND = {
  "canarias": Q("region", eq="canarias"),
  "cataluna": Q("region", eq="cataluna"),
  "baleares": Q("region", eq="baleares"),
+ "galicia": Q("region", eq="galicia"),
  "sin_iva": Q("region", **{"in": ["canarias", "ceuta", "melilla"]}),
  "empadronado_10_canarias": Q("empad", eq=True),
  "depende_servicios_publicos": Q("dep_pub", **{"in": ["alta", "media"]}),
@@ -164,9 +165,10 @@ SRC.update({
  "democrata_erc": ["Demócrata: ERC lleva el referéndum de autodeterminación al 29N y exige la financiación singular y el traspaso de Rodalies", "https://www.democrata.es/elecciones-generales-espana/programa-electoral-erc-29n-referendum/", "2026-11-05"],
  "nacio_erc_disc": ["Nació Digital: ERC vol augmentar les pensions per discapacitat almenys fins al 80 % del salari mínim", "https://naciodigital.cat/politica/erc-vol-augmentar-les-pensions-per-discapacitat-almenys-fins-al-80-del-salari-minim.html", "2025-04-17"],
  "salto_aborto": ["El Salto: El Congreso rechaza las enmiendas a la totalidad de PP y Vox a incluir el aborto en la Constitución", "https://www.elsaltodiario.com/derechos-reproductivos/congreso-rechaza-enmiendas-totalidad-pp-vox-incluir-aborto-constitucion", "2026-04-30"],
+ "bng_ue24": ["BNG: Programa de las elecciones europeas de 2024 (PDF)", "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf", "2024-05"],
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
 })
-PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)")}
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)")}
 for k, (f, t) in PDFS.items():
     SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -272,6 +274,9 @@ RISKS = [
 
 # ---------- Partidos ----------
 PARTIES = [
+ {"id": "bng", "nombre": "BNG", "ambito_si": R("galicia"),
+  "programa": {"titulo": "Programa electoral 29N. Xerais 2026", "fecha": "2026-11-03", "estado": "publicado", "nota": "Programa en gallego; los resúmenes son traducciones. Solo se presenta en Galicia."},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: el 3 % de los Presupuestos Generales del Estado para un parque público de alquiler, el 1 % para políticas de juventud y el 3 % del PIB en I+D+i en 2030. Dice financiarlo con un IRPF y un Impuesto de Sociedades más progresivos, impuestos permanentes a la banca, las energéticas y las grandes fortunas y la lucha contra el fraude; las pensiones, con cargo a los Presupuestos, a impuestos sobre la riqueza y a la supresión del tope de cotización.", "fuentes": ["pdf_bng"]}},
  {"id": "cc", "nombre": "Coalición Canaria", "ambito_si": R("canarias"),
   "programa": {"titulo": "Defiende Canarias", "fecha": "2026-11-09", "estado": "publicado", "nota": "10 causas y 100 acciones. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total. Buena parte de sus medidas pide financiación al Estado para Canarias.", "fuentes": ["pe_cc", "eldiario_cc"]}},
@@ -282,7 +287,7 @@ PARTIES = [
   "programa": {"titulo": "Programa electoral 2026", "fecha": None, "estado": "publicado", "nota": "Programa publicado en noviembre."},
   "financiacion": {"cuantifica": "cifras_propias", "resumen": "El programa no cuantifica el coste total. En campaña da cifras propias: unos 20.000 M€/año en pensiones, a pagar con el impuesto a patrimonios de más de 1 M€ (más de 10.000 M€, según el partido), la subida del tope de cotización (7.000–8.500 M€) y la tributación mínima de grandes empresas.", "fuentes": ["marcos_fa", "democrata_fa"]}},
  {"id": "pod", "nombre": "Podemos",
-  "programa": {"titulo": "Paz, casa y trabajo (lema)", "fecha": None, "estado": "sin_programa", "nota": "Sin programa publicado a 16-nov-2026: anuncios de campaña y posiciones previas."},
+  "programa": {"titulo": "Paz, casa y trabajo (lema)", "fecha": None, "estado": "sin_programa", "nota": "Presentó su programa el 17-11-2026, pero aún no se ha incorporado al test: se usan anuncios de campaña y posiciones previas."},
   "financiacion": {"cuantifica": "no", "resumen": "En las fuentes consultadas no aparece coste ni financiación de sus medidas.", "fuentes": ["democrata_pod", "telemadrid"]}},
  {"id": "pp", "nombre": "PP",
   "programa": {"titulo": "La Reconstrucción Nacional", "fecha": "2026-11-10", "estado": "publicado", "nota": "249 medidas."},
@@ -567,6 +572,42 @@ M("erc-112", "erc", "Autónomos", "Cuotas de autónomos según ingresos reales, 
 M("erc-68", "erc", "Familia", "Prestación universal por crianza desde 200 € por familia, más alta en territorios con mayor coste de vida, como Cataluña.", "68", "programa", ["democrata_erc"],
   [(R("con_hijos"), 1, "Cobrarías al menos 200 € por familia (el programa no aclara si es al mes; la prensa habla de 200 € mensuales)."),
    (R("quiere_hijos"), 1, "La cobrarías al tener hijos.")], ["gasto_sin_financiar"]),
+# ===== BNG (programa en gallego; resúmenes traducidos) =====
+M("bng-alq", "bng", "Vivienda", "Topar por ley los precios del alquiler, renovación automática y contratos de alquiler indefinidos por ley, prohibir los desahucios de personas vulnerables y suspender de forma automática e indefinida cualquier lanzamiento sin alternativa habitacional.", None, "programa", [],
+  [(R("casero"), -1, "La renta que puedes cobrar quedaría topada y tus inquilinos podrían quedarse indefinidamente."),
+   (R("inquilino"), 1, "Tu renta quedaría topada y no tendrías que irte al acabar el contrato.")], ["tope_alquiler_oferta"]),
+M("bng-viv", "bng", "Vivienda", "Destinar el 3 % de los Presupuestos Generales del Estado, a través del Plan estatal de vivienda, a crear un parque público de alquiler permanente.", None, "programa", [],
+  [(R("busca_vivienda_asequible"), 1, "Más vivienda pública de alquiler a la que optar.")], ["gasto_sin_financiar"]),
+M("bng-irpf", "bng", "IRPF", "IRPF más progresivo: menos tributación de las rentas del trabajo y más de las del capital, y tramos estatales actualizados con el IPC de Galicia.", None, "programa", [],
+  [(R("ahorro_alto"), -1, "Tus rentas del ahorro tributarían más (tipos no concretados)."),
+   (R("paga_irpf"), 0, "Las rentas del trabajo tributarían menos y las más altas, más; cuánto, no se sabe: no da tipos.")]),
+M("bng-iva", "bng", "IVA", "Rebaja permanente del IVA de la alimentación básica, los productos del mar, la higiene personal y femenina y el transporte público, e IVA del 5 % permanente en electricidad, gas y otros suministros básicos.", None, "programa", [],
+  [(R("sin_iva"), 0, IGIC), (ALWAYS, 1, "Abarataría la compra básica y las facturas de luz y gas.")], ["iva_poco_focalizado", "rebaja_sin_financiar"]),
+M("bng-fortunas", "bng", "Patrimonio", "Hacer permanentes los impuestos a los beneficios de la banca y las grandes energéticas y el de grandes fortunas, con menos exención y más progresividad, y traspasar su gestión a Galicia.", None, "programa", [],
+  [(Q("patr", eq=4), -1, "Con más de 3 millones de patrimonio seguirías pagando el impuesto de grandes fortunas de forma permanente, y más."),
+   (R("patrimonio_mas_1M"), 0, "El impuesto actual empieza en 3 millones; propone reducir la exención, sin decir hasta dónde.")]),
+M("bng-smi", "bng", "Empleo", "Salario mínimo en el 60 % del salario medio, sin que se pueda compensar ni absorber con otros complementos, y competencia para que Galicia mejore el estatal.", None, "programa", [],
+  [(ALL(R("asalariado"), R("renta_baja")), 1, "Tu sueldo subiría si estás cerca del mínimo."),
+   (R("empleador"), -1, "Más coste si tienes plantilla con salarios bajos.")], ["smi_empleo"]),
+M("bng-jornada", "bng", "Empleo", "Jornada de 35 horas semanales sin reducción salarial y avanzar hacia 32 horas en cuatro días.", None, "programa", [],
+  [(R("asalariado"), 1, "Trabajarías menos horas por el mismo sueldo."),
+   (R("empleador"), -1, "Te subiría el coste por hora de tu plantilla.")], ["jornada_ley"]),
+M("bng-despido", "bng", "Empleo", "Recuperar la indemnización de 45 días por año (máximo 42 mensualidades) por despido improcedente, los salarios de tramitación y la autorización administrativa en los despidos colectivos, y que la persona trabajadora elija entre readmisión e indemnización.", None, "programa", [],
+  [(R("asalariado"), 1, "Más protección económica si te despiden de forma improcedente."),
+   (R("empleador"), -1, "Despedir te costaría más."),
+   (R("parado"), 0, "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida.")]),
+M("bng-paro", "bng", "Desempleo", "Prestación contributiva por desempleo del 75 % de la base reguladora los primeros 180 días y del 65 % después, nunca inferior al salario mínimo, y subsidio no inferior al salario mínimo en toda su duración.", None, "programa", [],
+  [(R("parado"), 1, "Cobrarías más de paro: nunca menos que el salario mínimo.")], ["gasto_sin_financiar"]),
+M("bng-pens", "bng", "Pensiones", "Pensiones mínimas al menos iguales al salario mínimo, revalorización anual con el IPC real, jubilación ordinaria a los 65 años y no contributivas al 75 % del umbral de pobreza de un hogar unipersonal de inmediato.", None, "programa", [],
+  [(ALL(R("pensionista"), R("pension_no_contributiva")), 1, "Tu pensión no contributiva subiría de inmediato."),
+   (ALL(R("pensionista"), R("renta_smi")), 1, "Tu pensión subiría hasta el salario mínimo."),
+   (R("pensionista"), 1, "Tu pensión se seguiría revalorizando cada año con el IPC real (la ley actual ya la liga al IPC)."),
+   (ALL(R("trabaja"), ANY(R("edad_41_64"), Q("edad", eq="36-40"))), 1, "Podrías jubilarte a los 65 sin penalización.")], ["gasto_sin_financiar"]),
+M("bng-tope", "bng", "Cotizaciones", "Eliminar el tope máximo de las bases de cotización a la Seguridad Social y revisar y reducir las bonificaciones de las cotizaciones empresariales.", None, "programa", [],
+  [(ALL(R("asalariado"), R("renta_alta")), -1, "Cotizarías por todo tu salario, también por encima de la base máxima actual (unos 60.000 €)."),
+   (ALL(R("empleador"), Q("ing", gte=4)), -1, "Subiría el coste de tus empleados con sueldos altos y podrías perder bonificaciones.")]),
+M("bng-ap9", "bng", "Transporte", "AP-9 pública y sin peajes, anulando la prórroga de la concesión de 2000, y transferir a Galicia y liberar de peajes la AP-53.", None, "programa", [],
+  [(R("galicia"), 1, "Si usas la AP-9 o la AP-53, dejarías de pagar peajes.")], ["gasto_sin_financiar"]),
 ]
 
 
@@ -596,6 +637,7 @@ ACOTADA = {
  ("vox-94","gasto_sin_financiar"),("cc-viv","gasto_sin_financiar"),("cc-empleo","gasto_sin_financiar"),
  ("cc-03","gasto_sin_financiar"),("cc-agua","gasto_sin_financiar"),
  ("erc-69b","rebaja_sin_financiar"),("erc-59","rebaja_sin_financiar"),("erc-112","gasto_sin_financiar"),
+ ("bng-paro","gasto_sin_financiar"),("bng-ap9","gasto_sin_financiar"),
 }
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
@@ -636,7 +678,6 @@ NOTAS = [
  {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones)."},
  {"si": Q("region", eq="pais_vasco"), "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."},
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."},
- {"si": Q("region", eq="galicia"), "texto": "Partidos no incluidos: en Galicia también se presenta el BNG (programa publicado el 3-nov). Este test aún no recoge sus medidas; consulta su programa."},
  {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas (las de Esquerra, del programa de ERC para Cataluña); las propias de Compromís aún no están incluidas."},
  {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
@@ -775,6 +816,29 @@ SOC = [
  ("erc", "rural", "156", 32, "Descentralizar la PAC y los fondos europeos agrarios, pesqueros y de desarrollo rural, con recursos suficientes en el marco financiero 2028-2034."),
  ("erc", "rural", "167", 33, "Fondo estatal para municipios propietarios forestales, para financiar la gestión de los bosques y la prevención de grandes incendios."),
  ("cc", "rural", "74", 17, "Servicios, conectividad e inversiones del Estado adaptados a la doble insularidad y a los municipios rurales."),
+ # BNG (programa en gallego; resúmenes traducidos)
+ ("bng", "igualdad", None, 24, "Reforma legislativa integral para que la ley orgánica cubra todas las formas de violencia contra las mujeres y dé rango de ley efectivo a la violencia vicaria, conforme al Convenio de Estambul."),
+ ("bng", "igualdad", None, 25, "Introducir el término feminicidio en la legislación y un Estatuto de Víctima de Feminicidio."),
+ ("bng", "igualdad", None, 26, "Medidas para abolir la prostitución que persigan al proxeneta y al prostituidor, sin criminalizar a las mujeres prostituidas, con una red que cubra sus necesidades básicas si quieren dejarla."),
+ ("bng", "lgtbi", None, 29, "Reconocer a las personas no binarias y proteger a las personas trans menores de 12 años, respetando su derecho a la autodeterminación de género."),
+ ("bng", "lgtbi", None, 29, "Medidas positivas para la inclusión laboral y social de las personas trans."),
+ ("bng", "lgtbi", None, 29, "Suprimir cualquier subvención o ayuda pública, e imponer sanciones, a las organizaciones que tengan como objetivo negar o vulnerar los derechos de las personas LGBT o que se expresen en ese sentido."),
+ ("bng", "racismo", None, 23, "Erradicar cualquier forma de discriminación y actitud racista en las administraciones públicas."),
+ ("bng", "migracion", None, 22, "Promover la regularización administrativa como vía para eliminar la irregularidad como herramienta de explotación."),
+ ("bng", "migracion", None, 23, "Cierre de los centros de internamiento de extranjeros (CIE) y fin de las devoluciones en caliente."),
+ ("bng", "migracion", None, 23, "Que un conocimiento acreditado de la lengua y la cultura gallegas se admita como criterio para acceder a la nacionalidad española, con independencia del conocimiento del español."),
+ ("bng", "discapacidad", None, 41, "Desarrollar y financiar la asistencia personal para garantizar la autonomía de las personas con discapacidad."),
+ ("bng", "discapacidad", None, 41, "Plan de accesibilidad universal para suprimir las barreras físicas, cognitivas y sensoriales en las instituciones y servicios del Estado."),
+ ("bng", "familia", None, 27, "Reconocer legalmente a las familias monoparentales de origen, con una legislación específica que garantice sus derechos."),
+ ("bng", "familia", None, 27, "Conciliación: compensación económica de las reducciones de jornada, ingresos garantizados en las excedencias y aportación del Estado a la gratuidad de las escuelas infantiles gallegas."),
+ ("bng", "familia", None, 20, "Cotización al 100 % en las reducciones de jornada por cuidados y computar como cotizadas las excedencias por cuidados más allá de tres años."),
+ ("bng", "educacion", None, 34, "Derecho universal a la educación de 0 a 18 años, obligatoria de 3 a 18, en una única red de enseñanza pública, con libros de texto, material escolar y actividades extraescolares gratuitos."),
+ ("bng", "educacion", None, 34, "Transferir a Galicia todas las competencias educativas pendientes, para que pueda ordenar su sistema educativo con leyes propias."),
+ ("bng", "religion", None, 32, "Denunciar y revocar el Concordato con la Iglesia católica y los Acuerdos vigentes con la Santa Sede, eliminando los privilegios de la Iglesia y la presencia de la religión en las instituciones y servicios públicos."),
+ ("bng", "religion", None, 35, "Enseñanza laica: la asignatura de Religión no formaría parte del currículo escolar."),
+ ("bng", "rural", None, 48, "Gestión descentralizada y más fondos para el desarrollo territorial y la PAC frente a los recortes previstos en el marco financiero europeo 2028-2034."),
+ ("bng", "rural", None, 85, "Programa de rehabilitación de viviendas vacías en el rural, con mejores servicios públicos, transporte y conectividad, para dar a la juventud empleo, vivienda y oportunidades de emprender."),
+ ("bng", "rural", None, 27, "Financiar medidas de igualdad en el medio rural, en particular en los programas de empleabilidad y emprendimiento."),
 ]
 # Cuando el programa del 29N no dice nada sobre un tema: anuncios de campaña y, si no hay, posiciones previas.
 # (partido, tema, origen, fuentes, referencia, resumen fiel)
@@ -797,6 +861,7 @@ SOC_EXT = [
  ("erc", "discapacidad", "previa", ["nacio_erc_disc"], "proposición de ley en el Parlament de Cataluña, abril de 2025", "Subir las pensiones no contributivas por discapacidad al menos al 80 % del salario mínimo, sin contar los ingresos familiares y exentas de impuestos."),
  ("erc", "vida", "previa", ["salto_aborto"], "debate en el Congreso, 30-4-2026", "En el debate de la reforma constitucional del aborto, su diputada Pilar Vallugera expresó su «apoyo absoluto» al derecho de las mujeres a decidir sobre su propio cuerpo, aunque criticó cómo lo planteaba el Gobierno."),
  ("psoe", "religion", "previa", ["aci_psoe19", "maldita_psoe21"], "programa de 2019 y congreso de 2021", "Revisar los Acuerdos de 1979 con la Santa Sede: en 2019 proponía denunciarlos y en 2021, actualizarlos de forma pactada con la Iglesia."),
+ ("bng", "vida", "previa", ["bng_ue24"], "programa europeo de 2024, p. 19", "Defender los derechos sexuales y reproductivos y de decisión de las mujeres sobre sus cuerpos. El programa del 29N no trata el aborto ni la eutanasia."),
 ]
 TEMA_IDS = [t["id"] for t in TEMAS_SOC]
 MEAS_SOC = []
@@ -850,6 +915,8 @@ PROG_PAG = {
  "cc-viv": 10, "cc-empleo": 12, "cc-pens": 10, "cc-transp": 17, "cc-03": 9, "cc-agua": 9,
  "erc-69a": 21, "erc-69b": 21, "erc-70": 21, "erc-74": 22, "erc-59": 19, "erc-56": 19, "erc-66": 20,
  "erc-105": 26, "erc-103": 26, "erc-106": 26, "erc-112": 26, "erc-68": 21,
+ "bng-alq": 12, "bng-viv": 12, "bng-irpf": 43, "bng-iva": 44, "bng-fortunas": 44, "bng-smi": 15, "bng-jornada": 15,
+ "bng-despido": 15, "bng-paro": 17, "bng-pens": 18, "bng-tope": 19, "bng-ap9": 62,
 }
 for k in DETALLE: assert any(m["id"] == k for m in MEAS), k
 for m in MEAS:
@@ -868,8 +935,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.10.0",
-  "fecha_corte": "2026-11-17",
+  "version": "2.11.0",
+  "fecha_corte": "2026-11-18",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},

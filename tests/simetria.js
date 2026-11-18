@@ -108,6 +108,15 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(['madrid', 'aragon', 'pais_vasco', 'canarias'].every(r => !T.evaluate(D, Object.assign({ region: r }, base)).partidos.some(p => (p.partidos_test || []).some(n => /ERC|Esquerra/.test(n)))), 'Fuera de Cataluña, Baleares y la Comunitat Valenciana: ninguna candidatura incluye a ERC');
 }
 
+// BNG (v2.11): solo en Galicia
+{
+  const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'propio', otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const ev = region => T.evaluate(D, Object.assign({ region }, base));
+  ok(ev('galicia').partidos.some(p => p.id === 'bng'), 'Galicia: aparece el BNG');
+  ok(['madrid', 'asturias', 'castilla_leon', 'pais_vasco', 'cataluna', 'canarias'].every(r => !ev(r).partidos.some(p => p.id === 'bng' || (p.partidos_test || []).includes('BNG'))), 'Fuera de Galicia: el BNG no aparece');
+  ok(ev('galicia').notas.every(n => !/también se presenta el BNG/.test(n)), 'Galicia: ya no avisa de que el BNG no está incluido');
+}
+
 // Candidaturas reales (v2.4)
 {
   const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'alquiler', tens: 'no', comprar: false, otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
