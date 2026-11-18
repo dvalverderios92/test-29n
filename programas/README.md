@@ -12,9 +12,12 @@ Incorporados el 16-11-2026. La huella SHA-256 permite comprobar que el archivo n
 | [erc.pdf](erc.pdf) | ERC | 48 | `61728d162a6e88d4…` |
 | [frente-amplio.pdf](frente-amplio.pdf) | Frente Amplio | 151 | `df6e4d967a3a4138…` |
 | [manifiesto-upc.pdf](manifiesto-upc.pdf) | Unidad del Pueblo Canario (manifiesto) | 6 | `502ce157ba499fb9…` |
+| [eh-bildu.pdf](eh-bildu.pdf) | EH Bildu | 30 | `ceb655c9c8ebb036…` |
 | [pnv.pdf](pnv.pdf) | PNV | 43 | `5af7a5b6f67c26ba…` |
+| [podemos.pdf](podemos.pdf) | Podemos | 141 | `086211fb272f0eec…` |
 | [pp.pdf](pp.pdf) | PP | 64 | `ae0c35d7ef3faf54…` |
 | [psoe.pdf](psoe.pdf) | PSOE | 114 | `e9c8341339538b55…` |
+| [salf.pdf](salf.pdf) | Se Acabó La Fiesta (SALF) | 40 | `073425b9522da776…` |
 | [vox.pdf](vox.pdf) | Vox | 66 | `065abf6720be2f7b…` |
 
-Podemos no ha publicado programa para el 29N (a 16-11-2026).
+Podemos, EH Bildu y SALF, incorporados el 18-11-2026. El programa de Podemos se publicó el 17-11-2026.

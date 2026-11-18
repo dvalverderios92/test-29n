@@ -92,7 +92,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(!ev('madrid').partidos.some(p => p.id === 'cc'), 'Madrid: Coalición Canaria no aparece');
   ok(ev('cataluna').notas.some(n => /Junts/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
   ok(ev('madrid').notas.every(n => !/ERC|PNV|BNG/.test(n)), 'Madrid: sin avisos de partidos territoriales ajenos');
-  ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /SALF/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
+  ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /Candidaturas no incluidas/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
 }
 
 // ERC (v2.7): solo en Cataluña
@@ -102,7 +102,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(ids('cataluna').includes('erc'), 'Cataluña: aparece ERC');
   ok(['madrid', 'valencia', 'baleares', 'aragon', 'pais_vasco'].every(r => !ids(r).includes('erc')), 'Fuera de Cataluña: ERC no tiene papeleta propia');
   const bal = T.evaluate(D, Object.assign({ region: 'baleares' }, base)).partidos.find(p => p.id === 'ara_mes');
-  ok(bal && bal.partidos_test.includes('Esquerra Republicana de les Illes Balears') && bal.partidos_test.includes('Podemos') && bal.medidas.some(m => m.de === 'Esquerra Republicana de les Illes Balears') && !ids('baleares').includes('erc'), 'Baleares: ERC concurre dentro de Ara Més-Front Ampli, sin papeleta propia');
+  ok(bal && bal.partidos_test.includes('Esquerra Republicana de les Illes Balears') && !bal.partidos_test.includes('Podemos') && bal.medidas.some(m => m.de === 'Esquerra Republicana de les Illes Balears') && !ids('baleares').includes('erc'), 'Baleares: ERC concurre dentro de Ara Més-Front Ampli, sin papeleta propia');
   const val = T.evaluate(D, Object.assign({ region: 'valencia' }, base)).partidos.find(p => p.id === 'compromis');
   ok(val && val.partidos_test.includes('Esquerra Republicana del País Valencià'), 'Comunitat Valenciana: Esquerra Republicana del País Valencià concurre dentro de Compromís-Front Valencià');
   ok(['madrid', 'aragon', 'pais_vasco', 'canarias'].every(r => !T.evaluate(D, Object.assign({ region: r }, base)).partidos.some(p => (p.partidos_test || []).some(n => /ERC|Esquerra/.test(n)))), 'Fuera de Cataluña, Baleares y la Comunitat Valenciana: ninguna candidatura incluye a ERC');
@@ -115,6 +115,19 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(ev('galicia').partidos.some(p => p.id === 'bng'), 'Galicia: aparece el BNG');
   ok(['madrid', 'asturias', 'castilla_leon', 'pais_vasco', 'cataluna', 'canarias'].every(r => !ev(r).partidos.some(p => p.id === 'bng' || (p.partidos_test || []).includes('BNG'))), 'Fuera de Galicia: el BNG no aparece');
   ok(ev('galicia').notas.every(n => !/también se presenta el BNG/.test(n)), 'Galicia: ya no avisa de que el BNG no está incluido');
+}
+
+// v2.12: Podemos (en solitario o en candidatura), EH Bildu y SALF
+{
+  const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'propio', otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
+  const ev = region => T.evaluate(D, Object.assign({ region }, base));
+  const conPod = r => ev(r).partidos.some(p => p.id === 'pod' || (p.partidos_test || []).includes('Podemos'));
+  ok(['madrid', 'andalucia', 'galicia', 'pais_vasco', 'navarra', 'ceuta', 'aragon'].every(r => ev(r).partidos.some(p => p.id === 'pod')), 'Podemos: lista propia donde la presenta (también Ceuta)');
+  ok(['canarias', 'valencia'].every(r => conPod(r) && !ev(r).partidos.some(p => p.id === 'pod')), 'Podemos: dentro de la candidatura conjunta en Canarias y la Comunitat Valenciana');
+  ok(['cataluna', 'baleares', 'melilla'].every(r => !conPod(r)), 'Podemos: sin medidas en Cataluña, Baleares y Melilla (no presenta lista)');
+  ok(['pais_vasco', 'navarra'].every(r => ev(r).partidos.some(p => p.id === 'bildu')) && ['madrid', 'cataluna', 'galicia'].every(r => !ev(r).partidos.some(p => p.id === 'bildu')), 'EH Bildu: solo en el País Vasco y Navarra');
+  ok(!ev('cantabria').partidos.some(p => p.id === 'salf') && ['madrid', 'canarias', 'ceuta'].every(r => ev(r).partidos.some(p => p.id === 'salf')), 'SALF: en todas las comunidades salvo Cantabria');
+  ok(ev('pais_vasco').notas.some(n => /SALF solo presenta lista en Álava/.test(n)) && ev('castilla_mancha').notas.some(n => /Ciudad Real/.test(n)), 'SALF: aviso donde no presenta lista en toda la comunidad');
 }
 
 // Candidaturas reales (v2.4)
@@ -141,7 +154,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const temasIds = D.temas_sociales.map(t => t.id);
   ok(D.medidas_sociales.every(m => temasIds.includes(m.tema) && (m.origen === 'programa' ? m.pagina > 0 && /#page=\d+$/.test(m.url) : !m.pagina && /^https:/.test(m.url) && m.referencia)), 'Medidas sociales: del programa con página enlazada; el resto con fuente y referencia');
   ok(D.medidas.filter(m => m.origen === 'programa' && D.partidos.find(p => p.id === m.partido).programa.estado === 'publicado').every(m => m.pagina > 0 && /#page=\d+$/.test(m.url)), 'Medidas económicas del programa: todas con página enlazada al PDF oficial');
-  ok(D.medidas_sociales.filter(m => m.partido === 'pod').every(m => m.origen !== 'programa'), 'Podemos: ninguna medida marcada como de programa');
+  ok(D.partidos.find(p => p.id === 'pod').programa.estado === 'publicado' && D.medidas.filter(m => m.partido === 'pod').every(m => m.origen === 'programa') && D.medidas_sociales.filter(m => m.partido === 'pod').every(m => m.origen === 'programa'), 'Podemos (v2.12): todas sus medidas salen de su programa del 29N');
   D.partidos.filter(p => p.programa.estado === 'publicado').forEach(p => ok(D.medidas_sociales.some(m => m.partido === p.id), `${p.nombre}: tiene medidas sociales del programa`));
   // Las respuestas sensibles no cambian nada del resultado económico
   const a = T.evaluate(D, Object.assign({}, base, { temas: ['ninguno'] }));
@@ -153,7 +166,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(sg.includes('igualdad') && sg.includes('lgtbi') && !sg.includes('religion'), 'Sugerencia de temas según respuestas; «Prefiero no contestar» no sugiere nada');
   const c = T.evaluate(D, Object.assign({}, base, { temas: temasIds }));
   ok(c.derechos.length === temasIds.length && c.derechos.every(t => t.partidos.length === c.partidos.length), 'Cada tema elegido lista todas las candidaturas');
-  ok(c.derechos[0].partidos.find(p => p.id === 'pod').sin_programa && c.derechos[0].partidos.find(p => p.id === 'pod').medidas.length > 0, 'Podemos: sin programa, pero con posiciones de otras fuentes');
+  { const t = c.derechos.find(x => x.id === 'lgtbi').partidos.find(p => p.id === 'salf'); ok(t && t.medidas.length === 0, 'Un partido sin propuestas en un tema aparece igualmente, sin medidas'); }
   ok(c.derechos.every(t => t.partidos.every(p => p.medidas.every(m => !('valor' in m)))), 'Derechos y protecciones: sin valoración a favor o en contra');
   const can = T.evaluate(D, Object.assign({}, base, { region: 'canarias', empad: true, temas: ['lgtbi'] }));
   ok(can.derechos[0].partidos.find(p => p.id === 'upc').medidas.every(m => m.de), 'Candidatura conjunta: cada medida social indica de qué partido es');

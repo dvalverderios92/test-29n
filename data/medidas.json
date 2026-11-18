@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.11.0",
+  "version": "2.12.0",
   "fecha_corte": "2026-11-18",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1139,6 +1139,35 @@
    }
   },
   {
+   "id": "bildu",
+   "nombre": "EH Bildu",
+   "ambito_si": {
+    "any": [
+     {
+      "q": "region",
+      "eq": "pais_vasco"
+     },
+     {
+      "q": "region",
+      "eq": "navarra"
+     }
+    ]
+   },
+   "programa": {
+    "titulo": "Garantía y derechos",
+    "fecha": "2026-11-16",
+    "estado": "publicado",
+    "nota": "Solo se presenta en el País Vasco y Navarra."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus impuestos. Dice financiarlo con el impuesto a las energéticas permanente, más impuesto a la banca y a las grandes fortunas y un nuevo impuesto a las grandes distribuidoras de alimentos, y pide revertir las reglas fiscales que limitan la inversión pública.",
+    "fuentes": [
+     "pdf_bildu"
+    ]
+   }
+  },
+  {
    "id": "cc",
    "nombre": "Coalición Canaria",
    "ambito_si": {
@@ -1213,17 +1242,39 @@
    "id": "pod",
    "nombre": "Podemos",
    "programa": {
-    "titulo": "Paz, casa y trabajo (lema)",
-    "fecha": null,
-    "estado": "sin_programa",
-    "nota": "Presentó su programa el 17-11-2026, pero aún no se ha incorporado al test: se usan anuncios de campaña y posiciones previas."
+    "titulo": "Paz, casa y trabajo",
+    "fecha": "2026-11-17",
+    "estado": "publicado",
+    "nota": "Programa publicado el 17-11-2026."
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "En las fuentes consultadas no aparece coste ni financiación de sus medidas.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Dice financiarlo con un IRPF y un Impuesto de Sociedades más altos para las rentas y empresas grandes, el impuesto de grandes fortunas permanente, que al menos el 50 % de los beneficios extraordinarios de la banca vaya al Estado, impuestos a las empresas contaminantes y la vivienda vacía, y la reducción del gasto militar; el transporte gratuito, con fiscalidad verde y los beneficios extraordinarios de las energéticas.",
     "fuentes": [
-     "democrata_pod",
-     "telemadrid"
+     "pdf_pod"
+    ]
+   }
+  },
+  {
+   "id": "salf",
+   "nombre": "Se Acabó La Fiesta (SALF)",
+   "ambito_si": {
+    "not": {
+     "q": "region",
+     "eq": "cantabria"
+    }
+   },
+   "programa": {
+    "titulo": "Contrato electoral simplificado",
+    "fecha": "2026-11-10",
+    "estado": "publicado",
+    "nota": "No presenta lista en Cantabria, Bizkaia, Gipuzkoa, Ciudad Real, Girona ni Lleida."
+   },
+   "financiacion": {
+    "cuantifica": "cifras_propias",
+    "resumen": "Cifra en unos 81.700 M€ al año en 2030 sus rebajas de impuestos y gasto nuevo, y en 88.500 M€ los ahorros e ingresos para pagarlos: sobre todo, 57.000 M€ de «sobrecoste autonómico», 8.000 M€ de efectos dinámicos y la devolución del rescate bancario. Son cifras del propio partido; no hemos encontrado una estimación independiente.",
+    "fuentes": [
+     "pdf_salf"
     ]
    }
   },
@@ -1285,9 +1336,9 @@
  "riesgos": [
   {
    "id": "rebaja_sin_financiar",
-   "titulo": "Rebajas de impuestos sin coste ni financiación cuantificados",
+   "titulo": "Rebajas de impuestos sin coste ni financiación cuantificados (o con cifras solo del propio partido)",
    "evidencia": "hecho+inferencia",
-   "que_pasa": "Menos recaudación. La AIReF ya pide un ajuste en torno al 0,6 % del PIB (unos 10.000 millones), y una rebaja sin financiar lo agranda. Ese ajuste puede salir de recortes de gasto, más deuda u otros impuestos. Ningún programa dice de cuál.",
+   "que_pasa": "Menos recaudación. La AIReF ya pide un ajuste en torno al 0,6 % del PIB (unos 10.000 millones), y una rebaja sin financiar lo agranda. Ese ajuste puede salir de recortes de gasto, más deuda u otros impuestos. SALF cifra con datos propios de dónde saldría (sobre todo, del gasto autonómico); no hemos encontrado una estimación independiente. Los demás programas no lo dicen.",
    "fuentes": [
     "airef_ajuste",
     "rankia",
@@ -1647,7 +1698,7 @@
    "id": "prioridad_legal",
    "titulo": "Prioridad nacional o por arraigo en ayudas: alcance jurídico incierto",
    "evidencia": "hecho",
-   "que_pasa": "Vox la plantea por nacionalidad. El PP, por arraigo (empadronamiento y cotizaciones), «dentro de la legalidad vigente», sin umbrales publicados. Una propuesta de Vox se rechazó en el Congreso en junio de 2026 con el voto del PP. El alcance real dependería de cómo se legisle y de los tribunales.",
+   "que_pasa": "Vox la plantea por nacionalidad. El PP, por arraigo (empadronamiento y cotizaciones), «dentro de la legalidad vigente», sin umbrales publicados. SALF exige cinco años de residencia legal y cotización. Una propuesta de Vox se rechazó en el Congreso en junio de 2026 con el voto del PP. El alcance real dependería de cómo se legisle y de los tribunales.",
    "fuentes": [
     "vox_web",
     "democrata_pp",
@@ -1703,7 +1754,7 @@
    "id": "pensiones_transicion",
    "titulo": "Cambio a un sistema de pensiones mixto con capitalización",
    "evidencia": "inferencia",
-   "que_pasa": "Vox no publica la fórmula ni la financiación. Inferencia: si parte de las cotizaciones se desvía a cuentas de capitalización, durante la transición hay que seguir pagando las pensiones actuales con menos ingresos. Ese hueco habría que cubrirlo con impuestos, deuda o ajustes en las prestaciones.",
+   "que_pasa": "Vox no publica la fórmula ni la financiación. SALF propone cuentas individuales para los menores de 45 años y cifra el coste de transición en unos 6.000 M€ al año hasta 2030, con datos propios. Inferencia: si parte de las cotizaciones se desvía a cuentas de capitalización, durante la transición hay que seguir pagando las pensiones actuales con menos ingresos. Ese hueco habría que cubrirlo con impuestos, deuda o ajustes en las prestaciones.",
    "fuentes": [
     "moncloa_vp",
     "rankia"
@@ -1765,21 +1816,28 @@
     "q": "region",
     "eq": "cataluna"
    },
-   "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones)."
+   "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones). SALF no presenta lista en Girona ni Lleida."
   },
   {
    "si": {
     "q": "region",
     "eq": "pais_vasco"
    },
-   "texto": "Partidos no incluidos: en el País Vasco también se presentan PNV (programa publicado en noviembre) y EH Bildu (sin programa a la fecha de corte). Este test aún no recoge sus medidas; consulta sus programas."
+   "texto": "Partidos no incluidos: en el País Vasco también se presenta el PNV (programa publicado en noviembre). Este test aún no recoge sus medidas; consulta su programa. SALF solo presenta lista en Álava."
   },
   {
    "si": {
     "q": "region",
     "eq": "navarra"
    },
-   "texto": "Partidos no incluidos: en Navarra también se presenta EH Bildu (sin programa a la fecha de corte), entre otras candidaturas territoriales. Este test aún no recoge sus medidas."
+   "texto": "Partidos no incluidos: en Navarra también se presentan otras candidaturas territoriales, como Geroa Bai. Este test aún no recoge sus medidas."
+  },
+  {
+   "si": {
+    "q": "region",
+    "eq": "castilla_mancha"
+   },
+   "texto": "SALF no presenta lista en Ciudad Real."
   },
   {
    "si": {
@@ -1792,7 +1850,7 @@
    "si": {
     "siempre": true
    },
-   "texto": "Candidaturas no incluidas: además de los partidos territoriales, se presentan otras candidaturas, como Se Acabó La Fiesta (SALF), cuyo «Contrato Electoral 29N» aún no se ha incorporado. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."
+   "texto": "Candidaturas no incluidas: además de las que recoge el test, se presentan otras candidaturas más pequeñas. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."
   }
  ],
  "candidaturas": [
@@ -1850,7 +1908,6 @@
    },
    "partidos": [
     "fa",
-    "pod",
     "erc"
    ],
    "alias": {
@@ -1858,7 +1915,7 @@
    },
    "nombre": "Ara Més-Front Ampli",
    "integrantes": "Ara Més (Més per Mallorca, Més per Menorca y Ara Eivissa), Esquerra Unida y Movimiento Sumar, que forman la coalición inscrita (ARAMÉS-EU-MS). Por acuerdo con Ara Més, la lista la encabeza Carme Gomila, de Esquerra Republicana de les Illes Balears, y Podemos lleva una candidata independiente",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos. Para Esquerra Republicana de les Illes Balears, federación balear de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Ara Més aún no están incluidas.",
+   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio. Podemos no forma parte de la coalición inscrita: solo lleva una candidata independiente, así que sus medidas no se incluyen, igual que en Cataluña con ERC. Para Esquerra Republicana de les Illes Balears, federación balear de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Ara Més aún no están incluidas.",
    "fuentes": [
     "boe_candidaturas",
     "democrata_listas",
@@ -1888,6 +1945,32 @@
    "nota": "Podemos no presenta lista propia en Cataluña: lleva candidatos independientes en la lista de ERC.",
    "fuentes": [
     "democrata_listas"
+   ]
+  },
+  {
+   "tipo": "excluir",
+   "si": {
+    "q": "region",
+    "eq": "baleares"
+   },
+   "partido": "pod",
+   "nota": "Podemos no presenta lista propia en Baleares: lleva una candidata independiente en la lista de Ara Més-Front Ampli.",
+   "fuentes": [
+    "tupartido_pod",
+    "democrata_pod_campana"
+   ]
+  },
+  {
+   "tipo": "excluir",
+   "si": {
+    "q": "region",
+    "eq": "melilla"
+   },
+   "partido": "pod",
+   "nota": "Podemos no presenta lista en Melilla: no figura entre sus 41 candidaturas proclamadas.",
+   "fuentes": [
+    "papeleta_pod",
+    "tupartido_pod"
    ]
   },
   {
@@ -4543,15 +4626,289 @@
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=27"
   },
   {
+   "id": "pod-40",
+   "partido": "pod",
+   "tema": "Vivienda",
+   "texto": "Rebaja del 40 % de los alquileres por ley, también en los contratos vigentes, sin bajar del 60 % del precio medio de la zona; contratos de alquiler indefinidos por defecto.",
+   "num": "1-2",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Cobrarías un 40 % menos de renta (con un suelo del 60 % del precio medio de la zona) y tus inquilinos podrían quedarse indefinidamente."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu alquiler bajaría hasta un 40 % y tu contrato pasaría a ser indefinido."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=8"
+  },
+  {
+   "id": "pod-compra",
+   "partido": "pod",
+   "tema": "Vivienda",
+   "texto": "Prohibir comprar vivienda que no sea para vivir (residencia habitual propia o de un familiar, o segunda residencia de uso propio), sin poder alquilarla en cuatro años; expropiación del uso de las viviendas de grandes tenedores a partir de la undécima.",
+   "num": "3-4",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "expropiacion_plazos",
+     "escala": "amplia"
+    },
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "gran_tenedor"
+     },
+     "valor": -1,
+     "texto": "Con más de diez viviendas, el Estado podría expropiar su uso para alquiler social."
+    },
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": -1,
+     "texto": "No podrías comprar más viviendas para alquilarlas o invertir."
+    },
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 0,
+     "texto": "Podrías comprar para vivir, con menos competencia de inversores; el efecto en los precios es incierto."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=8"
+  },
+  {
+   "id": "pod-turis",
+   "partido": "pod",
+   "tema": "Vivienda",
+   "texto": "Prohibir el uso turístico de viviendas residenciales, retirando las licencias de forma progresiva; mientras tanto, IVA del 21 % en los pisos turísticos.",
+   "num": "7, 53",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "Perderías la licencia turística de tu vivienda."
+    }
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=9"
+  },
+  {
+   "id": "pod-casero",
+   "partido": "pod",
+   "tema": "Vivienda",
+   "texto": "Eliminar las ventajas fiscales en el IRPF de los caseros, cuadruplicar la tributación de las viviendas vacías y crear un impuesto estatal a la vivienda vacía.",
+   "num": "54, 58",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Pagarías más IRPF por tus alquileres, sin la reducción actual."
+    },
+    {
+     "si": {
+      "q": "otrasTipo",
+      "includes": "vacia"
+     },
+     "valor": -1,
+     "texto": "Si tienes viviendas vacías o de uso propio, pagarías bastante más IRPF por ellas."
+    }
+   ],
+   "pagina": 22,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=22"
+  },
+  {
+   "id": "pod-irpf",
+   "partido": "pod",
+   "tema": "IRPF",
+   "texto": "IRPF: tipo estatal mínimo del 9,5 % al 9 %, tipos más altos desde 60.000 € (hasta el 28,5 % desde 500.000 €), sin tributar ni retener por debajo del salario mínimo, y rentas del capital con los mismos tipos que las del trabajo.",
+   "num": "48-49",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con ingresos en torno al SMI no pagarías IRPF ni te retendrían."
+    },
+    {
+     "si": {
+      "ref": "renta_alta"
+     },
+     "valor": -1,
+     "texto": "Pagarías más IRPF: suben los tipos estatales por encima de 60.000 €."
+    },
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del ahorro tributarían con la escala del trabajo, con tipos más altos que hoy."
+    },
+    {
+     "si": {
+      "q": "ahorro",
+      "eq": 2
+     },
+     "valor": 0,
+     "texto": "Tus rentas del ahorro tributarían con la escala del trabajo: pagarías más o menos según tus ingresos totales."
+    },
+    {
+     "si": {
+      "ref": "paga_irpf"
+     },
+     "valor": 1,
+     "texto": "Pagarías algo menos: el tipo estatal más bajo pasa del 9,5 % al 9 % (unos 60 € al año)."
+    }
+   ],
+   "pagina": 21,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=21"
+  },
+  {
+   "id": "pod-fortunas",
+   "partido": "pod",
+   "tema": "Patrimonio",
+   "texto": "Impuesto de grandes fortunas permanente y aplicado a todos los obligados del Impuesto de Patrimonio, aunque su comunidad lo bonifique.",
+   "num": "30",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "patrimonio_mas_1M"
+     },
+     "valor": -1,
+     "texto": "Pagarías el impuesto aunque tu comunidad lo bonifique hoy."
+    },
+    {
+     "si": {
+      "ref": "patrimonio_300k_1M"
+     },
+     "valor": 0,
+     "texto": "Depende de tu patrimonio exento: hoy, 700.000 € más hasta 300.000 € de vivienda habitual."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=17"
+  },
+  {
+   "id": "pod-energia",
+   "partido": "pod",
+   "tema": "Energía",
+   "texto": "Las tarifas domésticas de luz y gas no podrían subir más de un 5 % sobre el periodo anterior; tope al gas en 40 €/MWh y factura de la luz progresiva.",
+   "num": "38-39",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Tus facturas de luz y gas tendrían un límite de subida."
+    }
+   ],
+   "pagina": 18,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=18"
+  },
+  {
+   "id": "pod-transp",
+   "partido": "pod",
+   "tema": "Transporte",
+   "texto": "Transporte público gratuito para todo el mundo, incluidos el tren de media y larga distancia, con una tarjeta única.",
+   "num": "40",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Si usas transporte público, dejarías de pagar el billete."
+    }
+   ],
+   "pagina": 19,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=19"
+  },
+  {
    "id": "pod-smi",
    "partido": "pod",
    "tema": "Empleo",
-   "texto": "Salario mínimo de 1.800 € fijado por ley.",
-   "num": null,
-   "origen": "campaña",
+   "texto": "Salario mínimo de 1.800 € al mes en la legislatura y nunca por debajo del 75 % del salario mediano.",
+   "num": "111",
+   "origen": "programa",
    "fuentes": [
-    "telemadrid",
-    "democrata_pod"
+    "pdf_pod"
    ],
    "riesgos": [
     {
@@ -4581,18 +4938,19 @@
      "valor": -1,
      "texto": "Subiría mucho el coste de tu plantilla en salarios bajos."
     }
-   ]
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
   },
   {
    "id": "pod-jornada",
    "partido": "pod",
    "tema": "Empleo",
-   "texto": "Reducir la jornada sin bajar el sueldo (Telemadrid cita 30 horas semanales; otras informaciones, 35 o 37).",
-   "num": null,
-   "origen": "campaña",
+   "texto": "Jornada de 35 horas y, en la legislatura, de 30 horas semanales sin bajar el sueldo; teletrabajo dos días a la semana donde sea posible.",
+   "num": "113",
+   "origen": "programa",
    "fuentes": [
-    "telemadrid",
-    "democrata_pod"
+    "pdf_pod"
    ],
    "riesgos": [
     {
@@ -4615,135 +4973,56 @@
      "valor": -1,
      "texto": "Te subiría el coste por hora."
     }
-   ]
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
   },
   {
-   "id": "pod-30",
+   "id": "pod-despido",
    "partido": "pod",
-   "tema": "Vivienda",
-   "texto": "Ley para que ningún hogar dedique más del 30 % de su renta al alquiler.",
-   "num": null,
-   "origen": "previa",
+   "tema": "Empleo",
+   "texto": "Recuperar la indemnización de 45 días por año en los despidos ilegales, con derecho a elegir entre indemnización y readmisión, los salarios de tramitación y la autorización previa de los ERE; eliminar los despidos objetivos por causas económicas, técnicas u organizativas.",
+   "num": "118",
+   "origen": "programa",
    "fuentes": [
-    "brains"
+    "pdf_pod"
    ],
-   "riesgos": [
-    {
-     "id": "tope_alquiler_oferta",
-     "escala": "amplia"
-    }
-   ],
+   "riesgos": [],
    "efectos": [
     {
      "si": {
-      "ref": "casero"
-     },
-     "valor": -1,
-     "texto": "La renta que cobras quedaría limitada por los ingresos de tu inquilino."
-    },
-    {
-     "si": {
-      "ref": "inquilino"
+      "ref": "asalariado"
      },
      "valor": 1,
-     "texto": "Tu alquiler no podría superar el 30 % de tus ingresos."
-    }
-   ]
-  },
-  {
-   "id": "pod-40",
-   "partido": "pod",
-   "tema": "Vivienda",
-   "texto": "Rebaja del 40 % de los alquileres (exigida en 2024 y 2025 para negociar los Presupuestos).",
-   "num": null,
-   "origen": "previa",
-   "fuentes": [
-    "brains"
-   ],
-   "riesgos": [
-    {
-     "id": "tope_alquiler_oferta",
-     "escala": "amplia"
-    }
-   ],
-   "efectos": [
+     "texto": "Más protección económica si te despiden de forma improcedente."
+    },
     {
      "si": {
-      "ref": "casero"
+      "ref": "empleador"
      },
      "valor": -1,
-     "texto": "Cobrarías bastante menos renta."
+     "texto": "Despedir te costaría más y no podrías hacerlo por causas económicas."
     },
     {
      "si": {
-      "ref": "inquilino"
-     },
-     "valor": 1,
-     "texto": "Pagarías bastante menos de alquiler."
-    }
-   ]
-  },
-  {
-   "id": "pod-fondos",
-   "partido": "pod",
-   "tema": "Vivienda",
-   "texto": "Contratos más largos, más protección frente a desahucios, expropiación del uso de viviendas de fondos y prohibición de comprar vivienda sin finalidad residencial.",
-   "num": null,
-   "origen": "previa",
-   "fuentes": [
-    "brains",
-    "democrata_pod"
-   ],
-   "riesgos": [
-    {
-     "id": "expropiacion_plazos",
-     "escala": "amplia"
-    },
-    {
-     "id": "tope_alquiler_oferta",
-     "escala": "amplia"
-    }
-   ],
-   "efectos": [
-    {
-     "si": {
-      "ref": "casero"
-     },
-     "valor": -1,
-     "texto": "Menos margen para recuperar o actualizar tus viviendas alquiladas, y no podrías comprar más como inversión."
-    },
-    {
-     "si": {
-      "ref": "tiene_otras_viviendas"
-     },
-     "valor": -1,
-     "texto": "No podrías comprar más viviendas como inversión."
-    },
-    {
-     "si": {
-      "ref": "inquilino"
-     },
-     "valor": 1,
-     "texto": "Más estabilidad en tu vivienda."
-    },
-    {
-     "si": {
-      "ref": "quiere_comprar"
+      "ref": "parado"
      },
      "valor": 0,
-     "texto": "menos competencia de inversores al comprar; el efecto en precios es incierto."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
     }
-   ]
+   ],
+   "pagina": 42,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=42"
   },
   {
-   "id": "pod-gasto",
+   "id": "pod-paro",
    "partido": "pod",
-   "tema": "Gasto público",
-   "texto": "Rechazar el aumento del gasto militar y destinar más a sanidad, educación, cuidados y clima.",
-   "num": null,
-   "origen": "campaña",
+   "tema": "Desempleo",
+   "texto": "Un mes de prestación por desempleo por cada dos meses cotizados.",
+   "num": "122",
+   "origen": "programa",
    "fuentes": [
-    "democrata_pod"
+    "pdf_pod"
    ],
    "riesgos": [
     {
@@ -4751,8 +5030,256 @@
      "escala": "amplia"
     }
    ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 1,
+     "texto": "Tendrías derecho a más meses de paro."
+    }
+   ],
+   "pagina": 43,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=43"
+  },
+  {
+   "id": "pod-autonomos",
+   "partido": "pod",
+   "tema": "Autónomos",
+   "texto": "Cuota de autónomos como porcentaje progresivo del beneficio: cero con pérdidas y más alta con beneficios millonarios.",
+   "num": "64",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "autonomo_o_futuro"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con beneficios bajos o pérdidas pagarías menos cuota, o ninguna."
+    },
+    {
+     "si": {
+      "ref": "autonomo_o_futuro"
+     },
+     "valor": 0,
+     "texto": "Si pagas más o menos que hoy depende de una escala no publicada."
+    }
+   ],
+   "pagina": 23,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=23"
+  },
+  {
+   "id": "pod-jubil",
+   "partido": "pod",
+   "tema": "Pensiones",
+   "texto": "Jubilación ordinaria a los 63 años, pagada con los Presupuestos, y sin penalización con 40 años cotizados, también en las pensiones ya reconocidas.",
+   "num": "115-116",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "any": [
+         {
+          "ref": "edad_41_64"
+         },
+         {
+          "q": "edad",
+          "eq": "36-40"
+         }
+        ]
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Podrías jubilarte a los 63 sin penalización."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 0,
+     "texto": "Si te jubilaste antes de tiempo con 40 años cotizados, se revisaría tu pensión."
+    }
+   ],
+   "pagina": 41,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
+  },
+  {
+   "id": "pod-pens",
+   "partido": "pod",
+   "tema": "Pensiones",
+   "texto": "Pensión mínima contributiva igual al salario mínimo y pensión no contributiva del 80 % del salario mínimo.",
+   "num": "127",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva subiría hasta el 80 % del salario mínimo."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión subiría hasta el salario mínimo."
+    }
+   ],
+   "pagina": 44,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=44"
+  },
+  {
+   "id": "pod-tope",
+   "partido": "pod",
+   "tema": "Cotizaciones",
+   "texto": "Suprimir la base máxima de cotización, con cotizaciones progresivas según la renta y los beneficios empresariales.",
+   "num": "126",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_alta"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Cotizarías por todo tu salario, también por encima de la base máxima actual (unos 60.000 €)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "empleador"
+       },
+       {
+        "q": "ing",
+        "gte": 4
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Subiría el coste de tus empleados con sueldos altos."
+    }
+   ],
+   "pagina": 44,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=44"
+  },
+  {
+   "id": "pod-crianza",
+   "partido": "pod",
+   "tema": "Familia",
+   "texto": "Prestación mensual por cada hijo desde el nacimiento hasta los 21 años, del 15 % del salario mínimo.",
+   "num": "179",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "con_hijos"
+     },
+     "valor": 1,
+     "texto": "Cobrarías una ayuda mensual por cada hijo (el 15 % del salario mínimo)."
+    },
+    {
+     "si": {
+      "ref": "quiere_hijos"
+     },
+     "valor": 1,
+     "texto": "La cobrarías al tener hijos."
+    },
+    {
+     "si": {
+      "ref": "quizas_hijos"
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
+    }
+   ],
+   "pagina": 60,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=60"
+  },
+  {
+   "id": "pod-gasto",
+   "partido": "pod",
+   "tema": "Gasto público",
+   "texto": "Revertir el aumento del gasto militar y congelarlo durante la legislatura, para destinar ese dinero a servicios públicos y vivienda.",
+   "num": "72",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pod"
+   ],
+   "riesgos": [],
    "universal": true,
-   "efectos": []
+   "efectos": [],
+   "pagina": 28,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=28"
   },
   {
    "id": "cc-empad",
@@ -5967,6 +6494,876 @@
    ],
    "pagina": 62,
    "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf#page=62"
+  },
+  {
+   "id": "bildu-alq",
+   "partido": "bildu",
+   "tema": "Vivienda",
+   "texto": "Prórroga automática de los contratos de alquiler y subida anual máxima del 2 %, de forma permanente; prohibición permanente de desahucios de personas vulnerables sin alternativa.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Tu renta no podría subir más del 2 % al año y tus inquilinos podrían prorrogar el contrato."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu alquiler subiría como mucho un 2 % al año y podrías prorrogar el contrato."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=5"
+  },
+  {
+   "id": "bildu-compra",
+   "partido": "bildu",
+   "tema": "Vivienda",
+   "texto": "Prohibir la compra especulativa de vivienda a empresas, fondos y grandes tenedores, y exigir dos años de empadronamiento a extranjeros con varias viviendas para comprar otra.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "gran_tenedor"
+     },
+     "valor": -1,
+     "texto": "Como gran tenedor no podrías comprar vivienda para invertir."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "extranjero"
+       },
+       {
+        "ref": "tiene_otras_viviendas"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Para comprar otra vivienda necesitarías dos años de empadronamiento y destinarla a vivir o a alquiler regulado."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=5"
+  },
+  {
+   "id": "bildu-turis",
+   "partido": "bildu",
+   "tema": "Vivienda",
+   "texto": "IVA del 21 % para los alojamientos turísticos de corta duración.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "Tu vivienda turística pagaría más IVA."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=6"
+  },
+  {
+   "id": "bildu-jornada",
+   "partido": "bildu",
+   "tema": "Empleo",
+   "texto": "Jornada de 32 horas o de cuatro días sin bajar el sueldo; en las pymes, primero 35 horas y tres años para llegar a 32.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [
+    {
+     "id": "jornada_ley",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Trabajarías menos horas por el mismo sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Te subiría el coste por hora de tu plantilla."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=6"
+  },
+  {
+   "id": "bildu-smi",
+   "partido": "bildu",
+   "tema": "Empleo",
+   "texto": "Que cada comunidad pueda fijar un salario mínimo propio por encima del estatal, con la referencia de la Carta Social Europea, sin que las empresas lo absorban con pluses.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Tu sueldo podría subir si tu comunidad fija un salario mínimo propio; la cuantía no está fijada."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Podría subir el coste de tu plantilla en salarios bajos si tu comunidad fija un mínimo propio."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=6"
+  },
+  {
+   "id": "bildu-despido",
+   "partido": "bildu",
+   "tema": "Empleo",
+   "texto": "Indemnización de al menos 45 días por despido improcedente, salarios de tramitación y autorización previa de los ERE.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Más protección económica si te despiden de forma improcedente."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Despedir te costaría más."
+    },
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 0,
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=6"
+  },
+  {
+   "id": "bildu-pens",
+   "partido": "bildu",
+   "tema": "Pensiones",
+   "texto": "Pensiones mínimas de al menos 1.220 € ligadas al salario mínimo, viudedad y no contributivas al menos un 15 % más altas, revalorización con el IPC y sin penalización con 40 años cotizados.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva subiría al menos un 15 %."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión subiría hasta al menos 1.220 €."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión se seguiría revalorizando cada año con el IPC (la ley actual ya la liga al IPC)."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=8"
+  },
+  {
+   "id": "bildu-precios",
+   "partido": "bildu",
+   "tema": "Energía",
+   "texto": "Tope al gas y límites temporales a los precios de la luz, el gas, los carburantes, el transporte y algunos productos básicos en emergencias o subidas extraordinarias.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 0,
+     "texto": "Te protegería de subidas bruscas en una crisis; fuera de ellas, tu factura no cambia."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=8"
+  },
+  {
+   "id": "bildu-iprem",
+   "partido": "bildu",
+   "tema": "Ayudas",
+   "texto": "Subir el IPREM con el IPC más un aumento extraordinario, y ampliar el Ingreso Mínimo Vital y los bonos sociales de luz y calefacción.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "parado"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Subirían el paro asistencial y las ayudas ligadas al IPREM, y sería más fácil cobrar el IMV y los bonos sociales."
+    }
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=13"
+  },
+  {
+   "id": "bildu-fiscal",
+   "partido": "bildu",
+   "tema": "Patrimonio",
+   "texto": "Impuesto permanente a las energéticas, más peso del impuesto a la banca y a las grandes fortunas, y nuevo impuesto sobre los beneficios de las grandes distribuidoras de alimentos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_bildu"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "q": "patr",
+      "eq": 4
+     },
+     "valor": -1,
+     "texto": "Con más de 3 millones de patrimonio pagarías más por el impuesto de grandes fortunas."
+    }
+   ],
+   "pagina": 14,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=14"
+  },
+  {
+   "id": "salf-viv",
+   "partido": "salf",
+   "tema": "Vivienda",
+   "texto": "Primera vivienda sin impuestos (ITP y AJD al 0 %; IVA del 4 % devuelto en la renta), con la promesa de que cueste al menos un 35 % menos; aval público del 20 % de la entrada para menores de 40.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "menor_40"
+       },
+       {
+        "ref": "quiere_comprar"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te ahorrarías los impuestos de la compra y el Estado avalaría tu entrada."
+    },
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 1,
+     "texto": "Te ahorrarías los impuestos de la compra de tu primera vivienda."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=5"
+  },
+  {
+   "id": "salf-okupa",
+   "partido": "salf",
+   "tema": "Vivienda",
+   "texto": "Desalojo de okupas en 48 horas y de inquilinos que dejen de pagar en 30 días, sin excepciones por vulnerabilidad; seguro público de impago de 12 meses para el propietario.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": 1,
+     "texto": "Recuperarías antes tus viviendas y tendrías un seguro público si el inquilino no paga."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 0,
+     "texto": "Si dejaras de pagar, el desalojo sería en 30 días, sin la protección actual por vulnerabilidad; a cambio, no te pedirían tres nóminas ni aval bancario."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=5"
+  },
+  {
+   "id": "salf-ibi",
+   "partido": "salf",
+   "tema": "Vivienda",
+   "texto": "Eliminar por completo el IBI, sin compensación a los ayuntamientos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "q": "viv",
+        "in": [
+         "propio",
+         "hipoteca"
+        ]
+       },
+       {
+        "ref": "tiene_otras_viviendas"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Dejarías de pagar el IBI de tus viviendas."
+    }
+   ],
+   "pagina": 7,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=7"
+  },
+  {
+   "id": "salf-irpf",
+   "partido": "salf",
+   "tema": "IRPF",
+   "texto": "IRPF: los primeros 35.000 € exentos para todos en 2030 (15.000 € en 2027), 5.000 € más por hijo para cada progenitor y tarifa actualizada cada año con el IPC.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Con ingresos en torno al SMI ya apenas pagas IRPF: notarías poco."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "ref": "con_hijos"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Pagarías mucho menos IRPF, y aún menos por tus hijos (el partido calcula 4.400 € al año menos con un sueldo de 28.000 €)."
+    },
+    {
+     "si": {
+      "ref": "paga_irpf"
+     },
+     "valor": 1,
+     "texto": "Pagarías mucho menos IRPF (el partido calcula 4.400 € al año menos con un sueldo de 28.000 €)."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=12"
+  },
+  {
+   "id": "salf-autonomos",
+   "partido": "salf",
+   "tema": "Autónomos",
+   "texto": "Cuota de autónomos cero para siempre e IVA de caja; cada autónomo elegiría su base de cotización.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "autonomo_o_futuro"
+     },
+     "valor": 1,
+     "texto": "No pagarías cuota de autónomos; tu pensión dependería de lo que decidas cotizar."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=12"
+  },
+  {
+   "id": "salf-sociedades",
+   "partido": "salf",
+   "tema": "Empresa",
+   "texto": "Impuesto de Sociedades del 25 % al 20 %; 15 % sobre el beneficio reinvertido y 10 % los tres primeros años de una empresa nueva.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "empresario"
+     },
+     "valor": 1,
+     "texto": "Tu sociedad pagaría menos impuestos."
+    }
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=13"
+  },
+  {
+   "id": "salf-patrimonio",
+   "partido": "salf",
+   "tema": "Patrimonio",
+   "texto": "Suprimir los impuestos de Sucesiones, Donaciones, Patrimonio y Grandes Fortunas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "q": "patr",
+        "gte": 2
+       },
+       {
+        "ref": "herencia"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Pagarías menos al heredar, donar o por tu patrimonio (depende de lo que ya bonifique tu comunidad)."
+    }
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=13"
+  },
+  {
+   "id": "salf-luz",
+   "partido": "salf",
+   "tema": "Energía",
+   "texto": "IVA del 4 % en la luz y el agua para siempre y fin del impuesto a la producción eléctrica.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "sin_iva"
+     },
+     "valor": 0,
+     "texto": "En tu territorio no se aplica el IVA (Canarias: IGIC; Ceuta y Melilla: IPSI), así que no te afectaría directamente."
+    },
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Bajarían tus facturas de luz y agua."
+    }
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=13"
+  },
+  {
+   "id": "salf-pens",
+   "partido": "salf",
+   "tema": "Pensiones",
+   "texto": "Pensiones actuales con revalorización por IPC en la Constitución; los menores de 45 años, el 2 % del salario a una cuenta individual obligatoria y heredable; «mochila austriaca» del 1,53 % del salario a cargo de la empresa.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "pensiones_transicion",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión seguiría subiendo con el IPC, con rango constitucional (la ley actual ya la liga al IPC)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "menor_40"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Una parte de tu salario iría a una cuenta a tu nombre y tu empresa aportaría a tu mochila; no queda claro cuánto sale de tu sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Pagarías un 1,53 % del salario de cada empleado a su mochila."
+    }
+   ],
+   "pagina": 20,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=20"
+  },
+  {
+   "id": "salf-pensmin",
+   "partido": "salf",
+   "tema": "Pensiones",
+   "texto": "Pensión mínima de 1.000 € en 14 pagas con 35 años cotizados; jubilación cuando se quiera, sin penalización, con 40 años cotizados.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Si cotizaste 35 años y cobras menos de 1.000 € en 14 pagas, tu pensión subiría hasta esa cifra."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "ref": "edad_41_64"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con 40 años cotizados podrías jubilarte cuando quisieras sin penalización."
+    }
+   ],
+   "pagina": 20,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=20"
+  },
+  {
+   "id": "salf-empleo",
+   "partido": "salf",
+   "tema": "Empleo",
+   "texto": "Contrato único indefinido con indemnización creciente de 12 a 33 días por año más una mochila del 1,53 %; sin cotización del trabajador en el salario mínimo.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con el salario mínimo no pagarías tu parte de la cotización (unos 80 € netos más al mes, según el partido)."
+    },
+    {
+     "si": {
+      "q": "lab",
+      "eq": "asal_temp"
+     },
+     "valor": 1,
+     "texto": "Pasarías a un contrato indefinido, con una mochila que te llevas al cambiar de empleo."
+    },
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 0,
+     "texto": "Tu indemnización iría de 12 a 33 días por año según la antigüedad (hoy, 33 si el despido es improcedente), más la mochila del 1,53 % de tu salario."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Despedir sería más barato los primeros años, pero pagarías la mochila del 1,53 %."
+    }
+   ],
+   "pagina": 30,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=30"
+  },
+  {
+   "id": "salf-bajas",
+   "partido": "salf",
+   "tema": "Empleo",
+   "texto": "Las bajas por enfermedad las pagaría la Seguridad Social desde el primer día; las mutuas darían el alta en contingencias comunes a los 15 días, con revisión del INSS en 72 horas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 1,
+     "texto": "Dejarías de pagar los primeros días de baja de tus empleados."
+    },
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 0,
+     "texto": "Cobrarías la baja desde el primer día, pero la mutua podría darte el alta a los 15 días."
+    }
+   ],
+   "pagina": 31,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=31"
+  },
+  {
+   "id": "salf-arraigo",
+   "partido": "salf",
+   "tema": "Prioridad nacional",
+   "texto": "Sin prestaciones no contributivas, ayudas al alquiler ni vivienda pública hasta tener cinco años de residencia legal y cotización; tasa del 2 % a las remesas enviadas a países que no readmitan a sus nacionales.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_salf"
+   ],
+   "riesgos": [
+    {
+     "id": "prioridad_legal",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "arraigo_corto"
+     },
+     "valor": -1,
+     "texto": "Con menos de cinco años de residencia legal no podrías cobrar ayudas no contributivas ni al alquiler, ni optar a vivienda pública."
+    },
+    {
+     "si": {
+      "ref": "envia_remesas"
+     },
+     "valor": 0,
+     "texto": "Pagarías un 2 % si envías dinero a un país que no readmita a sus nacionales."
+    }
+   ],
+   "pagina": 19,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=19"
   }
  ],
  "temas_sociales": [
@@ -7676,7 +9073,371 @@
    ]
   },
   {
-   "id": "soc-bng-124",
+   "id": "soc-pod-124",
+   "partido": "pod",
+   "tema": "igualdad",
+   "texto": "Ampliar la definición legal de violencia machista para que recoja todas las formas de violencia contra las mujeres, no solo la de parejas y exparejas.",
+   "num": "163",
+   "pagina": 56,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=56",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-125",
+   "partido": "pod",
+   "tema": "igualdad",
+   "texto": "Plan de compensación, reparación y recuperación de la autonomía para las mujeres que sufren violencias machistas.",
+   "num": "151",
+   "pagina": 53,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=53",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-126",
+   "partido": "pod",
+   "tema": "lgtbi",
+   "texto": "Opción de género no binario en todos los documentos oficiales, cupo laboral trans en el empleo público y protección de las familias LGTBIQA+.",
+   "num": "150",
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=52",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-127",
+   "partido": "pod",
+   "tema": "racismo",
+   "texto": "Ley Integral Antirracista que prevenga, investigue, sancione y repare la discriminación racial y étnica, también la institucional.",
+   "num": "209",
+   "pagina": 66,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=66",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-128",
+   "partido": "pod",
+   "tema": "migracion",
+   "texto": "Procedimiento permanente de regularización que reconozca el arraigo social, familiar y comunitario, sin exigir solo un contrato de trabajo.",
+   "num": "210",
+   "pagina": 67,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=67",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-129",
+   "partido": "pod",
+   "tema": "migracion",
+   "texto": "Derogar la Ley de Extranjería y cerrar todos los centros de internamiento de extranjeros (CIE).",
+   "num": "205-206",
+   "pagina": 65,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=65",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-130",
+   "partido": "pod",
+   "tema": "discapacidad",
+   "texto": "Aumentar y agilizar las ayudas para material ortoprotésico.",
+   "num": "177",
+   "pagina": 60,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=60",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-131",
+   "partido": "pod",
+   "tema": "familia",
+   "texto": "Permisos por nacimiento, adopción y acogimiento de 26 semanas por progenitor, intransferibles y pagados, el doble en familias monomarentales.",
+   "num": "178",
+   "pagina": 60,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=60",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-132",
+   "partido": "pod",
+   "tema": "educacion",
+   "texto": "Fondo estatal solo para la educación pública de gestión directa, hasta garantizar una educación gratuita y universal; los fondos no podrían ir a la enseñanza privada.",
+   "num": "281",
+   "pagina": 80,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=80",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-133",
+   "partido": "pod",
+   "tema": "vida",
+   "texto": "Sacar el aborto consentido del Código Penal e incluirlo en la Constitución como derecho fundamental.",
+   "num": "146",
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=51",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-134",
+   "partido": "pod",
+   "tema": "religion",
+   "texto": "Denunciar el Concordato y los acuerdos de 1979 con la Santa Sede, Ley de Libertad de Conciencia y fin de los privilegios de la Iglesia católica.",
+   "num": "430",
+   "pagina": 134,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=134",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-135",
+   "partido": "pod",
+   "tema": "rural",
+   "texto": "Obligaciones de servicio público para mantener el transporte en las rutas de baja densidad de la España vaciada.",
+   "num": "353",
+   "pagina": 107,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=107",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-pod-136",
+   "partido": "pod",
+   "tema": "rural",
+   "texto": "Una PAC redistributiva, sin derechos históricos, con límites a la concentración de ayudas y más apoyo a las explotaciones familiares.",
+   "num": "363",
+   "pagina": 111,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=111",
+   "fuentes": [
+    "pdf_pod"
+   ]
+  },
+  {
+   "id": "soc-bildu-137",
+   "partido": "bildu",
+   "tema": "igualdad",
+   "texto": "Avanzar en el reconocimiento y la penalización de la violencia vicaria y revisar los recursos de protección y reparación de las víctimas de violencia machista.",
+   "num": null,
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=19",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-138",
+   "partido": "bildu",
+   "tema": "lgtbi",
+   "texto": "Prohibir las terapias de conversión, reforzar la investigación de los delitos de odio LGTBIfóbicos y no aceptar retrocesos en la despatologización de las personas trans.",
+   "num": null,
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=19",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-139",
+   "partido": "bildu",
+   "tema": "racismo",
+   "texto": "Prevenir, denunciar y sancionar el racismo institucional, laboral, inmobiliario y policial, con mecanismos de supervisión independientes.",
+   "num": null,
+   "pagina": 20,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=20",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-140",
+   "partido": "bildu",
+   "tema": "migracion",
+   "texto": "Regularización efectiva y nueva Ley de Extranjería; rechazo de las devoluciones sumarias y de los CIE, y derecho al voto de los residentes extranjeros.",
+   "num": null,
+   "pagina": 20,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=20",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-141",
+   "partido": "bildu",
+   "tema": "discapacidad",
+   "texto": "Cumplimiento efectivo de la cuota de reserva de empleo para personas con discapacidad, con puestos accesibles y apoyos.",
+   "num": null,
+   "pagina": 7,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=7",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-142",
+   "partido": "bildu",
+   "tema": "familia",
+   "texto": "Permisos de las familias monoparentales y monomarentales iguales a los de las biparentales, y permisos de maternidad preparto y puerperal universales y retribuidos.",
+   "num": null,
+   "pagina": 14,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=14",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-143",
+   "partido": "bildu",
+   "tema": "educacion",
+   "texto": "Acercar progresivamente la financiación educativa al 6 % que fija la UNESCO y reforzar la atención al alumnado con necesidades educativas especiales.",
+   "num": null,
+   "pagina": 12,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=12",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-144",
+   "partido": "bildu",
+   "tema": "vida",
+   "texto": "Blindar el derecho al aborto, con perímetros de protección frente al acoso en los centros que lo practican. No menciona la eutanasia.",
+   "num": null,
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=19",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-bildu-145",
+   "partido": "bildu",
+   "tema": "rural",
+   "texto": "Compra pública de alimentos de proximidad en comedores, hospitales y residencias como herramienta de desarrollo rural.",
+   "num": null,
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=17",
+   "fuentes": [
+    "pdf_bildu"
+   ]
+  },
+  {
+   "id": "soc-salf-146",
+   "partido": "salf",
+   "tema": "igualdad",
+   "texto": "Agresores sexuales: cumplimiento íntegro de las penas, registro público de reincidentes, pulsera telemática de por vida y castración química voluntaria como condición para cualquier beneficio penitenciario.",
+   "num": null,
+   "pagina": 8,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=8",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-salf-147",
+   "partido": "salf",
+   "tema": "migracion",
+   "texto": "Fin de las regularizaciones: derogar la de 2026, revisar las concesiones una a una y prohibir por ley orgánica las regularizaciones masivas. Expulsión en 48 horas tras la orden.",
+   "num": null,
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=17",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-salf-148",
+   "partido": "salf",
+   "tema": "migracion",
+   "texto": "Nacionalidad con diez años de residencia legal, examen de cultura y Constitución y sin depender de ayudas; cupos preferentes para Hispanoamérica.",
+   "num": null,
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=18",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-salf-149",
+   "partido": "salf",
+   "tema": "educacion",
+   "texto": "Derecho a estudiar en castellano en toda España, exigible por la familia, y selectividad única y en castellano.",
+   "num": null,
+   "pagina": 33,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=33",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-salf-150",
+   "partido": "salf",
+   "tema": "educacion",
+   "texto": "Cheque escolar del mismo importe por alumno, válido en centros públicos, concertados y privados.",
+   "num": null,
+   "pagina": 34,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=34",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-salf-151",
+   "partido": "salf",
+   "tema": "religion",
+   "texto": "Prohibir el burka y el niqab en el espacio público, prohibir la financiación extranjera del culto e ilegalizar a los Hermanos Musulmanes.",
+   "num": null,
+   "pagina": 19,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=19",
+   "fuentes": [
+    "pdf_salf"
+   ]
+  },
+  {
+   "id": "soc-bng-152",
    "partido": "bng",
    "tema": "igualdad",
    "texto": "Reforma legislativa integral para que la ley orgánica cubra todas las formas de violencia contra las mujeres y dé rango de ley efectivo a la violencia vicaria, conforme al Convenio de Estambul.",
@@ -7689,7 +9450,7 @@
    ]
   },
   {
-   "id": "soc-bng-125",
+   "id": "soc-bng-153",
    "partido": "bng",
    "tema": "igualdad",
    "texto": "Introducir el término feminicidio en la legislación y un Estatuto de Víctima de Feminicidio.",
@@ -7702,7 +9463,7 @@
    ]
   },
   {
-   "id": "soc-bng-126",
+   "id": "soc-bng-154",
    "partido": "bng",
    "tema": "igualdad",
    "texto": "Medidas para abolir la prostitución que persigan al proxeneta y al prostituidor, sin criminalizar a las mujeres prostituidas, con una red que cubra sus necesidades básicas si quieren dejarla.",
@@ -7715,7 +9476,7 @@
    ]
   },
   {
-   "id": "soc-bng-127",
+   "id": "soc-bng-155",
    "partido": "bng",
    "tema": "lgtbi",
    "texto": "Reconocer a las personas no binarias y proteger a las personas trans menores de 12 años, respetando su derecho a la autodeterminación de género.",
@@ -7728,7 +9489,7 @@
    ]
   },
   {
-   "id": "soc-bng-128",
+   "id": "soc-bng-156",
    "partido": "bng",
    "tema": "lgtbi",
    "texto": "Medidas positivas para la inclusión laboral y social de las personas trans.",
@@ -7741,7 +9502,7 @@
    ]
   },
   {
-   "id": "soc-bng-129",
+   "id": "soc-bng-157",
    "partido": "bng",
    "tema": "lgtbi",
    "texto": "Suprimir cualquier subvención o ayuda pública, e imponer sanciones, a las organizaciones que tengan como objetivo negar o vulnerar los derechos de las personas LGBT o que se expresen en ese sentido.",
@@ -7754,7 +9515,7 @@
    ]
   },
   {
-   "id": "soc-bng-130",
+   "id": "soc-bng-158",
    "partido": "bng",
    "tema": "racismo",
    "texto": "Erradicar cualquier forma de discriminación y actitud racista en las administraciones públicas.",
@@ -7767,7 +9528,7 @@
    ]
   },
   {
-   "id": "soc-bng-131",
+   "id": "soc-bng-159",
    "partido": "bng",
    "tema": "migracion",
    "texto": "Promover la regularización administrativa como vía para eliminar la irregularidad como herramienta de explotación.",
@@ -7780,7 +9541,7 @@
    ]
   },
   {
-   "id": "soc-bng-132",
+   "id": "soc-bng-160",
    "partido": "bng",
    "tema": "migracion",
    "texto": "Cierre de los centros de internamiento de extranjeros (CIE) y fin de las devoluciones en caliente.",
@@ -7793,7 +9554,7 @@
    ]
   },
   {
-   "id": "soc-bng-133",
+   "id": "soc-bng-161",
    "partido": "bng",
    "tema": "migracion",
    "texto": "Que un conocimiento acreditado de la lengua y la cultura gallegas se admita como criterio para acceder a la nacionalidad española, con independencia del conocimiento del español.",
@@ -7806,7 +9567,7 @@
    ]
   },
   {
-   "id": "soc-bng-134",
+   "id": "soc-bng-162",
    "partido": "bng",
    "tema": "discapacidad",
    "texto": "Desarrollar y financiar la asistencia personal para garantizar la autonomía de las personas con discapacidad.",
@@ -7819,7 +9580,7 @@
    ]
   },
   {
-   "id": "soc-bng-135",
+   "id": "soc-bng-163",
    "partido": "bng",
    "tema": "discapacidad",
    "texto": "Plan de accesibilidad universal para suprimir las barreras físicas, cognitivas y sensoriales en las instituciones y servicios del Estado.",
@@ -7832,7 +9593,7 @@
    ]
   },
   {
-   "id": "soc-bng-136",
+   "id": "soc-bng-164",
    "partido": "bng",
    "tema": "familia",
    "texto": "Reconocer legalmente a las familias monoparentales de origen, con una legislación específica que garantice sus derechos.",
@@ -7845,7 +9606,7 @@
    ]
   },
   {
-   "id": "soc-bng-137",
+   "id": "soc-bng-165",
    "partido": "bng",
    "tema": "familia",
    "texto": "Conciliación: compensación económica de las reducciones de jornada, ingresos garantizados en las excedencias y aportación del Estado a la gratuidad de las escuelas infantiles gallegas.",
@@ -7858,7 +9619,7 @@
    ]
   },
   {
-   "id": "soc-bng-138",
+   "id": "soc-bng-166",
    "partido": "bng",
    "tema": "familia",
    "texto": "Cotización al 100 % en las reducciones de jornada por cuidados y computar como cotizadas las excedencias por cuidados más allá de tres años.",
@@ -7871,7 +9632,7 @@
    ]
   },
   {
-   "id": "soc-bng-139",
+   "id": "soc-bng-167",
    "partido": "bng",
    "tema": "educacion",
    "texto": "Derecho universal a la educación de 0 a 18 años, obligatoria de 3 a 18, en una única red de enseñanza pública, con libros de texto, material escolar y actividades extraescolares gratuitos.",
@@ -7884,7 +9645,7 @@
    ]
   },
   {
-   "id": "soc-bng-140",
+   "id": "soc-bng-168",
    "partido": "bng",
    "tema": "educacion",
    "texto": "Transferir a Galicia todas las competencias educativas pendientes, para que pueda ordenar su sistema educativo con leyes propias.",
@@ -7897,7 +9658,7 @@
    ]
   },
   {
-   "id": "soc-bng-141",
+   "id": "soc-bng-169",
    "partido": "bng",
    "tema": "religion",
    "texto": "Denunciar y revocar el Concordato con la Iglesia católica y los Acuerdos vigentes con la Santa Sede, eliminando los privilegios de la Iglesia y la presencia de la religión en las instituciones y servicios públicos.",
@@ -7910,7 +9671,7 @@
    ]
   },
   {
-   "id": "soc-bng-142",
+   "id": "soc-bng-170",
    "partido": "bng",
    "tema": "religion",
    "texto": "Enseñanza laica: la asignatura de Religión no formaría parte del currículo escolar.",
@@ -7923,7 +9684,7 @@
    ]
   },
   {
-   "id": "soc-bng-143",
+   "id": "soc-bng-171",
    "partido": "bng",
    "tema": "rural",
    "texto": "Gestión descentralizada y más fondos para el desarrollo territorial y la PAC frente a los recortes previstos en el marco financiero europeo 2028-2034.",
@@ -7936,7 +9697,7 @@
    ]
   },
   {
-   "id": "soc-bng-144",
+   "id": "soc-bng-172",
    "partido": "bng",
    "tema": "rural",
    "texto": "Programa de rehabilitación de viviendas vacías en el rural, con mejores servicios públicos, transporte y conectividad, para dar a la juventud empleo, vivienda y oportunidades de emprender.",
@@ -7949,7 +9710,7 @@
    ]
   },
   {
-   "id": "soc-bng-145",
+   "id": "soc-bng-173",
    "partido": "bng",
    "tema": "rural",
    "texto": "Financiar medidas de igualdad en el medio rural, en particular en los programas de empleabilidad y emprendimiento.",
@@ -7962,175 +9723,7 @@
    ]
   },
   {
-   "id": "soc-ext-pod-0",
-   "partido": "pod",
-   "tema": "igualdad",
-   "texto": "Erradicar las violencias machistas y aprobar una directiva europea contra la violencia vicaria.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 20 y 25",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-1",
-   "partido": "pod",
-   "tema": "lgtbi",
-   "texto": "Libre determinación de género, despatologización de las personas trans y reconocimiento de las personas no binarias.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 24",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-2",
-   "partido": "pod",
-   "tema": "racismo",
-   "texto": "Estrategia integral contra el racismo estructural e institucional en la UE.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 25",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-3",
-   "partido": "pod",
-   "tema": "migracion",
-   "texto": "Vías legales y seguras con reasentamiento, cierre de los centros de internamiento y supresión de Frontex.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 49-50",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-4",
-   "partido": "pod",
-   "tema": "migracion",
-   "texto": "Vincular los derechos a la residencia y no a la nacionalidad, con cobertura sanitaria para todas las personas.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 52",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-5",
-   "partido": "pod",
-   "tema": "discapacidad",
-   "texto": "Garantizar el cumplimiento de la Convención de la ONU sobre los Derechos de las Personas con Discapacidad.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 35",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-6",
-   "partido": "pod",
-   "tema": "familia",
-   "texto": "Permisos por nacimiento iguales, intransferibles y pagados al 100 %, con un objetivo mínimo de 36 semanas.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 27",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-7",
-   "partido": "pod",
-   "tema": "educacion",
-   "texto": "Educación gratuita de 0 a 18 años y medidas contra la segregación escolar, que vincula al peso de la concertada.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 32",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-8",
-   "partido": "pod",
-   "tema": "educacion",
-   "texto": "Educación sexual integral para la infancia y la juventud.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 24",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-9",
-   "partido": "pod",
-   "tema": "vida",
-   "texto": "Aborto seguro, libre y gratuito, y derecho a la eutanasia para quien padezca un sufrimiento irreversible.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 18 y 20",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-10",
-   "partido": "pod",
-   "tema": "religion",
-   "texto": "Separar las confesiones religiosas de las estructuras del Estado y eliminar sus privilegios fiscales.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 19-20",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pod-11",
-   "partido": "pod",
-   "tema": "rural",
-   "texto": "Tener en cuenta la despoblación al repartir los fondos estructurales europeos.",
-   "num": null,
-   "pagina": null,
-   "referencia": "programa europeo de 2024, p. 98",
-   "origen": "previa",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fuentes": [
-    "pod_ue24"
-   ]
-  },
-  {
-   "id": "soc-ext-pp-12",
+   "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
    "texto": "Reabrir el debate sobre el aborto de las chicas de 16 y 17 años y reformar la ley de eutanasia.",
@@ -8145,7 +9738,7 @@
    ]
   },
   {
-   "id": "soc-ext-vox-13",
+   "id": "soc-ext-vox-1",
    "partido": "vox",
    "tema": "lgtbi",
    "texto": "Derogar la Ley Trans.",
@@ -8159,7 +9752,7 @@
    ]
   },
   {
-   "id": "soc-ext-vox-14",
+   "id": "soc-ext-vox-2",
    "partido": "vox",
    "tema": "lgtbi",
    "texto": "Eliminar las normas de igualdad y LGTBI en las empresas, entre una decena de leyes a derogar.",
@@ -8173,7 +9766,7 @@
    ]
   },
   {
-   "id": "soc-ext-erc-15",
+   "id": "soc-ext-erc-3",
    "partido": "erc",
    "tema": "discapacidad",
    "texto": "Subir las pensiones no contributivas por discapacidad al menos al 80 % del salario mínimo, sin contar los ingresos familiares y exentas de impuestos.",
@@ -8187,7 +9780,7 @@
    ]
   },
   {
-   "id": "soc-ext-erc-16",
+   "id": "soc-ext-erc-4",
    "partido": "erc",
    "tema": "vida",
    "texto": "En el debate de la reforma constitucional del aborto, su diputada Pilar Vallugera expresó su «apoyo absoluto» al derecho de las mujeres a decidir sobre su propio cuerpo, aunque criticó cómo lo planteaba el Gobierno.",
@@ -8201,7 +9794,7 @@
    ]
   },
   {
-   "id": "soc-ext-psoe-17",
+   "id": "soc-ext-psoe-5",
    "partido": "psoe",
    "tema": "religion",
    "texto": "Revisar los Acuerdos de 1979 con la Santa Sede: en 2019 proponía denunciarlos y en 2021, actualizarlos de forma pactada con la Iglesia.",
@@ -8216,7 +9809,7 @@
    ]
   },
   {
-   "id": "soc-ext-bng-18",
+   "id": "soc-ext-bng-6",
    "partido": "bng",
    "tema": "vida",
    "texto": "Defender los derechos sexuales y reproductivos y de decisión de las mujeres sobre sus cuerpos. El programa del 29N no trata el aborto ni la eutanasia.",
@@ -8406,11 +9999,6 @@
    "url": "https://www.cnmc.es/sites/default/files/6658260.pdf",
    "fecha": "2025"
   },
-  "pod_ue24": {
-   "titulo": "Podemos: Programa de las elecciones europeas 2024",
-   "url": "https://podemos.info/programa-podemos-elecciones-europeas-2024",
-   "fecha": "2024-05"
-  },
   "ara_feijoo": {
    "titulo": "Ara: Feijóo promete reabrir el debate del aborto y reformar la ley de eutanasia",
    "url": "https://es.ara.cat/politica/elecciones-generales/feijoo-promete-reabrir-debate-aborto-reformar-ley-eutanasia_1_5887953.html",
@@ -8445,6 +10033,26 @@
    "titulo": "El Salto: El Congreso rechaza las enmiendas a la totalidad de PP y Vox a incluir el aborto en la Constitución",
    "url": "https://www.elsaltodiario.com/derechos-reproductivos/congreso-rechaza-enmiendas-totalidad-pp-vox-incluir-aborto-constitucion",
    "fecha": "2026-04-30"
+  },
+  "salf_listas": {
+   "titulo": "Demócrata: Alvise registra listas de SALF al Congreso en 46 provincias y descarta el Senado",
+   "url": "https://www.democrata.es/en/politics/alvise-registers-salf-lists-for-congress-in-46-provinces-and-rules-out-competing-for-the-senate/",
+   "fecha": "2026-10"
+  },
+  "tupartido_pod": {
+   "titulo": "Tupartidocorrupto: Podemos, candidatura y propuestas para el 29N (listas proclamadas según el BOE)",
+   "url": "https://tupartidocorrupto.com/elecciones/podemos",
+   "fecha": "2026-11-13"
+  },
+  "papeleta_pod": {
+   "titulo": "Papeleta Clara: Podemos se presenta con lista propia en 41 provincias según el BOE del 3-11-2026",
+   "url": "https://papeletaclara.es/partidos/podemos/",
+   "fecha": "2026-11-17"
+  },
+  "democrata_pod_campana": {
+   "titulo": "Demócrata: Podemos afronta una campaña clave apoyado en Irene Montero y su tándem con Rufián",
+   "url": "https://www.democrata.es/politica/podemos-afronta-una-campana-clave-apoyado-en-el-tiron-de-irene-montero-y-su-tandem-con-rufian/",
+   "fecha": "2026-11-13"
   },
   "bng_ue24": {
    "titulo": "BNG: Programa de las elecciones europeas de 2024 (PDF)",
@@ -8489,6 +10097,21 @@
   "pdf_bng": {
    "titulo": "BNG: Programa electoral 29N. Xerais 2026 (en gallego) (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/bng.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_pod": {
+   "titulo": "Podemos: Paz, casa y trabajo. Programa electoral (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_bildu": {
+   "titulo": "EH Bildu: Garantía y derechos (programa en castellano) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_salf": {
+   "titulo": "SALF: Contrato electoral simplificado. Generales 2026 (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf",
    "fecha": "2026-11"
   }
  }

@@ -92,10 +92,10 @@
         var rie = r.riesgos;
         return { nombre: p.nombre + (p.partidos_test ? ' (candidatura conjunta)' : ''), lin: [[r.medidas, false], [r.contra, true], [rie, false]].filter(function (x) { return x[0]; }) };
       });
-      var ncol = bloques.length > 4 ? 3 : bloques.length > 1 ? 2 : 1, colW = (W - 2 * M - 24 * (ncol - 1)) / ncol, tl = ncol === 3 ? 10.5 : 12;
+      var ncol = bloques.length > 6 ? 4 : bloques.length > 4 ? 3 : bloques.length > 1 ? 2 : 1, gap = ncol === 4 ? 18 : 24, colW = (W - 2 * M - gap * (ncol - 1)) / ncol, tl = ncol === 4 ? 9.5 : ncol === 3 ? 10.5 : 12, tc = ncol === 4 ? 12 : 14;
       var medir = function (b) {
-        var cab = lineas(b.nombre, colW - 4, 14, true), cuerpo = b.lin.map(function (l) { return [lineas(l[0], colW - 4, tl, l[1]), l[1]]; });
-        return { cab: cab, cuerpo: cuerpo, alto: cab.length * 17.5 + cuerpo.reduce(function (a, c) { return a + c[0].length * tl * 1.25 + 2; }, 0) + 16 };
+        var cab = lineas(b.nombre, colW - 4, tc, true), cuerpo = b.lin.map(function (l) { return [lineas(l[0], colW - 4, tl, l[1]), l[1]]; });
+        return { cab: cab, cuerpo: cuerpo, alto: cab.length * tc * 1.25 + cuerpo.reduce(function (a, c) { return a + c[0].length * tl * 1.25 + 2; }, 0) + 16 };
       };
       var ms = bloques.map(medir), filas = [];
       for (var k = 0; k < ms.length; k += ncol) filas.push(ms.slice(k, k + ncol));
@@ -105,9 +105,9 @@
         var alto = Math.max.apply(null, fila.map(function (b) { return b.alto; }));
         if (yy + alto > LIM && n) { nueva(false); yy = titulo('Tu resultado en un minuto (continuación)', null); }
         fila.forEach(function (b, c) {
-          var x = M + c * (colW + 24);
+          var x = M + c * (colW + gap);
           color(TINTA, 'd'); doc.setLineWidth(1.6); doc.line(x, yy, x + colW, yy);
-          var y2 = escribir(b.cab, x, yy + 6, 14, true);
+          var y2 = escribir(b.cab, x, yy + 6, tc, true);
           b.cuerpo.forEach(function (cc) { y2 = escribir(cc[0], x, y2 + 1, tl, cc[1], cc[1] ? TINTA : TINTA2) + 1; });
         });
         yy += alto;
@@ -115,7 +115,7 @@
     })();
 
     // ---------- 3. Riesgos comparados ----------
-    var ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox', upc: 'UPC', compromis: 'Compromís', ara_mes: 'Ara Més', erc: 'ERC' };
+    var ab = { cc: 'CC', fa: 'FA', pod: 'Podemos', pp: 'PP', psoe: 'PSOE', vox: 'Vox', upc: 'UPC', compromis: 'Compromís', ara_mes: 'Ara Més', erc: 'ERC', bng: 'BNG', bildu: 'EH Bildu', salf: 'SALF' };
     var toca = function (f) { return R.partidos.some(function (p) { var n = f.niveles[p.id]; return n === 'alta' || n === 'media'; }); };
     var f1 = R.matriz_riesgos.filter(toca), f2 = R.matriz_riesgos.filter(function (f) { return !toca(f); });
     (function () {
