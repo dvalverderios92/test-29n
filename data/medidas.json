@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.13.0",
+  "version": "2.14.0",
   "fecha_corte": "2026-11-19",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -194,6 +194,18 @@
       "si",
       "ns"
      ]
+    }
+   ]
+  },
+  "inquilino_sube_no_decl": {
+   "all": [
+    {
+     "q": "viv",
+     "eq": "alquiler"
+    },
+    {
+     "q": "tens",
+     "eq": "no_sube"
     }
    ]
   },
@@ -667,8 +679,12 @@
      "texto": "Sí"
     },
     {
+     "valor": "no_sube",
+     "texto": "No, pero los alquileres en mi zona han subido mucho"
+    },
+    {
      "valor": "no",
-     "texto": "No"
+     "texto": "No, y no han subido mucho"
     },
     {
      "valor": "ns",
@@ -1527,6 +1543,13 @@
     },
     {
      "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "nivel": "media",
+     "texto": "Tu zona no está declarada, pero podría estarlo si se pide y lo aprueba la administración competente. Eliminar las zonas tensionadas quitaría esa posibilidad."
+    },
+    {
+     "si": {
       "ref": "inquilino"
      },
      "nivel": "baja",
@@ -2372,6 +2395,13 @@
     },
     {
      "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "valor": 0,
+     "texto": "Perderías la posibilidad de que tu zona se declare tensionada y se limiten las rentas; hoy depende de que se pida y se apruebe."
+    },
+    {
+     "si": {
       "ref": "inquilino"
      },
      "valor": 0,
@@ -3116,6 +3146,13 @@
     },
     {
      "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "valor": 1,
+     "texto": "Contratos más largos; la congelación te llegaría solo si tu zona se declara tensionada."
+    },
+    {
+     "si": {
       "ref": "inquilino"
      },
      "valor": 1,
@@ -3809,6 +3846,13 @@
      },
      "valor": -1,
      "texto": "Perderías el tope de renta de la zona tensionada."
+    },
+    {
+     "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "valor": 0,
+     "texto": "Perderías la posibilidad de que tu zona se declare tensionada y se limiten las rentas; hoy depende de que se pida y se apruebe."
     },
     {
      "si": {

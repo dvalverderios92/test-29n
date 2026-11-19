@@ -117,6 +117,15 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(ev('galicia').notas.every(n => !/también se presenta el BNG/.test(n)), 'Galicia: ya no avisa de que el BNG no está incluido');
 }
 
+// v2.14: zona no declarada con alquileres al alza (vale para cualquier comunidad)
+{
+  const base = { edad: '26-35', lab: 'asal_ind', ing: 2, dep_pub: 'media', viv: 'alquiler', comprar: false, otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 0, ahorro: 0, bolsa: false, herencia: false, nac: 'es' };
+  const nivel = (region, tens, partido) => { const e = T.evaluate(D, Object.assign({ region, tens }, base)); const f = e.matriz_riesgos.find(x => x.id === 'fin_topes_alquiler'); return f && f.niveles[partido]; };
+  ok(['madrid', 'canarias', 'andalucia', 'galicia'].every(r => nivel(r, 'no_sube', 'pp') === 'media' && nivel(r, 'no', 'pp') === 'baja' && nivel(r, 'si', 'pp') === 'alta'), 'Zona no declarada con alquileres al alza: el fin de los topes te afecta algo, en cualquier comunidad');
+  const ef = (tens, id) => { const e = T.evaluate(D, Object.assign({ region: 'madrid', tens }, base)); for (const p of e.partidos) { const m = p.medidas.find(x => x.id === id); if (m) return m.valor; } };
+  ok(ef('no_sube', 'pp-145') === 0 && ef('no_sube', 'vox-28') === 0 && ef('no_sube', 'psoe-61') === 1, 'Zona no declarada con alquileres al alza: derogar es incierto; reforzar, el mismo valor que para otros inquilinos');
+}
+
 // v2.12: Podemos (en solitario o en candidatura), EH Bildu y SALF
 {
   const base = { edad: '41-64', lab: 'asal_ind', ing: 3, dep_pub: 'media', viv: 'propio', otras: 0, hijos: ['ninguno'], planHijos: false, dep: 'no', patr: 1, ahorro: 1, bolsa: false, herencia: false, nac: 'es' };
