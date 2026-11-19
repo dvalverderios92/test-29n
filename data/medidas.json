@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.12.0",
-  "fecha_corte": "2026-11-18",
+  "version": "2.13.0",
+  "fecha_corte": "2026-11-19",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1279,6 +1279,27 @@
    }
   },
   {
+   "id": "pnv",
+   "nombre": "PNV",
+   "ambito_si": {
+    "q": "region",
+    "eq": "pais_vasco"
+   },
+   "programa": {
+    "titulo": "Defendemos Euskadi. Programa elecciones generales 2026",
+    "fecha": "2026-11-09",
+    "estado": "publicado",
+    "nota": "Lista propia solo en el País Vasco (Álava, Bizkaia y Gipuzkoa)."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos, y no da cifras de gasto. No dice de dónde saldría el dinero: pide más margen de inversión para las administraciones vascas, con reglas de gasto más flexibles y el uso de sus superávits, y propone reforzar las fuentes de financiación de las pensiones sin concretarlas.",
+    "fuentes": [
+     "pdf_pnv"
+    ]
+   }
+  },
+  {
    "id": "pp",
    "nombre": "PP",
    "programa": {
@@ -1823,7 +1844,7 @@
     "q": "region",
     "eq": "pais_vasco"
    },
-   "texto": "Partidos no incluidos: en el País Vasco también se presenta el PNV (programa publicado en noviembre). Este test aún no recoge sus medidas; consulta su programa. SALF solo presenta lista en Álava."
+   "texto": "SALF solo presenta lista en Álava."
   },
   {
    "si": {
@@ -7364,6 +7385,334 @@
    ],
    "pagina": 19,
    "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf#page=19"
+  },
+  {
+   "id": "pnv-alq",
+   "partido": "pnv",
+   "tema": "Vivienda",
+   "texto": "Evitar que los contratos de temporada se usen para eludir las garantías del alquiler de vivienda habitual y regular los alquileres de temporada y turísticos para que no resten viviendas al alquiler residencial.",
+   "num": "1.1.03-04",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "Tu vivienda turística quedaría sujeta a una regulación pensada para que no reste viviendas al alquiler residencial."
+    },
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": 0,
+     "texto": "No podrías usar contratos de temporada para alquileres que en realidad son de vivienda habitual."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Más protección frente a contratos de temporada que eluden las garantías del alquiler habitual."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=8"
+  },
+  {
+   "id": "pnv-smi",
+   "partido": "pnv",
+   "tema": "Empleo",
+   "texto": "Reclamar, en un nuevo estatus político para Euskadi, la competencia plena para fijar un salario mínimo vasco propio, adaptado al coste de vida y siempre por encima del estatal, definido mediante el diálogo social.",
+   "num": "1.3.01",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Tu sueldo podría subir si Euskadi llega a fijar un salario mínimo propio; la cuantía no está fijada."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Podría subir el coste de tu plantilla en salarios bajos si Euskadi fija un mínimo propio."
+    }
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=9"
+  },
+  {
+   "id": "pnv-paro",
+   "partido": "pnv",
+   "tema": "Desempleo",
+   "texto": "Ampliar la prestación por desempleo hasta un máximo de 36 meses, vinculada a procesos de mejora de la empleabilidad.",
+   "num": "1.3.10",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 1,
+     "texto": "Podrías cobrar el paro durante más tiempo (hasta 36 meses), ligado a mejorar tu empleabilidad."
+    }
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=9"
+  },
+  {
+   "id": "pnv-autonomos",
+   "partido": "pnv",
+   "tema": "Autónomos",
+   "texto": "Acercar progresivamente la prestación por cese de actividad de los autónomos a la de desempleo, con requisitos más simples, y hacerla compatible durante un tiempo con un nuevo proyecto empresarial.",
+   "num": "2.2.04-05",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "autonomo"
+     },
+     "valor": 1,
+     "texto": "Tendrías una protección más parecida al paro si cesas tu actividad, y podrías cobrarla mientras empiezas otro negocio."
+    }
+   ],
+   "pagina": 15,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=15"
+  },
+  {
+   "id": "pnv-luz",
+   "partido": "pnv",
+   "tema": "Energía",
+   "texto": "Reducir de forma permanente el Impuesto Especial sobre la Electricidad al 0,5 %, dentro de los límites de la normativa europea.",
+   "num": "2.3.06",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Bajaría el impuesto sobre la electricidad de tu factura de la luz."
+    }
+   ],
+   "pagina": 16,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=16"
+  },
+  {
+   "id": "pnv-iva",
+   "partido": "pnv",
+   "tema": "IVA",
+   "texto": "Reforma del IVA de los bienes y servicios esenciales: estudiar tipos cero o superreducidos para algunos alimentos básicos (pescado, carne…) y productos para personas celíacas, y revisar la tributación de la electricidad, el gas, los combustibles y el transporte público.",
+   "num": "2.7.01",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "iva_poco_focalizado",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "sin_iva"
+     },
+     "valor": 0,
+     "texto": "En tu territorio no se aplica el IVA (Canarias: IGIC; Ceuta y Melilla: IPSI), así que no te afectaría directamente."
+    },
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 0,
+     "texto": "Podría abaratar tu compra y tus suministros si se aplica: el programa propone estudiarlo."
+    }
+   ],
+   "pagina": 21,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=21"
+  },
+  {
+   "id": "pnv-pens",
+   "partido": "pnv",
+   "tema": "Pensiones",
+   "texto": "Revalorizar las pensiones cada año con el IPC, mejorar progresivamente las mínimas y no contributivas, y eliminar las penalizaciones por jubilación anticipada con más de 40 años cotizados, con medidas también para quienes ya están jubilados.",
+   "num": "4.1.01-03",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva mejoraría progresivamente (importe no detallado)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión mínima mejoraría progresivamente (importe no detallado)."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión se seguiría revalorizando cada año con el IPC (la ley actual ya la liga al IPC)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "ref": "edad_41_64"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con más de 40 años cotizados podrías jubilarte anticipadamente sin penalización."
+    }
+   ],
+   "pagina": 31,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=31"
+  },
+  {
+   "id": "pnv-cuidados",
+   "partido": "pnv",
+   "tema": "Dependencia",
+   "texto": "Prestación económica para las personas cuidadoras no profesionales que hayan dejado de trabajar o reducido su jornada para cuidar a familiares dependientes, con el salario mínimo como referencia según la intensidad de los cuidados.",
+   "num": "4.3.01",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "cuida_dependiente"
+     },
+     "valor": 1,
+     "texto": "Si dejaste de trabajar o redujiste jornada para cuidar, podrías cobrar una prestación con el salario mínimo como referencia."
+    }
+   ],
+   "pagina": 33,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=33"
+  },
+  {
+   "id": "pnv-cuidados-pens",
+   "partido": "pnv",
+   "tema": "Pensiones",
+   "texto": "Reconocer en la Seguridad Social los periodos de cuidados familiares para acceder a la jubilación y calcular la pensión, y coeficientes reductores de la edad de jubilación para las personas cuidadoras no profesionales con convenio especial.",
+   "num": "4.1.05-06",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_pnv"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "cuida_dependiente"
+     },
+     "valor": 1,
+     "texto": "El tiempo que dedicas a cuidar contaría para tu pensión y, con convenio especial, podrías jubilarte antes."
+    }
+   ],
+   "pagina": 31,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=31"
   }
  ],
  "temas_sociales": [
@@ -9723,6 +10072,266 @@
    ]
   },
   {
+   "id": "soc-pnv-174",
+   "partido": "pnv",
+   "tema": "igualdad",
+   "texto": "Una regulación que reconozca y defina la violencia vicaria y garantice su prevención y tratamiento en los sistemas de protección y atención.",
+   "num": "3.3.07",
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=26",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-175",
+   "partido": "pnv",
+   "tema": "igualdad",
+   "texto": "Formación obligatoria en perspectiva de género para jueces y fiscales, con calendario y evaluaciones periódicas, y nuevos juzgados especializados en violencia sobre la mujer en Euskadi, sobre todo en Vitoria-Gasteiz y Barakaldo.",
+   "num": "3.3.08-09",
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=26",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-176",
+   "partido": "pnv",
+   "tema": "igualdad",
+   "texto": "Equiparar el acceso a las ayudas estatales para víctimas de violencia de género y de violencias sexuales, y hacer compatibles las indemnizaciones judiciales por violencia machista con las pensiones no contributivas.",
+   "num": "3.3.10-11",
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=26",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-177",
+   "partido": "pnv",
+   "tema": "lgtbi",
+   "texto": "Reforzar la prevención, la investigación y la persecución de los delitos de odio contra las personas LGTBIQ+.",
+   "num": "3.4.01",
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=27",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-178",
+   "partido": "pnv",
+   "tema": "lgtbi",
+   "texto": "Tipificar como delito específico las prácticas de conversión dirigidas a modificar la orientación sexual, la identidad sexual o la expresión de género.",
+   "num": "3.4.05",
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=27",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-179",
+   "partido": "pnv",
+   "tema": "lgtbi",
+   "texto": "Desarrollar el artículo 50 de la Ley 4/2023 para que las personas extranjeras trans puedan adecuar a su identidad de género la documentación expedida en España.",
+   "num": "3.4.06",
+   "pagina": 27,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=27",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-180",
+   "partido": "pnv",
+   "tema": "migracion",
+   "texto": "Más competencias para Euskadi en migración y extranjería, que se la reconozca como frontera norte y que la Ertzaintza asuma competencias de extranjería.",
+   "num": "3.2.01-03",
+   "pagina": 24,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=24",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-181",
+   "partido": "pnv",
+   "tema": "migracion",
+   "texto": "Un modelo de acogida descentralizado para las personas solicitantes de protección internacional, rechazando grandes centros como el previsto en Arana (Vitoria-Gasteiz).",
+   "num": "3.2.05",
+   "pagina": 25,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=25",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-182",
+   "partido": "pnv",
+   "tema": "migracion",
+   "texto": "Contratación en origen ligada a las necesidades del mercado laboral vasco y avanzar en los procesos de regularización previstos en la legislación para quienes cumplan los requisitos.",
+   "num": "3.2.08-09",
+   "pagina": 25,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=25",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-183",
+   "partido": "pnv",
+   "tema": "familia",
+   "texto": "Reducir la brecha de género en las pensiones compensando las interrupciones, reducciones de jornada y lagunas de cotización por cuidar a hijos y familiares dependientes.",
+   "num": "4.1.04-05",
+   "pagina": 31,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=31",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-184",
+   "partido": "pnv",
+   "tema": "familia",
+   "texto": "Prestación económica para las personas cuidadoras no profesionales que dejen de trabajar o reduzcan su jornada para cuidar a familiares dependientes, con el salario mínimo como referencia.",
+   "num": "4.3.01",
+   "pagina": 33,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=33",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-185",
+   "partido": "pnv",
+   "tema": "familia",
+   "texto": "Evaluar cada año la prestación por cuidado de menores con cáncer u otras enfermedades graves (CUME) y estudiar extenderla al personal funcionario.",
+   "num": "4.4.04-05",
+   "pagina": 34,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=34",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-186",
+   "partido": "pnv",
+   "tema": "educacion",
+   "texto": "Preservar las competencias educativas de Euskadi, evitando interferencias estatales.",
+   "num": "1.4.01",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=10",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-187",
+   "partido": "pnv",
+   "tema": "educacion",
+   "texto": "Educación inclusiva, plurilingüe e intercultural, con más coeducación y educación afectivo-sexual en igualdad.",
+   "num": "1.4.02-03",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=10",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-188",
+   "partido": "pnv",
+   "tema": "educacion",
+   "texto": "Defender la capacidad normativa del Sistema Vasco de Becas.",
+   "num": "1.4.04",
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=10",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-189",
+   "partido": "pnv",
+   "tema": "vida",
+   "texto": "Proteger el ejercicio efectivo de los derechos sexuales y reproductivos de las mujeres, con acceso libre y seguro a los servicios sanitarios.",
+   "num": "3.3.04",
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=26",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-190",
+   "partido": "pnv",
+   "tema": "vida",
+   "texto": "Reformar la Ley de Seguridad Ciudadana para fijar perímetros de protección de al menos 150 metros alrededor de los centros donde se practica la interrupción voluntaria del embarazo.",
+   "num": "3.3.05",
+   "pagina": 26,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=26",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-191",
+   "partido": "pnv",
+   "tema": "rural",
+   "texto": "Que la Política Agraria Común 2028-2034 reconozca un Plan Estratégico propio para Euskadi, gestionado por las instituciones vascas y con financiación suficiente y diferenciada.",
+   "num": "2.5.01",
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=17",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-192",
+   "partido": "pnv",
+   "tema": "rural",
+   "texto": "Relevo generacional en la agricultura y la ganadería, con cotizaciones reducidas para los jóvenes que se incorporen, ayudas a la transmisión de explotaciones y al acceso a la tierra.",
+   "num": "2.5.03",
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=17",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
+   "id": "soc-pnv-193",
+   "partido": "pnv",
+   "tema": "rural",
+   "texto": "Coeficientes reductores de la edad de jubilación para los autónomos de la pesca y la comercialización, y medidas específicas para las mujeres del sector.",
+   "num": "2.5.12",
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=18",
+   "fuentes": [
+    "pdf_pnv"
+   ]
+  },
+  {
    "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
@@ -10064,6 +10673,11 @@
    "url": "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano",
    "fecha": "2021-07-26"
   },
+  "infobae_pnv": {
+   "titulo": "Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político",
+   "url": "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/",
+   "fecha": "2026-11-09"
+  },
   "pdf_pp": {
    "titulo": "PP: La Reconstrucción Nacional (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf",
@@ -10112,6 +10726,11 @@
   "pdf_salf": {
    "titulo": "SALF: Contrato electoral simplificado. Generales 2026 (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/salf.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_pnv": {
+   "titulo": "PNV: Programa elecciones generales 2026. Defendemos Euskadi (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf",
    "fecha": "2026-11"
   }
  }

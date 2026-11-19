@@ -125,6 +125,8 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(['madrid', 'andalucia', 'galicia', 'pais_vasco', 'navarra', 'ceuta', 'aragon'].every(r => ev(r).partidos.some(p => p.id === 'pod')), 'Podemos: lista propia donde la presenta (también Ceuta)');
   ok(['canarias', 'valencia'].every(r => conPod(r) && !ev(r).partidos.some(p => p.id === 'pod')), 'Podemos: dentro de la candidatura conjunta en Canarias y la Comunitat Valenciana');
   ok(['cataluna', 'baleares', 'melilla'].every(r => !conPod(r)), 'Podemos: sin medidas en Cataluña, Baleares y Melilla (no presenta lista)');
+  ok(ev('pais_vasco').partidos.some(p => p.id === 'pnv') && ['navarra', 'madrid', 'cataluna', 'galicia', 'canarias'].every(r => !ev(r).partidos.some(p => p.id === 'pnv' || (p.partidos_test || []).includes('PNV'))), 'PNV: solo en el País Vasco');
+  ok(ev('pais_vasco').notas.every(n => !/también se presenta el PNV/.test(n)), 'País Vasco: ya no avisa de que el PNV no está incluido');
   ok(['pais_vasco', 'navarra'].every(r => ev(r).partidos.some(p => p.id === 'bildu')) && ['madrid', 'cataluna', 'galicia'].every(r => !ev(r).partidos.some(p => p.id === 'bildu')), 'EH Bildu: solo en el País Vasco y Navarra');
   ok(!ev('cantabria').partidos.some(p => p.id === 'salf') && ['madrid', 'canarias', 'ceuta'].every(r => ev(r).partidos.some(p => p.id === 'salf')), 'SALF: en todas las comunidades salvo Cantabria');
   ok(ev('pais_vasco').notas.some(n => /SALF solo presenta lista en Álava/.test(n)) && ev('castilla_mancha').notas.some(n => /Ciudad Real/.test(n)), 'SALF: aviso donde no presenta lista en toda la comunidad');

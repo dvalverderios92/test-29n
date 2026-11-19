@@ -170,8 +170,9 @@ SRC.update({
  "democrata_pod_campana": ["Demócrata: Podemos afronta una campaña clave apoyado en Irene Montero y su tándem con Rufián", "https://www.democrata.es/politica/podemos-afronta-una-campana-clave-apoyado-en-el-tiron-de-irene-montero-y-su-tandem-con-rufian/", "2026-11-13"],
  "bng_ue24": ["BNG: Programa de las elecciones europeas de 2024 (PDF)", "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf", "2024-05"],
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
+ "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
 })
-PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026")}
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi")}
 for k, (f, t) in PDFS.items():
     SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -298,6 +299,9 @@ PARTIES = [
  {"id": "salf", "nombre": "Se Acabó La Fiesta (SALF)", "ambito_si": NOT(Q("region", eq="cantabria")),
   "programa": {"titulo": "Contrato electoral simplificado", "fecha": "2026-11-10", "estado": "publicado", "nota": "No presenta lista en Cantabria, Bizkaia, Gipuzkoa, Ciudad Real, Girona ni Lleida."},
   "financiacion": {"cuantifica": "cifras_propias", "resumen": "Cifra en unos 81.700 M€ al año en 2030 sus rebajas de impuestos y gasto nuevo, y en 88.500 M€ los ahorros e ingresos para pagarlos: sobre todo, 57.000 M€ de «sobrecoste autonómico», 8.000 M€ de efectos dinámicos y la devolución del rescate bancario. Son cifras del propio partido; no hemos encontrado una estimación independiente.", "fuentes": ["pdf_salf"]}},
+ {"id": "pnv", "nombre": "PNV", "ambito_si": Q("region", eq="pais_vasco"),
+  "programa": {"titulo": "Defendemos Euskadi. Programa elecciones generales 2026", "fecha": "2026-11-09", "estado": "publicado", "nota": "Lista propia solo en el País Vasco (Álava, Bizkaia y Gipuzkoa)."},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos, y no da cifras de gasto. No dice de dónde saldría el dinero: pide más margen de inversión para las administraciones vascas, con reglas de gasto más flexibles y el uso de sus superávits, y propone reforzar las fuentes de financiación de las pensiones sin concretarlas.", "fuentes": ["pdf_pnv"]}},
  {"id": "pp", "nombre": "PP",
   "programa": {"titulo": "La Reconstrucción Nacional", "fecha": "2026-11-10", "estado": "publicado", "nota": "249 medidas."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.", "fuentes": ["democrata_pp", "rankia"]}},
@@ -721,6 +725,31 @@ M("salf-bajas", "salf", "Empleo", "Las bajas por enfermedad las pagaría la Segu
 M("salf-arraigo", "salf", "Prioridad nacional", "Sin prestaciones no contributivas, ayudas al alquiler ni vivienda pública hasta tener cinco años de residencia legal y cotización; tasa del 2 % a las remesas enviadas a países que no readmitan a sus nacionales.", None, "programa", [],
   [(R("arraigo_corto"), -1, "Con menos de cinco años de residencia legal no podrías cobrar ayudas no contributivas ni al alquiler, ni optar a vivienda pública."),
    (R("envia_remesas"), 0, "Pagarías un 2 % si envías dinero a un país que no readmita a sus nacionales.")], ["prioridad_legal"]),
+# ===== PNV (programa en castellano; solo País Vasco) =====
+M("pnv-alq", "pnv", "Vivienda", "Evitar que los contratos de temporada se usen para eludir las garantías del alquiler de vivienda habitual y regular los alquileres de temporada y turísticos para que no resten viviendas al alquiler residencial.", "1.1.03-04", "programa", [],
+  [(R("vivienda_turistica"), -1, "Tu vivienda turística quedaría sujeta a una regulación pensada para que no reste viviendas al alquiler residencial."),
+   (R("casero"), 0, "No podrías usar contratos de temporada para alquileres que en realidad son de vivienda habitual."),
+   (R("inquilino"), 1, "Más protección frente a contratos de temporada que eluden las garantías del alquiler habitual.")]),
+M("pnv-smi", "pnv", "Empleo", "Reclamar, en un nuevo estatus político para Euskadi, la competencia plena para fijar un salario mínimo vasco propio, adaptado al coste de vida y siempre por encima del estatal, definido mediante el diálogo social.", "1.3.01", "programa", [],
+  [(ALL(R("asalariado"), R("renta_baja")), 0, "Tu sueldo podría subir si Euskadi llega a fijar un salario mínimo propio; la cuantía no está fijada."),
+   (R("empleador"), 0, "Podría subir el coste de tu plantilla en salarios bajos si Euskadi fija un mínimo propio.")], ["smi_empleo"]),
+M("pnv-paro", "pnv", "Desempleo", "Ampliar la prestación por desempleo hasta un máximo de 36 meses, vinculada a procesos de mejora de la empleabilidad.", "1.3.10", "programa", [],
+  [(R("parado"), 1, "Podrías cobrar el paro durante más tiempo (hasta 36 meses), ligado a mejorar tu empleabilidad.")], ["gasto_sin_financiar"]),
+M("pnv-autonomos", "pnv", "Autónomos", "Acercar progresivamente la prestación por cese de actividad de los autónomos a la de desempleo, con requisitos más simples, y hacerla compatible durante un tiempo con un nuevo proyecto empresarial.", "2.2.04-05", "programa", [],
+  [(R("autonomo"), 1, "Tendrías una protección más parecida al paro si cesas tu actividad, y podrías cobrarla mientras empiezas otro negocio.")], ["gasto_sin_financiar"]),
+M("pnv-luz", "pnv", "Energía", "Reducir de forma permanente el Impuesto Especial sobre la Electricidad al 0,5 %, dentro de los límites de la normativa europea.", "2.3.06", "programa", [],
+  [(ALWAYS, 1, "Bajaría el impuesto sobre la electricidad de tu factura de la luz.")], ["rebaja_sin_financiar"]),
+M("pnv-iva", "pnv", "IVA", "Reforma del IVA de los bienes y servicios esenciales: estudiar tipos cero o superreducidos para algunos alimentos básicos (pescado, carne…) y productos para personas celíacas, y revisar la tributación de la electricidad, el gas, los combustibles y el transporte público.", "2.7.01", "programa", [],
+  [(R("sin_iva"), 0, IGIC), (ALWAYS, 0, "Podría abaratar tu compra y tus suministros si se aplica: el programa propone estudiarlo.")], ["iva_poco_focalizado", "rebaja_sin_financiar"]),
+M("pnv-pens", "pnv", "Pensiones", "Revalorizar las pensiones cada año con el IPC, mejorar progresivamente las mínimas y no contributivas, y eliminar las penalizaciones por jubilación anticipada con más de 40 años cotizados, con medidas también para quienes ya están jubilados.", "4.1.01-03", "programa", [],
+  [(ALL(R("pensionista"), R("pension_no_contributiva")), 1, "Tu pensión no contributiva mejoraría progresivamente (importe no detallado)."),
+   (ALL(R("pensionista"), R("renta_smi")), 1, "Tu pensión mínima mejoraría progresivamente (importe no detallado)."),
+   (R("pensionista"), 1, "Tu pensión se seguiría revalorizando cada año con el IPC (la ley actual ya la liga al IPC)."),
+   (ALL(R("trabaja"), R("edad_41_64")), 1, "Con más de 40 años cotizados podrías jubilarte anticipadamente sin penalización.")], ["gasto_sin_financiar"]),
+M("pnv-cuidados", "pnv", "Dependencia", "Prestación económica para las personas cuidadoras no profesionales que hayan dejado de trabajar o reducido su jornada para cuidar a familiares dependientes, con el salario mínimo como referencia según la intensidad de los cuidados.", "4.3.01", "programa", [],
+  [(R("cuida_dependiente"), 1, "Si dejaste de trabajar o redujiste jornada para cuidar, podrías cobrar una prestación con el salario mínimo como referencia.")], ["gasto_sin_financiar"]),
+M("pnv-cuidados-pens", "pnv", "Pensiones", "Reconocer en la Seguridad Social los periodos de cuidados familiares para acceder a la jubilación y calcular la pensión, y coeficientes reductores de la edad de jubilación para las personas cuidadoras no profesionales con convenio especial.", "4.1.05-06", "programa", [],
+  [(R("cuida_dependiente"), 1, "El tiempo que dedicas a cuidar contaría para tu pensión y, con convenio especial, podrías jubilarte antes.")], ["gasto_sin_financiar"]),
 ]
 
 
@@ -751,6 +780,8 @@ ACOTADA = {
  ("cc-03","gasto_sin_financiar"),("cc-agua","gasto_sin_financiar"),
  ("erc-69b","rebaja_sin_financiar"),("erc-59","rebaja_sin_financiar"),("erc-112","gasto_sin_financiar"),
  ("bng-paro","gasto_sin_financiar"),("bng-ap9","gasto_sin_financiar"),
+ ("pnv-paro","gasto_sin_financiar"),("pnv-autonomos","gasto_sin_financiar"),("pnv-iva","rebaja_sin_financiar"),
+ ("pnv-cuidados","gasto_sin_financiar"),("pnv-cuidados-pens","gasto_sin_financiar"),
 }
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
@@ -793,7 +824,7 @@ NOTAS = [
  {"si": R("sin_iva"), "texto": "IVA: en tu territorio no se aplica (Canarias: IGIC; Ceuta y Melilla: IPSI). Las rebajas de IVA aparecen como inciertas para ti, aunque su coste en la recaudación estatal sí cuenta en los riesgos."},
  {"si": R("cuida_dependiente"), "texto": "Dependencia: comprueba si cada medida cubre el cuidado familiar o solo el gasto en cuidados profesionales."},
  {"si": Q("region", eq="cataluna"), "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones). SALF no presenta lista en Girona ni Lleida."},
- {"si": Q("region", eq="pais_vasco"), "texto": "Partidos no incluidos: en el País Vasco también se presenta el PNV (programa publicado en noviembre). Este test aún no recoge sus medidas; consulta su programa. SALF solo presenta lista en Álava."},
+ {"si": Q("region", eq="pais_vasco"), "texto": "SALF solo presenta lista en Álava."},
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presentan otras candidaturas territoriales, como Geroa Bai. Este test aún no recoge sus medidas."},
  {"si": Q("region", eq="castilla_mancha"), "texto": "SALF no presenta lista en Ciudad Real."},
  {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas (las de Esquerra, del programa de ERC para Cataluña); las propias de Compromís aún no están incluidas."},
@@ -988,6 +1019,27 @@ SOC = [
  ("bng", "rural", None, 48, "Gestión descentralizada y más fondos para el desarrollo territorial y la PAC frente a los recortes previstos en el marco financiero europeo 2028-2034."),
  ("bng", "rural", None, 85, "Programa de rehabilitación de viviendas vacías en el rural, con mejores servicios públicos, transporte y conectividad, para dar a la juventud empleo, vivienda y oportunidades de emprender."),
  ("bng", "rural", None, 27, "Financiar medidas de igualdad en el medio rural, en particular en los programas de empleabilidad y emprendimiento."),
+ # PNV (programa en castellano)
+ ("pnv", "igualdad", "3.3.07", 26, "Una regulación que reconozca y defina la violencia vicaria y garantice su prevención y tratamiento en los sistemas de protección y atención."),
+ ("pnv", "igualdad", "3.3.08-09", 26, "Formación obligatoria en perspectiva de género para jueces y fiscales, con calendario y evaluaciones periódicas, y nuevos juzgados especializados en violencia sobre la mujer en Euskadi, sobre todo en Vitoria-Gasteiz y Barakaldo."),
+ ("pnv", "igualdad", "3.3.10-11", 26, "Equiparar el acceso a las ayudas estatales para víctimas de violencia de género y de violencias sexuales, y hacer compatibles las indemnizaciones judiciales por violencia machista con las pensiones no contributivas."),
+ ("pnv", "lgtbi", "3.4.01", 27, "Reforzar la prevención, la investigación y la persecución de los delitos de odio contra las personas LGTBIQ+."),
+ ("pnv", "lgtbi", "3.4.05", 27, "Tipificar como delito específico las prácticas de conversión dirigidas a modificar la orientación sexual, la identidad sexual o la expresión de género."),
+ ("pnv", "lgtbi", "3.4.06", 27, "Desarrollar el artículo 50 de la Ley 4/2023 para que las personas extranjeras trans puedan adecuar a su identidad de género la documentación expedida en España."),
+ ("pnv", "migracion", "3.2.01-03", 24, "Más competencias para Euskadi en migración y extranjería, que se la reconozca como frontera norte y que la Ertzaintza asuma competencias de extranjería."),
+ ("pnv", "migracion", "3.2.05", 25, "Un modelo de acogida descentralizado para las personas solicitantes de protección internacional, rechazando grandes centros como el previsto en Arana (Vitoria-Gasteiz)."),
+ ("pnv", "migracion", "3.2.08-09", 25, "Contratación en origen ligada a las necesidades del mercado laboral vasco y avanzar en los procesos de regularización previstos en la legislación para quienes cumplan los requisitos."),
+ ("pnv", "familia", "4.1.04-05", 31, "Reducir la brecha de género en las pensiones compensando las interrupciones, reducciones de jornada y lagunas de cotización por cuidar a hijos y familiares dependientes."),
+ ("pnv", "familia", "4.3.01", 33, "Prestación económica para las personas cuidadoras no profesionales que dejen de trabajar o reduzcan su jornada para cuidar a familiares dependientes, con el salario mínimo como referencia."),
+ ("pnv", "familia", "4.4.04-05", 34, "Evaluar cada año la prestación por cuidado de menores con cáncer u otras enfermedades graves (CUME) y estudiar extenderla al personal funcionario."),
+ ("pnv", "educacion", "1.4.01", 10, "Preservar las competencias educativas de Euskadi, evitando interferencias estatales."),
+ ("pnv", "educacion", "1.4.02-03", 10, "Educación inclusiva, plurilingüe e intercultural, con más coeducación y educación afectivo-sexual en igualdad."),
+ ("pnv", "educacion", "1.4.04", 10, "Defender la capacidad normativa del Sistema Vasco de Becas."),
+ ("pnv", "vida", "3.3.04", 26, "Proteger el ejercicio efectivo de los derechos sexuales y reproductivos de las mujeres, con acceso libre y seguro a los servicios sanitarios."),
+ ("pnv", "vida", "3.3.05", 26, "Reformar la Ley de Seguridad Ciudadana para fijar perímetros de protección de al menos 150 metros alrededor de los centros donde se practica la interrupción voluntaria del embarazo."),
+ ("pnv", "rural", "2.5.01", 17, "Que la Política Agraria Común 2028-2034 reconozca un Plan Estratégico propio para Euskadi, gestionado por las instituciones vascas y con financiación suficiente y diferenciada."),
+ ("pnv", "rural", "2.5.03", 17, "Relevo generacional en la agricultura y la ganadería, con cotizaciones reducidas para los jóvenes que se incorporen, ayudas a la transmisión de explotaciones y al acceso a la tierra."),
+ ("pnv", "rural", "2.5.12", 18, "Coeficientes reductores de la edad de jubilación para los autónomos de la pesca y la comercialización, y medidas específicas para las mujeres del sector."),
 ]
 # Cuando el programa del 29N no dice nada sobre un tema: anuncios de campaña y, si no hay, posiciones previas.
 # (partido, tema, origen, fuentes, referencia, resumen fiel)
@@ -1061,6 +1113,8 @@ PROG_PAG = {
  "bildu-pens": 8, "bildu-precios": 8, "bildu-iprem": 13, "bildu-fiscal": 14,
  "salf-viv": 5, "salf-okupa": 5, "salf-ibi": 7, "salf-irpf": 12, "salf-autonomos": 12, "salf-sociedades": 13,
  "salf-patrimonio": 13, "salf-luz": 13, "salf-pens": 20, "salf-pensmin": 20, "salf-empleo": 30, "salf-bajas": 31, "salf-arraigo": 19,
+ "pnv-alq": 8, "pnv-smi": 9, "pnv-paro": 9, "pnv-autonomos": 15, "pnv-luz": 16, "pnv-iva": 21, "pnv-pens": 31,
+ "pnv-cuidados": 33, "pnv-cuidados-pens": 31,
 }
 for k in DETALLE: assert any(m["id"] == k for m in MEAS), k
 for m in MEAS:
@@ -1079,8 +1133,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.12.0",
-  "fecha_corte": "2026-11-18",
+  "version": "2.13.0",
+  "fecha_corte": "2026-11-19",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},
