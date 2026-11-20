@@ -173,7 +173,7 @@ SRC.update({
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
  "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
 })
-PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi")}
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)")}
 for k, (f, t) in PDFS.items():
     SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -289,6 +289,9 @@ PARTIES = [
  {"id": "cc", "nombre": "Coalición Canaria", "ambito_si": R("canarias"),
   "programa": {"titulo": "Defiende Canarias", "fecha": "2026-11-09", "estado": "publicado", "nota": "10 causas y 100 acciones. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total. Buena parte de sus medidas pide financiación al Estado para Canarias.", "fuentes": ["pe_cc", "eldiario_cc"]}},
+ {"id": "comp", "nombre": "Compromís", "ambito_si": Q("region", eq="valencia"),
+  "programa": {"titulo": "Programa electoral 29N Compromís-Front Valencià", "fecha": None, "estado": "publicado", "nota": "Programa común de la candidatura Compromís-Front Valencià, en valenciano; los resúmenes son traducciones. Solo se presenta en la Comunitat Valenciana, dentro de esa candidatura."},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: el 1 % del PIB al año en vivienda, avanzar hacia el 7 % del PIB en educación, una prestación por crianza de 200 € al mes por hijo y el 0,7 % para cooperación. Dice financiarlo con un impuesto de grandes fortunas ampliado, un impuesto sobre el beneficio de las empresas oligopolísticas, la misma escala progresiva para las rentas financieras que para las del trabajo, la lucha contra el fraude y el fin de los privilegios fiscales de la aviación (6.000 M€ al año, según el programa, para el ferrocarril).", "fuentes": ["pdf_comp"]}},
  {"id": "erc", "nombre": "ERC", "ambito_si": ANY(R("cataluna"), R("baleares"), Q("region", eq="valencia")),
   "programa": {"titulo": "Pel país. Per la gent. Pel futur.", "fecha": "2026-11-05", "estado": "publicado", "nota": "Programa en catalán, pensado para Cataluña. Lista propia solo en Cataluña, donde lleva candidatos independientes de Podemos; en Baleares concurre dentro de Ara Més-Front Ampli."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: al menos el 1,5 % del PIB en vivienda, el 6 % del PIB en educación y una prestación por crianza desde 200 € por familia. Dice financiarlo con impuestos a grandes fortunas, banca, energéticas y rentas del capital.", "fuentes": ["pdf_erc", "democrata_erc"]}},
@@ -755,6 +758,48 @@ M("pnv-cuidados", "pnv", "Dependencia", "Prestación económica para las persona
   [(R("cuida_dependiente"), 1, "Si dejaste de trabajar o redujiste jornada para cuidar, podrías cobrar una prestación con el salario mínimo como referencia.")], ["gasto_sin_financiar"]),
 M("pnv-cuidados-pens", "pnv", "Pensiones", "Reconocer en la Seguridad Social los periodos de cuidados familiares para acceder a la jubilación y calcular la pensión, y coeficientes reductores de la edad de jubilación para las personas cuidadoras no profesionales con convenio especial.", "4.1.05-06", "programa", [],
   [(R("cuida_dependiente"), 1, "El tiempo que dedicas a cuidar contaría para tu pensión y, con convenio especial, podrías jubilarte antes.")], ["gasto_sin_financiar"]),
+# ===== COMPROMÍS (programa común de Compromís-Front Valencià, en valenciano; resúmenes traducidos) =====
+M("comp-alq", "comp", "Vivienda", "Alquiler indefinido como régimen ordinario, con derecho del propietario a recuperar la vivienda para uso propio o familiar, y competencia de los ayuntamientos para declarar zonas tensionadas y controlar los precios del alquiler.", None, "programa", [],
+  [(R("casero"), -1, "Tus inquilinos podrían quedarse indefinidamente (salvo que necesites la vivienda para ti o tu familia) y tu ayuntamiento podría limitar la renta."),
+   (R("inquilino"), 1, "Tu contrato pasaría a ser indefinido y tu ayuntamiento podría declarar tu zona tensionada para controlar el precio.")], ["tope_alquiler_oferta"]),
+M("comp-acum", "comp", "Vivienda", "Prohibir que sociedades especulativas y fondos compren viviendas; ley de expropiación de grandes fondos y sociedades tenedoras (empezando por los de más de 1.000 viviendas y bajando hasta 50); limitar la compra de viviendas para acumularlas, también a personas físicas, con criterios de concentración y protegiendo la vivienda habitual.", None, "programa", [],
+  [(R("gran_tenedor"), -1, "Con 10 viviendas o más podrías tener limitada la compra de otras; si están en una sociedad tenedora con 50 o más, podrían expropiarse."),
+   (R("varias_viviendas"), 0, "La compra de más viviendas podría limitarse según criterios de concentración que el programa no fija."),
+   (R("quiere_comprar"), 0, "Podrías comprar para vivir, con menos competencia de fondos e inversores; el efecto en los precios es incierto.")], ["expropiacion_plazos", "tope_alquiler_oferta"]),
+M("comp-viv", "comp", "Vivienda", "Destinar el 1 % del PIB al año a comprar o promover vivienda protegida de titularidad pública o con cooperativas y entidades sin ánimo de lucro.", None, "programa", [],
+  [(R("busca_vivienda_asequible"), 1, "Más vivienda pública o protegida a la que optar.")], ["gasto_sin_financiar"]),
+M("comp-itp", "comp", "Vivienda", "Exención del Impuesto de Transmisiones Patrimoniales al comprar la primera vivienda de menos de 350.000 €, y un 200 % más de ITP a partir de la tercera; más IBI y un gravamen del 10 % del valor catastral por cada vivienda a partir de la tercera, salvo las de uso habitual, cooperativas o programas públicos.", None, "programa", [],
+  [(R("varias_viviendas"), -1, "Con tres viviendas o más pagarías un gravamen del 10 % del valor catastral por cada una a partir de la tercera, más IBI y, si compras otra, más ITP."),
+   (R("tiene_otras_viviendas"), 0, "Según cómo se cuente tu vivienda habitual, podrías pagar el nuevo gravamen y más IBI por la tercera."),
+   (R("quiere_comprar"), 1, "Si compras tu primera vivienda por menos de 350.000 €, no pagarías ITP (se paga en la de segunda mano; la nueva lleva IVA).")], ["ayuda_demanda_precio", "rebaja_sin_financiar"]),
+M("comp-jornada", "comp", "Empleo", "Semana laboral de cuatro días (32 horas) sin bajar el sueldo.", None, "programa", [],
+  [(R("asalariado"), 1, "Trabajarías menos horas por el mismo sueldo."),
+   (R("empleador"), -1, "Te subiría el coste por hora de tu plantilla.")], ["jornada_ley"]),
+M("comp-smi", "comp", "Empleo", "Garantizar por ley que el salario mínimo llegue al 60 % del salario medio, sin que la subida pueda absorber los complementos.", None, "programa", [],
+  [(ALL(R("asalariado"), R("renta_baja")), 1, "Tu sueldo subiría si estás cerca del mínimo."),
+   (R("empleador"), -1, "Más coste si tienes plantilla con salarios bajos.")], ["smi_empleo"]),
+M("comp-despido", "comp", "Empleo", "Recuperar la indemnización de 45 días por año trabajado y los salarios de tramitación en el despido improcedente.", None, "programa", [],
+  [(R("asalariado"), 1, "Más protección económica si te despiden de forma improcedente."),
+   (R("empleador"), -1, "Despedir te costaría más."),
+   (R("parado"), 0, "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida.")]),
+M("comp-pens", "comp", "Pensiones", "Volver a la jubilación a los 65 años, eliminar la penalización por jubilación anticipada voluntaria con 40 años trabajados, garantizar en la Constitución la revalorización con el coste de la vida y subir las pensiones no contributivas hasta 800 €.", None, "programa", [],
+  [(ALL(R("pensionista"), R("pension_no_contributiva")), 1, "Tu pensión no contributiva subiría hasta 800 €."),
+   (R("pensionista"), 1, "Tu pensión se revalorizaría con el coste de la vida, con rango constitucional (la ley actual ya la liga al IPC)."),
+   (ALL(R("trabaja"), ANY(R("edad_41_64"), Q("edad", eq="36-40"))), 1, "Podrías jubilarte a los 65 y, con 40 años trabajados, antes sin penalización.")], ["gasto_sin_financiar"]),
+M("comp-tope", "comp", "Cotizaciones", "Eliminar el tope de la base máxima de cotización, para que los sueldos más altos coticen íntegramente, y suprimir las desgravaciones de los planes de pensiones privados, los PIAS y los SIALP.", None, "programa", [],
+  [(ALL(R("asalariado"), R("renta_alta")), -1, "Cotizarías por todo tu salario, también por encima de la base máxima actual (unos 60.000 €), y perderías la desgravación si tienes un plan de pensiones."),
+   (ALL(R("empleador"), Q("ing", gte=4)), -1, "Subiría el coste de tus empleados con sueldos altos.")]),
+M("comp-irpf", "comp", "IRPF", "IRPF: actualizar la tarifa con la inflación para las rentas de menos de 30.000 €; rentas financieras con la misma escala progresiva que las del trabajo; la reducción por alquilar vivienda baja del 50 % a un máximo del 20 % (solo con rentas de hasta el 85 % del alquiler medio de la comunidad) y la amortización deducible de inmuebles, del 3 % al 1 %.", None, "programa", [],
+  [(R("ahorro_alto"), -1, "Tus rentas del ahorro tributarían con la escala del trabajo, con tipos más altos que hoy."),
+   (R("casero"), -1, "Pagarías más IRPF por tus alquileres: menos reducción (y ninguna si cobras la renta media de tu comunidad o más) y menos amortización deducible."),
+   (Q("ahorro", eq=2), 0, "Tus rentas del ahorro tributarían con la escala del trabajo: pagarías más o menos según tus ingresos totales."),
+   (ALL(R("paga_irpf"), R("renta_baja")), 1, "Evita pagar más IRPF solo porque tu sueldo o pensión suba con los precios."),
+   (ALL(R("paga_irpf"), Q("ing", eq=3)), 0, "La actualización con la inflación solo te llegaría si tus ingresos quedan por debajo de 30.000 €.")], ["rebaja_sin_financiar"]),
+M("comp-crianza", "comp", "Familia", "Prestación universal por crianza de 200 € al mes por hijo o hija, mayor en familias monoparentales y con hijos con una discapacidad de más del 60 %.", None, "programa", [],
+  [(R("con_hijos"), 1, "Cobrarías 200 € al mes por cada hijo."),
+   (R("quiere_hijos"), 1, "La cobrarías al tener hijos.")], ["gasto_sin_financiar"]),
+M("comp-luz", "comp", "Energía", "Sacar de la factura de la luz el impuesto eléctrico y los cargos de política energética y pagarlos con los Presupuestos Generales del Estado.", None, "programa", [],
+  [(ALWAYS, 1, "Bajaría tu factura de la luz: esos costes se pagarían con los Presupuestos.")], ["rebaja_sin_financiar"]),
 ]
 
 
@@ -787,6 +832,7 @@ ACOTADA = {
  ("bng-paro","gasto_sin_financiar"),("bng-ap9","gasto_sin_financiar"),
  ("pnv-paro","gasto_sin_financiar"),("pnv-autonomos","gasto_sin_financiar"),("pnv-iva","rebaja_sin_financiar"),
  ("pnv-cuidados","gasto_sin_financiar"),("pnv-cuidados-pens","gasto_sin_financiar"),
+ ("comp-itp","rebaja_sin_financiar"),
 }
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
@@ -799,11 +845,11 @@ CANDIDATURAS = [
   "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
   "fuentes": ["manifiesto_upc", "upc", "democrata_listas"]},
- {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["fa", "pod", "erc"], "alias": {"erc": "Esquerra Republicana del País Valencià"},
+ {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["comp", "fa", "pod", "erc"], "alias": {"erc": "Esquerra Republicana del País Valencià"},
   "nombre": "Compromís-Front Valencià",
   "integrantes": "Compromís, Esquerra Unida del País Valencià, Podem y Esquerra Republicana del País Valencià (nombre inscrito: COMPROMÍS-EUPV-PODEM-ERPV)",
-  "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Compromís aún no están incluidas.",
-  "fuentes": ["boe_candidaturas", "democrata_listas", "diari_fa", "democrata_erc"]},
+  "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones), y para Frente Amplio y Podemos, sus medidas estatales. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
+  "fuentes": ["boe_candidaturas", "pdf_comp", "democrata_listas", "diari_fa", "democrata_erc"]},
  {"tipo": "fusion", "id": "ara_mes", "si": Q("region", eq="baleares"), "partidos": ["fa", "erc"], "alias": {"erc": "Esquerra Republicana de les Illes Balears"},
   "nombre": "Ara Més-Front Ampli",
   "integrantes": "Ara Més (Més per Mallorca, Més per Menorca y Ara Eivissa), Esquerra Unida y Movimiento Sumar, que forman la coalición inscrita (ARAMÉS-EU-MS). Por acuerdo con Ara Més, la lista la encabeza Carme Gomila, de Esquerra Republicana de les Illes Balears, y Podemos lleva una candidata independiente",
@@ -832,7 +878,7 @@ NOTAS = [
  {"si": Q("region", eq="pais_vasco"), "texto": "SALF solo presenta lista en Álava."},
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presentan otras candidaturas territoriales, como Geroa Bai. Este test aún no recoge sus medidas."},
  {"si": Q("region", eq="castilla_mancha"), "texto": "SALF no presenta lista en Ciudad Real."},
- {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas (las de Esquerra, del programa de ERC para Cataluña); las propias de Compromís aún no están incluidas."},
+ {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Compromís, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas: las de Compromís, del programa común de la candidatura (en valenciano; los resúmenes son traducciones), y las de Esquerra, del programa de ERC para Cataluña."},
  {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de las que recoge el test, se presentan otras candidaturas más pequeñas. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
 # ---------------------------------------------------------------------------
@@ -1045,6 +1091,33 @@ SOC = [
  ("pnv", "rural", "2.5.01", 17, "Que la Política Agraria Común 2028-2034 reconozca un Plan Estratégico propio para Euskadi, gestionado por las instituciones vascas y con financiación suficiente y diferenciada."),
  ("pnv", "rural", "2.5.03", 17, "Relevo generacional en la agricultura y la ganadería, con cotizaciones reducidas para los jóvenes que se incorporen, ayudas a la transmisión de explotaciones y al acceso a la tierra."),
  ("pnv", "rural", "2.5.12", 18, "Coeficientes reductores de la edad de jubilación para los autónomos de la pesca y la comercialización, y medidas específicas para las mujeres del sector."),
+ # Compromís (programa común de Compromís-Front Valencià, en valenciano; resúmenes traducidos)
+ ("comp", "igualdad", None, 54, "Revisar los protocolos de valoración del riesgo y protección de las víctimas, con auditorías externas de los casos en que hayan fallado, y reforzar las unidades policiales especializadas, los juzgados de violencia sobre la mujer, los servicios forenses y la asistencia jurídica gratuita."),
+ ("comp", "igualdad", None, 54, "Reforzar la protección de los hijos e hijas frente a la violencia vicaria, con detección precoz y revisión de la custodia y las visitas cuando haya riesgo."),
+ ("comp", "igualdad", None, 53, "Reforzar la prohibición de los contratos de gestación subrogada y prohibir y sancionar la publicidad y la intermediación de las agencias que la ofrecen."),
+ ("comp", "lgtbi", None, 55, "Tipificar como delito las terapias de conversión, con protección y reparación especialmente para las víctimas menores de edad."),
+ ("comp", "lgtbi", None, 55, "Blindar los avances en derechos LGTBIQ+, como la ley trans y LGTBI y el matrimonio igualitario, y desarrollar el Pacto de Estado contra los Delitos de Odio."),
+ ("comp", "lgtbi", None, 55, "Formación obligatoria en diversidad y derechos LGTBIQ+ para todo el personal de la administración pública, incluidos la justicia y las fuerzas de seguridad."),
+ ("comp", "racismo", None, 51, "Definir por ley y prohibir las identificaciones policiales basadas en el perfil étnico, con formularios obligatorios en cada identificación y estadísticas públicas."),
+ ("comp", "racismo", None, 51, "Formación obligatoria y evaluable en antirracismo y antigitanismo en el sistema educativo, y formación obligatoria para el personal de las administraciones públicas."),
+ ("comp", "migracion", None, 64, "Regularizar y dar derechos a quienes viven aquí, con vías de regularización y reformas que faciliten la documentación y el permiso de trabajo; acogida digna, protección de menores y respeto del derecho de asilo."),
+ ("comp", "migracion", None, 64, "Eliminar los CIE y prohibir las devoluciones ilegales encubiertas como retornos voluntarios."),
+ ("comp", "migracion", None, 51, "Ampliar el derecho de las personas migrantes a votar."),
+ ("comp", "discapacidad", None, 46, "Prestación por crianza más alta para los hijos e hijas con una discapacidad («diversidad funcional») superior al 60 %."),
+ ("comp", "discapacidad", None, 10, "Reforzar la atención a la diversidad, la orientación educativa y los recursos para el alumnado con necesidades específicas de apoyo."),
+ ("comp", "familia", None, 46, "Prestación universal por crianza de 200 € al mes por hijo o hija, mayor en las familias monoparentales."),
+ ("comp", "familia", None, 47, "Ley estatal de familias monoparentales que equipare sus ayudas y bonificaciones a las de las familias numerosas, y permisos que sumen lo mismo que los de dos progenitores."),
+ ("comp", "familia", None, 47, "Remunerar progresivamente las ocho semanas de permiso para el cuidado de hijos e hijas."),
+ ("comp", "educacion", None, 10, "Avanzar hacia una inversión educativa del 7 % del PIB, ampliar la red pública de 0 a 3 años hacia su gratuidad y hacer gratuito y universal el comedor escolar."),
+ ("comp", "educacion", None, 10, "Cambiar la normativa de conciertos para que la red concertada sea realmente subsidiaria de la pública, y prohibir ceder suelo público para construir centros privados."),
+ ("comp", "vida", None, 52, "Garantizar la interrupción voluntaria del embarazo gratuita, segura y accesible en la sanidad pública, en los términos legales, sin desplazamientos injustificados ni obstáculos administrativos."),
+ ("comp", "vida", None, 53, "Regular y supervisar la objeción de conciencia individual para que no se convierta en una objeción institucional encubierta: ningún hospital público dejaría de prestar el servicio por falta de planificación."),
+ ("comp", "religion", None, 44, "Eliminar los privilegios de los acuerdos del Estado con las confesiones religiosas (Santa Sede, 1979; evangélicos y judíos, 1992; musulmanes) y poner fin a la financiación de la Iglesia católica con los Presupuestos y a sus beneficios fiscales especiales."),
+ ("comp", "religion", None, 45, "Escuela pública laica, con la enseñanza confesional fuera del currículo y del ámbito escolar, y reforma del artículo 16.3 de la Constitución para quitar la mención a la Iglesia católica."),
+ ("comp", "religion", None, 45, "Derogar el delito de ofensa a los sentimientos religiosos (artículo 525 del Código Penal)."),
+ ("comp", "rural", None, 32, "Un fondo estatal que remunere a los municipios rurales por los servicios ambientales que prestan (agua, bosques, biodiversidad, absorción de carbono), sobre todo en espacios protegidos."),
+ ("comp", "rural", None, 24, "Recursos y acuerdos para facilitar el acceso al suelo agrario y recuperar explotaciones abandonadas, con relevo generacional y acceso de las mujeres a la titularidad, sin que heredar sea condición para empezar."),
+ ("comp", "rural", None, 60, "Mejorar la financiación local teniendo en cuenta las necesidades de los municipios pequeños, rurales y con población dispersa."),
 ]
 # Cuando el programa del 29N no dice nada sobre un tema: anuncios de campaña y, si no hay, posiciones previas.
 # (partido, tema, origen, fuentes, referencia, resumen fiel)
@@ -1120,6 +1193,8 @@ PROG_PAG = {
  "salf-patrimonio": 13, "salf-luz": 13, "salf-pens": 20, "salf-pensmin": 20, "salf-empleo": 30, "salf-bajas": 31, "salf-arraigo": 19,
  "pnv-alq": 8, "pnv-smi": 9, "pnv-paro": 9, "pnv-autonomos": 15, "pnv-luz": 16, "pnv-iva": 21, "pnv-pens": 31,
  "pnv-cuidados": 33, "pnv-cuidados-pens": 31,
+ "comp-alq": 4, "comp-acum": 4, "comp-viv": 4, "comp-itp": 5, "comp-jornada": 6, "comp-smi": 6, "comp-despido": 6,
+ "comp-pens": 8, "comp-tope": 8, "comp-irpf": 18, "comp-crianza": 46, "comp-luz": 29,
 }
 for k in DETALLE: assert any(m["id"] == k for m in MEAS), k
 for m in MEAS:
@@ -1138,8 +1213,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.14.0",
-  "fecha_corte": "2026-11-19",
+  "version": "2.15.0",
+  "fecha_corte": "2026-11-20",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},

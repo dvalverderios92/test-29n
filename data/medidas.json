@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.14.0",
-  "fecha_corte": "2026-11-19",
+  "version": "2.15.0",
+  "fecha_corte": "2026-11-20",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1205,6 +1205,27 @@
    }
   },
   {
+   "id": "comp",
+   "nombre": "Compromís",
+   "ambito_si": {
+    "q": "region",
+    "eq": "valencia"
+   },
+   "programa": {
+    "titulo": "Programa electoral 29N Compromís-Front Valencià",
+    "fecha": null,
+    "estado": "publicado",
+    "nota": "Programa común de la candidatura Compromís-Front Valencià, en valenciano; los resúmenes son traducciones. Solo se presenta en la Comunitat Valenciana, dentro de esa candidatura."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras de gasto: el 1 % del PIB al año en vivienda, avanzar hacia el 7 % del PIB en educación, una prestación por crianza de 200 € al mes por hijo y el 0,7 % para cooperación. Dice financiarlo con un impuesto de grandes fortunas ampliado, un impuesto sobre el beneficio de las empresas oligopolísticas, la misma escala progresiva para las rentas financieras que para las del trabajo, la lucha contra el fraude y el fin de los privilegios fiscales de la aviación (6.000 M€ al año, según el programa, para el ferrocarril).",
+    "fuentes": [
+     "pdf_comp"
+    ]
+   }
+  },
+  {
    "id": "erc",
    "nombre": "ERC",
    "ambito_si": {
@@ -1888,7 +1909,7 @@
     "q": "region",
     "eq": "valencia"
    },
-   "texto": "Candidatura conjunta: en la Comunitat Valenciana, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas (las de Esquerra, del programa de ERC para Cataluña); las propias de Compromís aún no están incluidas."
+   "texto": "Candidatura conjunta: en la Comunitat Valenciana, Compromís, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas: las de Compromís, del programa común de la candidatura (en valenciano; los resúmenes son traducciones), y las de Esquerra, del programa de ERC para Cataluña."
   },
   {
    "si": {
@@ -1926,6 +1947,7 @@
     "eq": "valencia"
    },
    "partidos": [
+    "comp",
     "fa",
     "pod",
     "erc"
@@ -1935,9 +1957,10 @@
    },
    "nombre": "Compromís-Front Valencià",
    "integrantes": "Compromís, Esquerra Unida del País Valencià, Podem y Esquerra Republicana del País Valencià (nombre inscrito: COMPROMÍS-EUPV-PODEM-ERPV)",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Compromís aún no están incluidas.",
+   "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones), y para Frente Amplio y Podemos, sus medidas estatales. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
    "fuentes": [
     "boe_candidaturas",
+    "pdf_comp",
     "democrata_listas",
     "diari_fa",
     "democrata_erc"
@@ -7757,6 +7780,526 @@
    ],
    "pagina": 31,
    "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf#page=31"
+  },
+  {
+   "id": "comp-alq",
+   "partido": "comp",
+   "tema": "Vivienda",
+   "texto": "Alquiler indefinido como régimen ordinario, con derecho del propietario a recuperar la vivienda para uso propio o familiar, y competencia de los ayuntamientos para declarar zonas tensionadas y controlar los precios del alquiler.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Tus inquilinos podrían quedarse indefinidamente (salvo que necesites la vivienda para ti o tu familia) y tu ayuntamiento podría limitar la renta."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu contrato pasaría a ser indefinido y tu ayuntamiento podría declarar tu zona tensionada para controlar el precio."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
+  },
+  {
+   "id": "comp-acum",
+   "partido": "comp",
+   "tema": "Vivienda",
+   "texto": "Prohibir que sociedades especulativas y fondos compren viviendas; ley de expropiación de grandes fondos y sociedades tenedoras (empezando por los de más de 1.000 viviendas y bajando hasta 50); limitar la compra de viviendas para acumularlas, también a personas físicas, con criterios de concentración y protegiendo la vivienda habitual.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "expropiacion_plazos",
+     "escala": "amplia"
+    },
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "gran_tenedor"
+     },
+     "valor": -1,
+     "texto": "Con 10 viviendas o más podrías tener limitada la compra de otras; si están en una sociedad tenedora con 50 o más, podrían expropiarse."
+    },
+    {
+     "si": {
+      "ref": "varias_viviendas"
+     },
+     "valor": 0,
+     "texto": "La compra de más viviendas podría limitarse según criterios de concentración que el programa no fija."
+    },
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 0,
+     "texto": "Podrías comprar para vivir, con menos competencia de fondos e inversores; el efecto en los precios es incierto."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
+  },
+  {
+   "id": "comp-viv",
+   "partido": "comp",
+   "tema": "Vivienda",
+   "texto": "Destinar el 1 % del PIB al año a comprar o promover vivienda protegida de titularidad pública o con cooperativas y entidades sin ánimo de lucro.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "busca_vivienda_asequible"
+     },
+     "valor": 1,
+     "texto": "Más vivienda pública o protegida a la que optar."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
+  },
+  {
+   "id": "comp-itp",
+   "partido": "comp",
+   "tema": "Vivienda",
+   "texto": "Exención del Impuesto de Transmisiones Patrimoniales al comprar la primera vivienda de menos de 350.000 €, y un 200 % más de ITP a partir de la tercera; más IBI y un gravamen del 10 % del valor catastral por cada vivienda a partir de la tercera, salvo las de uso habitual, cooperativas o programas públicos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "varias_viviendas"
+     },
+     "valor": -1,
+     "texto": "Con tres viviendas o más pagarías un gravamen del 10 % del valor catastral por cada una a partir de la tercera, más IBI y, si compras otra, más ITP."
+    },
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": 0,
+     "texto": "Según cómo se cuente tu vivienda habitual, podrías pagar el nuevo gravamen y más IBI por la tercera."
+    },
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 1,
+     "texto": "Si compras tu primera vivienda por menos de 350.000 €, no pagarías ITP (se paga en la de segunda mano; la nueva lleva IVA)."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=5"
+  },
+  {
+   "id": "comp-jornada",
+   "partido": "comp",
+   "tema": "Empleo",
+   "texto": "Semana laboral de cuatro días (32 horas) sin bajar el sueldo.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "jornada_ley",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Trabajarías menos horas por el mismo sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Te subiría el coste por hora de tu plantilla."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
+  },
+  {
+   "id": "comp-smi",
+   "partido": "comp",
+   "tema": "Empleo",
+   "texto": "Garantizar por ley que el salario mínimo llegue al 60 % del salario medio, sin que la subida pueda absorber los complementos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu sueldo subiría si estás cerca del mínimo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Más coste si tienes plantilla con salarios bajos."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
+  },
+  {
+   "id": "comp-despido",
+   "partido": "comp",
+   "tema": "Empleo",
+   "texto": "Recuperar la indemnización de 45 días por año trabajado y los salarios de tramitación en el despido improcedente.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Más protección económica si te despiden de forma improcedente."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Despedir te costaría más."
+    },
+    {
+     "si": {
+      "ref": "parado"
+     },
+     "valor": 0,
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
+  },
+  {
+   "id": "comp-pens",
+   "partido": "comp",
+   "tema": "Pensiones",
+   "texto": "Volver a la jubilación a los 65 años, eliminar la penalización por jubilación anticipada voluntaria con 40 años trabajados, garantizar en la Constitución la revalorización con el coste de la vida y subir las pensiones no contributivas hasta 800 €.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva subiría hasta 800 €."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión se revalorizaría con el coste de la vida, con rango constitucional (la ley actual ya la liga al IPC)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "any": [
+         {
+          "ref": "edad_41_64"
+         },
+         {
+          "q": "edad",
+          "eq": "36-40"
+         }
+        ]
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Podrías jubilarte a los 65 y, con 40 años trabajados, antes sin penalización."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=8"
+  },
+  {
+   "id": "comp-tope",
+   "partido": "comp",
+   "tema": "Cotizaciones",
+   "texto": "Eliminar el tope de la base máxima de cotización, para que los sueldos más altos coticen íntegramente, y suprimir las desgravaciones de los planes de pensiones privados, los PIAS y los SIALP.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_alta"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Cotizarías por todo tu salario, también por encima de la base máxima actual (unos 60.000 €), y perderías la desgravación si tienes un plan de pensiones."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "empleador"
+       },
+       {
+        "q": "ing",
+        "gte": 4
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Subiría el coste de tus empleados con sueldos altos."
+    }
+   ],
+   "pagina": 8,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=8"
+  },
+  {
+   "id": "comp-irpf",
+   "partido": "comp",
+   "tema": "IRPF",
+   "texto": "IRPF: actualizar la tarifa con la inflación para las rentas de menos de 30.000 €; rentas financieras con la misma escala progresiva que las del trabajo; la reducción por alquilar vivienda baja del 50 % a un máximo del 20 % (solo con rentas de hasta el 85 % del alquiler medio de la comunidad) y la amortización deducible de inmuebles, del 3 % al 1 %.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del ahorro tributarían con la escala del trabajo, con tipos más altos que hoy."
+    },
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Pagarías más IRPF por tus alquileres: menos reducción (y ninguna si cobras la renta media de tu comunidad o más) y menos amortización deducible."
+    },
+    {
+     "si": {
+      "q": "ahorro",
+      "eq": 2
+     },
+     "valor": 0,
+     "texto": "Tus rentas del ahorro tributarían con la escala del trabajo: pagarías más o menos según tus ingresos totales."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Evita pagar más IRPF solo porque tu sueldo o pensión suba con los precios."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "q": "ing",
+        "eq": 3
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "La actualización con la inflación solo te llegaría si tus ingresos quedan por debajo de 30.000 €."
+    }
+   ],
+   "pagina": 18,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=18"
+  },
+  {
+   "id": "comp-crianza",
+   "partido": "comp",
+   "tema": "Familia",
+   "texto": "Prestación universal por crianza de 200 € al mes por hijo o hija, mayor en familias monoparentales y con hijos con una discapacidad de más del 60 %.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "con_hijos"
+     },
+     "valor": 1,
+     "texto": "Cobrarías 200 € al mes por cada hijo."
+    },
+    {
+     "si": {
+      "ref": "quiere_hijos"
+     },
+     "valor": 1,
+     "texto": "La cobrarías al tener hijos."
+    },
+    {
+     "si": {
+      "ref": "quizas_hijos"
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
+    }
+   ],
+   "pagina": 46,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=46"
+  },
+  {
+   "id": "comp-luz",
+   "partido": "comp",
+   "tema": "Energía",
+   "texto": "Sacar de la factura de la luz el impuesto eléctrico y los cargos de política energética y pagarlos con los Presupuestos Generales del Estado.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_comp"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Bajaría tu factura de la luz: esos costes se pagarían con los Presupuestos."
+    }
+   ],
+   "pagina": 29,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=29"
   }
  ],
  "temas_sociales": [
@@ -10376,6 +10919,344 @@
    ]
   },
   {
+   "id": "soc-comp-194",
+   "partido": "comp",
+   "tema": "igualdad",
+   "texto": "Revisar los protocolos de valoración del riesgo y protección de las víctimas, con auditorías externas de los casos en que hayan fallado, y reforzar las unidades policiales especializadas, los juzgados de violencia sobre la mujer, los servicios forenses y la asistencia jurídica gratuita.",
+   "num": null,
+   "pagina": 54,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=54",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-195",
+   "partido": "comp",
+   "tema": "igualdad",
+   "texto": "Reforzar la protección de los hijos e hijas frente a la violencia vicaria, con detección precoz y revisión de la custodia y las visitas cuando haya riesgo.",
+   "num": null,
+   "pagina": 54,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=54",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-196",
+   "partido": "comp",
+   "tema": "igualdad",
+   "texto": "Reforzar la prohibición de los contratos de gestación subrogada y prohibir y sancionar la publicidad y la intermediación de las agencias que la ofrecen.",
+   "num": null,
+   "pagina": 53,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=53",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-197",
+   "partido": "comp",
+   "tema": "lgtbi",
+   "texto": "Tipificar como delito las terapias de conversión, con protección y reparación especialmente para las víctimas menores de edad.",
+   "num": null,
+   "pagina": 55,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=55",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-198",
+   "partido": "comp",
+   "tema": "lgtbi",
+   "texto": "Blindar los avances en derechos LGTBIQ+, como la ley trans y LGTBI y el matrimonio igualitario, y desarrollar el Pacto de Estado contra los Delitos de Odio.",
+   "num": null,
+   "pagina": 55,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=55",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-199",
+   "partido": "comp",
+   "tema": "lgtbi",
+   "texto": "Formación obligatoria en diversidad y derechos LGTBIQ+ para todo el personal de la administración pública, incluidos la justicia y las fuerzas de seguridad.",
+   "num": null,
+   "pagina": 55,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=55",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-200",
+   "partido": "comp",
+   "tema": "racismo",
+   "texto": "Definir por ley y prohibir las identificaciones policiales basadas en el perfil étnico, con formularios obligatorios en cada identificación y estadísticas públicas.",
+   "num": null,
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=51",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-201",
+   "partido": "comp",
+   "tema": "racismo",
+   "texto": "Formación obligatoria y evaluable en antirracismo y antigitanismo en el sistema educativo, y formación obligatoria para el personal de las administraciones públicas.",
+   "num": null,
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=51",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-202",
+   "partido": "comp",
+   "tema": "migracion",
+   "texto": "Regularizar y dar derechos a quienes viven aquí, con vías de regularización y reformas que faciliten la documentación y el permiso de trabajo; acogida digna, protección de menores y respeto del derecho de asilo.",
+   "num": null,
+   "pagina": 64,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=64",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-203",
+   "partido": "comp",
+   "tema": "migracion",
+   "texto": "Eliminar los CIE y prohibir las devoluciones ilegales encubiertas como retornos voluntarios.",
+   "num": null,
+   "pagina": 64,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=64",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-204",
+   "partido": "comp",
+   "tema": "migracion",
+   "texto": "Ampliar el derecho de las personas migrantes a votar.",
+   "num": null,
+   "pagina": 51,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=51",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-205",
+   "partido": "comp",
+   "tema": "discapacidad",
+   "texto": "Prestación por crianza más alta para los hijos e hijas con una discapacidad («diversidad funcional») superior al 60 %.",
+   "num": null,
+   "pagina": 46,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=46",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-206",
+   "partido": "comp",
+   "tema": "discapacidad",
+   "texto": "Reforzar la atención a la diversidad, la orientación educativa y los recursos para el alumnado con necesidades específicas de apoyo.",
+   "num": null,
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=10",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-207",
+   "partido": "comp",
+   "tema": "familia",
+   "texto": "Prestación universal por crianza de 200 € al mes por hijo o hija, mayor en las familias monoparentales.",
+   "num": null,
+   "pagina": 46,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=46",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-208",
+   "partido": "comp",
+   "tema": "familia",
+   "texto": "Ley estatal de familias monoparentales que equipare sus ayudas y bonificaciones a las de las familias numerosas, y permisos que sumen lo mismo que los de dos progenitores.",
+   "num": null,
+   "pagina": 47,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=47",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-209",
+   "partido": "comp",
+   "tema": "familia",
+   "texto": "Remunerar progresivamente las ocho semanas de permiso para el cuidado de hijos e hijas.",
+   "num": null,
+   "pagina": 47,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=47",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-210",
+   "partido": "comp",
+   "tema": "educacion",
+   "texto": "Avanzar hacia una inversión educativa del 7 % del PIB, ampliar la red pública de 0 a 3 años hacia su gratuidad y hacer gratuito y universal el comedor escolar.",
+   "num": null,
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=10",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-211",
+   "partido": "comp",
+   "tema": "educacion",
+   "texto": "Cambiar la normativa de conciertos para que la red concertada sea realmente subsidiaria de la pública, y prohibir ceder suelo público para construir centros privados.",
+   "num": null,
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=10",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-212",
+   "partido": "comp",
+   "tema": "vida",
+   "texto": "Garantizar la interrupción voluntaria del embarazo gratuita, segura y accesible en la sanidad pública, en los términos legales, sin desplazamientos injustificados ni obstáculos administrativos.",
+   "num": null,
+   "pagina": 52,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=52",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-213",
+   "partido": "comp",
+   "tema": "vida",
+   "texto": "Regular y supervisar la objeción de conciencia individual para que no se convierta en una objeción institucional encubierta: ningún hospital público dejaría de prestar el servicio por falta de planificación.",
+   "num": null,
+   "pagina": 53,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=53",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-214",
+   "partido": "comp",
+   "tema": "religion",
+   "texto": "Eliminar los privilegios de los acuerdos del Estado con las confesiones religiosas (Santa Sede, 1979; evangélicos y judíos, 1992; musulmanes) y poner fin a la financiación de la Iglesia católica con los Presupuestos y a sus beneficios fiscales especiales.",
+   "num": null,
+   "pagina": 44,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=44",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-215",
+   "partido": "comp",
+   "tema": "religion",
+   "texto": "Escuela pública laica, con la enseñanza confesional fuera del currículo y del ámbito escolar, y reforma del artículo 16.3 de la Constitución para quitar la mención a la Iglesia católica.",
+   "num": null,
+   "pagina": 45,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=45",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-216",
+   "partido": "comp",
+   "tema": "religion",
+   "texto": "Derogar el delito de ofensa a los sentimientos religiosos (artículo 525 del Código Penal).",
+   "num": null,
+   "pagina": 45,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=45",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-217",
+   "partido": "comp",
+   "tema": "rural",
+   "texto": "Un fondo estatal que remunere a los municipios rurales por los servicios ambientales que prestan (agua, bosques, biodiversidad, absorción de carbono), sobre todo en espacios protegidos.",
+   "num": null,
+   "pagina": 32,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=32",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-218",
+   "partido": "comp",
+   "tema": "rural",
+   "texto": "Recursos y acuerdos para facilitar el acceso al suelo agrario y recuperar explotaciones abandonadas, con relevo generacional y acceso de las mujeres a la titularidad, sin que heredar sea condición para empezar.",
+   "num": null,
+   "pagina": 24,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=24",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
+   "id": "soc-comp-219",
+   "partido": "comp",
+   "tema": "rural",
+   "texto": "Mejorar la financiación local teniendo en cuenta las necesidades de los municipios pequeños, rurales y con población dispersa.",
+   "num": null,
+   "pagina": 60,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=60",
+   "fuentes": [
+    "pdf_comp"
+   ]
+  },
+  {
    "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
@@ -10775,6 +11656,11 @@
   "pdf_pnv": {
    "titulo": "PNV: Programa elecciones generales 2026. Defendemos Euskadi (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/pnv.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_comp": {
+   "titulo": "Compromís-Front Valencià: Programa electoral 29N (en valenciano) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf",
    "fecha": "2026-11"
   }
  }

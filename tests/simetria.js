@@ -30,10 +30,12 @@ const favorece = Object.fromEntries(ids.map(i => [i, 0]));
 const territorial = id => { const p = D.partidos.find(x => x.id === id); return !p || !!p.ambito_si; };
 const medidasVistas = new Set(), nivelesVistos = new Set();
 let sinRiesgos = 0;
+const vistosSolos = new Set();
 
 for (const a of perfiles) {
   const r = T.evaluate(D, a);
   for (const p of r.partidos) {
+    vistosSolos.add(p.id);
     if (p.recuento.en_contra) perjudica[p.id]++;
     if (p.recuento.a_favor) favorece[p.id]++;
     if (p.recuento.riesgos_altos || (p.recuento.riesgos_medios && territorial(p.id))) riesgoAlto[p.id]++;
@@ -42,6 +44,21 @@ for (const a of perfiles) {
     p.riesgos.forEach(x => nivelesVistos.add(x.id + ':' + x.exposicion_usuario.nivel));
   }
 }
+
+// Partidos que solo concurren dentro de una candidatura conjunta (p. ej., Compromís, v2.15): se comprueban
+// con sus propias medidas, evaluándolos sin las candidaturas, para que la simetría se mida partido a partido.
+const soloEnFusion = D.partidos.map(p => p.id).filter(id => !vistosSolos.has(id));
+if (soloEnFusion.length) {
+  const Dsin = Object.assign({}, D, { candidaturas: [] });
+  for (const a of perfiles) {
+    for (const p of T.evaluate(Dsin, a).partidos.filter(x => soloEnFusion.includes(x.id))) {
+      if (p.recuento.en_contra) perjudica[p.id]++;
+      if (p.recuento.a_favor) favorece[p.id]++;
+      if (p.recuento.riesgos_altos || (p.recuento.riesgos_medios && territorial(p.id))) riesgoAlto[p.id]++;
+    }
+  }
+}
+ok(soloEnFusion.every(id => (D.candidaturas || []).some(c => c.tipo === 'fusion' && c.partidos.includes(id))), `Partidos sin papeleta propia en ninguna comunidad: todos dentro de una candidatura conjunta (${soloEnFusion.join(', ') || 'ninguno'})`);
 
 console.log(`\nPerfiles evaluados: ${N}`);
 ok(sinRiesgos === 0, 'Ningún partido sale sin riesgos indirectos en ningún perfil');
@@ -136,6 +153,10 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   ok(['cataluna', 'baleares', 'melilla'].every(r => !conPod(r)), 'Podemos: sin medidas en Cataluña, Baleares y Melilla (no presenta lista)');
   ok(ev('pais_vasco').partidos.some(p => p.id === 'pnv') && ['navarra', 'madrid', 'cataluna', 'galicia', 'canarias'].every(r => !ev(r).partidos.some(p => p.id === 'pnv' || (p.partidos_test || []).includes('PNV'))), 'PNV: solo en el País Vasco');
   ok(ev('pais_vasco').notas.every(n => !/también se presenta el PNV/.test(n)), 'País Vasco: ya no avisa de que el PNV no está incluido');
+  const val = ev('valencia').partidos.find(p => p.id === 'compromis');
+  ok(val && val.partidos_test.includes('Compromís') && val.medidas.some(m => m.de === 'Compromís') && !ev('valencia').partidos.some(p => p.id === 'comp'), 'Compromís (v2.15): en la Comunitat Valenciana, dentro de Compromís-Front Valencià y con sus medidas');
+  ok(['madrid', 'cataluna', 'baleares', 'canarias', 'murcia', 'aragon'].every(r => !ev(r).partidos.some(p => p.id === 'comp' || (p.partidos_test || []).includes('Compromís'))), 'Compromís: no aparece fuera de la Comunitat Valenciana');
+  ok(ev('valencia').notas.every(n => !/propias de Compromís aún no/.test(n)), 'Comunitat Valenciana: ya no avisa de que las propuestas de Compromís no están incluidas');
   ok(['pais_vasco', 'navarra'].every(r => ev(r).partidos.some(p => p.id === 'bildu')) && ['madrid', 'cataluna', 'galicia'].every(r => !ev(r).partidos.some(p => p.id === 'bildu')), 'EH Bildu: solo en el País Vasco y Navarra');
   ok(!ev('cantabria').partidos.some(p => p.id === 'salf') && ['madrid', 'canarias', 'ceuta'].every(r => ev(r).partidos.some(p => p.id === 'salf')), 'SALF: en todas las comunidades salvo Cantabria');
   ok(ev('pais_vasco').notas.some(n => /SALF solo presenta lista en Álava/.test(n)) && ev('castilla_mancha').notas.some(n => /Ciudad Real/.test(n)), 'SALF: aviso donde no presenta lista en toda la comunidad');
