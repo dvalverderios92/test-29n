@@ -107,7 +107,7 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const ev = region => T.evaluate(D, Object.assign({ region }, base));
   ok(ev('baleares').partidos.find(p => p.id === 'vox').medidas.some(m => m.id === 'vox-4'), 'Baleares: aparece el alivio fiscal de Vox para las islas');
   ok(!ev('madrid').partidos.some(p => p.id === 'cc'), 'Madrid: Coalición Canaria no aparece');
-  ok(ev('cataluna').notas.some(n => /Junts/.test(n)), 'Cataluña: aviso de partidos territoriales no incluidos');
+  ok(ev('cataluna').partidos.some(p => p.id === 'junts') && ['madrid', 'baleares', 'valencia', 'aragon', 'canarias'].every(r => !ev(r).partidos.some(p => p.id === 'junts')), 'Junts (v2.16): solo en Cataluña');
   ok(ev('madrid').notas.every(n => !/ERC|PNV|BNG/.test(n)), 'Madrid: sin avisos de partidos territoriales ajenos');
   ok(['andalucia', 'galicia', 'canarias'].every(r => ev(r).notas.some(n => /Candidaturas no incluidas/.test(n))), 'Aviso general de candidaturas no incluidas en todas las comunidades');
 }

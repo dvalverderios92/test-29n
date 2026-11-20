@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.15.0",
+  "version": "2.16.0",
   "fecha_corte": "2026-11-20",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1293,6 +1293,26 @@
    }
   },
   {
+   "id": "junts",
+   "nombre": "Junts per Catalunya",
+   "ambito_si": {
+    "ref": "cataluna"
+   },
+   "programa": {
+    "titulo": "Programa electoral 29N",
+    "fecha": "2026-11-19",
+    "estado": "publicado",
+    "nota": "Programa en catalán; los resúmenes son traducciones. Solo se presenta en Cataluña. Lo enlazó El Nacional el 19-11-2026; no hemos encontrado el enlace en la web de Junts."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste de sus rebajas de impuestos ni de sus ayudas. Pide que el Estado compense a la Generalitat por lo que deje de ingresar con las rebajas fiscales de vivienda, y defiende un concierto económico propio para Cataluña, con una Agencia Tributaria catalana que recaude todos los impuestos.",
+    "fuentes": [
+     "pdf_junts"
+    ]
+   }
+  },
+  {
    "id": "salf",
    "nombre": "Se Acabó La Fiesta (SALF)",
    "ambito_si": {
@@ -1881,7 +1901,7 @@
     "q": "region",
     "eq": "cataluna"
    },
-   "texto": "Partidos no incluidos: en Cataluña también se presenta Junts. Este test aún no recoge sus medidas; consulta su programa. ERC sí está incluido (su programa está en catalán; los resúmenes son traducciones). SALF no presenta lista en Girona ni Lleida."
+   "texto": "Junts y ERC están incluidos; sus programas están en catalán y los resúmenes son traducciones. SALF no presenta lista en Girona ni Lleida."
   },
   {
    "si": {
@@ -6931,6 +6951,467 @@
    "url": "https://dvalverderios92.github.io/test-29n/programas/eh-bildu.pdf#page=14"
   },
   {
+   "id": "junts-okupa",
+   "partido": "junts",
+   "tema": "Vivienda",
+   "texto": "Desalojar las ocupaciones ilegales en un máximo de 48 horas con un juicio inmediato, y que la Administración pague al propietario, con fondos del Estado y en un máximo de dos meses, la deuda de un inquilino vulnerable que no puede pagar; si no paga en ese plazo, el desahucio sigue.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": 1,
+     "texto": "Recuperarías antes una vivienda ocupada y, si un inquilino vulnerable no paga, la Administración te pagaría la deuda."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 0,
+     "texto": "Si no pudieras pagar por una situación de vulnerabilidad, la Administración pagaría tu deuda al propietario; si no lo hace en dos meses, el desahucio seguiría."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=17"
+  },
+  {
+   "id": "junts-deduc",
+   "partido": "junts",
+   "tema": "Vivienda",
+   "texto": "Recuperar en el IRPF deducciones del 15 % por el alquiler de la vivienda habitual, por las cuotas de la hipoteca de la vivienda habitual y por el ahorro para comprar la primera vivienda (cuenta vivienda).",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "ref": "inquilino"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te deducirías el 15 % del alquiler en el IRPF (el programa no fija límites)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "q": "viv",
+        "eq": "hipoteca"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te deducirías el 15 % de las cuotas de tu hipoteca en el IRPF."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "ref": "quiere_comprar"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te deducirías el 15 % de lo que ahorres para comprar tu primera vivienda."
+    },
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "inquilino"
+       },
+       {
+        "q": "viv",
+        "eq": "hipoteca"
+       },
+       {
+        "ref": "quiere_comprar"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Solo te beneficiaría si pagas IRPF."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=17"
+  },
+  {
+   "id": "junts-iva-viv",
+   "partido": "junts",
+   "tema": "Vivienda",
+   "texto": "Bajar del 10 % al 5 % el IVA de la vivienda nueva para residencia habitual, con límites de superficie, precio y renta y la obligación de vivir en ella.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 1,
+     "texto": "Si compras vivienda nueva para vivir, pagarías la mitad de IVA; en la de segunda mano no cambia."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=17"
+  },
+  {
+   "id": "junts-fondos",
+   "partido": "junts",
+   "tema": "Vivienda",
+   "texto": "Prohibir hasta 2028 que bancos y sus inmobiliarias, fondos de inversión y gestoras de activos compren viviendas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 0,
+     "texto": "Tendrías menos competencia de fondos al comprar; el efecto en los precios es incierto."
+    }
+   ],
+   "pagina": 17,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=17"
+  },
+  {
+   "id": "junts-irpf",
+   "partido": "junts",
+   "tema": "IRPF",
+   "texto": "Deflactar el IRPF, rebajar los primeros tramos y subir los mínimos personales y familiares, actualizándolos cada año con la inflación.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "paga_irpf"
+     },
+     "valor": 1,
+     "texto": "Pagarías menos IRPF (el programa no da cifras)."
+    }
+   ],
+   "pagina": 68,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=68"
+  },
+  {
+   "id": "junts-sucesiones",
+   "partido": "junts",
+   "tema": "Patrimonio",
+   "texto": "Eliminar el impuesto de sucesiones y donaciones.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "q": "patr",
+        "gte": 2
+       },
+       {
+        "ref": "herencia"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Pagarías menos al heredar o donar."
+    }
+   ],
+   "pagina": 68,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=68"
+  },
+  {
+   "id": "junts-luz",
+   "partido": "junts",
+   "tema": "Energía",
+   "texto": "IVA del 10 % en la luz y el gas natural, y tipo del 0 % en el impuesto sobre la producción eléctrica cuando no haya déficit de tarifa.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Bajaría tu factura de luz y gas."
+    }
+   ],
+   "pagina": 69,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=69"
+  },
+  {
+   "id": "junts-autonomos",
+   "partido": "junts",
+   "tema": "Autónomos",
+   "texto": "Frenar las subidas de cuotas de autónomos y ajustarlas a los rendimientos reales; ingresar el IVA al cobrar las facturas por debajo de 2 millones de facturación, IVA franquiciado hasta 85.000 € y más gastos deducibles.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "autonomo_o_futuro"
+     },
+     "valor": 1,
+     "texto": "Pagarías el IVA al cobrar las facturas y podrías deducirte más gastos; tu cuota se ajustaría a lo que ganas."
+    }
+   ],
+   "pagina": 69,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=69"
+  },
+  {
+   "id": "junts-sociedades",
+   "partido": "junts",
+   "tema": "Empresa",
+   "texto": "Acelerar la rebaja del Impuesto de Sociedades para las pymes y ampliar la libertad de amortización de las inversiones productivas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "empresario"
+     },
+     "valor": 1,
+     "texto": "Tu sociedad pagaría menos impuestos."
+    }
+   ],
+   "pagina": 69,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=69"
+  },
+  {
+   "id": "junts-smi",
+   "partido": "junts",
+   "tema": "Empleo",
+   "texto": "Que Cataluña pueda fijar un salario mínimo propio que avance progresivamente hacia el 60 % del salario medio catalán, con diálogo social.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Tu sueldo podría subir si Cataluña fija un salario mínimo propio; la cuantía no está fijada."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Podría subir el coste de tu plantilla en salarios bajos si Cataluña fija un mínimo propio."
+    }
+   ],
+   "pagina": 70,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=70"
+  },
+  {
+   "id": "junts-jubil",
+   "partido": "junts",
+   "tema": "Pensiones",
+   "texto": "Eliminar con carácter retroactivo las penalizaciones por jubilación anticipada con 40 años o más cotizados, y pensiones públicas según el coste de la vida de Cataluña.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "trabaja"
+       },
+       {
+        "ref": "edad_41_64"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Con 40 años cotizados podrías jubilarte antes sin penalización."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 0,
+     "texto": "Si te jubilaste antes con 40 años cotizados, se eliminaría tu penalización; cómo se ligaría la pensión al coste de la vida en Cataluña no está concretado."
+    }
+   ],
+   "pagina": 70,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=70"
+  },
+  {
+   "id": "junts-arraigo",
+   "partido": "junts",
+   "tema": "Inmigración",
+   "texto": "Criterios de arraigo exigentes que incluyan el conocimiento del catalán, también para renovar los permisos de residencia y trabajo, y oposición a las regularizaciones masivas por decreto.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "extracomunitario"
+       },
+       {
+        "ref": "arraigo_corto"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Para conseguir o renovar tu permiso de residencia y trabajo tendrías que acreditar conocimiento del catalán."
+    },
+    {
+     "si": {
+      "ref": "extracomunitario"
+     },
+     "valor": 0,
+     "texto": "Al renovar tu permiso podrían exigirte conocimiento del catalán; los criterios no están fijados."
+    }
+   ],
+   "pagina": 48,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=48"
+  },
+  {
+   "id": "junts-concierto",
+   "partido": "junts",
+   "tema": "Financiación autonómica",
+   "texto": "Concierto económico para Cataluña, fuera del régimen común: la Agencia Tributaria de Cataluña recaudaría, gestionaría e inspeccionaría todos los impuestos generados en Cataluña.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_junts"
+   ],
+   "riesgos": [],
+   "universal": true,
+   "efectos": [],
+   "pagina": 68,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=68"
+  },
+  {
    "id": "salf-viv",
    "partido": "salf",
    "tema": "Vivienda",
@@ -10919,7 +11400,176 @@
    ]
   },
   {
-   "id": "soc-comp-194",
+   "id": "soc-junts-194",
+   "partido": "junts",
+   "tema": "igualdad",
+   "texto": "Reformar la ley procesal para evitar la revictimización de las mujeres que sufren violencias machistas, con su declaración como prueba preconstituida, y simplificar el cobro de las prestaciones e indemnizaciones de las víctimas.",
+   "num": null,
+   "pagina": 33,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=33",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-195",
+   "partido": "junts",
+   "tema": "igualdad",
+   "texto": "Igualdad salarial y transparencia retributiva, y que los periodos de cuidado de hijos o familiares no rebajen la pensión.",
+   "num": null,
+   "pagina": 33,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=33",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-196",
+   "partido": "junts",
+   "tema": "lgtbi",
+   "texto": "Recuperar y aprobar la ley que tipifica como delito las terapias de conversión, con penas más altas y ayudas a las víctimas.",
+   "num": null,
+   "pagina": 36,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=36",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-197",
+   "partido": "junts",
+   "tema": "lgtbi",
+   "texto": "Oponerse a cualquier derogación o recorte de la Ley trans y LGTBI (4/2023) y votar en contra de cualquier iniciativa que cuestione el matrimonio entre personas del mismo sexo.",
+   "num": null,
+   "pagina": 36,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=36",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-198",
+   "partido": "junts",
+   "tema": "migracion",
+   "texto": "Traspasar a la Generalitat los permisos de residencia y trabajo, los expedientes de expulsión y la gestión de los CIE.",
+   "num": null,
+   "pagina": 48,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=48",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-199",
+   "partido": "junts",
+   "tema": "migracion",
+   "texto": "Oponerse a las regularizaciones masivas por decreto y exigir conocimiento del catalán para el arraigo y la renovación de los permisos.",
+   "num": null,
+   "pagina": 48,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=48",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-200",
+   "partido": "junts",
+   "tema": "discapacidad",
+   "texto": "Hacer cumplir la cuota de reserva de empleo para personas con discapacidad en las empresas ordinarias, con más inspección.",
+   "num": null,
+   "pagina": 39,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=39",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-201",
+   "partido": "junts",
+   "tema": "discapacidad",
+   "texto": "Financiación estable de la asistencia personal y los apoyos para la vida independiente, con importes actualizados.",
+   "num": null,
+   "pagina": 39,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=39",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-202",
+   "partido": "junts",
+   "tema": "familia",
+   "texto": "Permisos individuales, retribuidos y corresponsables para cuidar a hijos y personas dependientes, ajustados en las familias monoparentales.",
+   "num": null,
+   "pagina": 33,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=33",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-203",
+   "partido": "junts",
+   "tema": "educacion",
+   "texto": "Defender la inmersión lingüística en catalán y el modelo educativo catalán, que el Parlament regule los conciertos educativos y llegar al 6 % del PIB en educación.",
+   "num": null,
+   "pagina": 53,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=53",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-204",
+   "partido": "junts",
+   "tema": "religion",
+   "texto": "Reformar los delitos de odio para que no castiguen ideas, religiones o instituciones, y suprimir el delito de injurias.",
+   "num": null,
+   "pagina": 13,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=13",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-205",
+   "partido": "junts",
+   "tema": "religion",
+   "texto": "Traspasar a Cataluña la gestión y el registro de las entidades religiosas.",
+   "num": null,
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=15",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-junts-206",
+   "partido": "junts",
+   "tema": "rural",
+   "texto": "Regionalización efectiva de la PAC y un programa de rehabilitación de viviendas en el mundo rural, con ayudas para jóvenes y familias que se instalen.",
+   "num": null,
+   "pagina": 86,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=86",
+   "fuentes": [
+    "pdf_junts"
+   ]
+  },
+  {
+   "id": "soc-comp-207",
    "partido": "comp",
    "tema": "igualdad",
    "texto": "Revisar los protocolos de valoración del riesgo y protección de las víctimas, con auditorías externas de los casos en que hayan fallado, y reforzar las unidades policiales especializadas, los juzgados de violencia sobre la mujer, los servicios forenses y la asistencia jurídica gratuita.",
@@ -10932,7 +11582,7 @@
    ]
   },
   {
-   "id": "soc-comp-195",
+   "id": "soc-comp-208",
    "partido": "comp",
    "tema": "igualdad",
    "texto": "Reforzar la protección de los hijos e hijas frente a la violencia vicaria, con detección precoz y revisión de la custodia y las visitas cuando haya riesgo.",
@@ -10945,7 +11595,7 @@
    ]
   },
   {
-   "id": "soc-comp-196",
+   "id": "soc-comp-209",
    "partido": "comp",
    "tema": "igualdad",
    "texto": "Reforzar la prohibición de los contratos de gestación subrogada y prohibir y sancionar la publicidad y la intermediación de las agencias que la ofrecen.",
@@ -10958,7 +11608,7 @@
    ]
   },
   {
-   "id": "soc-comp-197",
+   "id": "soc-comp-210",
    "partido": "comp",
    "tema": "lgtbi",
    "texto": "Tipificar como delito las terapias de conversión, con protección y reparación especialmente para las víctimas menores de edad.",
@@ -10971,7 +11621,7 @@
    ]
   },
   {
-   "id": "soc-comp-198",
+   "id": "soc-comp-211",
    "partido": "comp",
    "tema": "lgtbi",
    "texto": "Blindar los avances en derechos LGTBIQ+, como la ley trans y LGTBI y el matrimonio igualitario, y desarrollar el Pacto de Estado contra los Delitos de Odio.",
@@ -10984,7 +11634,7 @@
    ]
   },
   {
-   "id": "soc-comp-199",
+   "id": "soc-comp-212",
    "partido": "comp",
    "tema": "lgtbi",
    "texto": "Formación obligatoria en diversidad y derechos LGTBIQ+ para todo el personal de la administración pública, incluidos la justicia y las fuerzas de seguridad.",
@@ -10997,7 +11647,7 @@
    ]
   },
   {
-   "id": "soc-comp-200",
+   "id": "soc-comp-213",
    "partido": "comp",
    "tema": "racismo",
    "texto": "Definir por ley y prohibir las identificaciones policiales basadas en el perfil étnico, con formularios obligatorios en cada identificación y estadísticas públicas.",
@@ -11010,7 +11660,7 @@
    ]
   },
   {
-   "id": "soc-comp-201",
+   "id": "soc-comp-214",
    "partido": "comp",
    "tema": "racismo",
    "texto": "Formación obligatoria y evaluable en antirracismo y antigitanismo en el sistema educativo, y formación obligatoria para el personal de las administraciones públicas.",
@@ -11023,7 +11673,7 @@
    ]
   },
   {
-   "id": "soc-comp-202",
+   "id": "soc-comp-215",
    "partido": "comp",
    "tema": "migracion",
    "texto": "Regularizar y dar derechos a quienes viven aquí, con vías de regularización y reformas que faciliten la documentación y el permiso de trabajo; acogida digna, protección de menores y respeto del derecho de asilo.",
@@ -11036,7 +11686,7 @@
    ]
   },
   {
-   "id": "soc-comp-203",
+   "id": "soc-comp-216",
    "partido": "comp",
    "tema": "migracion",
    "texto": "Eliminar los CIE y prohibir las devoluciones ilegales encubiertas como retornos voluntarios.",
@@ -11049,7 +11699,7 @@
    ]
   },
   {
-   "id": "soc-comp-204",
+   "id": "soc-comp-217",
    "partido": "comp",
    "tema": "migracion",
    "texto": "Ampliar el derecho de las personas migrantes a votar.",
@@ -11062,7 +11712,7 @@
    ]
   },
   {
-   "id": "soc-comp-205",
+   "id": "soc-comp-218",
    "partido": "comp",
    "tema": "discapacidad",
    "texto": "Prestación por crianza más alta para los hijos e hijas con una discapacidad («diversidad funcional») superior al 60 %.",
@@ -11075,7 +11725,7 @@
    ]
   },
   {
-   "id": "soc-comp-206",
+   "id": "soc-comp-219",
    "partido": "comp",
    "tema": "discapacidad",
    "texto": "Reforzar la atención a la diversidad, la orientación educativa y los recursos para el alumnado con necesidades específicas de apoyo.",
@@ -11088,7 +11738,7 @@
    ]
   },
   {
-   "id": "soc-comp-207",
+   "id": "soc-comp-220",
    "partido": "comp",
    "tema": "familia",
    "texto": "Prestación universal por crianza de 200 € al mes por hijo o hija, mayor en las familias monoparentales.",
@@ -11101,7 +11751,7 @@
    ]
   },
   {
-   "id": "soc-comp-208",
+   "id": "soc-comp-221",
    "partido": "comp",
    "tema": "familia",
    "texto": "Ley estatal de familias monoparentales que equipare sus ayudas y bonificaciones a las de las familias numerosas, y permisos que sumen lo mismo que los de dos progenitores.",
@@ -11114,7 +11764,7 @@
    ]
   },
   {
-   "id": "soc-comp-209",
+   "id": "soc-comp-222",
    "partido": "comp",
    "tema": "familia",
    "texto": "Remunerar progresivamente las ocho semanas de permiso para el cuidado de hijos e hijas.",
@@ -11127,7 +11777,7 @@
    ]
   },
   {
-   "id": "soc-comp-210",
+   "id": "soc-comp-223",
    "partido": "comp",
    "tema": "educacion",
    "texto": "Avanzar hacia una inversión educativa del 7 % del PIB, ampliar la red pública de 0 a 3 años hacia su gratuidad y hacer gratuito y universal el comedor escolar.",
@@ -11140,7 +11790,7 @@
    ]
   },
   {
-   "id": "soc-comp-211",
+   "id": "soc-comp-224",
    "partido": "comp",
    "tema": "educacion",
    "texto": "Cambiar la normativa de conciertos para que la red concertada sea realmente subsidiaria de la pública, y prohibir ceder suelo público para construir centros privados.",
@@ -11153,7 +11803,7 @@
    ]
   },
   {
-   "id": "soc-comp-212",
+   "id": "soc-comp-225",
    "partido": "comp",
    "tema": "vida",
    "texto": "Garantizar la interrupción voluntaria del embarazo gratuita, segura y accesible en la sanidad pública, en los términos legales, sin desplazamientos injustificados ni obstáculos administrativos.",
@@ -11166,7 +11816,7 @@
    ]
   },
   {
-   "id": "soc-comp-213",
+   "id": "soc-comp-226",
    "partido": "comp",
    "tema": "vida",
    "texto": "Regular y supervisar la objeción de conciencia individual para que no se convierta en una objeción institucional encubierta: ningún hospital público dejaría de prestar el servicio por falta de planificación.",
@@ -11179,7 +11829,7 @@
    ]
   },
   {
-   "id": "soc-comp-214",
+   "id": "soc-comp-227",
    "partido": "comp",
    "tema": "religion",
    "texto": "Eliminar los privilegios de los acuerdos del Estado con las confesiones religiosas (Santa Sede, 1979; evangélicos y judíos, 1992; musulmanes) y poner fin a la financiación de la Iglesia católica con los Presupuestos y a sus beneficios fiscales especiales.",
@@ -11192,7 +11842,7 @@
    ]
   },
   {
-   "id": "soc-comp-215",
+   "id": "soc-comp-228",
    "partido": "comp",
    "tema": "religion",
    "texto": "Escuela pública laica, con la enseñanza confesional fuera del currículo y del ámbito escolar, y reforma del artículo 16.3 de la Constitución para quitar la mención a la Iglesia católica.",
@@ -11205,7 +11855,7 @@
    ]
   },
   {
-   "id": "soc-comp-216",
+   "id": "soc-comp-229",
    "partido": "comp",
    "tema": "religion",
    "texto": "Derogar el delito de ofensa a los sentimientos religiosos (artículo 525 del Código Penal).",
@@ -11218,7 +11868,7 @@
    ]
   },
   {
-   "id": "soc-comp-217",
+   "id": "soc-comp-230",
    "partido": "comp",
    "tema": "rural",
    "texto": "Un fondo estatal que remunere a los municipios rurales por los servicios ambientales que prestan (agua, bosques, biodiversidad, absorción de carbono), sobre todo en espacios protegidos.",
@@ -11231,7 +11881,7 @@
    ]
   },
   {
-   "id": "soc-comp-218",
+   "id": "soc-comp-231",
    "partido": "comp",
    "tema": "rural",
    "texto": "Recursos y acuerdos para facilitar el acceso al suelo agrario y recuperar explotaciones abandonadas, con relevo generacional y acceso de las mujeres a la titularidad, sin que heredar sea condición para empezar.",
@@ -11244,7 +11894,7 @@
    ]
   },
   {
-   "id": "soc-comp-219",
+   "id": "soc-comp-232",
    "partido": "comp",
    "tema": "rural",
    "texto": "Mejorar la financiación local teniendo en cuenta las necesidades de los municipios pequeños, rurales y con población dispersa.",
@@ -11661,6 +12311,11 @@
   "pdf_comp": {
    "titulo": "Compromís-Front Valencià: Programa electoral 29N (en valenciano) (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_junts": {
+   "titulo": "Junts per Catalunya: Programa electoral 29N (en catalán) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf",
    "fecha": "2026-11"
   }
  }
