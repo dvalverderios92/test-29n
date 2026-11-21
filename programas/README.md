@@ -12,6 +12,7 @@ Incorporados el 16-11-2026. La huella SHA-256 permite comprobar que el archivo n
 | [erc.pdf](erc.pdf) | ERC | 48 | `61728d162a6e88d4…` |
 | [frente-amplio.pdf](frente-amplio.pdf) | Frente Amplio | 151 | `df6e4d967a3a4138…` |
 | [manifiesto-upc.pdf](manifiesto-upc.pdf) | Unidad del Pueblo Canario (manifiesto) | 6 | `502ce157ba499fb9…` |
+| [upc-lineas-basicas.pdf](upc-lineas-basicas.pdf) | Unidad del Pueblo Canario (líneas básicas del programa) | 19 | `ce35fb3cb8745524…` |
 | [eh-bildu.pdf](eh-bildu.pdf) | EH Bildu | 30 | `ceb655c9c8ebb036…` |
 | [junts.pdf](junts.pdf) | Junts per Catalunya (en catalán) | 90 | `cde2c5f3f30b66c7…` |
 | [pnv.pdf](pnv.pdf) | PNV | 43 | `5af7a5b6f67c26ba…` |
