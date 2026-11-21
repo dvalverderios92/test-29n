@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.16.0",
-  "fecha_corte": "2026-11-20",
+  "version": "2.17.0",
+  "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1313,6 +1313,27 @@
    }
   },
   {
+   "id": "nc",
+   "nombre": "Unidad del Pueblo Canario (programa común)",
+   "ambito_si": {
+    "ref": "canarias"
+   },
+   "programa": {
+    "titulo": "Líneas básicas del programa de Unidad del Pueblo Canario",
+    "fecha": null,
+    "estado": "publicado",
+    "nota": "Programa común de toda la candidatura (Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias), publicado en unidadpueblocanario.org. Solo se presenta en Canarias."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras sueltas: el salario mínimo a 1.800 € en doce pagas, una hipoteca al 0 % hasta 100.000 € para la primera vivienda, una deducción temporal de 175 a 300 € en el IRPF, un parque público del 9 % de las viviendas y el 0,7 % de los Presupuestos para cooperación. Dice financiarlo con una reforma fiscal progresiva (más tramos del IRPF desde 120.000 €, impuesto de grandes fortunas permanente, impuestos a la banca y las energéticas), y pide que los Presupuestos del Estado compensen a Canarias y financien su REF.",
+    "fuentes": [
+     "pdf_nc",
+     "upc_web"
+    ]
+   }
+  },
+  {
    "id": "salf",
    "nombre": "Se Acabó La Fiesta (SALF)",
    "ambito_si": {
@@ -1933,6 +1954,12 @@
   },
   {
    "si": {
+    "ref": "canarias"
+   },
+   "texto": "Candidatura conjunta: en Canarias, Unidad del Pueblo Canario reúne a Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias. El test muestra las medidas de su programa común y las estatales de Frente Amplio y Podemos."
+  },
+  {
+   "si": {
     "siempre": true
    },
    "texto": "Candidaturas no incluidas: además de las que recoge el test, se presentan otras candidaturas más pequeñas. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."
@@ -1947,14 +1974,16 @@
     "eq": "canarias"
    },
    "partidos": [
+    "nc",
     "fa",
     "pod"
    ],
    "nombre": "Unidad del Pueblo Canario",
    "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
+   "nota": "Candidatura conjunta. El test usa las líneas básicas del programa común de la candidatura y, además, las medidas estatales de Frente Amplio y Podemos.",
    "fuentes": [
-    "manifiesto_upc",
+    "pdf_nc",
+    "upc_web",
     "upc",
     "democrata_listas"
    ]
@@ -5612,8 +5641,8 @@
      "si": {
       "ref": "canarias"
      },
-     "valor": 1,
-     "texto": "Mantienes el descuento en vuelos y barcos; la cesta de la compra podría abaratarse."
+     "valor": 0,
+     "texto": "Mantienes el descuento que ya existe en vuelos y barcos; actualizar las ayudas a las mercancías podría abaratar algo la compra."
     }
    ],
    "pagina": 17,
@@ -8781,6 +8810,633 @@
    ],
    "pagina": 29,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=29"
+  },
+  {
+   "id": "nc-alq",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Control de los precios de venta y alquiler para impedir subidas abusivas, y renovación automática de los contratos de alquiler de vivienda habitual al acabar el periodo inicial (5 años más si el propietario es una persona física y 7 si es una empresa).",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Tu renta quedaría sujeta a control de precios y el contrato se renovaría automáticamente 5 años más."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu alquiler tendría control de precios y tu contrato se renovaría automáticamente."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=3"
+  },
+  {
+   "id": "nc-vacias",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Cesión obligatoria de las viviendas vacías de los grandes tenedores a un parque público de alquiler asequible, expropiación de viviendas a los fondos buitre, fin de las SOCIMI y un parque público de al menos el 9 % de las viviendas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "expropiacion_plazos",
+     "escala": "amplia"
+    },
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "gran_tenedor"
+     },
+     "valor": -1,
+     "texto": "Tendrías que ceder tus viviendas vacías al parque público de alquiler."
+    },
+    {
+     "si": {
+      "ref": "busca_vivienda_asequible"
+     },
+     "valor": 1,
+     "texto": "Más vivienda pública de alquiler a la que optar, con prioridad para jóvenes (sin plazos)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=3"
+  },
+  {
+   "id": "nc-desahucios",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Ningún desahucio de personas vulnerables sin un realojo digno garantizado por la Administración, también por impago o por ocupación por falta de vivienda asequible, y prohibición de las empresas de desocupación extrajudicial.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "inquilino"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Si no pudieras pagar estando en situación vulnerable, no podrían desahuciarte sin un realojo."
+    },
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": -1,
+     "texto": "Si un inquilino vulnerable deja de pagar u ocupan tu vivienda por falta de alternativa, no la recuperarías hasta que la Administración le realoje."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=4"
+  },
+  {
+   "id": "nc-hipoteca",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Ayudas para comprar la primera vivienda, incluida una hipoteca al 0 % hasta 100.000 € sin límite de edad.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 1,
+     "texto": "Podrías financiar hasta 100.000 € de tu primera vivienda sin intereses."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=4"
+  },
+  {
+   "id": "nc-vacacional",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Regular la vivienda vacacional en zonas residenciales y limitar la compra de viviendas por extranjeros no residentes.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "El uso vacacional de tu vivienda en zona residencial quedaría regulado (el programa no concreta cómo)."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=4"
+  },
+  {
+   "id": "nc-turismo",
+   "partido": "nc",
+   "tema": "Turismo",
+   "texto": "Moratoria de nuevas camas e instalaciones turísticas, una tasa turística para los no residentes y fin de la inversión de la RIC en vivienda libre de alquiler sin límite de renta.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": 0,
+     "texto": "No podrías sumar nuevas plazas turísticas y tus huéspedes no residentes pagarían una tasa."
+    }
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=10"
+  },
+  {
+   "id": "nc-transp",
+   "partido": "nc",
+   "tema": "Transporte",
+   "texto": "Que los Presupuestos del Estado sigan financiando el descuento del 75 % para residentes en vuelos y barcos, la bonificación del 100 % al transporte de mercancías agrícolas e industriales y la gratuidad de las guaguas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "canarias"
+     },
+     "valor": 0,
+     "texto": "Mantienes los descuentos y la gratuidad que ya existen: tu situación no cambia."
+    }
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=9"
+  },
+  {
+   "id": "nc-pens",
+   "partido": "nc",
+   "tema": "Pensiones",
+   "texto": "Revalorizar las pensiones con el IPC por ley y protegerlo en la Constitución, derogar el factor de sostenibilidad, subir las pensiones mínimas, no contributivas y de viudedad, y jubilación anticipada sin penalización en trabajos especialmente duros.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "pension_no_contributiva"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión no contributiva subiría (sin cifra)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "pensionista"
+       },
+       {
+        "ref": "renta_smi"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu pensión mínima subiría (sin cifra)."
+    },
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión seguiría subiendo con el IPC (la ley actual ya la liga al IPC)."
+    }
+   ],
+   "pagina": 6,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=6"
+  },
+  {
+   "id": "nc-cuidados",
+   "partido": "nc",
+   "tema": "Familia",
+   "texto": "Educación pública y gratuita de 0 a 3 años y un sistema público de cuidados de larga duración para las personas dependientes.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quiere_hijos"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Más plazas públicas y gratuitas de 0 a 3 años (sin cifras)."
+    },
+    {
+     "si": {
+      "ref": "cuida_dependiente"
+     },
+     "valor": 1,
+     "texto": "Más atención pública a la dependencia (sin cifras)."
+    },
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quizas_hijos"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): más plazas públicas y gratuitas de 0 a 3 años (sin cifras)."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=5"
+  },
+  {
+   "id": "nc-smi",
+   "partido": "nc",
+   "tema": "Empleo",
+   "texto": "Salario mínimo de 1.800 € en doce pagas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu sueldo subiría bastante si estás cerca del mínimo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Subiría el coste de tu plantilla en salarios bajos."
+    }
+   ],
+   "pagina": 7,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=7"
+  },
+  {
+   "id": "nc-jornada",
+   "partido": "nc",
+   "tema": "Empleo",
+   "texto": "Jornada de 37,5 horas semanales, avanzando hacia las 34 horas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "jornada_ley",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Trabajarías menos horas por el mismo sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Te subiría el coste por hora de tu plantilla."
+    }
+   ],
+   "pagina": 7,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=7"
+  },
+  {
+   "id": "nc-irpf",
+   "partido": "nc",
+   "tema": "IRPF",
+   "texto": "IRPF: más tramos a partir de 120.000 € con tipos crecientes, deflactar la tarifa hasta 65.000 € y, mientras dure la inflación alta, una deducción de 300 € para rentas de menos de 20.000 €, 225 € entre 20.000 y 30.000 € y 175 € entre 30.000 y 40.000 €.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "q": "ing",
+        "lte": 3
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te deducirías entre 175 y 300 € al año mientras dure la inflación alta, y la tarifa se deflactaría."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "q": "ing",
+        "eq": 4
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "La tarifa se deflactaría, así que pagarías algo menos (sin cifras)."
+    },
+    {
+     "si": {
+      "q": "ing",
+      "eq": 6
+     },
+     "valor": 0,
+     "texto": "Si ganas más de 120.000 €, pagarías más: habría más tramos con tipos crecientes."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=12"
+  },
+  {
+   "id": "nc-deduc",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Más deducción en el IRPF por los gastos de vivienda, alquiler o hipoteca, para las rentas medias y bajas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "any": [
+         {
+          "ref": "inquilino"
+         },
+         {
+          "q": "viv",
+          "eq": "hipoteca"
+         }
+        ]
+       },
+       {
+        "q": "ing",
+        "lte": 3
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Podrías deducirte más por tu alquiler o tu hipoteca (sin cifras)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "any": [
+         {
+          "ref": "inquilino"
+         },
+         {
+          "q": "viv",
+          "eq": "hipoteca"
+         }
+        ]
+       },
+       {
+        "q": "ing",
+        "lte": 3
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "La deducción solo te llegaría si pagas IRPF."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=12"
+  },
+  {
+   "id": "nc-fiscal",
+   "partido": "nc",
+   "tema": "Impuestos",
+   "texto": "Reforma fiscal progresiva: más tributación de las grandes empresas, los grandes patrimonios y las rentas del capital; impuesto de grandes fortunas permanente y más progresivo, e impuestos a la banca y a las energéticas.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del capital tributarían más (el programa no da tipos)."
+    },
+    {
+     "si": {
+      "q": "patr",
+      "eq": 4
+     },
+     "valor": -1,
+     "texto": "Con tu patrimonio, pagarías más como gran fortuna (el programa no fija umbrales)."
+    },
+    {
+     "si": {
+      "ref": "patrimonio_mas_1M"
+     },
+     "valor": 0,
+     "texto": "Podrías pagar más según dónde se fije el umbral de gran patrimonio."
+    },
+    {
+     "si": {
+      "q": "ahorro",
+      "eq": 2
+     },
+     "valor": 0,
+     "texto": "Podrías pagar más por tus rentas del ahorro, según cómo se aplique."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=12"
+  },
+  {
+   "id": "nc-autonomos",
+   "partido": "nc",
+   "tema": "Autónomos",
+   "texto": "Tarifa plana de 88 € al mes para los autónomos con menores rendimientos, ligada a sus ingresos reales, y exención del IGIC hasta 85.000 € de facturación.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "autonomo_o_futuro"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Pagarías una cuota de 88 € al mes y no cobrarías IGIC por debajo de 85.000 € de facturación."
+    },
+    {
+     "si": {
+      "ref": "autonomo_o_futuro"
+     },
+     "valor": 1,
+     "texto": "Si facturas menos de 85.000 € al año, no tendrías que cobrar IGIC."
+    }
+   ],
+   "pagina": 13,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=13"
   }
  ],
  "temas_sociales": [
@@ -11907,6 +12563,188 @@
    ]
   },
   {
+   "id": "soc-nc-233",
+   "partido": "nc",
+   "tema": "igualdad",
+   "texto": "Erradicar las violencias machistas, con prevención, protección y atención integral a las víctimas y recursos públicos suficientes.",
+   "num": null,
+   "pagina": 17,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=17",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-234",
+   "partido": "nc",
+   "tema": "igualdad",
+   "texto": "Educación en igualdad desde las aulas y formación del profesorado en perspectiva de género y prevención de las violencias machistas.",
+   "num": null,
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=18",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-235",
+   "partido": "nc",
+   "tema": "lgtbi",
+   "texto": "Garantizar la igualdad de derechos de las personas LGTBIQA+ y su protección frente a la discriminación, con especial atención a las personas trans.",
+   "num": null,
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=18",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-236",
+   "partido": "nc",
+   "tema": "racismo",
+   "texto": "Rechazar el racismo y la xenofobia y apostar por una Canarias diversa, solidaria y comprometida con la dignidad humana.",
+   "num": null,
+   "pagina": 16,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=16",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-237",
+   "partido": "nc",
+   "tema": "migracion",
+   "texto": "Política migratoria basada en los derechos humanos, las vías legales y seguras, la acogida digna y la corresponsabilidad entre territorios; rechazo a la externalización de fronteras.",
+   "num": null,
+   "pagina": 16,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=16",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-238",
+   "partido": "nc",
+   "tema": "migracion",
+   "texto": "Protección específica de la infancia y la adolescencia migrante no acompañada, con una distribución solidaria de la acogida.",
+   "num": null,
+   "pagina": 16,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=16",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-239",
+   "partido": "nc",
+   "tema": "discapacidad",
+   "texto": "Todos los recursos y apoyos para el alumnado con necesidades específicas de apoyo educativo, con inclusión real en todos los centros y rechazo a su segregación.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-240",
+   "partido": "nc",
+   "tema": "discapacidad",
+   "texto": "Derecho a una atención temprana integral, universal, gratuita y pública para los niños con trastornos del desarrollo o en riesgo de tenerlos.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-241",
+   "partido": "nc",
+   "tema": "familia",
+   "texto": "Educación pública y gratuita de 0 a 3 años y un sistema público de cuidados de larga duración para que el cuidado no recaiga en las familias.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-242",
+   "partido": "nc",
+   "tema": "familia",
+   "texto": "Planes de respiro familiar para quienes cuidan y equiparar en derechos a las trabajadoras del hogar con la ratificación del Convenio 189 de la OIT.",
+   "num": null,
+   "pagina": 7,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=7",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-243",
+   "partido": "nc",
+   "tema": "educacion",
+   "texto": "Menos alumnos por aula, reforzar las universidades públicas y controlar la proliferación de universidades privadas.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-244",
+   "partido": "nc",
+   "tema": "vida",
+   "texto": "Garantizar los derechos sexuales y reproductivos y estudiar proteger el derecho al aborto en la Constitución, como ha hecho Francia. No menciona la eutanasia.",
+   "num": null,
+   "pagina": 18,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=18",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-245",
+   "partido": "nc",
+   "tema": "rural",
+   "texto": "Mantener el POSEI como programa propio de la PAC para Canarias, con financiación actualizada, y compensar los sobrecostes del sector pesquero.",
+   "num": null,
+   "pagina": 10,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=10",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-246",
+   "partido": "nc",
+   "tema": "rural",
+   "texto": "Proteger el suelo agrario, aumentar la reserva de suelo rústico y recuperar terrenos para la agricultura y la ganadería.",
+   "num": null,
+   "pagina": 11,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=11",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
    "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
@@ -12158,6 +12996,11 @@
    "url": "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/",
    "fecha": "2026-11-02"
   },
+  "upc_web": {
+   "titulo": "Unidad del Pueblo Canario: Manifiesto y líneas básicas del programa",
+   "url": "https://www.unidadpueblocanario.org/manifiesto",
+   "fecha": "2026-11"
+  },
   "manifiesto_upc": {
    "titulo": "Unidad del Pueblo Canario: Manifiesto electoral (PDF)",
    "url": "https://github.com/dvalverderios92/test-29n/blob/main/programas/manifiesto-upc.pdf",
@@ -12316,6 +13159,11 @@
   "pdf_junts": {
    "titulo": "Junts per Catalunya: Programa electoral 29N (en catalán) (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_nc": {
+   "titulo": "Unidad del Pueblo Canario: Líneas básicas del programa (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf",
    "fecha": "2026-11"
   }
  }
