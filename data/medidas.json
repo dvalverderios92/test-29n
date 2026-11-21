@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1978,9 +1978,14 @@
     "fa",
     "pod"
    ],
+   "orden": [
+    "nc",
+    "pod",
+    "fa"
+   ],
    "nombre": "Unidad del Pueblo Canario",
    "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
-   "nota": "Candidatura conjunta. El test usa las líneas básicas del programa común de la candidatura y, además, las medidas estatales de Frente Amplio y Podemos.",
+   "nota": "Candidatura conjunta. El test usa las líneas básicas del programa común de la candidatura y, en los asuntos que este no trata, las medidas estatales de Podemos y Frente Amplio.",
    "fuentes": [
     "pdf_nc",
     "upc_web",
@@ -2001,12 +2006,18 @@
     "pod",
     "erc"
    ],
+   "orden": [
+    "comp",
+    "fa",
+    "pod",
+    "erc"
+   ],
    "alias": {
     "erc": "Esquerra Republicana del País Valencià"
    },
    "nombre": "Compromís-Front Valencià",
    "integrantes": "Compromís, Esquerra Unida del País Valencià, Podem y Esquerra Republicana del País Valencià (nombre inscrito: COMPROMÍS-EUPV-PODEM-ERPV)",
-   "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones), y para Frente Amplio y Podemos, sus medidas estatales. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
+   "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones) y, en los asuntos que este no trata, las medidas estatales de Frente Amplio y Podemos. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
    "fuentes": [
     "boe_candidaturas",
     "pdf_comp",
@@ -2023,6 +2034,10 @@
     "eq": "baleares"
    },
    "partidos": [
+    "fa",
+    "erc"
+   ],
+   "orden": [
     "fa",
     "erc"
    ],
@@ -4314,6 +4329,9 @@
      "texto": "Por debajo de 1 millón de patrimonio neto no lo pagarías."
     }
    ],
+   "claves": [
+    "fortunas"
+   ],
    "pagina": 45,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=45"
   },
@@ -4346,6 +4364,11 @@
      "valor": -1,
      "texto": "Tus rentas del ahorro tributarían más."
     }
+   ],
+   "claves": [
+    "irpf_altas",
+    "irpf_capital",
+    "sociedades"
    ],
    "pagina": 46,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=46"
@@ -4381,6 +4404,9 @@
      "valor": 1,
      "texto": "Pagarías menos IRPF por tu sueldo (o nada si cobras el salario mínimo)."
     }
+   ],
+   "claves": [
+    "irpf_bajas"
    ],
    "pagina": 46,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=46"
@@ -4427,6 +4453,9 @@
      "valor": -1,
      "texto": "Subiría el coste de tus empleados con sueldos altos."
     }
+   ],
+   "claves": [
+    "tope"
    ],
    "pagina": 58,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=58"
@@ -4493,6 +4522,10 @@
      "texto": "Podrías jubilarte a los 65 sin penalización."
     }
    ],
+   "claves": [
+    "pens_minima",
+    "jubil_edad"
+   ],
    "detalle": {
     "coste": "unos 20.000 M€ al año, según el partido en campaña"
    },
@@ -4536,6 +4569,9 @@
      "valor": 1,
      "texto": "Más vivienda pública de alquiler asequible a la que optar."
     }
+   ],
+   "claves": [
+    "grandes_tenedores"
    ],
    "pagina": 10,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=10"
@@ -4598,6 +4634,9 @@
      "texto": "Si pensabas invertir tus ahorros en vivienda, solo podrías hacerlo para alquiler asequible regulado."
     }
    ],
+   "claves": [
+    "compra"
+   ],
    "pagina": 11,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=11"
   },
@@ -4620,6 +4659,9 @@
      "valor": -1,
      "texto": "Tu vivienda turística pagaría bastante más impuestos."
     }
+   ],
+   "claves": [
+    "turistica"
    ],
    "pagina": 12,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=12"
@@ -4656,6 +4698,9 @@
      "valor": 1,
      "texto": "No tendrías que irte al acabar el contrato y tendrías más fuerza para negociar."
     }
+   ],
+   "claves": [
+    "alq_contrato"
    ],
    "pagina": 14,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=14"
@@ -4694,6 +4739,9 @@
      "valor": 0,
      "texto": "Por encima del salario mínimo no te aplicaría."
     }
+   ],
+   "claves": [
+    "autonomos"
    ],
    "pagina": 92,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=92"
@@ -4735,6 +4783,10 @@
      "valor": -1,
      "texto": "Más coste laboral por hora."
     }
+   ],
+   "claves": [
+    "smi",
+    "jornada"
    ],
    "pagina": 51,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=51"
@@ -4794,6 +4846,9 @@
      "texto": "Tu alquiler bajaría hasta un 40 % y tu contrato pasaría a ser indefinido."
     }
    ],
+   "claves": [
+    "alq_precio"
+   ],
    "pagina": 8,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=8"
   },
@@ -4840,6 +4895,9 @@
      "texto": "Podrías comprar para vivir, con menos competencia de inversores; el efecto en los precios es incierto."
     }
    ],
+   "claves": [
+    "compra"
+   ],
    "pagina": 8,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=8"
   },
@@ -4862,6 +4920,9 @@
      "valor": -1,
      "texto": "Perderías la licencia turística de tu vivienda."
     }
+   ],
+   "claves": [
+    "turistica"
    ],
    "pagina": 9,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=9"
@@ -4893,6 +4954,9 @@
      "valor": -1,
      "texto": "Si tienes viviendas vacías o de uso propio, pagarías bastante más IRPF por ellas."
     }
+   ],
+   "claves": [
+    "irpf_caseros"
    ],
    "pagina": 22,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=22"
@@ -4953,6 +5017,11 @@
      "texto": "Pagarías algo menos: el tipo estatal más bajo pasa del 9,5 % al 9 % (unos 60 € al año)."
     }
    ],
+   "claves": [
+    "irpf_bajas",
+    "irpf_altas",
+    "irpf_capital"
+   ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=21"
   },
@@ -4983,6 +5052,9 @@
      "texto": "Depende de tu patrimonio exento: hoy, 700.000 € más hasta 300.000 € de vivienda habitual."
     }
    ],
+   "claves": [
+    "fortunas"
+   ],
    "pagina": 17,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=17"
   },
@@ -5005,6 +5077,9 @@
      "valor": 1,
      "texto": "Tus facturas de luz y gas tendrían un límite de subida."
     }
+   ],
+   "claves": [
+    "luz"
    ],
    "pagina": 18,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=18"
@@ -5076,6 +5151,9 @@
      "texto": "Subiría mucho el coste de tu plantilla en salarios bajos."
     }
    ],
+   "claves": [
+    "smi"
+   ],
    "pagina": 41,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
   },
@@ -5110,6 +5188,9 @@
      "valor": -1,
      "texto": "Te subiría el coste por hora."
     }
+   ],
+   "claves": [
+    "jornada"
    ],
    "pagina": 41,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
@@ -5147,6 +5228,9 @@
      "valor": 0,
      "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
     }
+   ],
+   "claves": [
+    "despido"
    ],
    "pagina": 42,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=42"
@@ -5213,6 +5297,9 @@
      "texto": "Si pagas más o menos que hoy depende de una escala no publicada."
     }
    ],
+   "claves": [
+    "autonomos"
+   ],
    "pagina": 23,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=23"
   },
@@ -5263,6 +5350,10 @@
      "texto": "Si te jubilaste antes de tiempo con 40 años cotizados, se revisaría tu pensión."
     }
    ],
+   "claves": [
+    "jubil_edad",
+    "jubil_anticipada"
+   ],
    "pagina": 41,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=41"
   },
@@ -5312,6 +5403,10 @@
      "texto": "Tu pensión subiría hasta el salario mínimo."
     }
    ],
+   "claves": [
+    "pens_minima",
+    "pens_no_contrib"
+   ],
    "pagina": 44,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=44"
   },
@@ -5357,6 +5452,9 @@
      "texto": "Subiría el coste de tus empleados con sueldos altos."
     }
    ],
+   "claves": [
+    "tope"
+   ],
    "pagina": 44,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=44"
   },
@@ -5398,6 +5496,9 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
     }
+   ],
+   "claves": [
+    "crianza"
    ],
    "pagina": 60,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=60"
@@ -5741,6 +5842,9 @@
      "texto": "Pagarías más por tus rentas del ahorro del tramo más alto."
     }
    ],
+   "claves": [
+    "irpf_capital"
+   ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=21"
   },
@@ -5784,6 +5888,9 @@
      "valor": 0,
      "texto": "La rebaja es para los tramos inferiores a 35.000 €; si te alcanza en parte depende de cómo se diseñe."
     }
+   ],
+   "claves": [
+    "irpf_bajas"
    ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=21"
@@ -5857,6 +5964,9 @@
      "texto": "El impuesto actual empieza en 3 millones de patrimonio neto; por debajo no lo pagarías."
     }
    ],
+   "claves": [
+    "fortunas"
+   ],
    "pagina": 22,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=22"
   },
@@ -5904,6 +6014,9 @@
      "texto": "Si compras otra vivienda que no sea residencia habitual, pagarías más IVA o ITP."
     }
    ],
+   "claves": [
+    "compra"
+   ],
    "pagina": 19,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=19"
   },
@@ -5932,6 +6045,9 @@
      "valor": 1,
      "texto": "Más vivienda pública de alquiler asequible a la que optar."
     }
+   ],
+   "claves": [
+    "viv_publica"
    ],
    "pagina": 19,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=19"
@@ -5976,6 +6092,9 @@
      "texto": "Más coste si tienes plantilla con salarios bajos."
     }
    ],
+   "claves": [
+    "smi"
+   ],
    "pagina": 20,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=20"
   },
@@ -6011,6 +6130,9 @@
      "valor": -1,
      "texto": "Te subiría el coste por hora de tu plantilla."
     }
+   ],
+   "claves": [
+    "jornada"
    ],
    "pagina": 26,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=26"
@@ -6049,6 +6171,9 @@
      "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
     }
    ],
+   "claves": [
+    "despido"
+   ],
    "pagina": 26,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=26"
   },
@@ -6072,6 +6197,9 @@
      "valor": 1,
      "texto": "Mantendrías la subida con los precios, calculada con el IPC de tu territorio: si allí suben más que la media, tu pensión subiría algo más (y al revés)."
     }
+   ],
+   "claves": [
+    "pens_revalorizacion"
    ],
    "pagina": 26,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=26"
@@ -6130,6 +6258,9 @@
      "texto": "Tu cuota dependería de tus ingresos reales; la escala no está publicada."
     }
    ],
+   "claves": [
+    "autonomos"
+   ],
    "pagina": 26,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=26"
   },
@@ -6172,6 +6303,9 @@
      "valor": 0,
      "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
     }
+   ],
+   "claves": [
+    "crianza"
    ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=21"
@@ -8323,6 +8457,10 @@
      "texto": "Tu contrato pasaría a ser indefinido y tu ayuntamiento podría declarar tu zona tensionada para controlar el precio."
     }
    ],
+   "claves": [
+    "alq_contrato",
+    "alq_precio"
+   ],
    "pagina": 4,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
   },
@@ -8369,6 +8507,10 @@
      "texto": "Podrías comprar para vivir, con menos competencia de fondos e inversores; el efecto en los precios es incierto."
     }
    ],
+   "claves": [
+    "compra",
+    "grandes_tenedores"
+   ],
    "pagina": 4,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
   },
@@ -8396,6 +8538,9 @@
      "valor": 1,
      "texto": "Más vivienda pública o protegida a la que optar."
     }
+   ],
+   "claves": [
+    "viv_publica"
    ],
    "pagina": 4,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=4"
@@ -8478,6 +8623,9 @@
      "texto": "Te subiría el coste por hora de tu plantilla."
     }
    ],
+   "claves": [
+    "jornada"
+   ],
    "pagina": 6,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
   },
@@ -8520,6 +8668,9 @@
      "texto": "Más coste si tienes plantilla con salarios bajos."
     }
    ],
+   "claves": [
+    "smi"
+   ],
    "pagina": 6,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
   },
@@ -8556,6 +8707,9 @@
      "valor": 0,
      "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
     }
+   ],
+   "claves": [
+    "despido"
    ],
    "pagina": 6,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=6"
@@ -8621,6 +8775,12 @@
      "texto": "Podrías jubilarte a los 65 y, con 40 años trabajados, antes sin penalización."
     }
    ],
+   "claves": [
+    "jubil_edad",
+    "jubil_anticipada",
+    "pens_revalorizacion",
+    "pens_no_contrib"
+   ],
    "pagina": 8,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=8"
   },
@@ -8665,6 +8825,9 @@
      "valor": -1,
      "texto": "Subiría el coste de tus empleados con sueldos altos."
     }
+   ],
+   "claves": [
+    "tope"
    ],
    "pagina": 8,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=8"
@@ -8738,6 +8901,11 @@
      "texto": "La actualización con la inflación solo te llegaría si tus ingresos quedan por debajo de 30.000 €."
     }
    ],
+   "claves": [
+    "irpf_bajas",
+    "irpf_capital",
+    "irpf_caseros"
+   ],
    "pagina": 18,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=18"
   },
@@ -8780,6 +8948,9 @@
      "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
     }
    ],
+   "claves": [
+    "crianza"
+   ],
    "pagina": 46,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=46"
   },
@@ -8807,6 +8978,9 @@
      "valor": 1,
      "texto": "Bajaría tu factura de la luz: esos costes se pagarían con los Presupuestos."
     }
+   ],
+   "claves": [
+    "luz"
    ],
    "pagina": 29,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=29"
@@ -8842,6 +9016,10 @@
      "valor": 1,
      "texto": "Tu alquiler tendría control de precios y tu contrato se renovaría automáticamente."
     }
+   ],
+   "claves": [
+    "alq_precio",
+    "alq_contrato"
    ],
    "pagina": 3,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=3"
@@ -8881,6 +9059,9 @@
      "valor": 1,
      "texto": "Más vivienda pública de alquiler a la que optar, con prioridad para jóvenes (sin plazos)."
     }
+   ],
+   "claves": [
+    "grandes_tenedores"
    ],
    "pagina": 3,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=3"
@@ -8978,6 +9159,10 @@
      "valor": -1,
      "texto": "El uso vacacional de tu vivienda en zona residencial quedaría regulado (el programa no concreta cómo)."
     }
+   ],
+   "claves": [
+    "turistica",
+    "compra"
    ],
    "pagina": 4,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=4"
@@ -9081,6 +9266,12 @@
      "texto": "Tu pensión seguiría subiendo con el IPC (la ley actual ya la liga al IPC)."
     }
    ],
+   "claves": [
+    "pens_revalorizacion",
+    "pens_minima",
+    "pens_no_contrib",
+    "jubil_anticipada"
+   ],
    "pagina": 6,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=6"
   },
@@ -9179,6 +9370,9 @@
      "texto": "Subiría el coste de tu plantilla en salarios bajos."
     }
    ],
+   "claves": [
+    "smi"
+   ],
    "pagina": 7,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=7"
   },
@@ -9213,6 +9407,9 @@
      "valor": -1,
      "texto": "Te subiría el coste por hora de tu plantilla."
     }
+   ],
+   "claves": [
+    "jornada"
    ],
    "pagina": 7,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=7"
@@ -9272,6 +9469,10 @@
      "valor": 0,
      "texto": "Si ganas más de 120.000 €, pagarías más: habría más tramos con tipos crecientes."
     }
+   ],
+   "claves": [
+    "irpf_bajas",
+    "irpf_altas"
    ],
    "pagina": 12,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=12"
@@ -9393,6 +9594,11 @@
      "texto": "Podrías pagar más por tus rentas del ahorro, según cómo se aplique."
     }
    ],
+   "claves": [
+    "irpf_capital",
+    "fortunas",
+    "sociedades"
+   ],
    "pagina": 12,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=12"
   },
@@ -9434,6 +9640,9 @@
      "valor": 1,
      "texto": "Si facturas menos de 85.000 € al año, no tendrías que cobrar IGIC."
     }
+   ],
+   "claves": [
+    "autonomos"
    ],
    "pagina": 13,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=13"

@@ -156,6 +156,19 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
   const val = ev('valencia').partidos.find(p => p.id === 'compromis');
   ok(val && val.partidos_test.includes('Compromís') && val.medidas.some(m => m.de === 'Compromís') && !ev('valencia').partidos.some(p => p.id === 'comp'), 'Compromís (v2.15): en la Comunitat Valenciana, dentro de Compromís-Front Valencià y con sus medidas');
   ok(['madrid', 'cataluna', 'baleares', 'canarias', 'murcia', 'aragon'].every(r => !ev(r).partidos.some(p => p.id === 'comp' || (p.partidos_test || []).includes('Compromís'))), 'Compromís: no aparece fuera de la Comunitat Valenciana');
+  // v2.18: dentro de una candidatura conjunta, cada asunto cuenta una vez y el programa común prevalece
+  const clv = id => (D.medidas.find(m => m.id === id) || {}).claves || [];
+  let dobles = [], comunOmitida = [];
+  for (const a of perfiles) for (const p of T.evaluate(D, a).partidos) {
+    if (!p.omitidas) continue;
+    const ids = p.medidas.concat(p.universales).map(m => m.id);
+    ids.forEach(id => { const k = clv(id); if (k.length && k.every(x => ids.some(o => o !== id && clv(o).includes(x)))) dobles.push(p.id + ':' + id); });
+    p.omitidas.forEach(id => { if (/^(nc|comp)-/.test(id)) comunOmitida.push(id); });
+  }
+  ok(!dobles.length, `Candidaturas conjuntas: ninguna medida contada repite asuntos ya contados (${[...new Set(dobles)].slice(0, 5).join(', ') || 'ninguna'})`);
+  ok(!comunOmitida.length, 'Candidaturas conjuntas: ninguna medida del programa común se descarta');
+  { const u = ev('canarias').partidos.find(p => p.id === 'upc'); ok(u.omitidas.includes('pod-40') && u.omitidas.includes('pod-smi') && u.omitidas.includes('fa-smi'), 'UPC: el control de alquileres y el salario mínimo del programa común sustituyen a los de Podemos y Frente Amplio'); }
+  { const cv = ev('valencia').partidos.find(p => p.id === 'compromis'); ok(['pod-jornada', 'fa-smi', 'erc-105'].every(id => cv.omitidas.includes(id)), 'Compromís-Front Valencià: la jornada y el salario mínimo cuentan una vez'); }
   ok(ev('valencia').notas.every(n => !/propias de Compromís aún no/.test(n)), 'Comunitat Valenciana: ya no avisa de que las propuestas de Compromís no están incluidas');
   const can = ev('canarias').partidos.find(p => p.id === 'upc');
   ok(can && can.partidos_test.includes('Unidad del Pueblo Canario (programa común)') && can.medidas.some(m => m.de === 'Unidad del Pueblo Canario (programa común)') && !ev('canarias').partidos.some(p => p.id === 'nc'), 'Programa común de Unidad del Pueblo Canario (v2.17): en Canarias y con sus medidas');

@@ -253,7 +253,7 @@
       lista(limpio(p.nombre) + ': todas sus medidas que te afectan',
         'En negrita, cómo te afectaría (deducción del test). Debajo, lo que propone. Salvo que se indique, sin plazo ni coste.',
         meds.map(function (m) {
-          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propone: ') + m.texto + (m.detalle && m.detalle.plazo ? ' Plazo: ' + m.detalle.plazo + '.' : '') + (m.detalle && m.detalle.coste ? ' Coste: ' + m.detalle.coste + '.' : '') + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
+          return { marca: m.valor > 0 ? 'mas' : m.valor < 0 ? 'menos' : 'inc', cab: m.tema + ': ' + m.efecto, det: (m.de ? 'Propuesta de ' + m.de + ': ' : 'Propone: ') + m.texto + (m.detalle && m.detalle.plazo ? ' Plazo: ' + m.detalle.plazo + '.' : '') + (m.detalle && m.detalle.coste ? ' Coste: ' + m.detalle.coste + '.' : '') + (m.nota_candidatura ? ' ' + m.nota_candidatura : '') + (m.pagina ? ' (p. ' + m.pagina + ' del programa)' : m.origen === 'campaña' ? ' (anuncio de campaña)' : m.origen === 'previa' ? ' (posición anterior)' : '') };
         }), null,
         (p.programa.estado === 'publicado' ? 'Programa: ' + p.programa.titulo + '. ' : p.programa.estado === 'coalicion' ? 'Candidatura conjunta: ' + p.integrantes + '. ' : 'Sin programa publicado: anuncios de campaña y posiciones anteriores. ') + 'Cómo dice pagarlo: ' + (FIN[p.financiacion.cuantifica] || p.financiacion.cuantifica) + '. ' + p.financiacion.resumen);
     });

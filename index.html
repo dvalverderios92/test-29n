@@ -346,7 +346,7 @@ function pick(id,silent){
   var grp=function(sg,cls,title){var l=p.medidas.filter(function(x){return Math.sign(x.valor)===sg});if(!l.length)return'';
     return '<h3>'+title+' <span class="mut">('+l.length+')</span></h3>'+l.map(function(x){return '<div class="m '+cls+'"><div class="t">'+esc(x.tema)+'</div>'+
       '<div class="ef">'+esc(x.efecto)+'</div>'+
-      '<details><summary>Qué propone y fuente</summary><div class="prop">'+esc(x.texto)+(x.detalle?(x.detalle.plazo?' Plazo: '+esc(x.detalle.plazo)+'.':'')+(x.detalle.coste?' Coste: '+esc(x.detalle.coste)+'.':''):'')+'</div>'+
+      '<details><summary>Qué propone y fuente</summary><div class="prop">'+esc(x.texto)+(x.detalle?(x.detalle.plazo?' Plazo: '+esc(x.detalle.plazo)+'.':'')+(x.detalle.coste?' Coste: '+esc(x.detalle.coste)+'.':''):'')+'</div>'+(x.nota_candidatura?'<div class="mut">'+esc(x.nota_candidatura)+'</div>':'')+
       '<div>'+(x.url?'<a class="pill src" style="text-decoration:none" href="'+esc(x.url)+'" target="_blank" rel="noopener">':'<span class="pill src">')+(x.de?'Propuesta de '+esc(x.de)+'. ':'')+esc(ORIGEN[x.origen])+(x.num?', medida '+esc(x.num):'')+(x.pagina?', p. '+x.pagina:'')+(x.url?'</a>':'</span>')+'</div>'+
       srcList(x.fuentes)+'</details></div>'}).join('')};
   h+=p.medidas.length?grp(-1,'neg','En tu contra')+grp(0,'unc','Efecto incierto')+grp(1,'pos','A tu favor'):'<p class="mut">Ninguna medida recogida te afecta directamente según tus respuestas.</p>';

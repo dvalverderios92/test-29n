@@ -118,9 +118,34 @@
         if (!miembros.length) return;
         // Nombre del partido en esa comunidad (p. ej., la federación territorial de un partido estatal)
         var nm = function (p) { return (c.alias && c.alias[p.id]) || p.nombre; };
+        // Una propuesta, una vez: por orden de prioridad (programa común primero), una medida de un
+        // socio no cuenta si todos sus asuntos ya los trata una medida anterior de la candidatura.
+        var orden = c.orden || c.partidos;
+        miembros.sort(function (a, b) { return orden.indexOf(a.id) - orden.indexOf(b.id); });
+        var cubre = {}, omitidas = {}, sobre = {};
+        miembros.forEach(function (p) {
+          data.medidas.filter(function (m) { return m.partido === p.id && m.claves && m.claves.length; }).forEach(function (m) {
+            var previas = m.claves.map(function (k) { return cubre[k]; });
+            if (previas.every(Boolean)) {
+              omitidas[m.id] = true;
+              previas.forEach(function (id) { var l = sobre[id] = sobre[id] || []; if (l.indexOf(nm(p)) === -1) l.push(nm(p)); });
+            } else m.claves.forEach(function (k) { if (!cubre[k]) cubre[k] = m.id; });
+          });
+        });
+        var lista = function (a) { return a.length > 1 ? a.slice(0, -1).join(', ') + ' y ' + a[a.length - 1] : a[0]; };
+        var marca = function (m, p) {
+          var o = { de: nm(p) };
+          if (sobre[m.id]) {
+            o.tambien = sobre[m.id].filter(function (n) { return n !== nm(p); });
+            if (o.tambien.length) o.nota_candidatura = lista(o.tambien) + (o.tambien.length > 1 ? ' también tienen' : ' también tiene') + ' propuesta sobre esto; en la candidatura cuenta una vez.';
+          }
+          return Object.assign({}, m, o);
+        };
         var rmap = {};
         miembros.forEach(function (p) {
           p.riesgos.forEach(function (r) {
+            r = Object.assign({}, r, { medidas_origen: r.medidas_origen.filter(function (id) { return !omitidas[id]; }) });
+            if (!r.medidas_origen.length) return;
             var prev = rmap[r.id];
             if (!prev || (NIVEL[r.exposicion_usuario.nivel] || 0) > (NIVEL[prev.exposicion_usuario.nivel] || 0)) {
               rmap[r.id] = Object.assign({}, r, { medidas_origen: (prev ? prev.medidas_origen : []).concat(r.medidas_origen) });
@@ -130,8 +155,8 @@
         var meds = [], univ = [], soc = [];
         miembros.forEach(function (p) {
           p.sociales.forEach(function (m) { soc.push(Object.assign({}, m, { de: nm(p) })); });
-          p.medidas.forEach(function (m) { meds.push(Object.assign({}, m, { de: nm(p) })); });
-          p.universales.forEach(function (m) { univ.push(Object.assign({}, m, { de: nm(p) })); });
+          p.medidas.forEach(function (m) { if (!omitidas[m.id]) meds.push(marca(m, p)); });
+          p.universales.forEach(function (m) { if (!omitidas[m.id]) univ.push(marca(m, p)); });
         });
         var riesgos = Object.keys(rmap).map(function (k) { return rmap[k]; })
           .sort(function (a, b) { return (NIVEL[b.exposicion_usuario.nivel] || 0) - (NIVEL[a.exposicion_usuario.nivel] || 0); });
@@ -140,7 +165,7 @@
           programa: { titulo: 'Candidatura conjunta', fecha: null, estado: 'coalicion', nota: c.integrantes + '. ' + c.nota },
           financiacion: { cuantifica: 'varias', resumen: miembros.map(function (p) { return nm(p) + ': ' + p.financiacion.resumen; }).join(' '),
             fuentes: [].concat.apply([], miembros.map(function (p) { return p.financiacion.fuentes; })) },
-          medidas: meds, universales: univ, riesgos: riesgos, sociales: soc, fuentes_candidatura: c.fuentes
+          medidas: meds, universales: univ, riesgos: riesgos, sociales: soc, fuentes_candidatura: c.fuentes, omitidas: Object.keys(omitidas)
         };
         fusion.recuento = {
           a_favor: meds.filter(function (x) { return x.valor > 0; }).length,
@@ -151,7 +176,7 @@
         };
         partidos = partidos.filter(function (p) { return c.partidos.indexOf(p.id) === -1; }).concat([fusion]);
         var nombres = miembros.map(function (p) { return nm(p); });
-        avisos.push('En tu comunidad, ' + (nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0]) + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura, así que su recuento suma las de varios partidos y no es comparable con el de los demás.');
+        avisos.push('En tu comunidad, ' + (nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0]) + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura. Si varios tratan el mismo asunto, cuenta una sola medida: la del programa común si lo trata y, si no, la del primer partido de la candidatura.');
       }
     });
     partidos.sort(function (a, b) { return a.nombre.localeCompare(b.nombre, 'es'); });

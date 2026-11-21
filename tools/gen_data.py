@@ -924,20 +924,58 @@ ACOTADA = {
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
 
+# Asuntos que trata cada medida de los partidos que concurren en candidaturas conjuntas.
+# Dentro de una candidatura, una medida de un socio no cuenta si todos sus asuntos ya los
+# trata una medida con prioridad (primero el programa común; luego, el orden de la
+# denominación inscrita). Así la misma propuesta no se cuenta dos veces y, si dos socios
+# chocan en un asunto, prevalece la posición de la candidatura.
+CLAVES = {
+ # Vivienda
+ "nc-alq": ["alq_precio", "alq_contrato"], "pod-40": ["alq_precio"], "comp-alq": ["alq_contrato", "alq_precio"], "fa-indef": ["alq_contrato"],
+ "nc-vacacional": ["turistica", "compra"], "pod-turis": ["turistica"], "fa-turis": ["turistica"],
+ "comp-acum": ["compra", "grandes_tenedores"], "pod-compra": ["compra"], "fa-compra": ["compra"], "erc-59": ["compra"],
+ "nc-vacias": ["grandes_tenedores"], "fa-viv": ["grandes_tenedores"],
+ "comp-viv": ["viv_publica"], "erc-56": ["viv_publica"],
+ "comp-irpf": ["irpf_bajas", "irpf_capital", "irpf_caseros"], "pod-casero": ["irpf_caseros"],
+ # IRPF y patrimonio
+ "nc-irpf": ["irpf_bajas", "irpf_altas"], "pod-irpf": ["irpf_bajas", "irpf_altas", "irpf_capital"],
+ "fa-irpf": ["irpf_bajas"], "fa-rentas": ["irpf_altas", "irpf_capital", "sociedades"],
+ "erc-69b": ["irpf_bajas"], "erc-69a": ["irpf_capital"],
+ "nc-fiscal": ["irpf_capital", "fortunas", "sociedades"], "pod-fortunas": ["fortunas"], "fa-fortunas": ["fortunas"], "erc-74": ["fortunas"],
+ # Empleo
+ "nc-smi": ["smi"], "comp-smi": ["smi"], "pod-smi": ["smi"], "erc-66": ["smi"], "fa-smi": ["smi", "jornada"],
+ "nc-jornada": ["jornada"], "comp-jornada": ["jornada"], "pod-jornada": ["jornada"], "erc-105": ["jornada"],
+ "comp-despido": ["despido"], "pod-despido": ["despido"], "erc-103": ["despido"],
+ "nc-autonomos": ["autonomos"], "pod-autonomos": ["autonomos"], "fa-autonomos": ["autonomos"], "erc-112": ["autonomos"],
+ # Pensiones y cotizaciones
+ "nc-pens": ["pens_revalorizacion", "pens_minima", "pens_no_contrib", "jubil_anticipada"],
+ "comp-pens": ["jubil_edad", "jubil_anticipada", "pens_revalorizacion", "pens_no_contrib"],
+ "fa-pension": ["pens_minima", "jubil_edad"], "pod-pens": ["pens_minima", "pens_no_contrib"],
+ "pod-jubil": ["jubil_edad", "jubil_anticipada"], "erc-106": ["pens_revalorizacion"],
+ "comp-tope": ["tope"], "pod-tope": ["tope"], "fa-tope": ["tope"],
+ # Familia y energía
+ "comp-crianza": ["crianza"], "pod-crianza": ["crianza"], "erc-68": ["crianza"],
+ "comp-luz": ["luz"], "pod-energia": ["luz"],
+}
+assert set(CLAVES) <= {m["id"] for m in MEAS}, set(CLAVES) - {m["id"] for m in MEAS}
+for m in MEAS:
+    if m["id"] in CLAVES:
+        m["claves"] = CLAVES[m["id"]]
+
 # Candidaturas reales en la papeleta del Congreso, por comunidad. Fuente: listas registradas (prensa, 2-nov-2026).
 # tipo "fusion": varios partidos del test concurren juntos; "renombrar": otro nombre en la papeleta; "excluir": no presenta lista.
 CANDIDATURAS = [
- {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["nc", "fa", "pod"],
+ {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["nc", "fa", "pod"], "orden": ["nc", "pod", "fa"],
   "nombre": "Unidad del Pueblo Canario",
   "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
-  "nota": "Candidatura conjunta. El test usa las líneas básicas del programa común de la candidatura y, además, las medidas estatales de Frente Amplio y Podemos.",
+  "nota": "Candidatura conjunta. El test usa las líneas básicas del programa común de la candidatura y, en los asuntos que este no trata, las medidas estatales de Podemos y Frente Amplio.",
   "fuentes": ["pdf_nc", "upc_web", "upc", "democrata_listas"]},
- {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["comp", "fa", "pod", "erc"], "alias": {"erc": "Esquerra Republicana del País Valencià"},
+ {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["comp", "fa", "pod", "erc"], "orden": ["comp", "fa", "pod", "erc"], "alias": {"erc": "Esquerra Republicana del País Valencià"},
   "nombre": "Compromís-Front Valencià",
   "integrantes": "Compromís, Esquerra Unida del País Valencià, Podem y Esquerra Republicana del País Valencià (nombre inscrito: COMPROMÍS-EUPV-PODEM-ERPV)",
-  "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones), y para Frente Amplio y Podemos, sus medidas estatales. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
+  "nota": "Candidatura conjunta. Para Compromís, el test usa el programa común de la candidatura (en valenciano; los resúmenes son traducciones) y, en los asuntos que este no trata, las medidas estatales de Frente Amplio y Podemos. Para Esquerra Republicana del País Valencià, federación valenciana de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican.",
   "fuentes": ["boe_candidaturas", "pdf_comp", "democrata_listas", "diari_fa", "democrata_erc"]},
- {"tipo": "fusion", "id": "ara_mes", "si": Q("region", eq="baleares"), "partidos": ["fa", "erc"], "alias": {"erc": "Esquerra Republicana de les Illes Balears"},
+ {"tipo": "fusion", "id": "ara_mes", "si": Q("region", eq="baleares"), "partidos": ["fa", "erc"], "orden": ["fa", "erc"], "alias": {"erc": "Esquerra Republicana de les Illes Balears"},
   "nombre": "Ara Més-Front Ampli",
   "integrantes": "Ara Més (Més per Mallorca, Més per Menorca y Ara Eivissa), Esquerra Unida y Movimiento Sumar, que forman la coalición inscrita (ARAMÉS-EU-MS). Por acuerdo con Ara Més, la lista la encabeza Carme Gomila, de Esquerra Republicana de les Illes Balears, y Podemos lleva una candidata independiente",
   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio. Podemos no forma parte de la coalición inscrita: solo lleva una candidata independiente, así que sus medidas no se incluyen, igual que en Cataluña con ERC. Para Esquerra Republicana de les Illes Balears, federación balear de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Ara Més aún no están incluidas.",
@@ -1334,7 +1372,7 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.17.0",
+  "version": "2.18.0",
   "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
