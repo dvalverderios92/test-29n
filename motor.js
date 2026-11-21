@@ -175,7 +175,7 @@
           riesgos_medios: riesgos.filter(function (r) { return r.exposicion_usuario.nivel === 'media'; }).length
         };
         partidos = partidos.filter(function (p) { return c.partidos.indexOf(p.id) === -1; }).concat([fusion]);
-        var nombres = miembros.map(function (p) { return nm(p); });
+        var nombres = miembros.map(function (p) { return nm(p); }).filter(function (n) { return n.indexOf(c.nombre) !== 0; }); // el programa común no es un partido aparte
         avisos.push('En tu comunidad, ' + (nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0]) + ' no tienen papeleta propia: concurren dentro de ' + c.nombre + ' (' + c.integrantes + '). Sus medidas aparecen juntas en esa candidatura. Si varios tratan el mismo asunto, cuenta una sola medida: la del programa común si lo trata y, si no, la del primer partido de la candidatura.');
       }
     });

@@ -8,7 +8,9 @@ let fallos = 0;
 const ok = (c, msg) => { if (!c) { fallos++; console.log('✗ ' + msg); } else console.log('✓ ' + msg); };
 
 // Generador pseudoaleatorio con semilla, para resultados reproducibles
-let s = 29112026; const rnd = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);
+// (mulberry32: el generador lineal anterior encadenaba mal los valores seguidos y nunca producía
+// algunas combinaciones, por ejemplo, jóvenes de alquiler en Baleares)
+let s = 29112026; const rnd = () => { s = (s + 0x6D2B79F5) | 0; let t = Math.imul(s ^ (s >>> 15), 1 | s); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 function perfilAleatorio() {
   const a = {};
   for (const q of D.preguntas) {
@@ -163,11 +165,13 @@ for (const [nombre, a] of Object.entries(arquetipos)) {
     if (!p.omitidas) continue;
     const ids = p.medidas.concat(p.universales).map(m => m.id);
     ids.forEach(id => { const k = clv(id); if (k.length && k.every(x => ids.some(o => o !== id && clv(o).includes(x)))) dobles.push(p.id + ':' + id); });
-    p.omitidas.forEach(id => { if (/^(nc|comp)-/.test(id)) comunOmitida.push(id); });
+    p.omitidas.forEach(id => { if (/^(nc|comp|aram)-/.test(id)) comunOmitida.push(id); });
   }
   ok(!dobles.length, `Candidaturas conjuntas: ninguna medida contada repite asuntos ya contados (${[...new Set(dobles)].slice(0, 5).join(', ') || 'ninguna'})`);
   ok(!comunOmitida.length, 'Candidaturas conjuntas: ninguna medida del programa común se descarta');
   { const u = ev('canarias').partidos.find(p => p.id === 'upc'); ok(u.omitidas.includes('pod-40') && u.omitidas.includes('pod-smi') && u.omitidas.includes('fa-smi'), 'UPC: el control de alquileres y el salario mínimo del programa común sustituyen a los de Podemos y Frente Amplio'); }
+  { const am = ev('baleares').partidos.find(p => p.id === 'ara_mes'); ok(am && am.partidos_test.includes('Ara Més-Front Ampli (programa común)') && ['fa-smi', 'fa-indef', 'erc-66', 'erc-68'].every(id => am.omitidas.includes(id)) && !ev('baleares').partidos.some(p => p.id === 'aram'), 'Ara Més-Front Ampli (v2.19): su programa común prevalece sobre los de Frente Amplio y ERC'); }
+  ok(['madrid', 'cataluna', 'canarias', 'valencia'].every(r => !ev(r).partidos.some(p => p.id === 'aram' || (p.partidos_test || []).some(n => /Ara Més/.test(n)))), 'Ara Més-Front Ampli: solo en Baleares');
   { const cv = ev('valencia').partidos.find(p => p.id === 'compromis'); ok(['pod-jornada', 'fa-smi', 'erc-105'].every(id => cv.omitidas.includes(id)), 'Compromís-Front Valencià: la jornada y el salario mínimo cuentan una vez'); }
   ok(ev('valencia').notas.every(n => !/propias de Compromís aún no/.test(n)), 'Comunitat Valenciana: ya no avisa de que las propuestas de Compromís no están incluidas');
   const can = ev('canarias').partidos.find(p => p.id === 'upc');

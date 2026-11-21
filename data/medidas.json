@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.18.0",
+  "version": "2.19.0",
   "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -1334,6 +1334,26 @@
    }
   },
   {
+   "id": "aram",
+   "nombre": "Ara Més-Front Ampli (programa común)",
+   "ambito_si": {
+    "ref": "baleares"
+   },
+   "programa": {
+    "titulo": "Programa electoral 29N",
+    "fecha": "2026-11-16",
+    "estado": "publicado",
+    "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la web enlaza también una versión corregida del 17-11 que aún no hemos revisado. Solo se presenta en Baleares."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras sueltas: 200 € por menor, un escudo hipotecario de hasta 300 € al mes, una deducción de hasta 1.000 € en el IRPF para menores de 35 de alquiler y elevar la dependencia al 1,7 % del PIB. Pide que el Estado financie buena parte de las medidas (transporte gratuito, Régimen Especial de Baleares, condonación de deuda), y propone subir impuestos a los pisos y establecimientos turísticos (IVA del 21 %), a quien acumule viviendas y a las SOCIMI, y suprimir la ley Beckham.",
+    "fuentes": [
+     "pdf_aram"
+    ]
+   }
+  },
+  {
    "id": "salf",
    "nombre": "Se Acabó La Fiesta (SALF)",
    "ambito_si": {
@@ -2034,10 +2054,12 @@
     "eq": "baleares"
    },
    "partidos": [
+    "aram",
     "fa",
     "erc"
    ],
    "orden": [
+    "aram",
     "fa",
     "erc"
    ],
@@ -2046,9 +2068,11 @@
    },
    "nombre": "Ara Més-Front Ampli",
    "integrantes": "Ara Més (Més per Mallorca, Més per Menorca y Ara Eivissa), Esquerra Unida y Movimiento Sumar, que forman la coalición inscrita (ARAMÉS-EU-MS). Por acuerdo con Ara Més, la lista la encabeza Carme Gomila, de Esquerra Republicana de les Illes Balears, y Podemos lleva una candidata independiente",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio. Podemos no forma parte de la coalición inscrita: solo lleva una candidata independiente, así que sus medidas no se incluyen, igual que en Cataluña con ERC. Para Esquerra Republicana de les Illes Balears, federación balear de ERC, usa el programa de ERC para Cataluña (en catalán; los resúmenes son traducciones), porque no tiene uno propio publicado; las partes que solo afectan a Cataluña no se te aplican. Las propuestas propias de Ara Més aún no están incluidas.",
+   "nota": "Candidatura conjunta. El test usa el programa común de la candidatura (en catalán; los resúmenes son traducciones) y, en los asuntos que este no trata, las medidas estatales de Frente Amplio y el programa de ERC para Cataluña para Esquerra Republicana de les Illes Balears, federación balear de ERC (las partes que solo afectan a Cataluña no se te aplican). Podemos no forma parte de la coalición inscrita: solo lleva una candidata independiente, así que sus medidas no se incluyen, igual que en Cataluña con ERC.",
    "fuentes": [
     "boe_candidaturas",
+    "pdf_aram",
+    "arames_web",
     "democrata_listas",
     "diari_fa",
     "democrata_erc"
@@ -4604,6 +4628,9 @@
      "texto": "Con hasta tres viviendas en total no lo pagarías como particular."
     }
    ],
+   "claves": [
+    "impuesto_viviendas"
+   ],
    "pagina": 18,
    "url": "https://dvalverderios92.github.io/test-29n/programas/frente-amplio.pdf#page=18"
   },
@@ -5931,6 +5958,9 @@
      "valor": 0,
      "texto": "Abarataría la compra básica, pero otros productos con IVA reducido se encarecerían; el saldo depende de lo que compres."
     }
+   ],
+   "claves": [
+    "iva"
    ],
    "pagina": 21,
    "url": "https://dvalverderios92.github.io/test-29n/programas/erc.pdf#page=21"
@@ -8588,6 +8618,10 @@
      "texto": "Si compras tu primera vivienda por menos de 350.000 €, no pagarías ITP (se paga en la de segunda mano; la nueva lleva IVA)."
     }
    ],
+   "claves": [
+    "itp_primera",
+    "impuesto_viviendas"
+   ],
    "pagina": 5,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=5"
   },
@@ -9646,6 +9680,900 @@
    ],
    "pagina": 13,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=13"
+  },
+  {
+   "id": "aram-smi",
+   "partido": "aram",
+   "tema": "Empleo",
+   "texto": "Salario mínimo propio de Baleares para compensar el mayor coste de vida; blindar por ley que el estatal llegue al menos al 60 % del salario medio bruto, y limitar que las empresas lo absorban recortando pluses y complementos.",
+   "num": "1",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu sueldo subiría si estás cerca del mínimo, con un mínimo más alto en Baleares (sin cifra)."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Más coste si tienes plantilla con salarios bajos, y no podrías compensarlo recortando pluses."
+    }
+   ],
+   "claves": [
+    "smi"
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-pens",
+   "partido": "aram",
+   "tema": "Pensiones",
+   "texto": "Complemento insular para las pensiones, para compensar el coste de vida en Baleares, con especial atención a las mínimas y no contributivas.",
+   "num": "2",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Cobrarías un complemento por vivir en Baleares (sin cifra)."
+    }
+   ],
+   "claves": [
+    "pens_minima",
+    "pens_no_contrib"
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-carbur",
+   "partido": "aram",
+   "tema": "Energía",
+   "texto": "Tope al precio de los carburantes: en ningún caso más de un 5 % por encima del precio medio de la península.",
+   "num": "3",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Si usas coche o moto, el combustible no podría costar más de un 5 % por encima de la península."
+    }
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-cesta",
+   "partido": "aram",
+   "tema": "Alimentación",
+   "texto": "Controlar el precio de la cesta de alimentos básicos y, si se acreditan abusos, fijar precios máximos en la cesta de la compra saludable.",
+   "num": "4",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 0,
+     "texto": "Solo se fijarían precios máximos si se acreditan abusos; el efecto en tu compra es incierto."
+    }
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-iva",
+   "partido": "aram",
+   "tema": "IVA",
+   "texto": "Un IVA propio reducido para Baleares, como el de los demás territorios no peninsulares, y suprimir el IVA del transporte de mercancías.",
+   "num": "5",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "iva_poco_focalizado",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Pagarías menos IVA en Baleares (el programa no fija el tipo)."
+    }
+   ],
+   "claves": [
+    "iva"
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-crianza",
+   "partido": "aram",
+   "tema": "Familia",
+   "texto": "Prestación universal de 200 € por cada menor hasta los 18 años, sin depender de los ingresos de los padres, y comedor escolar gratuito en Infantil y Primaria en la red pública.",
+   "num": "6",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "con_hijos"
+     },
+     "valor": 1,
+     "texto": "Cobrarías 200 € por cada hijo menor (el programa no dice si es al mes) y, en la escuela pública, el comedor sería gratis en Infantil y Primaria."
+    },
+    {
+     "si": {
+      "ref": "quiere_hijos"
+     },
+     "valor": 1,
+     "texto": "La cobrarías al tener hijos."
+    },
+    {
+     "si": {
+      "ref": "quizas_hijos"
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): la cobrarías al tener hijos."
+    }
+   ],
+   "claves": [
+    "crianza"
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-bono",
+   "partido": "aram",
+   "tema": "Energía",
+   "texto": "Bono social eléctrico asignado de forma automática según la renta del hogar, tarifas sociales también en agua e internet, y prohibir por ley cortar la luz, el agua y el gas a los hogares vulnerables.",
+   "num": "7",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "renta_baja"
+     },
+     "valor": 1,
+     "texto": "Si cumples los requisitos, tendrías el bono social sin pedirlo y tarifas sociales de agua e internet."
+    }
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-jornada",
+   "partido": "aram",
+   "tema": "Empleo",
+   "texto": "Jornada máxima de 32 horas semanales de trabajo efectivo sin bajar el sueldo.",
+   "num": "10",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "jornada_ley",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Trabajarías menos horas por el mismo sueldo."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Te subiría bastante el coste por hora de tu plantilla."
+    }
+   ],
+   "claves": [
+    "jornada"
+   ],
+   "pagina": 2,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=2"
+  },
+  {
+   "id": "aram-fijos",
+   "partido": "aram",
+   "tema": "Empleo",
+   "texto": "Medidas para que los fijos discontinuos del sector turístico cobren y coticen los 12 meses del año.",
+   "num": "13",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "q": "lab",
+      "eq": "asal_temp"
+     },
+     "valor": 1,
+     "texto": "Si eres fijo discontinuo del turismo, cobrarías y cotizarías todo el año (el programa no concreta cómo)."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Si tienes fijos discontinuos en el turismo, podría subirte el coste; el programa no concreta quién lo paga."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=3"
+  },
+  {
+   "id": "aram-transp",
+   "partido": "aram",
+   "tema": "Transporte",
+   "texto": "Transporte público gratuito para todos los residentes, pagado por el Estado dentro del Régimen Especial de Baleares.",
+   "num": "17",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Si usas el transporte público, dejarías de pagar el billete."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=3"
+  },
+  {
+   "id": "aram-aereo",
+   "partido": "aram",
+   "tema": "Transporte",
+   "texto": "Precio máximo en los vuelos con la península, lucha contra el fraude del descuento de residente y una tarifa máxima de 35 € para residentes entre Menorca y Barcelona.",
+   "num": "21-22",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "siempre": true
+     },
+     "valor": 1,
+     "texto": "Si viajas en avión a la península, el billete tendría un precio máximo."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=3"
+  },
+  {
+   "id": "aram-compra",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Prohibir comprar vivienda para un fin que no sea la vivienda habitual y permanente de quien compra, y prohibición absoluta para las empresas con ánimo de lucro.",
+   "num": "23",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": -1,
+     "texto": "No podrías comprar más viviendas para alquilar, invertir ni como segunda residencia."
+    },
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 0,
+     "texto": "Podrías comprar para vivir, con menos competencia de inversores; el efecto en los precios es incierto."
+    }
+   ],
+   "claves": [
+    "compra"
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-alq",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Declaración automática de zona tensionada cuando se cumplan los criterios legales; en esas zonas, alquiler limitado por ley al 25 % de la renta neta de los hogares del barrio (sección censal), con una rebaja un 30 % mayor en Palma y los municipios con masificación turística severa; contratos indefinidos por defecto.",
+   "num": "24-25",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "En zona tensionada tu renta tendría un tope ligado a lo que ganan los hogares del barrio, y el contrato sería indefinido."
+    },
+    {
+     "si": {
+      "ref": "inquilino_tensionada"
+     },
+     "valor": 1,
+     "texto": "Tu alquiler tendría un tope ligado a la renta de los hogares del barrio y tu contrato sería indefinido."
+    },
+    {
+     "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "valor": 1,
+     "texto": "Si tu zona cumple los criterios, se declararía tensionada automáticamente y tu alquiler tendría tope; tu contrato sería indefinido."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "Tu contrato sería indefinido; si tu zona llegara a cumplir los criterios, se declararía tensionada automáticamente."
+    }
+   ],
+   "claves": [
+    "alq_precio",
+    "alq_contrato"
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-escudo",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Escudo hipotecario de hasta 300 € al mes para las familias de clase media cuya hipoteca supere el 40 % de sus ingresos netos.",
+   "num": "26",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "q": "viv",
+      "eq": "hipoteca"
+     },
+     "valor": 0,
+     "texto": "Recibirías hasta 300 € al mes solo si tu hipoteca supera el 40 % de tus ingresos netos."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-sareb",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Ceder las viviendas del Estado, incluidas las de la Sareb, a las administraciones competentes para alquiler público asequible y permanente.",
+   "num": "27",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "busca_vivienda_asequible"
+     },
+     "valor": 1,
+     "texto": "Más vivienda pública de alquiler asequible a la que optar (sin cifras)."
+    }
+   ],
+   "claves": [
+    "viv_publica"
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-turis",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Extinguir en tres años todas las licencias de vivienda turística y los alquileres de temporada fraudulentos en zonas tensionadas; mientras tanto, IVA del 21 %, sin deducciones en IRPF ni Sociedades y recargo del IBI de hasta el 150 %.",
+   "num": "29",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "En zona tensionada perderías la licencia turística en tres años y, hasta entonces, pagarías bastante más impuestos."
+    }
+   ],
+   "claves": [
+    "turistica"
+   ],
+   "detalle": {
+    "plazo": "tres años como máximo para extinguir las licencias"
+   },
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-itp",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Exención del Impuesto de Transmisiones Patrimoniales al comprar la primera vivienda habitual, con un recargo del 200 % en la segunda vivienda y del 1.000 % a partir de la tercera.",
+   "num": "30",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "quiere_comprar"
+     },
+     "valor": 1,
+     "texto": "Si compras tu primera vivienda, no pagarías ITP (se paga en la de segunda mano; la nueva lleva IVA)."
+    },
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": -1,
+     "texto": "Si compraras otra vivienda, pagarías el triple de ITP o más."
+    }
+   ],
+   "claves": [
+    "itp_primera"
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-acum",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "IBI progresivo, con recargos municipales según el número de inmuebles y en viviendas vacías o no principales; un impuesto para quien tenga tres o más viviendas que no destine a alquiler estable y asequible; fin de las ventajas fiscales de las SOCIMI; más IRPF por imputación de rentas de viviendas vacías, y expropiar las permanentemente vacías.",
+   "num": "31-33",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "varias_viviendas"
+     },
+     "valor": -1,
+     "texto": "Con tres viviendas o más que no alquiles de forma estable y asequible pagarías un nuevo impuesto, y más IBI."
+    },
+    {
+     "si": {
+      "ref": "tiene_otras_viviendas"
+     },
+     "valor": 0,
+     "texto": "Tu IBI podría subir según cuántas viviendas tengas y si están vacías (lo decidiría tu ayuntamiento)."
+    }
+   ],
+   "claves": [
+    "impuesto_viviendas"
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=4"
+  },
+  {
+   "id": "aram-desahucios",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Prohibir los desahucios de familias con hijos menores sin una alternativa de vivienda adecuada.",
+   "num": "37",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "inquilino"
+       },
+       {
+        "ref": "con_hijos"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Si no pudieras pagar, no podrían desahuciar a tu familia sin una alternativa de vivienda."
+    },
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Si una familia con hijos deja de pagarte, no recuperarías la vivienda hasta que tenga alternativa."
+    }
+   ],
+   "pagina": 5,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=5"
+  },
+  {
+   "id": "aram-0a3",
+   "partido": "aram",
+   "tema": "Familia",
+   "texto": "Que el Estado financie la universalización de la educación de 0 a 3 años, con plazas públicas gratuitas.",
+   "num": "80",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quiere_hijos"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Más plazas públicas y gratuitas de 0 a 3 años (sin cifras)."
+    },
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quizas_hijos"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): más plazas públicas y gratuitas de 0 a 3 años (sin cifras)."
+    }
+   ],
+   "pagina": 9,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=9"
+  },
+  {
+   "id": "aram-depend",
+   "partido": "aram",
+   "tema": "Dependencia",
+   "texto": "Elevar la inversión en dependencia hasta el 1,7 % del PIB, con el Estado pagando la mitad, copago máximo del 30 % de los ingresos (exento para rentas bajas) y el doble de horas de ayuda a domicilio.",
+   "num": "90-91",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "cuida_dependiente"
+     },
+     "valor": 1,
+     "texto": "Más horas de ayuda a domicilio y un copago con tope del 30 % de los ingresos (gratis con rentas bajas)."
+    }
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=10"
+  },
+  {
+   "id": "aram-imv",
+   "partido": "aram",
+   "tema": "Ingreso mínimo",
+   "texto": "Ingreso mínimo vital concedido de oficio, ampliado a jóvenes de 18 a 30 años, para que ningún hogar quede por debajo del 40 % de la renta mediana, y compatible con un empleo como complemento salarial.",
+   "num": "93-94",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "renta_smi"
+     },
+     "valor": 1,
+     "texto": "Si cumples los requisitos, cobrarías el ingreso mínimo sin pedirlo y no lo perderías de golpe al encontrar trabajo."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "joven_18_35"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Con 18 a 30 años podrías cobrarlo sin acreditar emancipación previa, si cumples el resto de requisitos."
+    }
+   ],
+   "pagina": 10,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=10"
+  },
+  {
+   "id": "aram-joven",
+   "partido": "aram",
+   "tema": "Vivienda",
+   "texto": "Deducción de hasta 1.000 € en el IRPF para los menores de 35 años que vivan de alquiler.",
+   "num": "107",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "acotada"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "joven_18_35"
+       },
+       {
+        "ref": "inquilino"
+       },
+       {
+        "ref": "paga_irpf"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Te deducirías hasta 1.000 € al año en el IRPF."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "joven_18_35"
+       },
+       {
+        "ref": "inquilino"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "La deducción solo te llegaría si pagas IRPF."
+    }
+   ],
+   "pagina": 12,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=12"
+  },
+  {
+   "id": "aram-catala",
+   "partido": "aram",
+   "tema": "Empleo",
+   "texto": "Programa para que, durante seis meses, los trabajadores de la empresa privada puedan dedicar una hora al día de su jornada a aprender catalán (u otra lengua cooficial), con incentivos.",
+   "num": "126",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "asalariado"
+     },
+     "valor": 1,
+     "texto": "Si quieres, podrías dedicar una hora al día de tu jornada a aprender catalán durante seis meses."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": 0,
+     "texto": "Perderías horas de trabajo de quien se apunte; el programa habla de incentivos, sin concretar si cubren su coste."
+    }
+   ],
+   "pagina": 14,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=14"
+  },
+  {
+   "id": "aram-beckham",
+   "partido": "aram",
+   "tema": "IRPF",
+   "texto": "Suprimir la ley Beckham, el régimen que deja tributar como no residentes durante seis años a quienes llegan del extranjero.",
+   "num": "145",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "arraigo_corto"
+       },
+       {
+        "ref": "renta_alta"
+       }
+      ]
+     },
+     "valor": -1,
+     "texto": "Si llegaste hace poco con un sueldo alto, perderías el régimen fiscal especial y pagarías el IRPF general."
+    }
+   ],
+   "pagina": 16,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=16"
+  },
+  {
+   "id": "aram-gasto",
+   "partido": "aram",
+   "tema": "Gasto público",
+   "texto": "Reducir el gasto militar, rechazar el objetivo del 5 % del PIB y defender la salida de España de la OTAN.",
+   "num": "148",
+   "origen": "programa",
+   "fuentes": [
+    "pdf_aram"
+   ],
+   "riesgos": [],
+   "universal": true,
+   "efectos": [],
+   "pagina": 16,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=16"
   }
  ],
  "temas_sociales": [
@@ -12954,6 +13882,162 @@
    ]
   },
   {
+   "id": "soc-aram-247",
+   "partido": "aram",
+   "tema": "igualdad",
+   "texto": "Destinar al menos el 5 % del presupuesto no financiero del Estado a políticas de igualdad, un 10 % más contra las violencias machistas y blindar las partidas del Pacto de Estado.",
+   "num": "95",
+   "pagina": 11,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=11",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-248",
+   "partido": "aram",
+   "tema": "igualdad",
+   "texto": "Reformar la ley del «solo sí es sí» para volver a poner el consentimiento como único criterio de la agresión sexual, anulando la reforma de PSOE y PP.",
+   "num": "98",
+   "pagina": 11,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=11",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-249",
+   "partido": "aram",
+   "tema": "lgtbi",
+   "texto": "Desplegar la Ley Trans, reconocer a las personas no binarias y financiar a las comunidades con ley propia de personas trans, como Baleares.",
+   "num": "102",
+   "pagina": 11,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=11",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-250",
+   "partido": "aram",
+   "tema": "vida",
+   "texto": "Blindar en la Constitución la ley de salud sexual y reproductiva y la interrupción voluntaria del embarazo.",
+   "num": "99",
+   "pagina": 11,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=11",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-251",
+   "partido": "aram",
+   "tema": "racismo",
+   "texto": "Ley integral contra el racismo y un pacto contra los discursos de odio hacia las personas migrantes o refugiadas.",
+   "num": "141",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=15",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-252",
+   "partido": "aram",
+   "tema": "migracion",
+   "texto": "Reconocer la ruta migratoria Argelia-Baleares, con más Salvamento Marítimo y una acogida pagada al 100 % por el Estado, también la de menores no acompañados.",
+   "num": "142",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=15",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-253",
+   "partido": "aram",
+   "tema": "migracion",
+   "texto": "Derecho a votar y a ser elegidas en las elecciones municipales para las personas migrantes.",
+   "num": "146",
+   "pagina": 16,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=16",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-254",
+   "partido": "aram",
+   "tema": "familia",
+   "texto": "Más protección en el duelo perinatal: inscribir en el Registro Civil la pérdida gestacional desde la semana 8 y permiso para el otro progenitor tras una muerte fetal desde los 180 días.",
+   "num": "77",
+   "pagina": 9,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=9",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-255",
+   "partido": "aram",
+   "tema": "educacion",
+   "texto": "Eliminar progresivamente los conciertos educativos integrando esos centros en la red pública y, mientras tanto, prohibir las cuotas obligatorias en los centros sostenidos con fondos públicos.",
+   "num": "81",
+   "pagina": 9,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=9",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-256",
+   "partido": "aram",
+   "tema": "religion",
+   "texto": "Revisar los Acuerdos de 1979 con la Santa Sede y con las demás confesiones, y la legislación de privilegio que se deriva de ellos.",
+   "num": "137",
+   "pagina": 15,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=15",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-257",
+   "partido": "aram",
+   "tema": "rural",
+   "texto": "Compensar los costes de la insularidad a la agricultura a través del Régimen Especial de Baleares y de la PAC, con especial atención a la doble y triple insularidad.",
+   "num": "55",
+   "pagina": 6,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=6",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
+   "id": "soc-aram-258",
+   "partido": "aram",
+   "tema": "rural",
+   "texto": "Que el gasóleo agrícola y pesquero de Baleares tenga el mismo trato que en los demás territorios no peninsulares.",
+   "num": "58",
+   "pagina": 7,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=7",
+   "fuentes": [
+    "pdf_aram"
+   ]
+  },
+  {
    "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
@@ -13205,6 +14289,11 @@
    "url": "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/",
    "fecha": "2026-11-02"
   },
+  "arames_web": {
+   "titulo": "Ara Més-Front Ampli: programa electoral para el 29N",
+   "url": "https://aramesfrontampli.cat/",
+   "fecha": "2026-11"
+  },
   "upc_web": {
    "titulo": "Unidad del Pueblo Canario: Manifiesto y líneas básicas del programa",
    "url": "https://www.unidadpueblocanario.org/manifiesto",
@@ -13373,6 +14462,11 @@
   "pdf_nc": {
    "titulo": "Unidad del Pueblo Canario: Líneas básicas del programa (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_aram": {
+   "titulo": "Ara Més-Front Ampli: Programa electoral 29N (en catalán) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf",
    "fecha": "2026-11"
   }
  }
