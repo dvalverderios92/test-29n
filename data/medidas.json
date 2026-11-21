@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.16.0",
-  "fecha_corte": "2026-11-20",
+  "version": "2.17.0",
+  "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1313,6 +1313,26 @@
    }
   },
   {
+   "id": "nc",
+   "nombre": "Nueva Canarias-Bloque Canarista",
+   "ambito_si": {
+    "ref": "canarias"
+   },
+   "programa": {
+    "titulo": "Manifiesto electoral de Unidad del Pueblo Canario",
+    "fecha": null,
+    "estado": "publicado",
+    "nota": "Manifiesto común de la candidatura Unidad del Pueblo Canario, en 16 ejes; no hemos encontrado un programa propio de Nueva Canarias-Bloque Canarista para el 29N. Solo se presenta en Canarias, dentro de esa candidatura."
+   },
+   "financiacion": {
+    "cuantifica": "no",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. La única cifra de gasto es al menos el 0,7 % de los Presupuestos Generales del Estado para cooperación internacional. Dice financiarlo con una reforma fiscal progresiva (más tributación de las grandes empresas, los grandes patrimonios, las rentas del capital, las grandes fortunas y los sectores bancario y energético), y pide que los Presupuestos Generales del Estado y la financiación autonómica compensen a Canarias y financien su REF.",
+    "fuentes": [
+     "pdf_nc"
+    ]
+   }
+  },
+  {
    "id": "salf",
    "nombre": "Se Acabó La Fiesta (SALF)",
    "ambito_si": {
@@ -1933,6 +1953,12 @@
   },
   {
    "si": {
+    "ref": "canarias"
+   },
+   "texto": "Candidatura conjunta: en Canarias, Nueva Canarias-Bloque Canarista, Frente Amplio y Podemos concurren dentro de Unidad del Pueblo Canario. El test muestra sus medidas: las de Nueva Canarias-Bloque Canarista, del manifiesto común de la candidatura, y las de Frente Amplio y Podemos, de sus programas estatales."
+  },
+  {
+   "si": {
     "siempre": true
    },
    "texto": "Candidaturas no incluidas: además de las que recoge el test, se presentan otras candidaturas más pequeñas. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."
@@ -1947,14 +1973,15 @@
     "eq": "canarias"
    },
    "partidos": [
+    "nc",
     "fa",
     "pod"
    ],
    "nombre": "Unidad del Pueblo Canario",
    "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
-   "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
+   "nota": "Candidatura conjunta. Para Nueva Canarias-Bloque Canarista, el test usa el manifiesto común de la candidatura (16 ejes, casi sin cifras), porque no hemos encontrado un programa propio; para Frente Amplio y Podemos, sus medidas estatales.",
    "fuentes": [
-    "manifiesto_upc",
+    "pdf_nc",
     "upc",
     "democrata_listas"
    ]
@@ -8781,6 +8808,382 @@
    ],
    "pagina": 29,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=29"
+  },
+  {
+   "id": "nc-alq",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Regular los precios del alquiler en zonas tensionadas e intervenir el mercado, evitando que las familias sean expulsadas de sus hogares.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "tope_alquiler_oferta",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "casero"
+     },
+     "valor": -1,
+     "texto": "Si tus viviendas están en una zona tensionada, la renta que puedes pedir quedaría regulada."
+    },
+    {
+     "si": {
+      "ref": "inquilino_tensionada"
+     },
+     "valor": 1,
+     "texto": "El precio de tu alquiler estaría regulado."
+    },
+    {
+     "si": {
+      "ref": "inquilino_sube_no_decl"
+     },
+     "valor": 1,
+     "texto": "La regulación te llegaría si tu zona se declara tensionada."
+    },
+    {
+     "si": {
+      "ref": "inquilino"
+     },
+     "valor": 1,
+     "texto": "La regulación solo aplica en zonas tensionadas."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-viv",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Ampliar el parque público de vivienda con protección permanente y favorecer la emancipación juvenil.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "busca_vivienda_asequible"
+     },
+     "valor": 1,
+     "texto": "Más vivienda pública a la que optar (sin cifras)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-vacacional",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Limitar los efectos de la vivienda vacacional y de la especulación inmobiliaria.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": -1,
+     "texto": "Podría limitarse el uso vacacional de tu vivienda (el manifiesto no concreta cómo)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-turismo",
+   "partido": "nc",
+   "tema": "Turismo",
+   "texto": "Moratoria de nuevas instalaciones y camas turísticas y una tasa turística para los no residentes.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "vivienda_turistica"
+     },
+     "valor": 0,
+     "texto": "La moratoria de camas podría impedir que sumes plazas turísticas, y tus huéspedes no residentes pagarían la tasa; el manifiesto no da detalles."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4"
+  },
+  {
+   "id": "nc-transp",
+   "partido": "nc",
+   "tema": "Transporte",
+   "texto": "Que los Presupuestos Generales del Estado financien las bonificaciones al transporte de pasajeros y mercancías y el transporte público en Canarias, y compensen los sobrecostes energéticos.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "canarias"
+     },
+     "valor": 1,
+     "texto": "Se mantendría la financiación estatal de los descuentos en el transporte (el manifiesto no da cifras)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-pens",
+   "partido": "nc",
+   "tema": "Pensiones",
+   "texto": "Pensiones públicas dignas, garantizadas y revalorizadas conforme al coste de la vida.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "ref": "pensionista"
+     },
+     "valor": 1,
+     "texto": "Tu pensión se revalorizaría con el coste de la vida (la ley actual ya la liga al IPC)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-cuidados",
+   "partido": "nc",
+   "tema": "Familia",
+   "texto": "Fortalecer la educación pública de 0 a 3 años y un sistema público de cuidados y atención a la dependencia.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "gasto_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quiere_hijos"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Más plazas públicas de 0 a 3 años (sin cifras)."
+    },
+    {
+     "si": {
+      "ref": "cuida_dependiente"
+     },
+     "valor": 1,
+     "texto": "Más atención pública a la dependencia (sin cifras)."
+    },
+    {
+     "si": {
+      "any": [
+       {
+        "ref": "hijos_0_3"
+       },
+       {
+        "ref": "quizas_hijos"
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "Solo si finalmente tienes un hijo (o uno más): más plazas públicas de 0 a 3 años (sin cifras)."
+    }
+   ],
+   "pagina": 3,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3"
+  },
+  {
+   "id": "nc-fiscal",
+   "partido": "nc",
+   "tema": "Impuestos",
+   "texto": "Reforma fiscal progresiva: que contribuyan más las grandes empresas, los grandes patrimonios y las rentas del capital, y reforzar la tributación de las grandes fortunas y de los sectores bancario y energético.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [],
+   "efectos": [
+    {
+     "si": {
+      "ref": "ahorro_alto"
+     },
+     "valor": -1,
+     "texto": "Tus rentas del capital tributarían más (el manifiesto no da tipos)."
+    },
+    {
+     "si": {
+      "q": "patr",
+      "eq": 4
+     },
+     "valor": -1,
+     "texto": "Con tu patrimonio, pagarías más como gran fortuna (el manifiesto no fija umbrales)."
+    },
+    {
+     "si": {
+      "ref": "patrimonio_mas_1M"
+     },
+     "valor": 0,
+     "texto": "Podrías pagar más según dónde se fije el umbral de gran patrimonio."
+    },
+    {
+     "si": {
+      "q": "ahorro",
+      "eq": 2
+     },
+     "valor": 0,
+     "texto": "Podrías pagar más por tus rentas del ahorro, según cómo se aplique."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4"
+  },
+  {
+   "id": "nc-deduc",
+   "partido": "nc",
+   "tema": "Vivienda",
+   "texto": "Mejorar las deducciones por alquiler de vivienda para las rentas medias y bajas y adoptar medidas fiscales frente a la inflación.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "ayuda_demanda_precio",
+     "escala": "amplia"
+    },
+    {
+     "id": "rebaja_sin_financiar",
+     "escala": "acotada"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "paga_irpf"
+       },
+       {
+        "ref": "inquilino"
+       },
+       {
+        "q": "ing",
+        "lte": 3
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Podrías deducirte más por tu alquiler (sin cifras)."
+    },
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "inquilino"
+       },
+       {
+        "q": "ing",
+        "lte": 3
+       }
+      ]
+     },
+     "valor": 0,
+     "texto": "La deducción solo te llegaría si pagas IRPF."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4"
+  },
+  {
+   "id": "nc-smi",
+   "partido": "nc",
+   "tema": "Empleo",
+   "texto": "Subir el salario mínimo, garantizar el cobro de las horas extra y rechazar que se elimine el papel del Estado en la actualización del salario mínimo.",
+   "num": null,
+   "origen": "programa",
+   "fuentes": [
+    "pdf_nc"
+   ],
+   "riesgos": [
+    {
+     "id": "smi_empleo",
+     "escala": "amplia"
+    }
+   ],
+   "efectos": [
+    {
+     "si": {
+      "all": [
+       {
+        "ref": "asalariado"
+       },
+       {
+        "ref": "renta_baja"
+       }
+      ]
+     },
+     "valor": 1,
+     "texto": "Tu sueldo subiría si estás cerca del mínimo (el manifiesto no da cifra)."
+    },
+    {
+     "si": {
+      "ref": "empleador"
+     },
+     "valor": -1,
+     "texto": "Más coste si tienes plantilla con salarios bajos."
+    }
+   ],
+   "pagina": 4,
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4"
   }
  ],
  "temas_sociales": [
@@ -11907,6 +12310,175 @@
    ]
   },
   {
+   "id": "soc-nc-233",
+   "partido": "nc",
+   "tema": "igualdad",
+   "texto": "Erradicar las violencias machistas y lograr la igualdad salarial, con un sistema público de cuidados que avance en la corresponsabilidad y combata la desigualdad estructural.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-234",
+   "partido": "nc",
+   "tema": "lgtbi",
+   "texto": "Defender los derechos de las personas LGTBIQA+, especialmente de las personas trans, y rechazar cualquier forma de discriminación, odio o exclusión.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-235",
+   "partido": "nc",
+   "tema": "racismo",
+   "texto": "Rechazar el racismo y la xenofobia y apostar por una Canarias diversa, solidaria y comprometida con la dignidad humana.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-236",
+   "partido": "nc",
+   "tema": "racismo",
+   "texto": "Relaciones con África, América Latina y Europa basadas en los derechos humanos, el antirracismo y la justicia global.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-237",
+   "partido": "nc",
+   "tema": "migracion",
+   "texto": "Política migratoria basada en los derechos humanos, las vías legales y seguras, la acogida digna y la corresponsabilidad entre territorios.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-238",
+   "partido": "nc",
+   "tema": "migracion",
+   "texto": "Protección específica de la infancia y la adolescencia migrante no acompañada, garantizando sus derechos y una distribución solidaria de la acogida.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-239",
+   "partido": "nc",
+   "tema": "migracion",
+   "texto": "Rechazar la externalización de fronteras.",
+   "num": null,
+   "pagina": 5,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=5",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-240",
+   "partido": "nc",
+   "tema": "familia",
+   "texto": "Impulsar la conciliación y la corresponsabilidad en los cuidados.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-241",
+   "partido": "nc",
+   "tema": "familia",
+   "texto": "Fortalecer la educación pública de 0 a 3 años y un sistema público de cuidados y atención a la dependencia.",
+   "num": null,
+   "pagina": 3,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-242",
+   "partido": "nc",
+   "tema": "educacion",
+   "texto": "Sanidad, educación y servicios sociales públicos, universales y de calidad, con financiación suficiente y gestión prioritariamente directa, avanzando en la reversión de privatizaciones y externalizaciones.",
+   "num": null,
+   "pagina": 3,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-243",
+   "partido": "nc",
+   "tema": "vida",
+   "texto": "Garantizar los derechos sexuales y reproductivos. El manifiesto no menciona expresamente el aborto ni la eutanasia.",
+   "num": null,
+   "pagina": 4,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=4",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-244",
+   "partido": "nc",
+   "tema": "rural",
+   "texto": "Garantizar y actualizar los fondos europeos del POSEI y apoyar al sector agrario, pesquero y acuícola.",
+   "num": null,
+   "pagina": 3,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=3",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
+   "id": "soc-nc-245",
+   "partido": "nc",
+   "tema": "rural",
+   "texto": "Una financiación autonómica que compense la insularidad y la lejanía, apoye al sector primario y contribuya a reducir las desigualdades entre islas.",
+   "num": null,
+   "pagina": 2,
+   "origen": "programa",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf#page=2",
+   "fuentes": [
+    "pdf_nc"
+   ]
+  },
+  {
    "id": "soc-ext-pp-0",
    "partido": "pp",
    "tema": "vida",
@@ -12316,6 +12888,11 @@
   "pdf_junts": {
    "titulo": "Junts per Catalunya: Programa electoral 29N (en catalán) (programa oficial, PDF)",
    "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf",
+   "fecha": "2026-11"
+  },
+  "pdf_nc": {
+   "titulo": "Unidad del Pueblo Canario: Manifiesto electoral (16 ejes) (programa oficial, PDF)",
+   "url": "https://dvalverderios92.github.io/test-29n/programas/manifiesto-upc.pdf",
    "fecha": "2026-11"
   }
  }

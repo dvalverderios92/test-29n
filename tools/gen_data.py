@@ -173,7 +173,7 @@ SRC.update({
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
  "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
 })
-PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)"), "junts": ("junts.pdf", "Junts per Catalunya: Programa electoral 29N (en catalán)")}
+PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)"), "junts": ("junts.pdf", "Junts per Catalunya: Programa electoral 29N (en catalán)"), "nc": ("manifiesto-upc.pdf", "Unidad del Pueblo Canario: Manifiesto electoral (16 ejes)")}
 for k, (f, t) in PDFS.items():
     SRC["pdf_" + k] = [t + " (programa oficial, PDF)", "https://dvalverderios92.github.io/test-29n/programas/" + f, "2026-11"]
 SOURCES = {k: {"titulo": v[0], "url": v[1], "fecha": v[2]} for k, v in SRC.items()}
@@ -304,6 +304,9 @@ PARTIES = [
  {"id": "junts", "nombre": "Junts per Catalunya", "ambito_si": R("cataluna"),
   "programa": {"titulo": "Programa electoral 29N", "fecha": "2026-11-19", "estado": "publicado", "nota": "Programa en catalán; los resúmenes son traducciones. Solo se presenta en Cataluña. Lo enlazó El Nacional el 19-11-2026; no hemos encontrado el enlace en la web de Junts."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste de sus rebajas de impuestos ni de sus ayudas. Pide que el Estado compense a la Generalitat por lo que deje de ingresar con las rebajas fiscales de vivienda, y defiende un concierto económico propio para Cataluña, con una Agencia Tributaria catalana que recaude todos los impuestos.", "fuentes": ["pdf_junts"]}},
+ {"id": "nc", "nombre": "Nueva Canarias-Bloque Canarista", "ambito_si": R("canarias"),
+  "programa": {"titulo": "Manifiesto electoral de Unidad del Pueblo Canario", "fecha": None, "estado": "publicado", "nota": "Manifiesto común de la candidatura Unidad del Pueblo Canario, en 16 ejes; no hemos encontrado un programa propio de Nueva Canarias-Bloque Canarista para el 29N. Solo se presenta en Canarias, dentro de esa candidatura."},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. La única cifra de gasto es al menos el 0,7 % de los Presupuestos Generales del Estado para cooperación internacional. Dice financiarlo con una reforma fiscal progresiva (más tributación de las grandes empresas, los grandes patrimonios, las rentas del capital, las grandes fortunas y los sectores bancario y energético), y pide que los Presupuestos Generales del Estado y la financiación autonómica compensen a Canarias y financien su REF.", "fuentes": ["pdf_nc"]}},
  {"id": "salf", "nombre": "Se Acabó La Fiesta (SALF)", "ambito_si": NOT(Q("region", eq="cantabria")),
   "programa": {"titulo": "Contrato electoral simplificado", "fecha": "2026-11-10", "estado": "publicado", "nota": "No presenta lista en Cantabria, Bizkaia, Gipuzkoa, Ciudad Real, Girona ni Lleida."},
   "financiacion": {"cuantifica": "cifras_propias", "resumen": "Cifra en unos 81.700 M€ al año en 2030 sus rebajas de impuestos y gasto nuevo, y en 88.500 M€ los ahorros e ingresos para pagarlos: sobre todo, 57.000 M€ de «sobrecoste autonómico», 8.000 M€ de efectos dinámicos y la devolución del rescate bancario. Son cifras del propio partido; no hemos encontrado una estimación independiente.", "fuentes": ["pdf_salf"]}},
@@ -836,6 +839,36 @@ M("comp-crianza", "comp", "Familia", "Prestación universal por crianza de 200 �
    (R("quiere_hijos"), 1, "La cobrarías al tener hijos.")], ["gasto_sin_financiar"]),
 M("comp-luz", "comp", "Energía", "Sacar de la factura de la luz el impuesto eléctrico y los cargos de política energética y pagarlos con los Presupuestos Generales del Estado.", None, "programa", [],
   [(ALWAYS, 1, "Bajaría tu factura de la luz: esos costes se pagarían con los Presupuestos.")], ["rebaja_sin_financiar"]),
+# ===== NUEVA CANARIAS-BLOQUE CANARISTA (manifiesto común de Unidad del Pueblo Canario; solo Canarias) =====
+M("nc-alq", "nc", "Vivienda", "Regular los precios del alquiler en zonas tensionadas e intervenir el mercado, evitando que las familias sean expulsadas de sus hogares.", None, "programa", [],
+  [(R("casero"), -1, "Si tus viviendas están en una zona tensionada, la renta que puedes pedir quedaría regulada."),
+   (R("inquilino_tensionada"), 1, "El precio de tu alquiler estaría regulado."),
+   (R("inquilino_sube_no_decl"), 1, "La regulación te llegaría si tu zona se declara tensionada."),
+   (R("inquilino"), 1, "La regulación solo aplica en zonas tensionadas.")], ["tope_alquiler_oferta"]),
+M("nc-viv", "nc", "Vivienda", "Ampliar el parque público de vivienda con protección permanente y favorecer la emancipación juvenil.", None, "programa", [],
+  [(R("busca_vivienda_asequible"), 1, "Más vivienda pública a la que optar (sin cifras).")], ["gasto_sin_financiar"]),
+M("nc-vacacional", "nc", "Vivienda", "Limitar los efectos de la vivienda vacacional y de la especulación inmobiliaria.", None, "programa", [],
+  [(R("vivienda_turistica"), -1, "Podría limitarse el uso vacacional de tu vivienda (el manifiesto no concreta cómo).")]),
+M("nc-turismo", "nc", "Turismo", "Moratoria de nuevas instalaciones y camas turísticas y una tasa turística para los no residentes.", None, "programa", [],
+  [(R("vivienda_turistica"), 0, "La moratoria de camas podría impedir que sumes plazas turísticas, y tus huéspedes no residentes pagarían la tasa; el manifiesto no da detalles.")]),
+M("nc-transp", "nc", "Transporte", "Que los Presupuestos Generales del Estado financien las bonificaciones al transporte de pasajeros y mercancías y el transporte público en Canarias, y compensen los sobrecostes energéticos.", None, "programa", [],
+  [(R("canarias"), 1, "Se mantendría la financiación estatal de los descuentos en el transporte (el manifiesto no da cifras).")]),
+M("nc-pens", "nc", "Pensiones", "Pensiones públicas dignas, garantizadas y revalorizadas conforme al coste de la vida.", None, "programa", [],
+  [(R("pensionista"), 1, "Tu pensión se revalorizaría con el coste de la vida (la ley actual ya la liga al IPC).")], ["gasto_sin_financiar"]),
+M("nc-cuidados", "nc", "Familia", "Fortalecer la educación pública de 0 a 3 años y un sistema público de cuidados y atención a la dependencia.", None, "programa", [],
+  [(ANY(R("hijos_0_3"), R("quiere_hijos")), 1, "Más plazas públicas de 0 a 3 años (sin cifras)."),
+   (R("cuida_dependiente"), 1, "Más atención pública a la dependencia (sin cifras).")], ["gasto_sin_financiar"]),
+M("nc-fiscal", "nc", "Impuestos", "Reforma fiscal progresiva: que contribuyan más las grandes empresas, los grandes patrimonios y las rentas del capital, y reforzar la tributación de las grandes fortunas y de los sectores bancario y energético.", None, "programa", [],
+  [(R("ahorro_alto"), -1, "Tus rentas del capital tributarían más (el manifiesto no da tipos)."),
+   (Q("patr", eq=4), -1, "Con tu patrimonio, pagarías más como gran fortuna (el manifiesto no fija umbrales)."),
+   (R("patrimonio_mas_1M"), 0, "Podrías pagar más según dónde se fije el umbral de gran patrimonio."),
+   (Q("ahorro", eq=2), 0, "Podrías pagar más por tus rentas del ahorro, según cómo se aplique.")]),
+M("nc-deduc", "nc", "Vivienda", "Mejorar las deducciones por alquiler de vivienda para las rentas medias y bajas y adoptar medidas fiscales frente a la inflación.", None, "programa", [],
+  [(ALL(R("paga_irpf"), R("inquilino"), Q("ing", lte=3)), 1, "Podrías deducirte más por tu alquiler (sin cifras)."),
+   (ALL(R("inquilino"), Q("ing", lte=3)), 0, "La deducción solo te llegaría si pagas IRPF.")], ["ayuda_demanda_precio", "rebaja_sin_financiar"]),
+M("nc-smi", "nc", "Empleo", "Subir el salario mínimo, garantizar el cobro de las horas extra y rechazar que se elimine el papel del Estado en la actualización del salario mínimo.", None, "programa", [],
+  [(ALL(R("asalariado"), R("renta_baja")), 1, "Tu sueldo subiría si estás cerca del mínimo (el manifiesto no da cifra)."),
+   (R("empleador"), -1, "Más coste si tienes plantilla con salarios bajos.")], ["smi_empleo"]),
 ]
 
 
@@ -869,6 +902,7 @@ ACOTADA = {
  ("pnv-paro","gasto_sin_financiar"),("pnv-autonomos","gasto_sin_financiar"),("pnv-iva","rebaja_sin_financiar"),
  ("pnv-cuidados","gasto_sin_financiar"),("pnv-cuidados-pens","gasto_sin_financiar"),
  ("comp-itp","rebaja_sin_financiar"),
+ ("nc-deduc","rebaja_sin_financiar"),("nc-cuidados","gasto_sin_financiar"),
 }
 for m in MEAS:
     m["riesgos"] = [{"id": r, "escala": "acotada" if (m["id"], r) in ACOTADA else "amplia"} for r in m["riesgos"]]
@@ -876,11 +910,11 @@ for m in MEAS:
 # Candidaturas reales en la papeleta del Congreso, por comunidad. Fuente: listas registradas (prensa, 2-nov-2026).
 # tipo "fusion": varios partidos del test concurren juntos; "renombrar": otro nombre en la papeleta; "excluir": no presenta lista.
 CANDIDATURAS = [
- {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["fa", "pod"],
+ {"tipo": "fusion", "id": "upc", "si": Q("region", eq="canarias"), "partidos": ["nc", "fa", "pod"],
   "nombre": "Unidad del Pueblo Canario",
   "integrantes": "Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias",
-  "nota": "Candidatura conjunta. El test usa las medidas estatales de Frente Amplio y Podemos; las propuestas propias de Nueva Canarias-Bloque Canarista aún no están incluidas.",
-  "fuentes": ["manifiesto_upc", "upc", "democrata_listas"]},
+  "nota": "Candidatura conjunta. Para Nueva Canarias-Bloque Canarista, el test usa el manifiesto común de la candidatura (16 ejes, casi sin cifras), porque no hemos encontrado un programa propio; para Frente Amplio y Podemos, sus medidas estatales.",
+  "fuentes": ["pdf_nc", "upc", "democrata_listas"]},
  {"tipo": "fusion", "id": "compromis", "si": Q("region", eq="valencia"), "partidos": ["comp", "fa", "pod", "erc"], "alias": {"erc": "Esquerra Republicana del País Valencià"},
   "nombre": "Compromís-Front Valencià",
   "integrantes": "Compromís, Esquerra Unida del País Valencià, Podem y Esquerra Republicana del País Valencià (nombre inscrito: COMPROMÍS-EUPV-PODEM-ERPV)",
@@ -915,6 +949,7 @@ NOTAS = [
  {"si": Q("region", eq="navarra"), "texto": "Partidos no incluidos: en Navarra también se presentan otras candidaturas territoriales, como Geroa Bai. Este test aún no recoge sus medidas."},
  {"si": Q("region", eq="castilla_mancha"), "texto": "SALF no presenta lista en Ciudad Real."},
  {"si": Q("region", eq="valencia"), "texto": "Candidatura conjunta: en la Comunitat Valenciana, Compromís, Frente Amplio, Podemos y Esquerra Republicana del País Valencià concurren dentro de Compromís-Front Valencià. El test muestra sus medidas: las de Compromís, del programa común de la candidatura (en valenciano; los resúmenes son traducciones), y las de Esquerra, del programa de ERC para Cataluña."},
+ {"si": R("canarias"), "texto": "Candidatura conjunta: en Canarias, Nueva Canarias-Bloque Canarista, Frente Amplio y Podemos concurren dentro de Unidad del Pueblo Canario. El test muestra sus medidas: las de Nueva Canarias-Bloque Canarista, del manifiesto común de la candidatura, y las de Frente Amplio y Podemos, de sus programas estatales."},
  {"si": ALWAYS, "texto": "Candidaturas no incluidas: además de las que recoge el test, se presentan otras candidaturas más pequeñas. Este test recoge los partidos con medidas detalladas en las fuentes consultadas."},
 ]
 # ---------------------------------------------------------------------------
@@ -1168,6 +1203,20 @@ SOC = [
  ("comp", "rural", None, 32, "Un fondo estatal que remunere a los municipios rurales por los servicios ambientales que prestan (agua, bosques, biodiversidad, absorción de carbono), sobre todo en espacios protegidos."),
  ("comp", "rural", None, 24, "Recursos y acuerdos para facilitar el acceso al suelo agrario y recuperar explotaciones abandonadas, con relevo generacional y acceso de las mujeres a la titularidad, sin que heredar sea condición para empezar."),
  ("comp", "rural", None, 60, "Mejorar la financiación local teniendo en cuenta las necesidades de los municipios pequeños, rurales y con población dispersa."),
+ # Nueva Canarias-Bloque Canarista (manifiesto común de Unidad del Pueblo Canario)
+ ("nc", "igualdad", None, 4, "Erradicar las violencias machistas y lograr la igualdad salarial, con un sistema público de cuidados que avance en la corresponsabilidad y combata la desigualdad estructural."),
+ ("nc", "lgtbi", None, 4, "Defender los derechos de las personas LGTBIQA+, especialmente de las personas trans, y rechazar cualquier forma de discriminación, odio o exclusión."),
+ ("nc", "racismo", None, 5, "Rechazar el racismo y la xenofobia y apostar por una Canarias diversa, solidaria y comprometida con la dignidad humana."),
+ ("nc", "racismo", None, 5, "Relaciones con África, América Latina y Europa basadas en los derechos humanos, el antirracismo y la justicia global."),
+ ("nc", "migracion", None, 4, "Política migratoria basada en los derechos humanos, las vías legales y seguras, la acogida digna y la corresponsabilidad entre territorios."),
+ ("nc", "migracion", None, 4, "Protección específica de la infancia y la adolescencia migrante no acompañada, garantizando sus derechos y una distribución solidaria de la acogida."),
+ ("nc", "migracion", None, 5, "Rechazar la externalización de fronteras."),
+ ("nc", "familia", None, 4, "Impulsar la conciliación y la corresponsabilidad en los cuidados."),
+ ("nc", "familia", None, 3, "Fortalecer la educación pública de 0 a 3 años y un sistema público de cuidados y atención a la dependencia."),
+ ("nc", "educacion", None, 3, "Sanidad, educación y servicios sociales públicos, universales y de calidad, con financiación suficiente y gestión prioritariamente directa, avanzando en la reversión de privatizaciones y externalizaciones."),
+ ("nc", "vida", None, 4, "Garantizar los derechos sexuales y reproductivos. El manifiesto no menciona expresamente el aborto ni la eutanasia."),
+ ("nc", "rural", None, 3, "Garantizar y actualizar los fondos europeos del POSEI y apoyar al sector agrario, pesquero y acuícola."),
+ ("nc", "rural", None, 2, "Una financiación autonómica que compense la insularidad y la lejanía, apoye al sector primario y contribuya a reducir las desigualdades entre islas."),
 ]
 # Cuando el programa del 29N no dice nada sobre un tema: anuncios de campaña y, si no hay, posiciones previas.
 # (partido, tema, origen, fuentes, referencia, resumen fiel)
@@ -1247,6 +1296,8 @@ PROG_PAG = {
  "pnv-cuidados": 33, "pnv-cuidados-pens": 31,
  "comp-alq": 4, "comp-acum": 4, "comp-viv": 4, "comp-itp": 5, "comp-jornada": 6, "comp-smi": 6, "comp-despido": 6,
  "comp-pens": 8, "comp-tope": 8, "comp-irpf": 18, "comp-crianza": 46, "comp-luz": 29,
+ "nc-alq": 3, "nc-viv": 3, "nc-vacacional": 3, "nc-turismo": 4, "nc-transp": 3, "nc-pens": 3, "nc-cuidados": 3,
+ "nc-fiscal": 4, "nc-deduc": 4, "nc-smi": 4,
 }
 for k in DETALLE: assert any(m["id"] == k for m in MEAS), k
 for m in MEAS:
@@ -1265,8 +1316,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.16.0",
-  "fecha_corte": "2026-11-20",
+  "version": "2.17.0",
+  "fecha_corte": "2026-11-21",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},
