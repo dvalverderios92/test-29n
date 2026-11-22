@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.19.0",
-  "fecha_corte": "2026-11-21",
+  "version": "2.20.0",
+  "fecha_corte": "2026-11-22",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1426,9 +1426,10 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar 1.400 M€ en 2027 prorrogando el impuesto a la banca, para vivienda.",
     "fuentes": [
-     "rankia"
+     "rankia",
+     "vozpopuli_banca"
     ]
    }
   },
@@ -3341,6 +3342,24 @@
    ],
    "pagina": 31,
    "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=31"
+  },
+  {
+   "id": "psoe-banca",
+   "partido": "psoe",
+   "tema": "Vivienda",
+   "texto": "Prorrogar en 2027 el impuesto a la banca, con una recaudación prevista de 1.400 M€ que se vincularía por ley a vivienda: más de 6.000 viviendas asequibles, unas 52.000 rehabilitaciones y bonificaciones fiscales a unos 120.000 inquilinos durante la legislatura. No figura como propuesta en el programa del 29N.",
+   "num": null,
+   "origen": "campaña",
+   "fuentes": [
+    "vozpopuli_banca"
+   ],
+   "riesgos": [],
+   "universal": true,
+   "efectos": [],
+   "detalle": {
+    "plazo": "prórroga del impuesto para 2027; las actuaciones de vivienda, durante la próxima legislatura",
+    "coste": "recaudación prevista de 1.400 M€, según el partido en campaña"
+   }
   },
   {
    "id": "psoe-108",
@@ -14393,6 +14412,11 @@
    "titulo": "Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político",
    "url": "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/",
    "fecha": "2026-11-09"
+  },
+  "vozpopuli_banca": {
+   "titulo": "Vozpópuli: Sánchez prorroga el impuesto a la banca en 2027, con el que espera recaudar 1.400 millones destinados a vivienda",
+   "url": "https://www.vozpopuli.com/espana/politica/sanchez-prorroga-el-impuesto-a-la-banca-en-2027-con-el-que-espera-recaudar-1400-millones-destinados-a-vivienda-a-las-puertas-del-29-n.html",
+   "fecha": "2026-11-21"
   },
   "pdf_pp": {
    "titulo": "PP: La Reconstrucción Nacional (programa oficial, PDF)",

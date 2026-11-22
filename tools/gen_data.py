@@ -174,6 +174,7 @@ SRC.update({
  "bng_ue24": ["BNG: Programa de las elecciones europeas de 2024 (PDF)", "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf", "2024-05"],
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
  "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
+ "vozpopuli_banca": ["Vozpópuli: Sánchez prorroga el impuesto a la banca en 2027, con el que espera recaudar 1.400 millones destinados a vivienda", "https://www.vozpopuli.com/espana/politica/sanchez-prorroga-el-impuesto-a-la-banca-en-2027-con-el-que-espera-recaudar-1400-millones-destinados-a-vivienda-a-las-puertas-del-29-n.html", "2026-11-21"],
 })
 PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)"), "junts": ("junts.pdf", "Junts per Catalunya: Programa electoral 29N (en catalán)"), "nc": ("upc-lineas-basicas.pdf", "Unidad del Pueblo Canario: Líneas básicas del programa"), "aram": ("ara-mes-front-ampli.pdf", "Ara Més-Front Ampli: Programa electoral 29N (en catalán)")}
 for k, (f, t) in PDFS.items():
@@ -323,7 +324,7 @@ PARTIES = [
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.", "fuentes": ["democrata_pp", "rankia"]}},
  {"id": "psoe", "nombre": "PSOE",
   "programa": {"titulo": "La fuerza de seguir avanzando", "fecha": "2026-11-15", "estado": "publicado", "nota": "Más de 370 compromisos."},
-  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.", "fuentes": ["rankia"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar 1.400 M€ en 2027 prorrogando el impuesto a la banca, para vivienda.", "fuentes": ["rankia", "vozpopuli_banca"]}},
  {"id": "vox", "nombre": "Vox",
   "programa": {"titulo": "Es sentido común", "fecha": "2026-11-12", "estado": "publicado", "nota": "115 medidas."},
   "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
@@ -420,6 +421,7 @@ M("psoe-turis", "psoe", "Vivienda", "Consolidar las bonificaciones fiscales a lo
   [(ALL(R("vivienda_turistica"), R("casero")), 0, "La bonificación te favorecería en tus alquileres; en la vivienda turística, tus huéspedes podrían pagar un recargo municipal."),
    (R("vivienda_turistica"), 0, "Tus huéspedes podrían pagar un recargo municipal por noche, si tu ayuntamiento lo aplica."),
    (R("casero"), 1, "Pagarías menos si mantienes la renta contenida.")]),
+M("psoe-banca", "psoe", "Vivienda", "Prorrogar en 2027 el impuesto a la banca, con una recaudación prevista de 1.400 M€ que se vincularía por ley a vivienda: más de 6.000 viviendas asequibles, unas 52.000 rehabilitaciones y bonificaciones fiscales a unos 120.000 inquilinos durante la legislatura. No figura como propuesta en el programa del 29N.", None, "campaña", ["vozpopuli_banca"], [], universal=True),
 M("psoe-108", "psoe", "Empleo", "Jornada de 37,5 horas con objetivo de 35, sin pérdida salarial.", "108", "programa", ["rankia"],
   [(R("asalariado"), 1, "Trabajarías menos horas por el mismo sueldo."),
    (R("empleador"), -1, "Te subiría el coste por hora de tu plantilla.")], ["jornada_ley"]),
@@ -1411,6 +1413,7 @@ DETALLE = {
  "aram-turis": {"plazo": "tres años como máximo para extinguir las licencias"},
  "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
  "pp-228": {"plazo": "en los primeros cien días de Gobierno"},
+ "psoe-banca": {"plazo": "prórroga del impuesto para 2027; las actuaciones de vivienda, durante la próxima legislatura", "coste": "recaudación prevista de 1.400 M€, según el partido en campaña"},
  "fa-pension": {"coste": "unos 20.000 M€ al año, según el partido en campaña"},
 }
 PROG_PAG = {
@@ -1466,8 +1469,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.19.0",
-  "fecha_corte": "2026-11-21",
+  "version": "2.20.0",
+  "fecha_corte": "2026-11-22",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},
