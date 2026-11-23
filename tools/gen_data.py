@@ -173,6 +173,8 @@ SRC.update({
  "democrata_pod_campana": ["Demócrata: Podemos afronta una campaña clave apoyado en Irene Montero y su tándem con Rufián", "https://www.democrata.es/politica/podemos-afronta-una-campana-clave-apoyado-en-el-tiron-de-irene-montero-y-su-tandem-con-rufian/", "2026-11-13"],
  "bng_ue24": ["BNG: Programa de las elecciones europeas de 2024 (PDF)", "https://www.bng.gal/media/bnggaliza/files/2024/05/14/24_bng_programa_europeas_2.pdf", "2024-05"],
  "maldita_psoe21": ["Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones", "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano", "2021-07-26"],
+ "esdiario_ultrarricos": ["ESdiario: Sánchez anuncia un nuevo impuesto a los «ultrarricos» en plena recta final del 29N", "https://www.esdiario.com/nacional/261123/203666/sanchez-anuncia-nuevo-impuesto-ultrarricos-plena-recta-final-29n.html", "2026-11-23"],
+ "mundiario_ultrarricos": ["Mundiario: Sánchez propone gravar a los ultrarricos para financiar vivienda, pensiones y ayudas a las familias", "https://www.mundiario.com/politica/sanchez-propone-gravar-ultrarricos-financiar-vivienda-pensiones-ayudas-familias/20261123111527454446.html", "2026-11-23"],
  "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
 })
 PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)"), "junts": ("junts.pdf", "Junts per Catalunya: Programa electoral 29N (en catalán)"), "nc": ("upc-lineas-basicas.pdf", "Unidad del Pueblo Canario: Líneas básicas del programa"), "aram": ("ara-mes-front-ampli.pdf", "Ara Més-Front Ampli: Programa electoral 29N (en catalán)")}
@@ -310,7 +312,7 @@ PARTIES = [
   "programa": {"titulo": "Líneas básicas del programa de Unidad del Pueblo Canario", "fecha": None, "estado": "publicado", "nota": "Programa común de toda la candidatura (Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias), publicado en unidadpueblocanario.org. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras sueltas: el salario mínimo a 1.800 € en doce pagas, una hipoteca al 0 % hasta 100.000 € para la primera vivienda, una deducción temporal de 175 a 300 € en el IRPF, un parque público del 9 % de las viviendas y el 0,7 % de los Presupuestos para cooperación. Dice financiarlo con una reforma fiscal progresiva (más tramos del IRPF desde 120.000 €, impuesto de grandes fortunas permanente, impuestos a la banca y las energéticas), y pide que los Presupuestos del Estado compensen a Canarias y financien su REF.", "fuentes": ["pdf_nc", "upc_web"]}},
  {"id": "aram", "nombre": "Ara Més-Front Ampli (programa común)", "ambito_si": R("baleares"),
-  "programa": {"titulo": "Programa electoral 29N", "fecha": "2026-11-16", "estado": "publicado", "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la web enlaza también una versión corregida del 17-11 que aún no hemos revisado. Solo se presenta en Baleares."},
+  "programa": {"titulo": "Programa electoral 29N", "fecha": "2026-11-16", "estado": "publicado", "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la versión corregida del 17-11 que enlaza su web solo cambia la redacción y la maquetación, con las mismas 160 propuestas y las mismas cifras. Solo se presenta en Baleares."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras sueltas: 200 € por menor, un escudo hipotecario de hasta 300 € al mes, una deducción de hasta 1.000 € en el IRPF para menores de 35 de alquiler y elevar la dependencia al 1,7 % del PIB. Pide que el Estado financie buena parte de las medidas (transporte gratuito, Régimen Especial de Baleares, condonación de deuda), y propone subir impuestos a los pisos y establecimientos turísticos (IVA del 21 %), a quien acumule viviendas y a las SOCIMI, y suprimir la ley Beckham.", "fuentes": ["pdf_aram"]}},
  {"id": "salf", "nombre": "Se Acabó La Fiesta (SALF)", "ambito_si": NOT(Q("region", eq="cantabria")),
   "programa": {"titulo": "Contrato electoral simplificado", "fecha": "2026-11-10", "estado": "publicado", "nota": "No presenta lista en Cantabria, Bizkaia, Gipuzkoa, Ciudad Real, Girona ni Lleida."},
@@ -323,7 +325,7 @@ PARTIES = [
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.", "fuentes": ["democrata_pp", "rankia"]}},
  {"id": "psoe", "nombre": "PSOE",
   "programa": {"titulo": "La fuerza de seguir avanzando", "fecha": "2026-11-15", "estado": "publicado", "nota": "Más de 370 compromisos."},
-  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.", "fuentes": ["rankia"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€.", "fuentes": ["rankia", "esdiario_ultrarricos"]}},
  {"id": "vox", "nombre": "Vox",
   "programa": {"titulo": "Es sentido común", "fecha": "2026-11-12", "estado": "publicado", "nota": "115 medidas."},
   "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
@@ -402,7 +404,7 @@ M("psoe-88", "psoe", "IRPF", "Deducción estatal en el IRPF que se activaría cu
   [(R("paga_irpf"), 1, "Te compensaría parte de la inflación (umbrales e importes no publicados).")], ["rebaja_sin_financiar"]),
 M("psoe-135", "psoe", "Ahorro", "Impuesto sobre transacciones financieras del 0,2 % al 0,4 % en cotizadas de más de 1.000 millones; más impuestos a tecnológicas, viajes de lujo y cotizadas con sueldos de directivos muy altos.", "131-135", "programa", ["rankia"],
   [(R("invierte_bolsa"), -1, "Cada compra de acciones de esas empresas te costaría un poco más.")]),
-M("psoe-127", "psoe", "Patrimonio", "Más tributación a grandes patrimonios y rentas del capital para financiar la prestación por crianza.", "127", "programa", ["rankia"],
+M("psoe-127", "psoe", "Patrimonio", "Más tributación a grandes patrimonios y rentas del capital para financiar la prestación por crianza.", "127", "programa", ["rankia", "esdiario_ultrarricos", "mundiario_ultrarricos"],
   [(R("patrimonio_mas_1M"), -1, "Con tu patrimonio es probable que pagues más (tipos no concretados)."),
    (R("ahorro_alto"), -1, "Con tus rentas del capital es probable que pagues más.")]),
 M("psoe-42", "psoe", "Vivienda", "Movilizar el 1 % del PIB al año en vivienda y crear un parque público estatal de 100.000 viviendas.", "38, 42", "programa", ["rankia"],
@@ -1408,6 +1410,7 @@ for r in RISKS:
 
 # Plazo y coste de una medida, solo cuando la fuente los da. Si no hay entrada, la web indica que el programa no los fija.
 DETALLE = {
+ "psoe-127": {"coste": "en campaña (23-11) concretó un impuesto a las fortunas de más de 100 M€, sin tipo fijado, con una recaudación prevista de unos 2.000 M€ al año para vivienda protegida, pensiones y crianza, según el partido"},
  "aram-turis": {"plazo": "tres años como máximo para extinguir las licencias"},
  "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
  "pp-228": {"plazo": "en los primeros cien días de Gobierno"},
@@ -1466,8 +1469,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.19.0",
-  "fecha_corte": "2026-11-21",
+  "version": "2.20.0",
+  "fecha_corte": "2026-11-23",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},

@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.19.0",
-  "fecha_corte": "2026-11-21",
+  "version": "2.20.0",
+  "fecha_corte": "2026-11-23",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1343,7 +1343,7 @@
     "titulo": "Programa electoral 29N",
     "fecha": "2026-11-16",
     "estado": "publicado",
-    "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la web enlaza también una versión corregida del 17-11 que aún no hemos revisado. Solo se presenta en Baleares."
+    "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la versión corregida del 17-11 que enlaza su web solo cambia la redacción y la maquetación, con las mismas 160 propuestas y las mismas cifras. Solo se presenta en Baleares."
    },
    "financiacion": {
     "cuantifica": "no",
@@ -1426,9 +1426,10 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€.",
     "fuentes": [
-     "rankia"
+     "rankia",
+     "esdiario_ultrarricos"
     ]
    }
   },
@@ -3138,7 +3139,9 @@
    "origen": "programa",
    "fuentes": [
     "pdf_psoe",
-    "rankia"
+    "rankia",
+    "esdiario_ultrarricos",
+    "mundiario_ultrarricos"
    ],
    "riesgos": [],
    "efectos": [
@@ -3157,6 +3160,9 @@
      "texto": "Con tus rentas del capital es probable que pagues más."
     }
    ],
+   "detalle": {
+    "coste": "en campaña (23-11) concretó un impuesto a las fortunas de más de 100 M€, sin tipo fijado, con una recaudación prevista de unos 2.000 M€ al año para vivienda protegida, pensiones y crianza, según el partido"
+   },
    "pagina": 47,
    "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=47"
   },
@@ -14388,6 +14394,16 @@
    "titulo": "Maldita: El PSOE y la Iglesia católica: Concordato, laicidad e inmatriculaciones",
    "url": "https://maldita.es/malditahemeroteca/20210726/psoe-iglesia-catolica-religion-vaticano",
    "fecha": "2021-07-26"
+  },
+  "esdiario_ultrarricos": {
+   "titulo": "ESdiario: Sánchez anuncia un nuevo impuesto a los «ultrarricos» en plena recta final del 29N",
+   "url": "https://www.esdiario.com/nacional/261123/203666/sanchez-anuncia-nuevo-impuesto-ultrarricos-plena-recta-final-29n.html",
+   "fecha": "2026-11-23"
+  },
+  "mundiario_ultrarricos": {
+   "titulo": "Mundiario: Sánchez propone gravar a los ultrarricos para financiar vivienda, pensiones y ayudas a las familias",
+   "url": "https://www.mundiario.com/politica/sanchez-propone-gravar-ultrarricos-financiar-vivienda-pensiones-ayudas-familias/20261123111527454446.html",
+   "fecha": "2026-11-23"
   },
   "infobae_pnv": {
    "titulo": "Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político",
