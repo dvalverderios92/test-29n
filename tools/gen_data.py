@@ -312,7 +312,7 @@ PARTIES = [
   "programa": {"titulo": "Líneas básicas del programa de Unidad del Pueblo Canario", "fecha": None, "estado": "publicado", "nota": "Programa común de toda la candidatura (Nueva Canarias-Bloque Canarista, Podemos Canarias, Izquierda Unida Canaria, Movimiento Sumar Canarias y Partido Verde Canarias), publicado en unidadpueblocanario.org. Solo se presenta en Canarias."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da algunas cifras sueltas: el salario mínimo a 1.800 € en doce pagas, una hipoteca al 0 % hasta 100.000 € para la primera vivienda, una deducción temporal de 175 a 300 € en el IRPF, un parque público del 9 % de las viviendas y el 0,7 % de los Presupuestos para cooperación. Dice financiarlo con una reforma fiscal progresiva (más tramos del IRPF desde 120.000 €, impuesto de grandes fortunas permanente, impuestos a la banca y las energéticas), y pide que los Presupuestos del Estado compensen a Canarias y financien su REF.", "fuentes": ["pdf_nc", "upc_web"]}},
  {"id": "aram", "nombre": "Ara Més-Front Ampli (programa común)", "ambito_si": R("baleares"),
-  "programa": {"titulo": "Programa electoral 29N", "fecha": "2026-11-16", "estado": "publicado", "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la web enlaza también una versión corregida del 17-11 que aún no hemos revisado. Solo se presenta en Baleares."},
+  "programa": {"titulo": "Programa electoral 29N", "fecha": "2026-11-16", "estado": "publicado", "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la versión corregida del 17-11 que enlaza su web solo cambia la redacción y la maquetación, con las mismas 160 propuestas y las mismas cifras. Solo se presenta en Baleares."},
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus subidas de impuestos. Da cifras sueltas: 200 € por menor, un escudo hipotecario de hasta 300 € al mes, una deducción de hasta 1.000 € en el IRPF para menores de 35 de alquiler y elevar la dependencia al 1,7 % del PIB. Pide que el Estado financie buena parte de las medidas (transporte gratuito, Régimen Especial de Baleares, condonación de deuda), y propone subir impuestos a los pisos y establecimientos turísticos (IVA del 21 %), a quien acumule viviendas y a las SOCIMI, y suprimir la ley Beckham.", "fuentes": ["pdf_aram"]}},
  {"id": "salf", "nombre": "Se Acabó La Fiesta (SALF)", "ambito_si": NOT(Q("region", eq="cantabria")),
   "programa": {"titulo": "Contrato electoral simplificado", "fecha": "2026-11-10", "estado": "publicado", "nota": "No presenta lista en Cantabria, Bizkaia, Gipuzkoa, Ciudad Real, Girona ni Lleida."},
@@ -404,10 +404,9 @@ M("psoe-88", "psoe", "IRPF", "Deducción estatal en el IRPF que se activaría cu
   [(R("paga_irpf"), 1, "Te compensaría parte de la inflación (umbrales e importes no publicados).")], ["rebaja_sin_financiar"]),
 M("psoe-135", "psoe", "Ahorro", "Impuesto sobre transacciones financieras del 0,2 % al 0,4 % en cotizadas de más de 1.000 millones; más impuestos a tecnológicas, viajes de lujo y cotizadas con sueldos de directivos muy altos.", "131-135", "programa", ["rankia"],
   [(R("invierte_bolsa"), -1, "Cada compra de acciones de esas empresas te costaría un poco más.")]),
-M("psoe-127", "psoe", "Patrimonio", "Más tributación a grandes patrimonios y rentas del capital para financiar la prestación por crianza.", "127", "programa", ["rankia"],
+M("psoe-127", "psoe", "Patrimonio", "Más tributación a grandes patrimonios y rentas del capital para financiar la prestación por crianza.", "127", "programa", ["rankia", "esdiario_ultrarricos", "mundiario_ultrarricos"],
   [(R("patrimonio_mas_1M"), -1, "Con tu patrimonio es probable que pagues más (tipos no concretados)."),
    (R("ahorro_alto"), -1, "Con tus rentas del capital es probable que pagues más.")]),
-M("psoe-ultrarricos", "psoe", "Patrimonio", "Nuevo impuesto a las fortunas de más de 100 millones de euros, sin tipo concretado, para financiar vivienda protegida, pensiones y una prestación por crianza. El programa del 29N habla de más tributación de los grandes patrimonios (medida 127) y de un impuesto mínimo global sobre las grandes fortunas en el ámbito internacional (medida 457), pero no de este impuesto.", None, "campaña", ["esdiario_ultrarricos", "mundiario_ultrarricos"], [], universal=True),
 M("psoe-42", "psoe", "Vivienda", "Movilizar el 1 % del PIB al año en vivienda y crear un parque público estatal de 100.000 viviendas.", "38, 42", "programa", ["rankia"],
   [(R("busca_vivienda_asequible"), 1, "Más vivienda pública de alquiler asequible a la que optar.")], ["gasto_sin_financiar"]),
 M("psoe-67", "psoe", "Vivienda", "Préstamo «TU CASA» de hasta 50.000 € sin intereses para la entrada (10.000 M€).", "67", "programa", ["rankia"],
@@ -1411,10 +1410,10 @@ for r in RISKS:
 
 # Plazo y coste de una medida, solo cuando la fuente los da. Si no hay entrada, la web indica que el programa no los fija.
 DETALLE = {
+ "psoe-127": {"coste": "en campaña (23-11) concretó un impuesto a las fortunas de más de 100 M€, sin tipo fijado, con una recaudación prevista de unos 2.000 M€ al año para vivienda protegida, pensiones y crianza, según el partido"},
  "aram-turis": {"plazo": "tres años como máximo para extinguir las licencias"},
  "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
  "pp-228": {"plazo": "en los primeros cien días de Gobierno"},
- "psoe-ultrarricos": {"coste": "recaudación prevista de unos 2.000 M€ al año, según el partido en campaña"},
  "fa-pension": {"coste": "unos 20.000 M€ al año, según el partido en campaña"},
 }
 PROG_PAG = {

@@ -1343,7 +1343,7 @@
     "titulo": "Programa electoral 29N",
     "fecha": "2026-11-16",
     "estado": "publicado",
-    "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la web enlaza también una versión corregida del 17-11 que aún no hemos revisado. Solo se presenta en Baleares."
+    "nota": "Programa común de la candidatura, en catalán (los resúmenes son traducciones), publicado en aramesfrontampli.cat. El test usa la versión del 16-11-2026; la versión corregida del 17-11 que enlaza su web solo cambia la redacción y la maquetación, con las mismas 160 propuestas y las mismas cifras. Solo se presenta en Baleares."
    },
    "financiacion": {
     "cuantifica": "no",
@@ -3139,7 +3139,9 @@
    "origen": "programa",
    "fuentes": [
     "pdf_psoe",
-    "rankia"
+    "rankia",
+    "esdiario_ultrarricos",
+    "mundiario_ultrarricos"
    ],
    "riesgos": [],
    "efectos": [
@@ -3158,26 +3160,11 @@
      "texto": "Con tus rentas del capital es probable que pagues más."
     }
    ],
+   "detalle": {
+    "coste": "en campaña (23-11) concretó un impuesto a las fortunas de más de 100 M€, sin tipo fijado, con una recaudación prevista de unos 2.000 M€ al año para vivienda protegida, pensiones y crianza, según el partido"
+   },
    "pagina": 47,
    "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=47"
-  },
-  {
-   "id": "psoe-ultrarricos",
-   "partido": "psoe",
-   "tema": "Patrimonio",
-   "texto": "Nuevo impuesto a las fortunas de más de 100 millones de euros, sin tipo concretado, para financiar vivienda protegida, pensiones y una prestación por crianza. El programa del 29N habla de más tributación de los grandes patrimonios (medida 127) y de un impuesto mínimo global sobre las grandes fortunas en el ámbito internacional (medida 457), pero no de este impuesto.",
-   "num": null,
-   "origen": "campaña",
-   "fuentes": [
-    "esdiario_ultrarricos",
-    "mundiario_ultrarricos"
-   ],
-   "riesgos": [],
-   "universal": true,
-   "efectos": [],
-   "detalle": {
-    "coste": "recaudación prevista de unos 2.000 M€ al año, según el partido en campaña"
-   }
   },
   {
    "id": "psoe-42",
