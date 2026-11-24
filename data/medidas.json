@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.20.0",
-  "fecha_corte": "2026-11-23",
+  "version": "2.21.0",
+  "fecha_corte": "2026-11-24",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1426,10 +1426,11 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener el impuesto a la banca toda la legislatura, con unos 1.400 M€ para vivienda.",
     "fuentes": [
      "rankia",
-     "esdiario_ultrarricos"
+     "esdiario_ultrarricos",
+     "efe_banca"
     ]
    }
   },
@@ -3165,6 +3166,24 @@
    },
    "pagina": 47,
    "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=47"
+  },
+  {
+   "id": "psoe-banca",
+   "partido": "psoe",
+   "tema": "Impuestos",
+   "texto": "Mantener el impuesto a la banca (sobre el margen de intereses y las comisiones) durante toda la próxima legislatura y destinar lo recaudado a vivienda. El programa solo lo cita como impuesto ya aprobado; la prórroga para 2027 que aprueba el Gobierno en funciones no cuenta como propuesta.",
+   "num": null,
+   "origen": "campaña",
+   "fuentes": [
+    "laregion_banca",
+    "efe_banca"
+   ],
+   "riesgos": [],
+   "universal": true,
+   "efectos": [],
+   "detalle": {
+    "coste": "unos 1.400 M€ con la prórroga de 2027, para vivienda protegida, rehabilitación y bonificaciones a inquilinos, según el partido en campaña (21-11)"
+   }
   },
   {
    "id": "psoe-42",
@@ -14403,6 +14422,16 @@
   "mundiario_ultrarricos": {
    "titulo": "Mundiario: Sánchez propone gravar a los ultrarricos para financiar vivienda, pensiones y ayudas a las familias",
    "url": "https://www.mundiario.com/politica/sanchez-propone-gravar-ultrarricos-financiar-vivienda-pensiones-ayudas-familias/20261123111527454446.html",
+   "fecha": "2026-11-23"
+  },
+  "laregion_banca": {
+   "titulo": "La Región: Sánchez anuncia la prórroga del impuesto a la banca hasta 2027 para financiar vivienda protegida",
+   "url": "https://www.laregion.es/espana/sanchez-anuncia-prorroga-impuesto-banca_1_20261121-4502405.html",
+   "fecha": "2026-11-21"
+  },
+  "efe_banca": {
+   "titulo": "Infobae (EFE): El Gobierno aprueba este martes la prórroga del impuesto bancario para el ejercicio 2027",
+   "url": "https://www.infobae.com/espana/agencias/2026/11/23/el-gobierno-aprueba-este-martes-la-prorroga-del-impuesto-bancario-para-el-ejercicio-2027/",
    "fecha": "2026-11-23"
   },
   "infobae_pnv": {
