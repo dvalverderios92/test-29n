@@ -327,7 +327,7 @@ PARTIES = [
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. Da cifras de inversión: más de 300.000 M€ en infraestructuras en 15 años (con capital privado) y 40.000 M€ en agua. Dice financiarlo con una auditoría del gasto en los primeros 100 días y la reducción del déficit y la deuda.", "fuentes": ["democrata_pp", "rankia"]}},
  {"id": "psoe", "nombre": "PSOE",
   "programa": {"titulo": "La fuerza de seguir avanzando", "fecha": "2026-11-15", "estado": "publicado", "nota": "Más de 370 compromisos."},
-  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener el impuesto a la banca toda la legislatura, con unos 1.400 M€ para vivienda.", "fuentes": ["rankia", "esdiario_ultrarricos", "efe_banca"]}},
+  "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener toda la legislatura el impuesto a la banca, cuya prórroga para 2027 recaudaría unos 1.400 M€ para vivienda, según el Gobierno.", "fuentes": ["rankia", "esdiario_ultrarricos", "efe_banca"]}},
  {"id": "vox", "nombre": "Vox",
   "programa": {"titulo": "Es sentido común", "fecha": "2026-11-12", "estado": "publicado", "nota": "115 medidas."},
   "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
@@ -518,7 +518,7 @@ M("fa-acum", "fa", "Vivienda", "Impuesto del 10 % sobre el valor de los pisos: a
 M("fa-compra", "fa", "Vivienda", "Prohibir por ley comprar vivienda para un uso distinto de la residencia habitual propia o el alquiler asequible regulado; prohibición total para empresas con ánimo de lucro.", None, "programa", [],
   [(R("tiene_otras_viviendas"), -1, "No podrías comprar otra vivienda como inversión o segunda residencia, salvo para alquilarla a precio asequible regulado."),
    (R("ahorro_alto"), 0, "Si pensabas invertir tus ahorros en vivienda, solo podrías hacerlo para alquiler asequible regulado.")]),
-M("fa-turis", "fa", "Vivienda", "Pisos turísticos: IVA del 21 %, sin deducciones en IRPF ni Sociedades, más imputación de rentas por los periodos vacíos y recargo del IBI de hasta el 150 %.", None, "programa", [],
+M("fa-turis", "fa", "Vivienda", "Pisos turísticos: IVA del 21 %, sin deducciones en IRPF ni Sociedades, imputación de rentas del 20 % por los periodos vacíos y recargo del IBI de hasta el 150 %.", None, "programa", [],
   [(R("vivienda_turistica"), -1, "Tu vivienda turística pagaría bastante más impuestos.")]),
 M("fa-indef", "fa", "Vivienda", "Contrato de alquiler indefinido por defecto; regular la huelga de alquileres y reconocer a los sindicatos de inquilinas.", None, "programa", ["marcos_fa"],
   [(R("casero"), -1, "Tus inquilinos podrían quedarse indefinidamente y organizarse para negociar la renta."),
@@ -1414,7 +1414,7 @@ for r in RISKS:
 # Plazo y coste de una medida, solo cuando la fuente los da. Si no hay entrada, la web indica que el programa no los fija.
 DETALLE = {
  "psoe-127": {"coste": "en campaña (23-11) concretó un impuesto a las fortunas de más de 100 M€, sin tipo fijado, con una recaudación prevista de unos 2.000 M€ al año para vivienda protegida, pensiones y crianza, según el partido"},
- "psoe-banca": {"coste": "unos 1.400 M€ con la prórroga de 2027, para vivienda protegida, rehabilitación y bonificaciones a inquilinos, según el partido en campaña (21-11)"},
+ "psoe-banca": {"coste": "unos 1.400 M€ con la prórroga de 2027, para vivienda protegida, rehabilitación y bonificaciones a inquilinos, según el Gobierno (fuentes de Moncloa, 21-11)"},
  "aram-turis": {"plazo": "tres años como máximo para extinguir las licencias"},
  "pp-163": {"coste": "el Estado pagaría la mitad de cada plaza y las comunidades, la otra mitad"},
  "pp-228": {"plazo": "en los primeros cien días de Gobierno"},

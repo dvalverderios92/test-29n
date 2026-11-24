@@ -1426,7 +1426,7 @@
    },
    "financiacion": {
     "cuantifica": "no",
-    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener el impuesto a la banca toda la legislatura, con unos 1.400 M€ para vivienda.",
+    "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener toda la legislatura el impuesto a la banca, cuya prórroga para 2027 recaudaría unos 1.400 M€ para vivienda, según el Gobierno.",
     "fuentes": [
      "rankia",
      "esdiario_ultrarricos",
@@ -3182,7 +3182,7 @@
    "universal": true,
    "efectos": [],
    "detalle": {
-    "coste": "unos 1.400 M€ con la prórroga de 2027, para vivienda protegida, rehabilitación y bonificaciones a inquilinos, según el partido en campaña (21-11)"
+    "coste": "unos 1.400 M€ con la prórroga de 2027, para vivienda protegida, rehabilitación y bonificaciones a inquilinos, según el Gobierno (fuentes de Moncloa, 21-11)"
    }
   },
   {
@@ -4696,7 +4696,7 @@
    "id": "fa-turis",
    "partido": "fa",
    "tema": "Vivienda",
-   "texto": "Pisos turísticos: IVA del 21 %, sin deducciones en IRPF ni Sociedades, más imputación de rentas por los periodos vacíos y recargo del IBI de hasta el 150 %.",
+   "texto": "Pisos turísticos: IVA del 21 %, sin deducciones en IRPF ni Sociedades, imputación de rentas del 20 % por los periodos vacíos y recargo del IBI de hasta el 150 %.",
    "num": null,
    "origen": "programa",
    "fuentes": [
