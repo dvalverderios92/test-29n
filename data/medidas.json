@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.22.0",
-  "fecha_corte": "2026-11-24",
+  "version": "2.23.0",
+  "fecha_corte": "2026-11-25",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -2425,7 +2425,8 @@
    "origen": "programa",
    "fuentes": [
     "pdf_pp",
-    "rankia"
+    "rankia",
+    "boe_rdl43"
    ],
    "riesgos": [
     {
@@ -2470,6 +2471,9 @@
      "texto": "Menos papeleo y, si vendes a particulares, precios más competitivos."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 43/2026, BOE del 25-11) que, desde 2027, quien facture menos de 85.000 € pueda optar por una sola declaración anual de IVA con tres pagos a cuenta, sin cambiar las reglas de cobro y deducción del impuesto: cumple en parte la reducción de declaraciones (solo en el IVA), pero no la franquicia, que sigue siendo propuesta. Pendiente de convalidación."
+   },
    "pagina": 46,
    "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=46"
   },
@@ -3171,12 +3175,13 @@
    "id": "psoe-banca",
    "partido": "psoe",
    "tema": "Impuestos",
-   "texto": "Mantener el impuesto a la banca (sobre el margen de intereses y las comisiones) durante toda la próxima legislatura y destinar lo recaudado a vivienda. El programa solo lo cita como impuesto ya aprobado; la prórroga para 2027 que aprueba el Gobierno en funciones no cuenta como propuesta.",
+   "texto": "Mantener el impuesto a la banca (sobre el margen de intereses y las comisiones) durante toda la próxima legislatura y destinar lo recaudado a vivienda. El programa solo lo cita como impuesto ya aprobado; la prórroga para 2027, ya aprobada por el Gobierno en funciones (Real Decreto-ley 43/2026, BOE del 25-11-2026, pendiente de convalidación), no cuenta como propuesta.",
    "num": null,
    "origen": "campaña",
    "fuentes": [
     "laregion_banca",
-    "efe_banca"
+    "efe_banca",
+    "boe_rdl43"
    ],
    "riesgos": [],
    "universal": true,
@@ -3541,7 +3546,8 @@
    "origen": "programa",
    "fuentes": [
     "pdf_psoe",
-    "rankia"
+    "rankia",
+    "boe_rdl42"
    ],
    "riesgos": [
     {
@@ -3593,6 +3599,9 @@
      "texto": "Solo si finalmente tienes un hijo (o uno más): podrías cogerlo cobrando el sueldo íntegro."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 42/2026, BOE del 25-11) ampliar el permiso por nacimiento a 20 semanas por progenitor, 3 de ellas utilizables hasta que el menor cumpla 8 años (una más que antes), con la prestación por nacimiento: como mucho una de las cuatro semanas queda aprobada, pendiente de convalidación."
+   },
    "pagina": 40,
    "url": "https://dvalverderios92.github.io/test-29n/programas/psoe.pdf#page=40"
   },
@@ -7444,7 +7453,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_junts"
+    "pdf_junts",
+    "boe_rdl43"
    ],
    "riesgos": [
     {
@@ -7461,6 +7471,9 @@
      "texto": "Pagarías el IVA al cobrar las facturas y podrías deducirte más gastos; tu cuota se ajustaría a lo que ganas."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 43/2026, BOE del 25-11) subir cinco puntos el porcentaje deducible por provisiones y gastos de difícil justificación en estimación directa simplificada (el programa, p. 69, pide elevar a 5.000 € su límite): cumple en parte lo de los gastos deducibles. El decreto no crea la franquicia de IVA: solo permite una declaración anual con tres pagos a cuenta. Pendiente de convalidación."
+   },
    "pagina": 69,
    "url": "https://dvalverderios92.github.io/test-29n/programas/junts.pdf#page=69"
   },
@@ -8488,7 +8501,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_comp"
+    "pdf_comp",
+    "boe_rdl43"
    ],
    "riesgos": [
     {
@@ -8509,6 +8523,9 @@
     "iva_franquicia",
     "modulos"
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 43/2026, BOE del 25-11) que, desde 2027, quien facture menos de 85.000 € pueda optar por una sola declaración anual de IVA con tres pagos a cuenta, sin cambiar las reglas de cobro y deducción del impuesto: cumple en parte el paso de declaraciones trimestrales a menos frecuentes (solo en el IVA), pero no la franquicia, que sigue siendo propuesta. Pendiente de convalidación."
+   },
    "pagina": 7,
    "url": "https://dvalverderios92.github.io/test-29n/programas/compromis-front-valencia.pdf#page=7"
   },
@@ -11797,7 +11814,7 @@
    "id": "soc-fa-82",
    "partido": "fa",
    "tema": "familia",
-   "texto": "Permiso por nacimiento de 20 semanas intransferibles por progenitor y permiso parental retribuido hasta 10 semanas.",
+   "texto": "Permiso por nacimiento de 20 semanas intransferibles por progenitor y permiso parental retribuido hasta 10 semanas. Las 20 semanas por progenitor ya las aprobó el Gobierno el 24-11-2026 (Real Decreto-ley 42/2026); pendiente de convalidación.",
    "num": null,
    "pagina": 24,
    "origen": "programa",
@@ -14465,6 +14482,16 @@
    "titulo": "Infobae (EFE): El Gobierno aprueba este martes la prórroga del impuesto bancario para el ejercicio 2027",
    "url": "https://www.infobae.com/espana/agencias/2026/11/23/el-gobierno-aprueba-este-martes-la-prorroga-del-impuesto-bancario-para-el-ejercicio-2027/",
    "fecha": "2026-11-23"
+  },
+  "boe_rdl43": {
+   "titulo": "BOE: Real Decreto-ley 43/2026, de 24 de noviembre, de medidas de naturaleza tributaria (impuesto a la banca, IVA e IRPF de autónomos)",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701",
+   "fecha": "2026-11-25"
+  },
+  "boe_rdl42": {
+   "titulo": "BOE: Real Decreto-ley 42/2026, de 24 de noviembre, sobre permisos por duelo, por nacimiento y cuidado del menor y adaptación de jornada",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24700",
+   "fecha": "2026-11-25"
   },
   "infobae_pnv": {
    "titulo": "Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político",
