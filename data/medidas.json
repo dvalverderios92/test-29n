@@ -5165,13 +5165,6 @@
    "efectos": [
     {
      "si": {
-      "ref": "canarias"
-     },
-     "valor": 0,
-     "texto": "En Canarias, los abonos de guagua ya serán gratuitos en 2027 (aprobado por el Gobierno); la medida haría permanente la gratuidad y la extendería a todos los billetes."
-    },
-    {
-     "si": {
       "siempre": true
      },
      "valor": 1,
@@ -10092,8 +10085,8 @@
      "si": {
       "siempre": true
      },
-     "valor": 0,
-     "texto": "Los abonos de transporte ya serán gratuitos en 2027 (aprobado por el Gobierno); la medida haría permanente la gratuidad para todos los residentes."
+     "valor": 1,
+     "texto": "Si usas el transporte público, dejarías de pagar el billete."
     }
    ],
    "detalle": {
