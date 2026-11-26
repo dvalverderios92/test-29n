@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.23.0",
-  "fecha_corte": "2026-11-25",
+  "version": "2.24.0",
+  "fecha_corte": "2026-11-26",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -5153,7 +5153,8 @@
    "num": "40",
    "origen": "programa",
    "fuentes": [
-    "pdf_pod"
+    "pdf_pod",
+    "boe_rdl45"
    ],
    "riesgos": [
     {
@@ -5170,6 +5171,9 @@
      "texto": "Si usas transporte público, dejarías de pagar el billete."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 45/2026, BOE del 25-11) un descuento del 100 % en los abonos y títulos multiviaje del transporte público terrestre insular de Canarias y de Baleares durante 2027, para usuarios recurrentes, y gratuidad de Cercanías en Asturias y Cantabria para usuarios recurrentes, con descuentos parciales en el resto: cumple la medida solo en esa parte y para 2027. Pendiente de convalidación."
+   },
    "pagina": 19,
    "url": "https://dvalverderios92.github.io/test-29n/programas/podemos.pdf#page=19"
   },
@@ -9306,7 +9310,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_nc"
+    "pdf_nc",
+    "boe_rdl45"
    ],
    "riesgos": [],
    "efectos": [
@@ -9318,6 +9323,9 @@
      "texto": "Mantienes los descuentos y la gratuidad que ya existen: tu situación no cambia."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 45/2026, BOE del 25-11) un descuento del 100 % en los abonos y títulos multiviaje del transporte público terrestre insular de Canarias y de Baleares durante 2027, para usuarios recurrentes: cumple la gratuidad de las guaguas solo para 2027; mantenerla después sigue siendo propuesta. Pendiente de convalidación."
+   },
    "pagina": 9,
    "url": "https://dvalverderios92.github.io/test-29n/programas/upc-lineas-basicas.pdf#page=9"
   },
@@ -10063,7 +10071,8 @@
    "num": "17",
    "origen": "programa",
    "fuentes": [
-    "pdf_aram"
+    "pdf_aram",
+    "boe_rdl45"
    ],
    "riesgos": [
     {
@@ -10080,6 +10089,9 @@
      "texto": "Si usas el transporte público, dejarías de pagar el billete."
     }
    ],
+   "detalle": {
+    "nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 45/2026, BOE del 25-11) un descuento del 100 % en los abonos y títulos multiviaje del transporte público terrestre insular de Canarias y de Baleares durante 2027, para usuarios recurrentes: cumple la medida solo para 2027 y en abonos y títulos multiviaje; hacerla permanente, para todos los residentes y dentro del Régimen Especial sigue siendo propuesta. Pendiente de convalidación."
+   },
    "pagina": 3,
    "url": "https://dvalverderios92.github.io/test-29n/programas/ara-mes-front-ampli.pdf#page=3"
   },
@@ -14486,6 +14498,11 @@
   "boe_rdl43": {
    "titulo": "BOE: Real Decreto-ley 43/2026, de 24 de noviembre, de medidas de naturaleza tributaria (impuesto a la banca, IVA e IRPF de autónomos)",
    "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701",
+   "fecha": "2026-11-25"
+  },
+  "boe_rdl45": {
+   "titulo": "BOE: Real Decreto-ley 45/2026, de 24 de noviembre, de medidas de promoción del uso del transporte público mediante la bonificación de abonos y títulos multiviaje en el año 2027",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24703",
    "fecha": "2026-11-25"
   },
   "boe_rdl42": {
