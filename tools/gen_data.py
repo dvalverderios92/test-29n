@@ -180,6 +180,9 @@ SRC.update({
  "boe_rdl43": ["BOE: Real Decreto-ley 43/2026, de 24 de noviembre, de medidas de naturaleza tributaria (impuesto a la banca, IVA e IRPF de autónomos)", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24701", "2026-11-25"],
  "boe_rdl45": ["BOE: Real Decreto-ley 45/2026, de 24 de noviembre, de medidas de promoción del uso del transporte público mediante la bonificación de abonos y títulos multiviaje en el año 2027", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24703", "2026-11-25"],
  "boe_rdl42": ["BOE: Real Decreto-ley 42/2026, de 24 de noviembre, sobre permisos por duelo, por nacimiento y cuidado del menor y adaptación de jornada", "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24700", "2026-11-25"],
+ "infobae_feijoo_iva": ["Infobae: Feijóo propone un IVA cero para la cesta básica mientras la inflación supere la media europea (debate a cuatro)", "https://www.infobae.com/espana/2026/11/26/feijoo-propone-un-iva-cero-para-la-cesta-basica-mientras-la-inflacion-supere-la-media-europea-a-mi-me-gustan-las-cuentas-a-ustedes-los-cuentos/", "2026-11-26"],
+ "forbes_vox_recorte": ["Forbes España (Europa Press): Vox plantea revisar 224.000 millones de gasto público y recortar 112.000 millones con un ajuste del 50 %", "https://forbes.es/ultima-hora/1074900/vox-plantea-revisar-224-000-millones-de-gasto-publico-y-recortar-112-000-millones-con-un-ajuste-del-50/", "2026-11-26"],
+ "moncloa_vox_recorte": ["Moncloa.com: Vox propone un recorte de 112.000 millones revisando 224.000 de gasto público", "https://www.moncloa.com/2026/11/26/vox-recorte-gasto-publico-112000-millones-3475400/", "2026-11-26"],
  "infobae_pnv": ["Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político", "https://www.infobae.com/espana/agencias/2026/11/09/pnv-reivindica-en-su-programa-electoral-el-derecho-a-decidir-el-reconocimiento-nacional-y-nuevo-estatus-politico/", "2026-11-09"],
 })
 PDFS = {"pp": ("pp.pdf", "PP: La Reconstrucción Nacional"), "psoe": ("psoe.pdf", "PSOE: La fuerza de seguir avanzando"), "vox": ("vox.pdf", "Vox: Es sentido común"), "fa": ("frente-amplio.pdf", "Frente Amplio: Programa electoral 2026"), "cc": ("coalicion-canaria.pdf", "Coalición Canaria: Defiende Canarias"), "erc": ("erc.pdf", "ERC: Pel país. Per la gent. Pel futur (programa al Congrés 2026, en catalán)"), "bng": ("bng.pdf", "BNG: Programa electoral 29N. Xerais 2026 (en gallego)"), "pod": ("podemos.pdf", "Podemos: Paz, casa y trabajo. Programa electoral"), "bildu": ("eh-bildu.pdf", "EH Bildu: Garantía y derechos (programa en castellano)"), "salf": ("salf.pdf", "SALF: Contrato electoral simplificado. Generales 2026"), "pnv": ("pnv.pdf", "PNV: Programa elecciones generales 2026. Defendemos Euskadi"), "comp": ("compromis-front-valencia.pdf", "Compromís-Front Valencià: Programa electoral 29N (en valenciano)"), "junts": ("junts.pdf", "Junts per Catalunya: Programa electoral 29N (en catalán)"), "nc": ("upc-lineas-basicas.pdf", "Unidad del Pueblo Canario: Líneas básicas del programa"), "aram": ("ara-mes-front-ampli.pdf", "Ara Més-Front Ampli: Programa electoral 29N (en catalán)")}
@@ -333,7 +336,7 @@ PARTIES = [
   "financiacion": {"cuantifica": "no", "resumen": "No cuantifica el coste total ni lo que recaudarían sus nuevos impuestos. Da cifras de gasto: 1 % del PIB al año en vivienda y una sanidad pública en torno al 7 % del PIB. Dice financiarlo con impuestos a grandes patrimonios, rentas del capital, tecnológicas y transacciones financieras, y con la lucha contra el fraude. En campaña, prevé recaudar unos 2.000 M€ al año con un nuevo impuesto a las fortunas de más de 100 M€ y propone mantener toda la legislatura el impuesto a la banca, cuya prórroga para 2027 recaudaría unos 1.400 M€ para vivienda, según el Gobierno.", "fuentes": ["rankia", "esdiario_ultrarricos", "efe_banca"]}},
  {"id": "vox", "nombre": "Vox",
   "programa": {"titulo": "Es sentido común", "fecha": "2026-11-12", "estado": "publicado", "nota": "115 medidas."},
-  "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox"]}},
+  "financiacion": {"cuantifica": "fuera_del_programa", "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico. El 26-11, el mismo portavoz cifró en 112.000 M€ el recorte, la mitad de 224.000 M€ de gasto revisable (44.000 M€ en subvenciones de la Administración central y 180.000 M€ en transferencias a las comunidades autónomas), sin desglose por partidas ni plazo, y en más de 40.000 M€ la rebaja de impuestos que financiaría.", "fuentes": ["democrata_vox", "vox_coste", "pe_vox", "forbes_vox_recorte", "moncloa_vox_recorte"]}},
 ]
 
 def M(id, p, tema, texto, num, origen, fuentes, efectos, riesgos=(), universal=False):
@@ -352,7 +355,7 @@ M("pp-178", "pp", "IRPF", "Actualizar la tarifa del IRPF con la inflación.", "1
   [(R("paga_irpf"), 1, "Evita pagar más IRPF solo porque tu sueldo o pensión suba con los precios.")], ["rebaja_sin_financiar"]),
 M("pp-179", "pp", "IRPF", "Rebaja del IRPF a jóvenes de 18 a 35 años: 100 % el primer año, 75 % el segundo, 50 % el tercero y 25 % el cuarto.", "179", "programa", ["rankia", "democrata_pp"],
   [(ALL(R("joven_18_35"), ANY(R("trabaja"), R("estudiante"), R("parado"), R("quiere_emprender"))), 1, "Por tu edad, pagarías mucho menos IRPF durante cuatro ejercicios al trabajar.")], ["rebaja_sin_financiar"]),
-M("pp-180", "pp", "IVA", "IVA del 0 % en alimentos básicos (incluidos carne, pescado y conservas) mientras dure la crisis de inflación.", "180", "programa", ["rankia"],
+M("pp-180", "pp", "IVA", "IVA del 0 % en alimentos básicos (incluidos carne, pescado y conservas) mientras dure la crisis de inflación.", "180", "programa", ["rankia", "infobae_feijoo_iva"],
   [(R("sin_iva"), 0, IGIC), (ALWAYS, 1, "Abarataría tu cesta de la compra.")], ["iva_poco_focalizado", "rebaja_sin_financiar"]),
 M("pp-181", "pp", "Empresa", "Deducción íntegra en Sociedades, el mismo año, de inversiones en maquinaria, digitalización, IA, software o patentes.", "181", "programa", ["rankia"],
   [(R("empresario"), 1, "Tu sociedad pagaría menos impuestos el año que invierta.")], ["rebaja_sin_financiar"]),
@@ -1432,6 +1435,7 @@ DETALLE = {
  "aram-transp": {"nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 45/2026, BOE del 25-11) un descuento del 100 % en los abonos y títulos multiviaje del transporte público terrestre insular de Canarias y de Baleares durante 2027, para usuarios recurrentes: cumple la medida solo para 2027 y en abonos y títulos multiviaje; hacerla permanente, para todos los residentes y dentro del Régimen Especial sigue siendo propuesta. Pendiente de convalidación."},
  "pod-transp": {"nota": "El Gobierno aprobó el 24-11-2026 (Real Decreto-ley 45/2026, BOE del 25-11) un descuento del 100 % en los abonos y títulos multiviaje del transporte público terrestre insular de Canarias y de Baleares durante 2027, para usuarios recurrentes, y gratuidad de Cercanías en Asturias y Cantabria para usuarios recurrentes, con descuentos parciales en el resto: cumple la medida solo en esa parte y para 2027. Pendiente de convalidación."},
  "fa-pension": {"coste": "unos 20.000 M€ al año, según el partido en campaña"},
+ "pp-180": {"plazo": "en el debate del 26-11, el candidato del PP lo vinculó a que la inflación se sitúe por encima de la media de la Unión Europea, según Infobae"},
 }
 PROG_PAG = {
  "aram-smi": 2, "aram-pens": 2, "aram-carbur": 2, "aram-cesta": 2, "aram-iva": 2, "aram-crianza": 2, "aram-bono": 2, "aram-jornada": 2,
@@ -1486,8 +1490,8 @@ DATA = {
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.24.0",
-  "fecha_corte": "2026-11-26",
+  "version": "2.25.0",
+  "fecha_corte": "2026-11-27",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {"1": "a favor", "-1": "en contra", "0": "efecto incierto o no aplica directamente"},

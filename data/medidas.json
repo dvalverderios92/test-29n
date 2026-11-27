@@ -3,8 +3,8 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.24.0",
-  "fecha_corte": "2026-11-26",
+  "version": "2.25.0",
+  "fecha_corte": "2026-11-27",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
   "valores": {
@@ -1445,11 +1445,13 @@
    },
    "financiacion": {
     "cuantifica": "fuera_del_programa",
-    "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico.",
+    "resumen": "El programa no cuantifica el coste total ni lo que dejarían de recaudar sus rebajas de impuestos. En campaña, su portavoz económico cifra el paquete fiscal en unos 120.000 M€. Dice financiarlo con recortes de subvenciones y de gasto autonómico. El 26-11, el mismo portavoz cifró en 112.000 M€ el recorte, la mitad de 224.000 M€ de gasto revisable (44.000 M€ en subvenciones de la Administración central y 180.000 M€ en transferencias a las comunidades autónomas), sin desglose por partidas ni plazo, y en más de 40.000 M€ la rebaja de impuestos que financiaría.",
     "fuentes": [
      "democrata_vox",
      "vox_coste",
-     "pe_vox"
+     "pe_vox",
+     "forbes_vox_recorte",
+     "moncloa_vox_recorte"
     ]
    }
   }
@@ -2310,7 +2312,8 @@
    "origen": "programa",
    "fuentes": [
     "pdf_pp",
-    "rankia"
+    "rankia",
+    "infobae_feijoo_iva"
    ],
    "riesgos": [
     {
@@ -2338,6 +2341,9 @@
      "texto": "Abarataría tu cesta de la compra."
     }
    ],
+   "detalle": {
+    "plazo": "en el debate del 26-11, el candidato del PP lo vinculó a que la inflación se sitúe por encima de la media de la Unión Europea, según Infobae"
+   },
    "pagina": 47,
    "url": "https://dvalverderios92.github.io/test-29n/programas/pp.pdf#page=47"
   },
@@ -14509,6 +14515,21 @@
    "titulo": "BOE: Real Decreto-ley 42/2026, de 24 de noviembre, sobre permisos por duelo, por nacimiento y cuidado del menor y adaptación de jornada",
    "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24700",
    "fecha": "2026-11-25"
+  },
+  "infobae_feijoo_iva": {
+   "titulo": "Infobae: Feijóo propone un IVA cero para la cesta básica mientras la inflación supere la media europea (debate a cuatro)",
+   "url": "https://www.infobae.com/espana/2026/11/26/feijoo-propone-un-iva-cero-para-la-cesta-basica-mientras-la-inflacion-supere-la-media-europea-a-mi-me-gustan-las-cuentas-a-ustedes-los-cuentos/",
+   "fecha": "2026-11-26"
+  },
+  "forbes_vox_recorte": {
+   "titulo": "Forbes España (Europa Press): Vox plantea revisar 224.000 millones de gasto público y recortar 112.000 millones con un ajuste del 50 %",
+   "url": "https://forbes.es/ultima-hora/1074900/vox-plantea-revisar-224-000-millones-de-gasto-publico-y-recortar-112-000-millones-con-un-ajuste-del-50/",
+   "fecha": "2026-11-26"
+  },
+  "moncloa_vox_recorte": {
+   "titulo": "Moncloa.com: Vox propone un recorte de 112.000 millones revisando 224.000 de gasto público",
+   "url": "https://www.moncloa.com/2026/11/26/vox-recorte-gasto-publico-112000-millones-3475400/",
+   "fecha": "2026-11-26"
   },
   "infobae_pnv": {
    "titulo": "Infobae (Europa Press): El PNV reivindica en su programa electoral el derecho a decidir, el reconocimiento nacional y un nuevo estatus político",
