@@ -3,7 +3,7 @@
   "titulo": "Test 29N: ¿qué medidas te afectan?",
   "url_canonica": "https://dvalverderios92.github.io/test-29n/",
   "url_datos": "https://dvalverderios92.github.io/test-29n/data/medidas.json",
-  "version": "2.25.0",
+  "version": "2.26.0",
   "fecha_corte": "2026-11-27",
   "eleccion": "Elecciones generales de España, 29 de noviembre de 2026",
   "aviso": "No es una recomendación de voto. Mide el efecto económico directo de las principales medidas sobre la situación de quien responde y señala los riesgos indirectos documentados (financiación, efectos sobre precios, empleo u oferta), en las dos direcciones. Aparte, y sin valorar si favorecen o perjudican, resume lo que propone cada partido sobre los temas sociales que se elijan, con la página de su programa. Muchas medidas proceden de resúmenes de prensa y se están contrastando con los programas oficiales (carpeta programas/ del repositorio); compruébalas en el original.",
@@ -3466,7 +3466,8 @@
    "origen": "programa",
    "fuentes": [
     "pdf_psoe",
-    "rankia"
+    "rankia",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -3489,7 +3490,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "pagina": 41,
@@ -5274,7 +5275,8 @@
    "num": "118",
    "origen": "programa",
    "fuentes": [
-    "pdf_pod"
+    "pdf_pod",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -5297,7 +5299,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "claves": [
@@ -6219,7 +6221,8 @@
    "num": "103-104",
    "origen": "programa",
    "fuentes": [
-    "pdf_erc"
+    "pdf_erc",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -6242,7 +6245,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "claves": [
@@ -6632,7 +6635,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_bng"
+    "pdf_bng",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -6655,7 +6659,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "pagina": 15,
@@ -7020,7 +7024,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_bildu"
+    "pdf_bildu",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -7043,7 +7048,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "pagina": 6,
@@ -8800,7 +8805,8 @@
    "num": null,
    "origen": "programa",
    "fuentes": [
-    "pdf_comp"
+    "pdf_comp",
+    "fedea_despido"
    ],
    "riesgos": [],
    "efectos": [
@@ -8823,7 +8829,7 @@
       "ref": "parado"
      },
      "valor": 0,
-     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido frena la contratación indefinida."
+     "texto": "más protección cuando encuentres empleo; algunos economistas advierten que encarecer el despido puede llevar a las empresas a contratar con más cautela o a usar más el periodo de prueba."
     }
    ],
    "claves": [
@@ -14380,6 +14386,11 @@
    "titulo": "Demócrata: La izquierda alternativa solo logra listas unitarias en Baleares y la Comunidad Valenciana tras registrar sus candidaturas",
    "url": "https://www.democrata.es/en/current-events/the-alternative-left-only-achieves-unitary-lists-in-baleares-and-comunidad-valenciana-after-registering-its-candidacies/",
    "fecha": "2026-11-02"
+  },
+  "fedea_despido": {
+   "titulo": "Europa Press (Bolsamanía): Fedea plantea un 'bonus-malus' para reducir la rotación laboral en vez de endurecer el despido",
+   "url": "https://www.bolsamania.com/noticias_amp/economia/economia--fedea-plantea-un-sistema-de-bonus-malus-para-reducir-la-rotacion-laboral-en-vez-de-endurecer-el-despido--22674338.html",
+   "fecha": "2026-06-09"
   },
   "arames_web": {
    "titulo": "Ara Més-Front Ampli: programa electoral para el 29N",
